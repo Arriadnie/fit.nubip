@@ -1,80 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b28cd9d-4ba2-423a-a848-1974051311c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Black.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Black.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Black.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Bold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/playfair/PlayfairDisplay-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Bold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-ExtraBold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-ExtraBold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-ExtraBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-ExtraBold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-ExtraBold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Light.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Medium.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-SemiBold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-SemiBold.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-SemiBold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fonts/raleway/Raleway-SemiBold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/image/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/image/slide1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/image/slide2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/image/slide3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/image/slide4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/delta-functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_blocks/_footer.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_blocks/_header.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_blocks/_main-slider.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_blocks/_news.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_default.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_fonts.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_libs/_datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_libs/_slider.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_mixins.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_normalize.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_vars.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/app.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/itnules.ua.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/itnules.ua.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="3b28cd9d-4ba2-423a-a848-1974051311c1" name="Default Changelist" comment="add webpack mix and sass/js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/playfair/PlayfairDisplay-Black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/playfair/PlayfairDisplay-Bold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/playfair/PlayfairDisplay-Regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-Bold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-ExtraBold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-Light.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-Medium.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-Regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/raleway/Raleway-SemiBold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/slide1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/slide2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/slide3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/image/slide4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/manifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vendor.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -263,8 +209,23 @@
       <workItem from="1579880537026" duration="1965000" />
       <workItem from="1580313886059" duration="7890000" />
       <workItem from="1580399504976" duration="3584000" />
-      <workItem from="1580405439477" duration="2554000" />
+      <workItem from="1580405439477" duration="3724000" />
     </task>
+    <task id="LOCAL-00001" summary="add webpack mix and sass/js">
+      <created>1580408842040</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580408842040</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore">
+      <created>1580409140492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580409140492</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,5 +241,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add webpack mix and sass/js" />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
 </project>
