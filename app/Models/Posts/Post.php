@@ -33,7 +33,7 @@ class Post extends \TCG\Voyager\Models\Post
     }
 
     public static function getPostsForMainPage() {
-        $count = setting('site.newsCountOnHomePage');
+        $count = setting('site.news-count-on-home-page');
         $requiredPosts = Post::where('featured', '=', 1)->last($count)->published()->get();
 
         if ($requiredPosts->count() < $count) {

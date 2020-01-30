@@ -1,12 +1,11 @@
 <header>
     <a href="/" class="logo-wrap">
-        <img src="{{ url('storage/site-partials/logo.jpg') }}" alt="">
+        <img src="{{ url('storage/' . setting('site.logo')) }}" alt="">
     </a>
 
     <nav>
         <div class="nav-item">
             <a class="nav-link" href="#"><span>Про факультет</span></a>
-
         </div>
         <div class="nav-item">
             <a class="nav-link" href="#"><span>Вступнику</span></a>
@@ -41,10 +40,6 @@
     </nav>
 
     <div class="user-nav">
-
-
-
-
         @guest
             <li class="user-nav-item">
 
@@ -59,24 +54,15 @@
 
             {{-- menu('navigation', 'menus/navigation') --}}
 
-            <a class="user-nav-item">
+            <a class="user-nav-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
                 {{-- Auth::user()->name --}}
                 <svg><use xlink:href="#user"></use></svg>
-
-                {{--    LOGOUT
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-            --}}
-
             </a>
-
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 
 
         @endguest
