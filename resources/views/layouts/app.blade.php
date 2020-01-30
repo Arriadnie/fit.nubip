@@ -19,7 +19,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('body_class')">
+
+    <div class="main-wrapper @yield('wrapper_class')">
+        @include('partials.header')
+
+        @yield('before_content')
+        <main class="@yield('main_class')">
+            @yield('breadcrumbs')
+            @yield('content')
+        </main>
+        @yield('after_content')
+
+        @include('partials.footer')
+    </div>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

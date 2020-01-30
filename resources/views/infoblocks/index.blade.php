@@ -1,3 +1,6 @@
-@include('infoblocks/slider/index', [
-    'items' => $menu_item->children
+
+
+@include('infoblocks/' . $infoblock->type->blade_path . '/index', [
+    'infoblock' => $infoblock
 ])
+
