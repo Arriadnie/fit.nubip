@@ -1,8 +1,32 @@
 
-<h1><a href="{{ route('post', $post->slug) }}">{{ $post->title }}</a></h1>
-<h4>{{ isset($post->author) ? $post->author->name : "" }}</h4>
-<h4>{{ isset($post->category) ? $post->category->name : "" }}</h4>
-<div class="content">
-    {!! $post->excerpt !!}
+<div class="news-item">
+    <a href="{{ route('post', $post->slug) }}" class="news-image">
+        <img src="{{asset('/image/news1.png')}}" alt="">
+    </a>
+    <div class="news-info">
+        <a href="{{ route('post', $post->slug) }}" class="news-title">{{ $post->title }} </a>
+
+        <div class="news-detail">
+            <div class="news-detail-item">
+                <svg><use xlink:href="#author"></use></svg>
+                <p>{{ isset($post->author) ? $post->author->name : "" }}</p>
+            </div>
+            <div class="news-detail-item">
+                <svg><use xlink:href="#calendar"></use></svg>
+                <p>{{ $post->created_at  }}</p>
+            </div>
+        </div>
+
+        <p class="news-text">
+            {!! $post->excerpt !!}
+        </p>
+
+        <a href="{{ route('post', $post->slug) }}" class="main-btn light">Читати далі</a>
+    </div>
+    <div class="date-label">
+        <p class="day">02</p>
+        <p class="mounth">Feb</p>
+    </div>
 </div>
+
 

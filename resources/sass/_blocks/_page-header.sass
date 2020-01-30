@@ -1,0 +1,35 @@
+.page-header
+    position: relative
+    width: 100%
+    height: get-vw(525px)
+
+
+.page-header img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.page-header-overlay
+    background: $blue40
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 2
+
+.page-header-content
+    position: absolute
+    bottom: -1px
+    z-index: 10
+    background: #fff
+    left: get-vw(120px)
+    padding: get-vw(15px) get-vw(50px) get-vw(10px) get-vw(30px)
+
+.page-header-content h1
+    font-family: $playfair
+    color: $blue55
+    font-size: get-vw(50px)
+    +letterSpace(50)
+    line-height: 1.2
+
