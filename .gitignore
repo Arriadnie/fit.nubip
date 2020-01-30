@@ -4,8 +4,17 @@
 /storage/*.key
 /vendor
 .env
+/.idea
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+/public/css/
+/public/fonts/
+/public/image/
+/public/js/
+/public/storage/
+public/mix-manifest.json
+

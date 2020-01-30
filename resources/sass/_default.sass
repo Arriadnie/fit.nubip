@@ -1,0 +1,63 @@
+
+body, html
+    font-weight: 400
+    font-family: $raleway
+    text-size-adjust: none
+    color: $mainText
+    line-height: 1
+    font-size-adjust: none
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    +mediaSize(desktop)
+        font-size: get-vw(16px)
+    +mediaSize(float)
+        font-size: get-vw(16px)
+    +mediaSize(1200)
+        font-size: 14px
+    +mediaSize(700)
+        font-size: 12px
+
+*
+    -webkit-text-size-adjust: none
+
+body.compensate-for-scrollbar
+    margin-right: 0
+
+body
+    +scrollbar
+
+input, button
+    border-radius: 0
+    -webkit-appearance: none
+
+a
+    outline: none
+
+.edge .svg_container,
+.ie .svg_container
+    position: fixed
+    bottom: 20px
+    left: 0
+    top: 0
+
+.svg_container
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 0
+    height: 0
+    opacity: 0
+    visibility: hidden
+    z-index: -1
+
+a[href]
+    outline: none
+    text-decoration: none
+    transition: color 0.3s ease
+
+a.nav-link[href],
+a:-webkit-any-link,
+a.news-slider-item[href]
+    text-decoration: none
+
+
+
