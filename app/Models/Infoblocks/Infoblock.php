@@ -17,6 +17,10 @@ class Infoblock extends Model
         return $this->belongsTo(InfoblockType::class, 'type_id', 'id');
     }
 
+    public static function findBySlug($slug) {
+        return static::where('slug', $slug)->first();
+    }
+
 
     public static function getViewByEntity($infoblock) {
         return view('infoblocks/index', [
@@ -25,7 +29,7 @@ class Infoblock extends Model
     }
 
     public static function getViewBySlug($slug) {
-        $infoblock = static::where('slug', $slug)->first();
+        $infoblock = static::findBySlug($slug);
         return static::getViewByEntity($infoblock);
     }
 }

@@ -1,6 +1,6 @@
 <header>
     <a href="/" class="logo-wrap">
-        <img src="{{ url(storage/site-partials/logo.jpg) }}" alt="">
+        <img src="{{ url('storage/site-partials/logo.jpg') }}" alt="">
     </a>
 
     <nav>
@@ -41,9 +41,42 @@
     </nav>
 
     <div class="user-nav">
-        <a class="user-nav-item">
-            <svg><use xlink:href="#user"></use></svg>
-        </a>
+
+
+
+
+        @guest
+            <li class="user-nav-item">
+
+                <a class="user-nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li class="user-nav-item">
+                    <a class="user-nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+        @else
+
+            {{ menu('navigation', 'menus/navigation') }}
+
+            <a class="user-nav-item">
+                {{ Auth::user()->name }}
+                <svg><use xlink:href="#user"></use></svg>
+            </a>
+
+
+            {{--    LOGOUT
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+            --}}
+        @endguest
 
     </div>
 </header>
