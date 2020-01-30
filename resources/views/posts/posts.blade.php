@@ -12,10 +12,13 @@
             <h1>Новини</h1>
         </div>
     </div>
+    <div class="news-slider-wrap">
 
-    <div class="news-wrapper">
-        @foreach($posts as $post)
-            @include('posts.postCard', ['post' => $post])
-        @endforeach
+        <div class="news-wrapper">
+            @foreach($posts as $post)
+                @include('posts.postCard', ['post' => $post])
+            @endforeach
+        </div>
     </div>
+
 @endsection

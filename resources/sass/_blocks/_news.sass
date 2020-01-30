@@ -2,6 +2,7 @@
     position: relative
     box-shadow: 0 3px 6px rgba(0,0,0,.2)
     width: get-vw(520px)
+    margin-top: get-vw(50px)
 
 .news-image
     display: flex
@@ -98,12 +99,16 @@
 
 .news-wrapper
     display: flex
+    flex-wrap: wrap
     width: 100%
-    justify-content: center
-    padding-top: get-vw(50px)
+    justify-content: flex-start
+
+
+.news-item:nth-child(3n+1)
+    margin-left: 0!important
 
 .news-wrapper .news-item + .news-item
-    margin-left: get-vw(55px)
+    margin-left: get-vw(45px)
 
 .block-title
     display: flex

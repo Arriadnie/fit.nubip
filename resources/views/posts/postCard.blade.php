@@ -1,7 +1,7 @@
 
 <div class="news-item">
     <a href="{{ route('post', $post->slug) }}" class="news-image">
-        <img src="{{asset('/image/news1.png')}}" alt="">
+        <img src="{{ url('storage/' . $post->image) }}" alt="">
     </a>
     <div class="news-info">
         <a href="{{ route('post', $post->slug) }}" class="news-title">{{ $post->title }} </a>

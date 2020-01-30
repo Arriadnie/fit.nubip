@@ -50,7 +50,7 @@ class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
         return view('posts/posts', [
             'categories' => $categories,
-            'posts' => Post::getPostsForMainPage()
+            'posts' => Post::all()
         ]);
     }
 }
