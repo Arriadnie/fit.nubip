@@ -14,6 +14,8 @@
     @include('infoblocks.slider.index', [
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
+
+{{--    @include('posts.news-slider')--}}
 @stop
 
 @section('after_content')

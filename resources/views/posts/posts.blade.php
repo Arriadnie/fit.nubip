@@ -5,13 +5,17 @@
 @section('content-title', 'Posts')
 
 @section('content')
-    <div class="posts">
+    <div style="background: url({{ asset('/image/posts.jpg') }}) no-repeat 100% 100% / cover; background-attachment: fixed;" class="page-header">
+{{--        <img src="{{  }}" alt="">--}}
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Новини</h1>
+        </div>
+    </div>
+
+    <div class="news-wrapper">
         @foreach($posts as $post)
-            <div class="post">
-                @include('posts.postCard', [
-                    'post' => $post
-                ])
-            </div>
+            @include('posts.postCard', ['post' => $post])
         @endforeach
     </div>
 @endsection
