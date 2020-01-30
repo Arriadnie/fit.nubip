@@ -1,0 +1,66 @@
+.slick-slide > div,
+.slick-slide .slide-wrap
+    height: 100%
+    width: 100%
+
+.main-slider .slick-slide
+    margin: 0 1px
+
+.slider-arrow
+    width: get-vw(60px)
+    height: get-vw(60px)
+    background: $lightBlue
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    bottom: 0
+    z-index: 99
+    cursor: pointer
+    transition: 0.3s ease
+
+.slider-arrow:hover
+    opacity: 0.9
+
+
+.slider-arrow svg
+    width: get-vw(12px)
+    height: get-vw(24px)
+
+.slider-prev
+    right: 65%
+    bottom: get-vw(60px)
+
+.slider-next
+    right: get-calc-vw(65%, '-', 60px)
+
+.slider-prev svg
+    transform: rotate(180deg)
+
+.custom-pagination
+    width: 3px
+    display: flex
+    height: get-vw(40px)
+    background: $lightBlue
+    transition: 0.4s ease
+    opacity: 0.4
+
+.slick-active .custom-pagination
+    height: get-vw(75px)
+    opacity: 0.8
+
+.slick-dots
+    position: absolute
+    bottom: 1%
+    right: get-calc-vw(100%, '+', 70px)
+    display: flex
+    flex-direction: column
+    list-style: none
+
+.slick-dots li
+    cursor: pointer
+
+.slick-dots li + li
+    margin-top: get-vw(10px)
+
+
