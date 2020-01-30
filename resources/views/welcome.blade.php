@@ -12,7 +12,7 @@
 
 @section('content')
     @include('infoblocks.slider.index', [
-        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('')
+        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
 @stop
 

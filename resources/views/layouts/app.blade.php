@@ -34,10 +34,12 @@
         @include('partials.footer')
     </div>
 
-    {{--<script defer src="{{mix('js/manifest.js')}}"></script>
+    @include('partials.svg')
+
+    <script defer src="{{mix('js/manifest.js')}}"></script>
     <script defer src="{{mix('js/vendor.js')}}"></script>
     <script defer src="{{mix('js/app.js')}}"></script>
---}}
+
 
 
 </body>

@@ -36,7 +36,7 @@
             <a class="nav-link" href="#"><span>Наші студенти</span></a>
         </div>
         <div class="nav-item">
-            <a class="nav-link" href="#"><span>Новини</span></a>
+            <a class="nav-link" href="{{ url('posts') }}"><span>Новини</span></a>
         </div>
     </nav>
 
@@ -57,15 +57,13 @@
             @endif
         @else
 
-            {{ menu('navigation', 'menus/navigation') }}
+            {{-- menu('navigation', 'menus/navigation') --}}
 
             <a class="user-nav-item">
-                {{ Auth::user()->name }}
+                {{-- Auth::user()->name --}}
                 <svg><use xlink:href="#user"></use></svg>
-            </a>
 
-
-            {{--    LOGOUT
+                {{--    LOGOUT
             <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -76,6 +74,11 @@
                         @csrf
                     </form>
             --}}
+
+            </a>
+
+
+
         @endguest
 
     </div>
