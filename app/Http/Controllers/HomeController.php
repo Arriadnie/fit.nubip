@@ -28,7 +28,7 @@ class HomeController extends Controller
         $sliderView = Infoblock::getViewByEntity($slider);
 
         return view('home', [
-            'slider' => $sliderView
+            'sliderView' => $sliderView
         ]);
     }
 }

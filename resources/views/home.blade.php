@@ -4,7 +4,6 @@
 @section('content-title', 'Home')
 
 @section('content')
-
     @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
@@ -16,6 +15,6 @@
     Your name is {{ Auth::user()->name }}
 
     {{ menu('main', 'menus/main') }}
+    {!! $sliderView !!}
 
-    {{ $slider }}
 @endsection

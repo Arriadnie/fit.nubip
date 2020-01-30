@@ -9,12 +9,12 @@ class Infoblock extends Model
 {
     public function items()
     {
-        return $this->hasMany(Voyager::modelClass('InfoblockItem'));
+        return $this->hasMany(InfoblockItem::class);
     }
 
     public function type()
     {
-        return $this->belongsTo(Voyager::modelClass('InfoblockType'), 'type_id', 'id');
+        return $this->belongsTo(InfoblockType::class, 'type_id', 'id');
     }
 
 
