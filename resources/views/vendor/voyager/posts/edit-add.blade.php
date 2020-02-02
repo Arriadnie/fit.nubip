@@ -213,7 +213,7 @@
                                 <label for="category_id">{{ __('voyager::post.category') }}</label>
                                 <select class="form-control" name="categories[]" multiple="">
 
-                                    @include('posts/categorySelect', [
+                                    @include('posts.includes.categorySelect', [
                                         'categories' => App\Models\Posts\Category::with('children')->firstLevel()->get(),
                                         'delimiter' => ''
                                     ]);

@@ -51,4 +51,28 @@ class Post extends \TCG\Voyager\Models\Post
         return $requiredPosts;
     }
 
+
+    public static function getPostDateMonth($date) {
+        return static::getMonthName($date->format('m'));
+    }
+
+
+    private static function getMonthName($number) {
+        switch ($number) {
+            case 1: return "Jan";
+            case 2: return "Fab";
+            case 3: return "Mar";
+            case 4: return "Apr";
+            case 5: return "May";
+            case 6: return "Jun";
+            case 7: return "Jul";
+            case 8: return "Aug";
+            case 9: return "Sep";
+            case 10: return "Okt";
+            case 11: return "Now";
+            case 12: return "Dec";
+            default: return "";
+        }
+    }
+
 }

@@ -16,7 +16,7 @@
 
         <div class="news-wrapper">
             @foreach($posts as $post)
-                @include('posts.postCard', ['post' => $post])
+                @include('posts.includes.postCard', ['post' => $post])
             @endforeach
         </div>
     </div>
