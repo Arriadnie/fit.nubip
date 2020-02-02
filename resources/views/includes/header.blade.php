@@ -4,39 +4,7 @@
     </a>
 
     <nav>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Про факультет</span></a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Вступнику</span></a>
-            <div class="sub-nav">
-                <a href="#" class="sub-nav-item">Правила прийому</a>
-                <a href="#" class="sub-nav-item">Напрямки навчання</a>
-                <a href="#" class="sub-nav-item">Випускникам шкіл</a>
-                <a href="#" class="sub-nav-item">Випускникам коледжів</a>
-                <a href="#" class="sub-nav-item">Магістратура</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Навчальна робота</span></a>
-            <div class="sub-nav">
-                <a href="#" class="sub-nav-item">Розклад занятть</a>
-                <a href="#" class="sub-nav-item">Стипендія</a>
-                <a href="#" class="sub-nav-item">Школа спотривного програмування</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Адміністрація</span></a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Студентська організація</span></a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#"><span>Наші студенти</span></a>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="{{ url('posts') }}"><span>Новини</span></a>
-        </div>
+        {{ menu('main-navigation', 'menus/main-navigation') }}
     </nav>
 
     <div class="user-nav">
@@ -52,8 +20,6 @@
             @endif
         @else
 
-            {{-- menu('navigation', 'menus/navigation') --}}
-
             <a class="user-nav-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
@@ -63,7 +29,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-
 
         @endguest
 
