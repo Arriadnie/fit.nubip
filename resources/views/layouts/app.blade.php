@@ -22,7 +22,7 @@
 <body class="@yield('body_class')">
 
     <div class="main-wrapper @yield('wrapper_class')">
-        @include('partials.header')
+        @include('includes.header')
 
         @yield('before_content')
         <main class="@yield('main_class')">
@@ -31,10 +31,10 @@
         </main>
         @yield('after_content')
 
-        @include('partials.footer')
+        @include('includes.footer')
     </div>
 
-    @include('partials.svg')
+    @include('includes.svg')
 
     <script defer src="{{mix('js/manifest.js')}}"></script>
     <script defer src="{{mix('js/vendor.js')}}"></script>

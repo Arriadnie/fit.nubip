@@ -21,8 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/send', 'MailController@send')->name('send');
 
-Route::get('/posts', 'Posts\PostController@showAll')->name('posts');
-Route::get('/post/{slug?}', 'Posts\PostController@showBySlug')->name('post');
+Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
+Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
 
 
 Route::group(['prefix' => 'admin'], function () {

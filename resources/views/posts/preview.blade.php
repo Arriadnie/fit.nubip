@@ -12,8 +12,8 @@
         </div>
     </div>
     <div class="news-wrapper">
-        @foreach(App\Models\Posts\Post::getPostsForMainPage() as $post)
-            @include('posts.postCard', ['post' => $post])
+        @foreach($posts as $post)
+            @include('posts.includes.postCard', ['post' => $post])
         @endforeach
     </div>
 </div>

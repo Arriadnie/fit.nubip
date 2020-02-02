@@ -14,7 +14,7 @@
     </option>
 
     @if(count($category->children) > 0)
-        @include('posts/categorySelect', [
+        @include('posts.includes.categorySelect', [
             'categories' => $category->children,
             'delimiter' => $delimiter . ' - '
         ])

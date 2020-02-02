@@ -15,7 +15,9 @@
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
 
-    @include('posts.news-slider')
+    @include('posts.preview', [
+        'posts' => App\Models\Posts\Post::getPostsForMainPage()
+    ])
 @stop
 
 @section('after_content')
