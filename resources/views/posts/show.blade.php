@@ -37,7 +37,17 @@
         <div class="editor-content">
             {!! $post->body !!}
         </div>
+
+        <div class="share-post">
+            @foreach(App\Models\SocialNetwork::all() as $network)
+                <a href="{{ $network->link }}" target="_blank">
+                    <img src="{{ Storage::disk(config('voyager.storage.disk'))->url(json_decode($network->svg)[0]->download_link) }}" alt="">
+                </a>
+            @endforeach
+        </div>
     </div>
+
+
 
 
 
