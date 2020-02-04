@@ -42,7 +42,7 @@ class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
     public function publicShow($slug) {
         return view('posts/show', [
-            'post' => Post::with('categories')->where('slug', '=', $slug)->firstOrFail()
+            'post' => Post::where('slug', '=', $slug)->firstOrFail()
         ]);
     }
     public function publicIndex() {
@@ -56,9 +56,10 @@ class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
     public function postService(Request $request) {
         if ($request["methodName"] == "getPostByCategory") {
-            $posts = Post::getByCategory($request['categoryId']);
+            $categoryId = $request['categoryId'];
+            $posts = $categoryId == 0 ? Post::all() : Post::getByCategory($categoryId);
 
-            $response = response()->view('posts/includes/card-collection', [
+            $response = response()->view('posts.includes.card-collection', [
                 'posts' => $posts
             ], 200);
         }
