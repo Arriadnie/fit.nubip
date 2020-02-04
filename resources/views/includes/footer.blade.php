@@ -33,27 +33,22 @@
                 <div class="contact-icon">
                     <svg><use xlink:href="#pin"></use></svg>
                 </div>
-                <a href="{{ setting('contacts.address-map-link') }}" class="contact-text" target="_blank">{{ setting('contacts.address') }}</a>
+                <a href="{{ setting('contacts.address-map-link') }}" class="contact-text" target="_blank">
+                    {{ setting('contacts.address') }}
+                </a>
             </div>
         </div>
         <div class="socials-list">
             @foreach(App\Models\SocialNetwork::all() as $network)
-                <a href="{{ $network->link }}">
+                <a href="{{ $network->link }}" target="_blank">
                     <img src="{{ Storage::disk(config('voyager.storage.disk'))->url(json_decode($network->svg)[0]->download_link) }}" alt="">
                 </a>
             @endforeach
-
-            <a href="#">
-                <svg><use xlink:href="#instagram"></use></svg>
-            </a>
-            <a href="#">
-                <svg><use xlink:href="#facebook"></use></svg>
-            </a>
         </div>
     </div>
 
     <div class="copyright">
-        <p>@2020 All rights reserved</p>
+        <p>@ {{ date('Y') }} All rights reserved</p>
         <p>Created by Altair</p>
     </div>
 
