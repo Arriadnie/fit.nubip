@@ -53,4 +53,25 @@ class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
             'posts' => Post::all()
         ]);
     }
+
+    public function postService(Request $request) {
+        if ($request["methodName"] == "getPostByCategory") {
+            $data = self::getPostByCategory($request['categoryId']);
+        }
+        else {
+            return response()->json(array(), 404);
+        }
+
+        return response()->json($data, 200);
+    }
+
+
+    private function getPostByCategory($categoryId) {
+        $posts = Post::where('category_id', $categoryId)->get();
+
+        return [
+            'posts'=> $posts,
+            'category' => $categoryId
+        ];
+    }
 }

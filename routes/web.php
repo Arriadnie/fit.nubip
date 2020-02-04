@@ -23,6 +23,7 @@ Route::get('/send', 'MailController@send')->name('send');
 
 Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
 Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
+Route::post('/postService', 'Posts\PostController@postService')->name('postService');
 
 
 Route::group(['prefix' => 'admin'], function () {
