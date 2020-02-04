@@ -36,7 +36,7 @@ window.Helper.callService = function(serviceName, args, callback, scope) {
     if (serviceName.includes(".") && !args.hasOwnProperty('action')) {
         [serviceName, args.action] = serviceName.split(".");
     }
-    $.post(`../${serviceName}`, args, function(result) {
+    $.post(`${window.location.origin}/${serviceName}`, args, function(result) {
         Helper.callback(callback, result, scope);
     })
 };

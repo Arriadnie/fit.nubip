@@ -19,10 +19,10 @@ class Category extends \TCG\Voyager\Models\Category
     {
         return $this->hasMany(self::class, 'parent_id');
     }
-    public function posts()
+    /*public function posts()
     {
         return $this->belongsToMany(Voyager::modelClass('Post'))
             ->published()
             ->orderBy('created_at', 'DESC');
-    }
+    }*/
 }

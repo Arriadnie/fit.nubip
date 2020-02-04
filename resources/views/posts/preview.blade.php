@@ -12,8 +12,6 @@
         </div>
     </div>
     <div class="news-wrapper">
-        @foreach($posts as $post)
-            @include('posts.includes.postCard', ['post' => $post])
-        @endforeach
+        @include('posts.includes.card-collection', ['posts' => $posts])
     </div>
 </div>
