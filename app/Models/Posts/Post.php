@@ -13,17 +13,17 @@ class Post extends \TCG\Voyager\Models\Post
         parent::save();
     }
 
-    public function categories()
+    /*public function categories()
     {
         return $this->belongsToMany(Voyager::modelClass('Category'));
-    }
+    }*/
 
     public function author()
     {
         return parent::authorId();
     }
 
-    public function scopeLast(Builder $query, int $count)
+    public function scopeLast(Builder $query, int $count = 0)
     {
         $result = $query->orderBy('created_at', 'desc');
         if ($count > 0) {
@@ -73,6 +73,10 @@ class Post extends \TCG\Voyager\Models\Post
             case 12: return "Dec";
             default: return "";
         }
+    }
+
+    public static function getByCategory($categoryId) {
+        return static::where('category_id', $categoryId)->last()->get();
     }
 
 }

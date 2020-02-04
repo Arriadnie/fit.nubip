@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Infoblocks\Infoblock;
+use App\Models\Posts\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $slider = Infoblock::first();
-        $sliderView = Infoblock::getViewByEntity($slider);
+        $posts = Post::getByCategory(1);
+        $sliderView = view('posts/includes/card-collection', [
+            'posts' => $posts
+        ]);
 
         return view('home', [
             'sliderView' => $sliderView
