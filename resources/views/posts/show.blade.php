@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <div style="background: url({{ Storage::disk(config('voyager.storage.disk'))->url(str_replace('\\', '/', setting('posts.page-header-image'))) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
+    <div style="background: url({{ Storage::disk(config('voyager.storage.disk'))->url(str_replace('\\', '/', $post->image)) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         {{--        <img src="{{  }}" alt="">--}}
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
@@ -28,7 +28,8 @@
             <div class="post-author">
                 <p>{{ isset($post->author) ? $post->author->name : "" }}</p>
                 <div class="author-image">
-                    <img src=" {{ asset('/image/posts.jpg') }} " alt="">
+
+                    <img src=" {{ Storage::disk(config('voyager.storage.disk'))->url(str_replace('\\', '/', $post->author->avatar )) }} " alt="">
                 </div>
 
             </div>
