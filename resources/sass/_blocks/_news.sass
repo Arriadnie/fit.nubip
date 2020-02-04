@@ -63,6 +63,28 @@
     background: $transparent
     border: 1px solid $lightBlue
     color: $lightBlue
+    transition: 0.3s ease
+    position: relative
+
+.main-btn.light:before
+    content: ''
+    display: flex
+    position: absolute
+    top: 0
+    bottom: 0
+    background: $lightBlue
+    height: 100%
+    left: 50%
+    transform: translate(-50%, 0)
+    width: 0
+    z-index: -1
+    transition: 0.4s ease
+
+.main-btn.light:hover:before
+    width: 100%
+
+.main-btn.light:hover
+    color: #fff
 
 .news-info .main-btn
     margin-top: auto
@@ -146,7 +168,39 @@
     background: $lightBlue
     height: 3px
 
+.news-category
+    display: flex
+    align-items: center
+    justify-content: space-between
 
+.category-item
+    font-size: get-vw(25px)
+    +letterSpace(50)
+    position: relative
+    color: $blue55
+    cursor: pointer
+
+.category-item.active,
+.category-item:hover
+    color: $lightBlue
+
+.category-item:before
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    background: $lightBlue
+    width: 0
+    height: 1px
+    content: ''
+    transition: 0.3s ease
+
+.category-item.active:before,
+.category-item:hover:before
+    width: 100%
+
+.category-item + .category-item
+    margin-left: get-vw(60px)
 
 
 

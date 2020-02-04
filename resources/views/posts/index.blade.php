@@ -13,12 +13,25 @@
         </div>
     </div>
 
-    @foreach($categories as $category)
-        {{ $category->id . ';' . $category->slug . ';' . $category->name }}
-    @endforeach
+
 
 
     <div class="news-container">
+
+        <div class="news-category">
+            <div class="category-list">
+
+                @foreach($categories as $category)
+                    <a class="category-item">
+                        {{ $category->id . ';' . $category->slug . ';' . $category->name }}
+                    </a>
+                @endforeach
+            </div>
+
+            <div class="shown">
+
+            </div>
+        </div>
 
         <div class="news-wrapper">
             @foreach($posts as $post)
