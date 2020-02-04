@@ -10,12 +10,35 @@
             {{ session('status') }}
         </div>
     @endif
-    New
 
-    <h1>{{ $post->title }}</h1>
-    <h4>{{ isset($post->author) ? $post->author->name : "" }}</h4>
-    <h4>{{ isset($post->category) ? $post->category->name : "" }}</h4>
-    <div class="content">
-        {!! $post->body !!}
+    <div style="background: url({{ Storage::disk(config('voyager.storage.disk'))->url(str_replace('\\', '/', setting('posts.page-header-image'))) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
+        {{--        <img src="{{  }}" alt="">--}}
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>{{ $post->title }}</h1>
+        </div>
     </div>
+
+    <div class="editor-wrap">
+        <div class="post-info">
+            <div class="post-date">
+                <svg><use xlink:href="#calendar"></use></svg>
+                <p>{{ $post->created_at->format('d-m-Y') }}</p>
+            </div>
+            <div class="post-author">
+                <p>{{ isset($post->author) ? $post->author->name : "" }}</p>
+                <div class="author-image">
+                    <img src=" {{ asset('/image/posts.jpg') }} " alt="">
+                </div>
+
+            </div>
+        </div>
+        <div class="editor-content">
+            {!! $post->body !!}
+        </div>
+    </div>
+
+
+
+
 @endsection

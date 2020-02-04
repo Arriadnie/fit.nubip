@@ -1,0 +1,83 @@
+.editor-wrap
+    position: relative
+    width: 100%
+    padding: get-vw(60px) get-vw(255px)
+
+.post-info
+    width: 100%
+    display: flex
+    align-items: center
+
+.post-date
+    display: flex
+    align-items: center
+
+.post-date svg
+    width: get-vw(45px)
+    display: flex
+    fill: $blue40
+    align-items: center
+    height: get-vw(45px)
+
+    margin-right: get-vw(10px)
+
+.post-date p
+    font-size: get-vw(25px)
+    font-weight: 700
+    +letterSpace(100)
+    color: $blue40
+
+.post-author
+    display: flex
+    align-items: center
+    margin-right: get-vw(100px)
+
+.post-author p
+    font-size: get-vw(30px)
+    font-weight: 700
+    +letterSpace(100)
+    color: $blue40
+
+.author-image
+    width: get-vw(270px)
+    height: get-vw(270px)
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: 0
+    right: 0
+    transform: translate(-70px, -200px)
+    box-shadow: 3px 5px 10px rgba(0,0,0,.25)
+    border-radius: 50%
+    overflow: hidden
+
+.editor-content
+    width: 100%
+    line-height: 1.38
+    font-size: get-vw(26px)
+    color: $blue75
+
+.editor-content > img
+    max-width: 100%
+
+.editor-content > ul
+    max-width: 70%
+
+.editor-content > ul li
+    position: relative
+    padding-left: get-vw(25px)
+
+.editor-content > ul li + li
+    margin-top: 10px
+
+.editor-content > ul li:before
+    position: absolute
+    top: 0
+    left: 0
+    content: ''
+    display: flex
+    width: get-vw(10px)
+    height: get-vw(10px)
+    border-radius: 50%
+    background: $lightBlue70
