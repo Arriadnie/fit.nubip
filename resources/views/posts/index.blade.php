@@ -12,6 +12,10 @@
             <h1>Новини</h1>
         </div>
     </div>
+    @foreach($categories as $category)
+        {{ $category->id . ';' . $category->slug . ';' . $category->name }}
+    @endforeach
+
     <div class="news-slider-wrap">
 
         <div class="news-wrapper">
