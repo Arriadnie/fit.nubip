@@ -20,10 +20,17 @@
 
         <div class="news-category">
             <div class="category-list">
+                <a class="category-item"
+                   data-category-id="0"
+                   data-category-slug="">
+                    Всі
+                </a>
 
                 @foreach($categories as $category)
-                    <a class="category-item">
-                        {{ $category->id . ';' . $category->slug . ';' . $category->name }}
+                    <a class="category-item"
+                       data-category-id="{{ $category->id }}"
+                       data-category-slug="{{ $category->slug }}">
+                        {{$category->name }}
                     </a>
                 @endforeach
             </div>
@@ -34,9 +41,7 @@
         </div>
 
         <div class="news-wrapper">
-            @foreach($posts as $post)
-                @include('posts.includes.postCard', ['post' => $post])
-            @endforeach
+            @include('posts.includes.card-collection', ['posts' => $posts])
         </div>
     </div>
 

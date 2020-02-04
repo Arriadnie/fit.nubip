@@ -9,7 +9,7 @@ class Infoblock extends Model
 {
     public function items()
     {
-        return $this->hasMany(InfoblockItem::class);
+        return $this->hasMany(InfoblockItem::class)->orderBy('order');
     }
 
     public function type()
