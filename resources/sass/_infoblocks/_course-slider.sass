@@ -1,11 +1,28 @@
 .course-slider
     width: 100%
-
     padding-top: get-vw(50px)
 
 .course-slide-item
     position: relative
     height: get-vw(335px)
+    overflow: hidden
+
+.course-slide-item .main-btn
+    position: absolute
+    z-index: 15
+    left: 50%
+    transform: translate(-50%, 0)
+    top: 100%
+    transition: 0.6s ease
+
+.course-slide-item:hover .main-btn
+    transform: translate(-50%, -260%)
+
+.course-slide-item:hover .course-slide-content p
+    transform: translate(0, -60%)
+
+.course-slide-item:hover .course-slide-content
+    background: $blue55
 
 .course-slide-item img
     width: 100%
@@ -14,6 +31,7 @@
 
 .course-slide-content
     position: absolute
+    transition: background-color 0.4s ease
     top: 0
     left: 0
     right: 0
@@ -31,10 +49,15 @@
     text-align: center
     line-height: 1.5
     color: #fff
-    padding:  get-vw(15px) get-vw(60px)
+    padding:  get-vw(15px)
+    display: flex
+    width: 56%
+    margin-left: auto
+    margin-right: auto
+    transition: 0.4s ease
 
 .inner-slider .slick-list
-    margin: 0 get-vw(-25px)
+    //margin: 0 get-vw(-25px)
 
 .inner-slider  .slick-slide
     margin: 0 get-vw(25px)

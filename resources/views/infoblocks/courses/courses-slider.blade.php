@@ -21,6 +21,7 @@
                         <div class="course-slide-content">
                             <p>Комп'ютерні науки</p>
                         </div>
+                        <a href="#" class="main-btn white">Детільніше</a>
                     </div>
                 </div>
                 <div class="course-slide-wrap">
@@ -29,6 +30,7 @@
                         <div class="course-slide-content">
                             <p>Комп'ютерна інженерія</p>
                         </div>
+                        <a href="#" class="main-btn white">Детільніше</a>
                     </div>
                 </div>
                 <div class="course-slide-wrap">
@@ -37,6 +39,7 @@
                         <div class="course-slide-content">
                             <p>Економічна кібернетика</p>
                         </div>
+                        <a href="#" class="main-btn white">Детільніше</a>
                     </div>
                 </div>
                 @endfor

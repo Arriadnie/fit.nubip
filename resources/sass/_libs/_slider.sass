@@ -38,7 +38,14 @@
 .inner-slider .slider-arrow
     top: 50%
     bottom: auto
-    transform: translate(0, -50%)
+    background: $blue55
+    transition: opacity 0.3s ease
+
+
+.inner-slider .slider-arrow.slick-disabled
+    opacity: 0
+    pointer-events: none
+
 
 .inner-slider .slider-next
     left: 101%

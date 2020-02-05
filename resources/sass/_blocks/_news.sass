@@ -69,25 +69,43 @@
     transition: 0.3s ease
     position: relative
 
-.main-btn.light:before
+.main-btn.white
+    background: $transparent
+    border: 1px solid #fff
+    color: #fff
+    font-size: get-vw(15px)
+    text-transform: uppercase
+
+    padding: get-vw(15px) get-vw(25px)
+
+
+.main-btn.light:before,
+.main-btn.white:before
     content: ''
     display: flex
     position: absolute
-    top: 0
-    bottom: 0
+    top: -1px
+    bottom: -1px
     background: $lightBlue
-    height: 100%
+    height: calc(100% + 2px)
     left: 50%
     transform: translate(-50%, 0)
     width: 0
     z-index: -1
     transition: 0.4s ease
 
-.main-btn.light:hover:before
-    width: 100%
+.main-btn.white:before
+    background: #fff
+
+.main-btn.light:hover:before,
+.main-btn.white:hover:before
+    width: calc(100% + 2px)
 
 .main-btn.light:hover
     color: #fff
+
+.main-btn.white:hover
+    color: $blue75
 
 .news-info .main-btn
     margin-top: auto
