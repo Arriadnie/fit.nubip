@@ -19,6 +19,8 @@
 
     @include('infoblocks.courses.courses-slider')
 
+    @include('infoblocks.statistic.statistic')
+
     @include('posts.preview', [
         'posts' => App\Models\Posts\Post::getPostsForMainPage()
     ])
