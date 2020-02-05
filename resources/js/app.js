@@ -105,6 +105,43 @@ window.addEventListener('resize', function(e) {
     loadAndResize();
 });
 
+window.addEventListener('scroll', function(e) {
+    isExist('.statistic-wrap', () => {
+        let wrapper = document.querySelector('.statistic-wrap');
+        let a = 0;
+
+            let oTop = $(wrapper).offset().top - window.innerHeight;
+        console.log(oTop, $(wrapper).offset().top)
+
+            if (a == 0 && $(window).scrollTop() > oTop) {
+                $('.statistic-number').each(function() {
+                    let $this = $(this),
+                        countTo = $this.attr('data-count');
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                            countNum: countTo
+                        },
+                        {
+                            duration: 900,
+                            easing: 'linear',
+                            step: function() {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function() {
+                                $this.text(this.countNum);
+                                //alert('finished');
+                            }
+
+                        });
+                });
+                a = 1;
+            }
+
+        });
+
+});
+
 
 function loadAndResize() {
     let headerHeight = document.querySelector('header').getBoundingClientRect().height;
