@@ -36,50 +36,69 @@ import TimelineMax from "gsap/TimelineMax";
 
 window.addEventListener('load', function(e) {
     loadAndResize();
-    let slider = document.querySelector('.main-slider');
 
-    $(slider)
-        .on('setPosition', function(slick) {
-            let height = slider.getBoundingClientRect().height;
-            slider.querySelectorAll('.slick-slide').forEach((slide) => {
-                slide.style.height = height + 'px';
-            });
-        })
-        .on('init', function(slick){
-            let loadTl = new TimelineMax({
-                delay: 0,
-                onComplete: function() {
-                    let slide = slider.querySelector(`[data-slick-index='0']`);
-                    animateMainSlide(slide)
+    isExist('.main-slider', () => {
+        let slider = document.querySelector('.main-slider');
+
+        $(slider)
+            .on('setPosition', function(slick) {
+                let height = slider.getBoundingClientRect().height;
+                slider.querySelectorAll('.slick-slide').forEach((slide) => {
+                    slide.style.height = height + 'px';
+                });
+            })
+            .on('init', function(slick){
+                let loadTl = new TimelineMax({
+                    delay: 0,
+                    onComplete: function() {
+                        let slide = slider.querySelector(`[data-slick-index='0']`);
+                        animateMainSlide(slide)
+                    }
+                });
+                loadTl.to(slider, 1, {opacity: 1});
+
+            })
+            .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+                let nextSlideItem = slider.querySelector(`[data-slick-index='${nextSlide}']`);
+                setOpacitySlide(nextSlideItem)
+            })
+            .on('afterChange', function(event, slick, currentSlide, nextSlide) {
+                let slide = slider.querySelector(`[data-slick-index='${currentSlide}']`);
+                animateMainSlide(slide);
+            })
+            .slick({
+                slidesToShow: 1,
+                dragable: false,
+                slidesToScroll: 1,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                speed: 500,
+                prevArrow: prevArrow,
+                nextArrow: nextArrow,
+                dots: true,
+                customPaging: function(slider, i) {
+                    return '<a class="custom-pagination"> </a>'
                 }
             });
-            loadTl.to(slider, 1, {opacity: 1});
+    });
 
-        })
-        .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-
-            let nextSlideItem = slider.querySelector(`[data-slick-index='${nextSlide}']`);
-            setOpacitySlide(nextSlideItem)
-        })
-        .on('afterChange', function(event, slick, currentSlide, nextSlide) {
-            let slide = slider.querySelector(`[data-slick-index='${currentSlide}']`);
-            animateMainSlide(slide);
-        })
-        .slick({
-            slidesToShow: 1,
+    isExist('.course-slider', () => {
+        let slider = document.querySelector('.course-slider');
+        $(slider).slick({
+            slidesToShow: 3,
             dragable: false,
             slidesToScroll: 1,
-            infinite: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
+            infinite: false,
+            autoplay: false,
             speed: 500,
             prevArrow: prevArrow,
-            nextArrow: nextArrow,
-            dots: true,
-            customPaging: function(slider, i) {
-                return '<a class="custom-pagination"> </a>'
-            }
+            nextArrow: nextArrow
+
         });
+    });
+
 });
 
 window.addEventListener('resize', function(e) {

@@ -1,0 +1,53 @@
+.about-wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    padding: get-vw(40px) 0
+
+.about-text
+    width: get-vw(800px)
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+.about-image
+    width: get-vw(800px)
+    height: get-vw(500px)
+
+.about-image img
+    width: 100%
+    height: 100%
+    object-fit: contain
+
+.about-title
+    font-size: get-vw(42px)
+    position: relative
+    margin-bottom: get-vw(40px)
+    font-family: $playfair
+    +letterSpace(50)
+    line-height: 1.3
+    text-transform: uppercase
+
+.about-title:before
+    content: ''
+    display: flex
+    position: absolute
+    top: 100%
+    left: 0
+    height: 2px
+    background: $lightBlue
+    width: 50%
+
+.about-content
+    font-size: get-vw(20px)
+    line-height: 1.5
+    color: $blue75
+    +letterSpace(50)
+
+.about-text a.main-btn
+    margin-top: get-vw(40px)
+
+
+
+

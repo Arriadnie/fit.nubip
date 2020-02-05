@@ -1,0 +1,43 @@
+.course-slider
+    width: 100%
+
+    padding-top: get-vw(50px)
+
+.course-slide-item
+    position: relative
+    height: get-vw(335px)
+
+.course-slide-item img
+    width: 100%
+    object-fit: cover
+    height: 100%
+
+.course-slide-content
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: $blue40
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+.course-slide-content p
+    +letterSpace(150)
+    text-transform: uppercase
+    font-size: get-vw(20px)
+    text-align: center
+    line-height: 1.5
+    color: #fff
+    padding:  get-vw(15px) get-vw(60px)
+
+.inner-slider .slick-list
+    margin: 0 get-vw(-25px)
+
+.inner-slider  .slick-slide
+    margin: 0 get-vw(25px)
+
+
+

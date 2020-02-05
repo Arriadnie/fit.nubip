@@ -15,9 +15,15 @@
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
 
+    @include('infoblocks.about.index')
+
+    @include('infoblocks.courses.courses-slider')
+
     @include('posts.preview', [
         'posts' => App\Models\Posts\Post::getPostsForMainPage()
     ])
+
+
 @stop
 
 @section('after_content')
