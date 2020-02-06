@@ -1,8 +1,8 @@
-<div class="quick-access-wrap">
+<div class="quick-access-wrap"  style="background: url({{ asset('/image/statistick.jpg') }} ) no-repeat center center / cover; background-attachment: fixed ">
 
     <div class="quick-access-card">
         <div class="overlay"></div>
-        <img src="{{ asset('/image/info1.jpg') }}" alt="">
+{{--        <img src="{{ asset('/image/info1.jpg') }}" alt="">--}}
 
         <div class="quick-access-front">
             <div class="overlay"></div>
@@ -23,7 +23,7 @@
 
     <div class="quick-access-card">
         <div class="overlay"></div>
-        <img src="{{ asset('/image/info3.jpg') }}" alt="">
+{{--        <img src="{{ asset('/image/info3.jpg') }}" alt="">--}}
 
         <div class="quick-access-front">
             <div class="overlay"></div>
@@ -43,7 +43,7 @@
 
     <div class="quick-access-card">
         <div class="overlay"></div>
-        <img src="{{ asset('/image/statistick.jpg') }}" alt="">
+{{--        <img src="{{ asset('/image/statistick.jpg') }}" alt="">--}}
 
         <div class="quick-access-front">
             <div class="overlay"></div>
@@ -64,7 +64,7 @@
 
     <div class="quick-access-card">
         <div class="overlay"></div>
-        <img src="{{ asset('/image/info2.jpg') }}" alt="">
+{{--        <img src="{{ asset('/image/info2.jpg') }}" alt="">--}}
 
         <div class="quick-access-front">
             <div class="overlay"></div>

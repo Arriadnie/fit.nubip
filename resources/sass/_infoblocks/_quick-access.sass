@@ -1,7 +1,9 @@
 .quick-access-wrap
     display: flex
     width: 100%
-    padding: get-vw(50px) 0
+    margin: get-vw(50px) 0
+    padding: 0
+    overflow: hidden
 
 .quick-access-card
     flex-grow: 3
@@ -47,10 +49,14 @@
     transform: translate(0, 100%)
     padding: get-vw(15px)
 
-.quick-access-front .overlay,
-.quick-access-back .overlay
+.quick-access-front .overlay
+
     z-index: -1
+    background: $blue40
+
+.quick-access-back .overlay
     background: $blue20
+    z-index: -1
 
 
 
