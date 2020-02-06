@@ -2,8 +2,10 @@
     display: flex
     align-items: center
 
+    padding: get-vw(50px) 0
+
 .students-images
-    width: get-vw(780px)
+    width: get-vw(700px)
     display: flex
     justify-content: space-between
     flex-shrink: 0
@@ -12,28 +14,36 @@
 .students-images-column
     display: flex
     flex-direction: column
-    width: get-vw(360px)
+    width: get-vw(330px)
 
 .students-images-column + .students-images-column
     margin-top: get-vw(40px)
 
 .students-images-item
     width: 100%
-    height: get-vw(360px)
+    height: get-vw(330px)
     border-radius: get-vw(15px)
     overflow: hidden
     position: relative
+    display: flex
 
 .students-images-item + .students-images-item
-    margin-top: get-vw(60px)
+    margin-top: get-vw(40px)
 
 .students-images-item img
     width: 100%
     height: 100%
     object-fit: cover
 
+.students-images-item:hover .student-content
+    //transform: translate(0, 0%)
+    opacity: 1
+
 .student-content
     position: absolute
+    opacity: 0
+    transition: 0.4s ease
+    //transform: translate(0, 100%)
     top: 0
     left: 0
     right: 0
@@ -43,11 +53,11 @@
     width: 100%
     height: 100%
     justify-content: flex-end
-    padding: get-vw(10px) get-vw(30px)
+    padding: get-vw(10px) get-vw(45px)
     background: linear-gradient(180deg, rgba(#3EA1D2, 0.7) 0, rgba(#000439, 0.4) 70%)
 
 .student-content .student-name
-    font-size: get-vw(23px)
+    font-size: get-vw(21px)
     font-weight: 700
     text-align: center
     color: #fff
@@ -57,13 +67,13 @@
 .student-content .student-department
     line-height: 1.33
     font-weight: 500
-    font-size: get-vw(17px)
+    font-size: get-vw(14px)
     text-align: center
     color: #fff
     +letterSpace(50)
 
 .students-text .students-description
-    font-size: get-vw(22px)
+    font-size: get-vw(20px)
     line-height: 1.59
     color: $blue75
 
@@ -71,4 +81,7 @@
     margin-top: get-vw(60px)
 
 .students-text
-    padding-left: get-vw(70px)
+    align-items: flex-start
+    flex-direction: column
+    display: flex
+    padding-left: get-vw(90px)

@@ -17,6 +17,9 @@
 
     @include('infoblocks.about.index')
 
+    @include('infoblocks.quick-access.index')
+
+
     @include('infoblocks.courses-slider.index')
 
     @include('infoblocks.statistic.index')
