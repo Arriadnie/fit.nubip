@@ -25,7 +25,7 @@
     </div>
     <div class="statistic-item">
         <div class="statistic-icon">
-            <img src="{{ asset('/image/courses.svg') }}" alt="">
+            <img src="{{ asset('courses-slider') }}" alt="">
         </div>
         <p class="statistic-number" data-count="6">0</p>
         <p class="statistic-name">напрямків навчання</p>

@@ -1,0 +1,74 @@
+.students-wrap
+    display: flex
+    align-items: center
+
+.students-images
+    width: get-vw(780px)
+    display: flex
+    justify-content: space-between
+    flex-shrink: 0
+
+
+.students-images-column
+    display: flex
+    flex-direction: column
+    width: get-vw(360px)
+
+.students-images-column + .students-images-column
+    margin-top: get-vw(40px)
+
+.students-images-item
+    width: 100%
+    height: get-vw(360px)
+    border-radius: get-vw(15px)
+    overflow: hidden
+    position: relative
+
+.students-images-item + .students-images-item
+    margin-top: get-vw(60px)
+
+.students-images-item img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.student-content
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    width: 100%
+    height: 100%
+    justify-content: flex-end
+    padding: get-vw(10px) get-vw(30px)
+    background: linear-gradient(180deg, rgba(#3EA1D2, 0.7) 0, rgba(#000439, 0.4) 70%)
+
+.student-content .student-name
+    font-size: get-vw(23px)
+    font-weight: 700
+    text-align: center
+    color: #fff
+    +letterSpace(50)
+    padding-bottom: get-vw(10px)
+
+.student-content .student-department
+    line-height: 1.33
+    font-weight: 500
+    font-size: get-vw(17px)
+    text-align: center
+    color: #fff
+    +letterSpace(50)
+
+.students-text .students-description
+    font-size: get-vw(22px)
+    line-height: 1.59
+    color: $blue75
+
+.students-text .main-btn
+    margin-top: get-vw(60px)
+
+.students-text
+    padding-left: get-vw(70px)

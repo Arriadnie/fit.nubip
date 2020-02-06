@@ -17,13 +17,15 @@
 
     @include('infoblocks.about.index')
 
-    @include('infoblocks.courses.courses-slider')
+    @include('infoblocks.courses-slider.index')
 
-    @include('infoblocks.statistic.statistic')
+    @include('infoblocks.statistic.index')
 
     @include('posts.preview', [
         'posts' => App\Models\Posts\Post::getPostsForMainPage()
     ])
+
+    @include('infoblocks.students.index')
 
 
 @stop

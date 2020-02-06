@@ -1,5 +1,5 @@
 
-<div class="news-container">
+<div class="container-main">
     <div class="block-title">
         <p class="block-heading">Новини та події</p>
         <p class="block-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>

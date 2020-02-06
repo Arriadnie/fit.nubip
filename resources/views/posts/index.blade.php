@@ -15,7 +15,7 @@
 
 
 
-    <div class="news-container">
+    <div class="container-main">
 
         <div class="news-category">
             <div class="category-list">
