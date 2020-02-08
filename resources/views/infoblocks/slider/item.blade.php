@@ -8,7 +8,7 @@
             <a href="{{ $slide->button_link }}" class="main-btn">{{ $slide->button_title }}</a>
         </div>
         <div class="slide-image">
-            <img src="{{ url('storage\\' . $slide->image) }}" alt="">
+            <img src="{{ Voyager::image($slide->image) }}" alt="">
         </div>
     </div>
 </div>

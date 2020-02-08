@@ -4,9 +4,16 @@ namespace App\Models\Infoblocks;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\Resizable;
+use TCG\Voyager\Traits\Translatable;
 
 class Infoblock extends Model
 {
+    use Translatable;
+
+    protected $translatable = ['name', 'slug', 'title', 'sub_title', 'button_title', 'button_link'];
+
+
     public function items()
     {
         return $this->hasMany(InfoblockItem::class)->orderBy('order');
