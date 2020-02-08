@@ -28,6 +28,29 @@ Route::post('/postService', 'Posts\PostController@postService')->name('postServi
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+
+    $namespacePrefix = 'Infoblocks\\';
+
+    Route::group([
+        'as'     => 'voyager.infoblocks.',
+        'prefix' => 'infoblocks/{infoblock}',
+    ], function () use ($namespacePrefix) {
+        Route::get('builder', ['uses' => $namespacePrefix.'InfoblockController@builder',    'as' => 'builder']);
+        Route::post('order', ['uses' => $namespacePrefix.'InfoblockController@order_item', 'as' => 'order']);
+
+        Route::group([
+            'as'     => 'item.',
+            'prefix' => 'item',
+        ], function () use ($namespacePrefix) {
+            Route::delete('{id}', ['uses' => $namespacePrefix.'InfoblockController@delete_item', 'as' => 'destroy']);
+            Route::post('/', ['uses' => $namespacePrefix.'InfoblockController@add_item',    'as' => 'add']);
+            Route::put('/', ['uses' => $namespacePrefix.'InfoblockController@update_item', 'as' => 'update']);
+        });
+    });
+
+
+    //Route::get('infoblocks/{infoblock}/builder', 'Infoblocks\InfoblockController@builder')->name('voyager.infoblocks.builder');
 });
 
 //Route::get('/', ['as' => 'homepage', 'uses' => 'PageController@index']);
