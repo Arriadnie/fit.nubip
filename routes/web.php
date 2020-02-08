@@ -52,3 +52,14 @@ Route::group(['prefix' => 'admin'], function () {
 
     //Route::get('infoblocks/{infoblock}/builder', 'Infoblocks\InfoblockController@builder')->name('voyager.infoblocks.builder');
 });
+
+//Route::get('/', ['as' => 'homepage', 'uses' => 'PageController@index']);
+
+
+
+Route::any('{any?}', function($any) {
+    if (view()->exists($any)) {
+        return view($any)->render();
+    }
+    return abort(404);
+})->where(['any' => '.*']);

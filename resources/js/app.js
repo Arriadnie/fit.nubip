@@ -1,5 +1,3 @@
-
-
 import {
     createEvent,
     isExist
@@ -34,23 +32,23 @@ import TimelineMax from "gsap/TimelineMax";
 // import ScrollToPlugin from "gsap/ScrollToPlugin"
 
 
-window.addEventListener('load', function(e) {
+window.addEventListener('load', function (e) {
     loadAndResize();
 
     isExist('.main-slider', () => {
         let slider = document.querySelector('.main-slider');
 
         $(slider)
-            .on('setPosition', function(slick) {
+            .on('setPosition', function (slick) {
                 let height = slider.getBoundingClientRect().height;
                 slider.querySelectorAll('.slick-slide').forEach((slide) => {
                     slide.style.height = height + 'px';
                 });
             })
-            .on('init', function(slick){
+            .on('init', function (slick) {
                 let loadTl = new TimelineMax({
                     delay: 0,
-                    onComplete: function() {
+                    onComplete: function () {
                         let slide = slider.querySelector(`[data-slick-index='0']`);
                         animateMainSlide(slide)
                     }
@@ -58,12 +56,12 @@ window.addEventListener('load', function(e) {
                 loadTl.to(slider, 1, {opacity: 1});
 
             })
-            .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            .on('beforeChange', function (event, slick, currentSlide, nextSlide) {
 
                 let nextSlideItem = slider.querySelector(`[data-slick-index='${nextSlide}']`);
                 setOpacitySlide(nextSlideItem)
             })
-            .on('afterChange', function(event, slick, currentSlide, nextSlide) {
+            .on('afterChange', function (event, slick, currentSlide, nextSlide) {
                 let slide = slider.querySelector(`[data-slick-index='${currentSlide}']`);
                 animateMainSlide(slide);
             })
@@ -78,7 +76,7 @@ window.addEventListener('load', function(e) {
                 prevArrow: prevArrow,
                 nextArrow: nextArrow,
                 dots: true,
-                customPaging: function(slider, i) {
+                customPaging: function (slider, i) {
                     return '<a class="custom-pagination"> </a>'
                 }
             });
@@ -101,44 +99,57 @@ window.addEventListener('load', function(e) {
 
 });
 
-window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function (e) {
     loadAndResize();
 });
 
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function (e) {
     isExist('.statistic-wrap', () => {
         let wrapper = document.querySelector('.statistic-wrap');
         let a = 0;
 
-            let oTop = $(wrapper).offset().top - window.innerHeight;
-        console.log(oTop, $(wrapper).offset().top)
+        let oTop = $(wrapper).offset().top - window.innerHeight;
 
-            if (a == 0 && $(window).scrollTop() > oTop) {
-                $('.statistic-number').each(function() {
-                    let $this = $(this),
-                        countTo = $this.attr('data-count');
-                    $({
-                        countNum: $this.text()
-                    }).animate({
-                            countNum: countTo
+        if (a === 0 && $(window).scrollTop() > oTop) {
+            $('.statistic-number').each(function () {
+                let $this = $(this),
+                    countTo = $this.attr('data-count');
+                $({
+                    countNum: $this.text()
+                }).animate({
+                        countNum: countTo
+                    },
+                    {
+                        duration: 900,
+                        easing: 'linear',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
                         },
-                        {
-                            duration: 900,
-                            easing: 'linear',
-                            step: function() {
-                                $this.text(Math.floor(this.countNum));
-                            },
-                            complete: function() {
-                                $this.text(this.countNum);
-                                //alert('finished');
-                            }
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        }
 
-                        });
-                });
-                a = 1;
+                    });
+            });
+            a = 1;
+        }
+
+    });
+
+    isExist('header', () => {
+        let header = document.querySelector('header')
+        if (window.scrollY > 10) {
+            if (!header.classList.contains('scrolled')) {
+                header.classList.add('scrolled')
             }
+        } else {
+            if (header.classList.contains('scrolled')) {
+                header.classList.remove('scrolled')
+            }
+        }
+    })
 
-        });
 
 });
 
@@ -185,7 +196,7 @@ function animateMainSlide(slide) {
 
     let btn = slide.querySelector('.main-btn');
     if (btn) {
-        TweenMax.fromTo(btn, 0.6, {opacity: 0, y: '50%'}, {opacity: 1,  y: '0%'})
+        TweenMax.fromTo(btn, 0.6, {opacity: 0, y: '50%'}, {opacity: 1, y: '0%'})
     }
 
 }
