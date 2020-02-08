@@ -1,0 +1,71 @@
+.students-list
+    display: flex
+    flex-direction: column
+    padding: get-vw(80px) 0
+
+.student-item
+    display: flex
+    width: 100%
+    box-shadow: 0 3px 10px rgba(0,0,0,.2)
+    padding: get-vw(30px) get-vw(80px) get-vw(30px) get-vw(35px)
+
+.student-item +.student-item
+    margin-top: get-vw(65px)
+
+.student-image
+    width: get-vw(360px)
+    display: flex
+    align-items: center
+    justify-content: center
+    height: get-vw(370px)
+    margin-right: get-vw(55px)
+    flex-shrink: 0
+
+.student-image img
+    width: 100%
+    object-fit: cover
+    height: 100%
+
+.student-info
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    width: 100%
+    padding-top: get-vw(50px)
+
+.student-info .student-name
+    font-size: get-vw(40px)
+    font-family: $playfair
+    padding-bottom: get-vw(25px)
+
+.student-info .student-about
+    font-size: get-vw(21px)
+    line-height: 1.4
+    color: $blue75
+
+.student-contact
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    margin-top: auto
+
+    width: 100%
+
+.student-contact > a
+    display: flex
+    border-radius: 50%
+    background: $blue55
+    align-items: center
+    justify-content: center
+    width: get-vw(45px)
+    height: get-vw(45px)
+
+.student-contact > a + a
+    margin-left: get-vw(30px)
+
+.student-contact > a > img
+    width: get-vw(25px)
+    object-fit: contain
+    height: get-vw(25px)
+
+

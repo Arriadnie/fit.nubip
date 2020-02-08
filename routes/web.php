@@ -29,3 +29,14 @@ Route::post('/postService', 'Posts\PostController@postService')->name('postServi
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+//Route::get('/', ['as' => 'homepage', 'uses' => 'PageController@index']);
+
+
+
+Route::any('{any?}', function($any) {
+    if (view()->exists($any)) {
+        return view($any)->render();
+    }
+    return abort(404);
+})->where(['any' => '.*']);
