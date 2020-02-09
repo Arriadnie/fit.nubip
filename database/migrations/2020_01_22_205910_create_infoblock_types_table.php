@@ -18,6 +18,8 @@ class CreateInfoblockTypesTable extends Migration
             $table->string('name');
             $table->string('blade_path');
             $table->boolean('public');
+            $table->boolean('with_items');
+            $table->boolean('with_item_parent');
 
             $table->timestamps();
         });

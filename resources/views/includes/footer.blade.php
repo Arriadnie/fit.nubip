@@ -12,6 +12,7 @@
     <div class="footer-contacts">
         <div class="contact-list">
             <div class="contact-item">
+
                 <div class="contact-icon">
                     <svg><use xlink:href="#phone"></use></svg>
                 </div>
@@ -41,7 +42,7 @@
         <div class="socials-list">
             @foreach(App\Models\SocialNetwork::all() as $network)
                 <a href="{{ $network->link }}" target="_blank">
-                    <img src="{{ Storage::disk(config('voyager.storage.disk'))->url(json_decode($network->svg)[0]->download_link) }}" alt="">
+                    <img src="{{ Voyager::image($network->getImage()) }}" alt="">
                 </a>
             @endforeach
         </div>

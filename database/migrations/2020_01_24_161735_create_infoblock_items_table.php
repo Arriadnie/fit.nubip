@@ -17,6 +17,7 @@ class CreateInfoblockItemsTable extends Migration
             $table->bigIncrements('id');
 
             $table->integer('infoblock_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
             $table->string('image')->nullable();
