@@ -1,8 +1,8 @@
 <div class="container-main">
     <div class="course-slider-wrap">
         <div class="block-title">
-            <p class="block-heading">Навчальні програми</p>
-            <p class="block-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            <p class="block-heading">{{ $infoblock->title }}</p>
+            <p class="block-subtitle">{{ $infoblock->sub_title }}</p>
             <div class="block-title-decor">
                 <div class="line left"></div>
                 <div class="block-title-icon">
@@ -13,39 +13,14 @@
         </div>
 
         <div class="course-slider inner-slider">
-
             @for($i = 0; $i < 2; $i++)
-                <div class="course-slide-wrap">
-                    <div class="course-slide-item">
-                        <img src="{{ asset('/image/course1.jpg') }}" alt="">
-                        <div class="course-slide-content">
-                            <p>Комп'ютерні науки</p>
-                        </div>
-                        <a href="#" class="main-btn white">Детільніше</a>
-                    </div>
-                </div>
-                <div class="course-slide-wrap">
-                    <div class="course-slide-item">
-                        <img src="{{ asset('/image/course2.jpg') }}" alt="">
-                        <div class="course-slide-content">
-                            <p>Комп'ютерна інженерія</p>
-                        </div>
-                        <a href="#" class="main-btn white">Детільніше</a>
-                    </div>
-                </div>
-                <div class="course-slide-wrap">
-                    <div class="course-slide-item">
-                        <img src="{{ asset('/image/course3.jpg') }}" alt="">
-                        <div class="course-slide-content">
-                            <p>Економічна кібернетика</p>
-                        </div>
-                        <a href="#" class="main-btn white">Детільніше</a>
-                    </div>
-                </div>
+                @foreach($infoblock->items as $item)
+                    @include('infoblocks/courses-slider/item', [
+                        'item' => $item
+                    ])
+                @endforeach
             @endfor
         </div>
-
-        <a href="#" class="main-btn">Переглянути всі курси</a>
-
+        <a href="{{ $infoblock->getLink('button_link') }}" class="main-btn">{{ $infoblock->button_title }}</a>
     </div>
 </div>

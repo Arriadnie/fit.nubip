@@ -11,6 +11,7 @@
 @stop
 
 @section('content')
+
     @include('infoblocks.slider.index', [
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
@@ -23,10 +24,13 @@
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('shvidkij-dostup')
     ])
 
+    @include('infoblocks.courses-slider.index', [
+        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('navchal-ni-programi-golovna')
+    ])
 
-    @include('infoblocks.courses-slider.index')
-
-    @include('infoblocks.statistic.index')
+    @include('infoblocks.statistic.index', [
+        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('statistika-golovna')
+    ])
 
     @include('posts.preview', [
         'posts' => App\Models\Posts\Post::getPostsForMainPage()
