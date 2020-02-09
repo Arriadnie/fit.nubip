@@ -97,6 +97,18 @@ window.addEventListener('load', function (e) {
         });
     });
 
+    isExist('.gallery', () => {
+        $('.gallery').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            speed: 500,
+            prevArrow: prevArrow,
+            nextArrow: nextArrow
+
+        })
+    })
+
 });
 
 window.addEventListener('resize', function (e) {

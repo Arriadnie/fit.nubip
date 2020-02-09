@@ -48,4 +48,5 @@
         <a href="#" class="main-btn">Переглянути всі курси</a>
 
     </div>
+
 </div>
