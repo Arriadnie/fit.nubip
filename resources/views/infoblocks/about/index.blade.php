@@ -1,17 +1,17 @@
 <div class="container-main">
     <div class="about-wrap">
         <div class="about-text">
-            <p class="lined-title">Декілька слів про нас</p>
+            <p class="lined-title">{{ $infoblock->title }}</p>
             <p class="about-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                {!! $infoblock->body !!}
             </p>
-            <a href="#" class="main-btn light">
-                Читати далі
+            <a href="{{ $infoblock->button_link ? $infoblock->button_link : '#' }}" class="main-btn light">
+                {{ $infoblock->button_title }}
             </a>
 
         </div>
         <div class="about-image">
-            <img src="{{ asset('/image/slide1.jpg') }}" alt="">
+            <img src="{{ $infoblock->getImage(true) }}" alt="">
         </div>
     </div>
 </div>

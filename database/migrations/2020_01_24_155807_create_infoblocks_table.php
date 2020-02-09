@@ -20,8 +20,10 @@ class CreateInfoblocksTable extends Migration
             $table->integer('type_id')->unsigned()->nullable();
             $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
+            $table->text('body')->nullable();
             $table->string('button_title')->nullable();
             $table->string('button_link')->nullable();
+            $table->string('image')->nullable();
 
             $table->timestamps();
 

@@ -5,10 +5,10 @@
             <p class="slide-text">
                 {{ $slide->body }}
             </p>
-            <a href="{{ $slide->button_link }}" class="main-btn">{{ $slide->button_title }}</a>
+            <a href="{{ $slide->button_link ? $slide->button_link : '#' }}" class="main-btn">{{ $slide->button_title }}</a>
         </div>
         <div class="slide-image">
-            <img src="{{ Voyager::image($slide->image) }}" alt="">
+            <img src="{{ $slide->getImage(true) }}" alt="">
         </div>
     </div>
 </div>

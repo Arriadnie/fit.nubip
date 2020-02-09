@@ -15,9 +15,13 @@
         'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('slider-main')
     ])
 
-    @include('infoblocks.about.index')
+    @include('infoblocks.about.index', [
+        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('dekil-ka-sliv-pro-nas')
+    ])
 
-    @include('infoblocks.quick-access.index')
+    @include('infoblocks.quick-access.index', [
+        'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('shvidkij-dostup')
+    ])
 
 
     @include('infoblocks.courses-slider.index')

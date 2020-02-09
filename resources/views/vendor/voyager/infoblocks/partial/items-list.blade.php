@@ -30,6 +30,12 @@
                 @endif
                 <span>{{ $item->title }}</span> <small class="url">{{ $item->sub_title }}</small>
             </div>
+            @if(!$item->children->isEmpty())
+                @include('voyager::infoblocks.partial.items-list', [
+                    'items' => $item->children,
+                    'isModelTranslatable' => $isModelTranslatable
+                ])
+            @endif
         </li>
 
     @endforeach

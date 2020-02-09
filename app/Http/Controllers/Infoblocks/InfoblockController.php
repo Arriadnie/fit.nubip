@@ -72,7 +72,7 @@ class InfoblockController extends VoyagerBaseController
         }
 
         return redirect()
-            ->route('voyager.infoblocks.builder', [$data['infoblock_id']])
+            ->route('voyager.infoblock-items.edit', ['infoblock_item' => $infoblockItem->id])
             ->with([
                 'message'    => __('voyager::menu_builder.successfully_created'),
                 'alert-type' => 'success',
@@ -119,12 +119,12 @@ class InfoblockController extends VoyagerBaseController
         foreach ($infoblockItems as $index => $infoblockItem) {
             $item = InfoblockItem::findOrFail($infoblockItem->id);
             $item->order = $index + 1;
-            //$item->parent_id = $parentId;
+            $item->parent_id = $parentId;
             $item->save();
 
-            /*if (isset($menuItem->children)) {
-                $this->orderMenu($menuItem->children, $item->id);
-            }*/
+            if (isset($infoblockItem->children)) {
+                $this->orderMenu($infoblockItem->children, $item->id);
+            }
         }
     }
 
