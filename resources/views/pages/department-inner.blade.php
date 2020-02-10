@@ -30,7 +30,8 @@
 
             @include('gallery.index')
             <p>&nbsp;</p>
-            @include('infoblocks.courses-slider.index')
+            @include('infoblocks.default-slider.index')
+
 
         </div>
 
