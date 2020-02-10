@@ -18,8 +18,13 @@
 .course-slide-item:hover .main-btn
     transform: translate(-50%, -260%)
 
+.default .course-slide-item:hover .main-btn
+    transform: translate(-50%, -140%)
+
 .course-slide-item:hover .course-slide-content p
     transform: translate(0, -60%)
+.course-slide-item:hover .course-slide-content p
+    transform: translate(0, -100%)
 
 .course-slide-item:hover .course-slide-content
     background: $blue55
@@ -41,6 +46,12 @@
     align-items: center
     justify-content: center
 
+.default.course-slider .course-slide-content
+    align-items: flex-end
+
+.default.course-slider .course-slide-content p
+    font-size: get-vw(16px)
+
 
 .course-slide-content p
     +letterSpace(150)
@@ -60,6 +71,17 @@
 
 .inner-slider  .slick-slide
     margin: 0 get-vw(25px)
+
+.default.inner-slider  .slick-slide
+    margin: 0 get-vw(10px)
+
+.inner-slider  .slick-list
+    margin: 0 get-vw(-25px)
+    width: get-calc-vw(100%, '+', 50px)
+
+.default.inner-slider  .slick-list
+    margin: 0 get-vw(-10px)
+    width: get-calc-vw(100%, '+', 20px)
 
 .course-slider-wrap
     display: flex
