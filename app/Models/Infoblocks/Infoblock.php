@@ -30,18 +30,6 @@ class Infoblock extends Model
     }
 
     public static function findBySlug($slug) {
-        return static::where('slug', $slug)->first();
-    }
-
-
-    public static function getViewByEntity($infoblock) {
-        return view('infoblocks/index', [
-            'infoblock' => $infoblock
-        ]);
-    }
-
-    public static function getViewBySlug($slug) {
-        $infoblock = static::findBySlug($slug);
-        return static::getViewByEntity($infoblock);
+        return static::where('slug', $slug)->with('type')->with('items')->first();
     }
 }

@@ -22,7 +22,7 @@
 
     <div class="editor-wrap">
         <div class="editor-content">
-            @include('infoblocks.teacher-info.index')
+            [infoblock code="shvidenko-zaviduvach"]
 
             <p>Кафедра інформаційних систем створена в 1997р. Основною метою діяльності кафедри є підготовка спеціалістів, які забезпечують розробку і впровадження інформаційних систем та комп’ютерних технологій в агропромисловому комплексі. Кафедра веде підготовку студентів факультету інформаційних технологій, економічного факультету, факультету аграрного менеджменту та навчально-наукового інституту післядипломної освіти.</p>
             <p>&nbsp;</p>
@@ -30,8 +30,10 @@
 
             @include('gallery.index')
             <p>&nbsp;</p>
-            @include('infoblocks.default-slider.index')
 
+            @include('infoblocks.default-slider.index', [
+                'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('kafedri-fakul-tetu')
+            ])
 
         </div>
 

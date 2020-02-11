@@ -20,37 +20,11 @@
         </div>
     </div>
 
-    <div class="container-250">
-        <div class="department-list">
-
-            <a href="#" class="department-item">
-                <img src="{{ asset('/image/department1.jpg') }}" alt="">
-                <div class="department-name">
-                    <p>Кафедра інформаційних і дистанційних технологій</p>
-                </div>
-            </a>
-
-            <a href="#" class="department-item">
-                <img src="{{ asset('/image/department2.jpg') }}" alt="">
-                <div class="department-name">
-                    <p>Кафедра інформаційних систем</p>
-                </div>
-            </a>
-
-            <a href="#" class="department-item">
-                <img src="{{ asset('/image/department3.jpg') }}" alt="">
-                <div class="department-name">
-                    <p>Кафедра економічної кібернетики</p>
-                </div>
-            </a>
-            <a href="#" class="department-item">
-                <img src="{{ asset('/image/department4.jpg') }}" alt="">
-                <div class="department-name">
-                    <p>Кафедра комп'ютених наук</p>
-                </div>
-            </a>
-
-
+    <div class="editor-wrap">
+        <div class="editor-content">
+            @include('infoblocks.departments-list.index', [
+                'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('kafedri-fakul-tetu')
+            ])
         </div>
     </div>
 

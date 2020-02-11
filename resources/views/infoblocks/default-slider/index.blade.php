@@ -1,8 +1,10 @@
 <div class="container-main">
     <div class="course-slider-wrap">
         <div class="block-title">
-            <p class="block-heading">Кафедри факультету</p>
-            <p class="block-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dolorum inve</p>
+            <p class="block-heading">{{ $infoblock->title }}</p>
+            @if($infoblock->sub_title)
+                <p class="block-subtitle">{{ $infoblock->sub_title }}</p>
+            @endif
             <div class="block-title-decor">
                 <div class="line left"></div>
                 <div class="block-title-icon">
@@ -13,20 +15,14 @@
         </div>
 
         <div class="course-slider inner-slider default">
-            @for($i = 0; $i < 6; $i++)
-{{--                @foreach($infoblock->items as $item)--}}
-                    <div class="course-slide-wrap">
-                        <div class="course-slide-item">
-                            <img src="{{ asset('/image/department1.jpg') }}" alt="">
-                            <div class="course-slide-content">
-                                <p>Комп'ютерних наук</p>
-                            </div>
-                            <a href="#" class="main-btn white">Детальнійше</a>
-                        </div>
-                    </div>
-{{--                @endforeach--}}
-            @endfor
+
+            @foreach($infoblock->items as $item)
+                @include('infoblocks/default-slider/item', [
+                    'item' => $item
+                ])
+            @endforeach
+
         </div>
-        <a href="#" class="main-btn">Переглянути всі кафедри</a>
+        <a href="{{ $infoblock->getLink('button_link') }}" class="main-btn">{{ $infoblock->button_title }}</a>
     </div>
 </div>

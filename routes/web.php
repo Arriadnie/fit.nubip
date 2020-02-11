@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->withShortcodes();
 });
 
 Auth::routes();
@@ -53,13 +53,13 @@ Route::group(['prefix' => 'admin'], function () {
     //Route::get('infoblocks/{infoblock}/builder', 'Infoblocks\InfoblockController@builder')->name('voyager.infoblocks.builder');
 });
 
-//Route::get('/', ['as' => 'homepage', 'uses' => 'PageController@index']);
+Route::get('{pageSlug}', 'Pages\PageController@show');
 
 
-
-Route::any('{any?}', function($any) {
-    if (view()->exists($any)) {
-        return view($any)->render();
-    }
-    return abort(404);
-})->where(['any' => '.*']);
+//
+//Route::any('{any?}', function($any) {
+//    if (view()->exists($any)) {
+//        return view($any)->render();
+//    }
+//    return abort(404);
+//})->where(['any' => '.*']);
