@@ -25,13 +25,12 @@ Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
 Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
 Route::post('/postService', 'Posts\PostController@postService')->name('postService');
 
+Route::get('{pageSlug}', 'Pages\PageController@show');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
-
     $namespacePrefix = 'Infoblocks\\';
-
     Route::group([
         'as'     => 'voyager.infoblocks.',
         'prefix' => 'infoblocks/{infoblock}',
@@ -48,18 +47,4 @@ Route::group(['prefix' => 'admin'], function () {
             Route::put('/', ['uses' => $namespacePrefix.'InfoblockController@update_item', 'as' => 'update']);
         });
     });
-
-
-    //Route::get('infoblocks/{infoblock}/builder', 'Infoblocks\InfoblockController@builder')->name('voyager.infoblocks.builder');
 });
-
-Route::get('{pageSlug}', 'Pages\PageController@show');
-
-
-//
-//Route::any('{any?}', function($any) {
-//    if (view()->exists($any)) {
-//        return view($any)->render();
-//    }
-//    return abort(404);
-//})->where(['any' => '.*']);

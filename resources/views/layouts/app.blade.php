@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @include('includes.head-icons')
+
 </head>
 <body class="@yield('body_class')">
 
