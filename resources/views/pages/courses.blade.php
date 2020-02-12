@@ -21,24 +21,9 @@
     </div>
 
     <div class="container-300">
-        <div class="courses-list">
-
-            @for($i = 0; $i < 5; $i++)
-
-                <a href="#" class="courses-list-item">
-                    <div class="courses-item-image">
-                        <div class="overlay"></div>
-                        <img src="{{ asset('/image/course1.jpg') }}" alt="">
-                    </div>
-                    <div class="course-item-info">
-                        <p class="course-item-name">122 Комп'ютерні науки</p>
-                        <p class="course-item-subtitle">Фахівець з інформаційних технологій</p>
-                    </div>
-                </a>
-
-            @endfor
-
-        </div>
+        @include('infoblocks/courses-list/index', [
+            'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('navchal-ni-programi')
+        ])
     </div>
 
 

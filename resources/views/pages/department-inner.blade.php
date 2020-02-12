@@ -13,7 +13,6 @@
 @section('content')
 
     <div style="background: url({{ asset('/image/students.jpg') }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
-        {{--        <img src="{{  }}" alt="">--}}
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
             <h1>Кафедра інформаційних систем</h1>
@@ -22,7 +21,8 @@
 
     <div class="editor-wrap">
         <div class="editor-content">
-            @include('infoblocks.teacher-info.index')
+
+            [people-info code="shvidenko-mihajlo-zinovijovich" view="teacher"]
 
             <p>Кафедра інформаційних систем створена в 1997р. Основною метою діяльності кафедри є підготовка спеціалістів, які забезпечують розробку і впровадження інформаційних систем та комп’ютерних технологій в агропромисловому комплексі. Кафедра веде підготовку студентів факультету інформаційних технологій, економічного факультету, факультету аграрного менеджменту та навчально-наукового інституту післядипломної освіти.</p>
             <p>&nbsp;</p>
@@ -30,8 +30,12 @@
 
             @include('gallery.index')
             <p>&nbsp;</p>
-            @include('infoblocks.default-slider.index')
 
+            [infoblock code="kafedri-fakul-tetu" view="default-slider"]
+
+            @include('infoblocks.default-slider.index', [
+                'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('kafedri-fakul-tetu')
+            ])
 
         </div>
 

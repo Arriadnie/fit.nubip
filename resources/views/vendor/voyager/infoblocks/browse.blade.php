@@ -58,7 +58,7 @@
                                             </a>
                                         @endcan
                                         @can('edit', $data)
-                                            @if($data->type->with_items)
+                                            @if($data->type && $data->type->with_items)
                                                 <a href="{{ route('voyager.'.$dataType->slug.'.builder', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
                                                     <i class="voyager-list"></i> {{ __('voyager::generic.builder') }}
                                                 </a>
