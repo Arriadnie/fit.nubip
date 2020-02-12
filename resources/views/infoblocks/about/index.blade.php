@@ -2,9 +2,9 @@
     <div class="about-wrap">
         <div class="about-text">
             <p class="lined-title">{{ $infoblock->title }}</p>
-            <p class="about-content">
+            <div class="about-content">
                 {!! $infoblock->body !!}
-            </p>
+            </div>
             <a href="{{ $infoblock->button_link ? $infoblock->button_link : '#' }}" class="main-btn light">
                 {{ $infoblock->button_title }}
             </a>

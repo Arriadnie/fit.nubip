@@ -37,6 +37,8 @@
                 'infoblock' => App\Models\Infoblocks\Infoblock::findBySlug('kafedri-fakul-tetu')
             ])
 
+            @include('infoblocks.partners-slider.index')
+
         </div>
 
     </div>
