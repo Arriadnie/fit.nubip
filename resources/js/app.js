@@ -112,6 +112,20 @@ window.addEventListener('load', function (e) {
         })
     })
 
+    isExist('.partners-slider', () => {
+        $('.partners-slider').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            speed: 500,
+            prevArrow: prevArrow,
+            nextArrow: nextArrow
+
+        })
+    })
+
 });
 
 window.addEventListener('resize', function (e) {
