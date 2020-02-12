@@ -42,6 +42,7 @@
         <div class="news-wrapper">
             @include('posts.includes.card-collection', ['posts' => $posts])
         </div>
+        @include('includes.pagination')
     </div>
 
 @endsection
