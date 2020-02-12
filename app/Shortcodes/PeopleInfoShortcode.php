@@ -16,7 +16,7 @@ class PeopleInfoShortcode extends Model
             return '';
         }
 
-        return view('people-infos/' . $shortcode->type, [
+        return view('people-infos/' . $shortcode->view, [
             'infoblock' => $infoblock
         ]);
     }

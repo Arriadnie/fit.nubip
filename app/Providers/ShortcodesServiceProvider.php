@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Webwizo\Shortcodes\Facades\Shortcode;
 use App\Shortcodes\InfoblockShortcode;
+use App\Shortcodes\PeopleInfoShortcode;
 
 class ShortcodesServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,7 @@ class ShortcodesServiceProvider extends ServiceProvider
     public function register()
     {
         Shortcode::register('infoblock', InfoblockShortcode::class);
+        Shortcode::register('people-info', PeopleInfoShortcode::class);
     }
 
     /**

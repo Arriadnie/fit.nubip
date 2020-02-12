@@ -83,18 +83,21 @@ window.addEventListener('load', function (e) {
     });
 
     isExist('.course-slider', () => {
-        let slider = document.querySelector('.course-slider');
-        $(slider).slick({
-            slidesToShow: 3,
-            dragable: false,
-            slidesToScroll: 1,
-            infinite: false,
-            autoplay: false,
-            speed: 500,
-            prevArrow: prevArrow,
-            nextArrow: nextArrow
+        let sliders = document.querySelectorAll('.course-slider');
+        sliders.forEach((slider) => {
+            $(slider).slick({
+                slidesToShow: 3,
+                dragable: false,
+                slidesToScroll: 1,
+                infinite: false,
+                autoplay: false,
+                speed: 500,
+                prevArrow: prevArrow,
+                nextArrow: nextArrow
 
-        });
+            });
+        })
+
     });
 
     isExist('.gallery', () => {

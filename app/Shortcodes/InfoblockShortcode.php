@@ -15,7 +15,14 @@ class InfoblockShortcode
             return '';
         }
 
-        return view('infoblocks/' . $infoblock->type->blade_path . '/index', [
+        if ($shortcode->view) {
+            $viewName = 'infoblocks/' . $shortcode->view . '/index';
+        }
+        else {
+            $viewName = 'infoblocks/' . $infoblock->type->blade_path . '/index';
+        }
+
+        return view($viewName, [
             'infoblock' => $infoblock
         ]);
     }

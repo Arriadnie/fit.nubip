@@ -25,8 +25,6 @@ Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
 Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
 Route::post('/postService', 'Posts\PostController@postService')->name('postService');
 
-Route::get('{pageSlug}', 'Pages\PageController@show');
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
@@ -48,3 +46,5 @@ Route::group(['prefix' => 'admin'], function () {
         });
     });
 });
+
+Route::get('{pageSlug}', 'Pages\PageController@show');
