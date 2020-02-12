@@ -17,11 +17,17 @@ trait Imageable
      */
     public function getImage($storage = false)
     {
+        return $this->getImageByColumnValue($this[$this->image_column], $storage);
+    }
+
+
+    public function getImageByColumnValue($image, $storage = false)
+    {
         try {
-            $path = json_decode($this[$this->image_column])[0]->download_link;
+            $path = json_decode($image)[0]->download_link;
         }
         catch (\Exception $exception) {
-            $path = $this[$this->image_column];
+            $path = $image;
         }
 
         if ($storage) {

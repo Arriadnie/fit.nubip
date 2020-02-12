@@ -5,6 +5,7 @@ namespace App\Models\Pages;
 use App\Traits\Imageable;
 use App\Traits\Linkable;
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
 
 class Page extends \TCG\Voyager\Models\Page
@@ -15,5 +16,15 @@ class Page extends \TCG\Voyager\Models\Page
 
     public static function findBySlug($slug) {
         return static::where('slug', $slug)->first();
+    }
+
+    public function getImage($storage = false)
+    {
+        if ($this->image) {
+            return $this::getImageByColumnValue($this->image, $storage);
+        }
+        else {
+            return $this::getImageByColumnValue(setting('pages.default-page-image'), $storage);
+        }
     }
 }
