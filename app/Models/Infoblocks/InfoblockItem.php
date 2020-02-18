@@ -16,7 +16,6 @@ class InfoblockItem extends Model
         Linkable;
 
     protected $image_column = 'image';
-   // protected $table = 'infoblock_items';
 
     protected $guarded = [];
 
@@ -33,25 +32,5 @@ class InfoblockItem extends Model
     }
 
 
-    /**
-     * Return the Highest Order Infoblock Item.
-     *
-     * @param number $parent (Optional) Parent id. Default null
-     *
-     * @return number Order number
-     */
-    public static function highestOrderInfoblockItem($parent = null)
-    {
-        $order = 1;
 
-        $item = static::where('parent_id', '=', $parent)
-            ->orderBy('order', 'DESC')
-            ->first();
-
-        if (!is_null($item)) {
-            $order = intval($item->order) + 1;
-        }
-
-        return $order;
-    }
 }

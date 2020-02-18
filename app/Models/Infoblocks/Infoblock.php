@@ -6,7 +6,6 @@ use App\Traits\Imageable;
 use App\Traits\Linkable;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 
 class Infoblock extends Model
@@ -16,7 +15,7 @@ class Infoblock extends Model
         Linkable;
 
     protected $image_column = 'image';
-    protected $translatable = ['name', 'slug', 'title', 'sub_title', 'button_title', 'button_link'];
+    protected $translatable = ['title', 'sub_title', 'button_title', 'button_link'];
 
 
     public function items()
@@ -31,5 +30,9 @@ class Infoblock extends Model
 
     public static function findBySlug($slug) {
         return static::where('slug', $slug)->with('type')->with('items')->first();
+    }
+
+    public function typeWithItems() {
+        return $this->type && $this->type->with_items;
     }
 }

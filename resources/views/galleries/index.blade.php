@@ -1,6 +1,6 @@
 <div class="gallery-wrap">
     <div class="block-title">
-        <p class="block-heading">Галерея</p>
+        <p class="block-heading">{{ $gallery->title }}</p>
        <div class="block-title-decor">
             <div class="line left"></div>
             <div class="block-title-icon">
@@ -11,11 +11,11 @@
     </div>
 
     <div class="gallery">
-        @for($i = 1; $i < 4; $i++ )
-            <div class="gallery-item">
-                <img src="{{ asset('/image/slide'. $i.'.jpg') }}" alt="">
-            </div>
-        @endfor
+        @foreach($gallery->images as $image)
+            @include('galleries/item', [
+                'image' => $image
+            ])
+        @endforeach
     </div>
 
 </div>

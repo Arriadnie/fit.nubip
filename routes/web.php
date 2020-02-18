@@ -28,23 +28,40 @@ Route::post('/postService', 'Posts\PostController@postService')->name('postServi
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
-    $namespacePrefix = 'Infoblocks\\';
+    $namespacePrefix = 'WithItemsBase\\';
     Route::group([
         'as'     => 'voyager.infoblocks.',
-        'prefix' => 'infoblocks/{infoblock}',
+        'prefix' => 'infoblocks/{master}',
     ], function () use ($namespacePrefix) {
-        Route::get('builder', ['uses' => $namespacePrefix.'InfoblockController@builder',    'as' => 'builder']);
-        Route::post('order', ['uses' => $namespacePrefix.'InfoblockController@order_item', 'as' => 'order']);
+        Route::get('builder', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'builder']);
+        Route::post('order', ['uses' => $namespacePrefix.'BaseWithItemsController@order_item', 'as' => 'order']);
 
         Route::group([
             'as'     => 'item.',
             'prefix' => 'item',
         ], function () use ($namespacePrefix) {
-            Route::delete('{id}', ['uses' => $namespacePrefix.'InfoblockController@delete_item', 'as' => 'destroy']);
-            Route::post('/', ['uses' => $namespacePrefix.'InfoblockController@add_item',    'as' => 'add']);
-            Route::put('/', ['uses' => $namespacePrefix.'InfoblockController@update_item', 'as' => 'update']);
+            Route::delete('{id}', ['uses' => $namespacePrefix.'BaseWithItemsController@delete_item', 'as' => 'destroy']);
+            Route::post('/', ['uses' => $namespacePrefix.'BaseWithItemsController@add_item',    'as' => 'add']);
         });
     });
+
+    Route::group([
+        'as'     => 'voyager.galleries.',
+        'prefix' => 'galleries/{master}',
+    ], function () use ($namespacePrefix) {
+        Route::get('builder', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'builder']);
+        Route::post('order', ['uses' => $namespacePrefix.'BaseWithItemsController@order_item', 'as' => 'order']);
+
+        Route::group([
+            'as'     => 'item.',
+            'prefix' => 'item',
+        ], function () use ($namespacePrefix) {
+            Route::delete('{id}', ['uses' => $namespacePrefix.'BaseWithItemsController@delete_item', 'as' => 'destroy']);
+            Route::post('/', ['uses' => $namespacePrefix.'BaseWithItemsController@add_item',    'as' => 'add']);
+        });
+    });
+
+
 });
 
 Route::get('{pageSlug}', 'Pages\PageController@show');

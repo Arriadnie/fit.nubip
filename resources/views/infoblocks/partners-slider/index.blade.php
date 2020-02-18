@@ -1,7 +1,7 @@
 <div class="container-main">
     <div class="course-slider-wrap">
         <div class="block-title">
-            <p class="block-heading">Партнери</p>
+            <p class="block-heading">{{ $infoblock->title }}</p>
 
             <div class="block-title-decor">
                 <div class="line left"></div>
@@ -13,21 +13,11 @@
         </div>
 
         <div class="partners-slider inner-slider default">
-
-            @for($i = 1; $i < 5; $i++)
-                <div class="slide-wrap">
-                    <div class="slide-item">
-                        <img src="{{ asset('/image/partner' . $i . '.png') }}" alt="">
-                    </div>
-                </div>
-            @endfor
-                @for($i = 1; $i < 5; $i++)
-                    <div class="slide-wrap">
-                        <div class="slide-item">
-                            <img src="{{ asset('/image/partner' . $i . '.png') }}" alt="">
-                        </div>
-                    </div>
-                @endfor
+            @foreach($infoblock->items as $item)
+                @include('infoblocks/partners-slider/item', [
+                    'item' => $item
+                ])
+            @endforeach
         </div>
     </div>
 </div>

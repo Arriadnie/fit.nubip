@@ -15,9 +15,9 @@
 @stop
 
 @section('content')
-    @include('voyager::infoblocks.partial.notice', [
-        'infoblock' => $dataType
-    ])
+    @if(view()->exists('voyager::' . $dataType->slug . '.partial.notice'))
+        @include('voyager::' . $dataType->slug . '.partial.notice')
+    @endif
 
     <div class="page-content container-fluid">
         @include('voyager::alerts')
@@ -58,7 +58,13 @@
                                             </a>
                                         @endcan
                                         @can('edit', $data)
-                                            @if($data->type && $data->type->with_items)
+                                            @if($visibleMethodName)
+                                                @if($data->{$visibleMethodName}())
+                                                    <a href="{{ route('voyager.'.$dataType->slug.'.builder', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
+                                                        <i class="voyager-list"></i> {{ __('voyager::generic.builder') }}
+                                                    </a>
+                                                @endif
+                                            @else
                                                 <a href="{{ route('voyager.'.$dataType->slug.'.builder', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
                                                     <i class="voyager-list"></i> {{ __('voyager::generic.builder') }}
                                                 </a>
