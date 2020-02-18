@@ -124,6 +124,32 @@ window.addEventListener('load', function (e) {
             nextArrow: nextArrow
 
         })
+    });
+
+    isExist('.login-page', () => {
+        let btnGoLogin = document.querySelector('.login-page .go-login');
+        let btnGoRegister = document.querySelector('.login-page .go-register');
+        let decoration = document.querySelector('.auth-image-container');
+
+        let loginForm = document.querySelector('.login-block');
+        let registerForm = document.querySelector('.register-block');
+
+        let openLogin = new TimelineMax({
+            paused: true
+        });
+        openLogin
+            .to(decoration, 0.5, {left: '0'})
+            .fromTo(registerForm, 0.4,  {opacity: 1, x: '0%'}, {opacity: 0, x: '10%'}, 0)
+            .fromTo(loginForm, 0.4, {opacity: 0, x: '-10%'}, {opacity: 1, x: '0%'}, 0.3)
+
+        btnGoLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            openLogin.play();
+        });
+        btnGoRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            openLogin.reverse();
+        })
     })
 
 });
@@ -191,6 +217,7 @@ function loadAndResize() {
 
     isExist('main', () => {
         document.querySelector('main').style.paddingTop = headerHeight + 'px';
+        // document.querySelector('main').style.minHeight = window.innerHeight - headerHeight + 'px';
     })
 
 }

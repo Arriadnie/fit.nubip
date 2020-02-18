@@ -1,0 +1,181 @@
+
+
+.auth-page
+    width: 100%
+    padding: get-vw(120px) get-vw(240px)
+
+.auth-container
+    background: #fff
+    position: relative
+    box-shadow: 0 get-vw(4px) get-vw(15px) rgba(0,0,0,.3)
+
+.forms-block
+    display: flex
+    justify-content: space-between
+    padding: get-vw(50px)
+    min-height: get-vw(600px)
+    position: relative
+
+.forms-block .auth-block
+    width: 40%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+
+.form-heading
+    width: 100%
+    display: flex
+    justify-content: center
+
+    margin-bottom: get-vw(40px)
+
+.form-heading .logo
+    width: get-vw(70px)
+    height: get-vw(70px)
+    display: flex
+    align-items: center
+    justify-content: center
+
+.logo img
+    width: 100%
+    height: 100%
+    object-fit: contain
+
+.auth-block .form-name
+    font-size: get-vw(18px)
+    font-weight: 500
+    +letterSpace(50)
+    color: $blue40
+
+    margin-bottom: get-vw(30px)
+
+.auth-block form
+    width: 100%
+
+.auth-block label
+    width: 70%
+    margin-left: auto
+    margin-right: auto
+
+.auth-block input[type="submit"]
+    width: auto
+    margin-left: auto
+    margin-right: auto
+    justify-content: center
+    text-align: center
+    font-size: get-vw(14px)
+    min-width: get-vw(200px)
+    //font-weight: 500
+    margin-top: get-vw(40px)
+
+
+label
+    display: flex
+
+input,
+input::placeholder
+    font-size: get-vw(18px)
+    color: $blue55
+
+input
+    color: $blue75
+    border: none
+    width: 100%
+
+.auth-block label input
+    width: 100%
+    border-bottom: 1px solid $blue20
+    padding: get-vw(10px) 0
+    transition: 0.3s ease
+
+.auth-block label input:focus
+    border-bottom: 1px solid $blue75
+
+
+.auth-block label + label
+    margin-top: get-vw(20px)
+
+.form-bottom
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    margin-top: get-vw(60px)
+
+
+.form-bottom p
+    font-size: get-vw(16px)
+    margin-right: get-vw(10px)
+    color: $blue40
+
+    font-weight: 500
+
+.form-bottom a
+    font-size: get-vw(16px)
+    color: $lightBlue70
+    font-weight: 500
+
+.auth-image-container
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 55%
+    right: 0
+    height: 100%
+
+.auth-image-container img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.auth-image-content
+    position: absolute
+    width: 100%
+    left: 0
+    right: 0
+    bottom: get-vw(50px)
+    z-index: 20
+
+
+.auth-image-container .overlay-light
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    background: linear-gradient(225deg, rgba(#3EA1D2, 0.7) 15%, rgba(#000439, 0.7) 100%)
+
+
+.auth-image-container .department-name
+    display: flex
+    flex-direction: column
+    background: none
+    padding: 0
+    position: static
+    box-shadow: none
+    text-align: left
+    align-items: flex-start
+    justify-content: flex-start
+
+.auth-image-container .university
+    text-align: left
+    font-size: get-vw(15px)
+    +letterSpace(50)
+    color: #fff
+    margin-bottom: get-vw(5px)
+    font-family: $raleway
+    font-weight: 400
+
+.auth-image-container .department
+    text-align: left
+    font-size: get-vw(30px)
+    +letterSpace(50)
+    color: #fff
+    font-weight: 400
+    font-family: $raleway
+
+
