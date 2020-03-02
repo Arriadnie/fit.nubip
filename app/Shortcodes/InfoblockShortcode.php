@@ -3,7 +3,6 @@
 namespace App\Shortcodes;
 
 use App\Models\Infoblocks\Infoblock;
-use Illuminate\Database\Eloquent\Model;
 
 class InfoblockShortcode
 {
@@ -16,13 +15,13 @@ class InfoblockShortcode
         }
 
         if ($shortcode->view) {
-            $viewName = 'infoblocks/' . $shortcode->view . '/index';
+            $viewName = $shortcode->view;
         }
         else {
-            $viewName = 'infoblocks/' . $infoblock->type->blade_path . '/index';
+            $viewName = $infoblock->type->blade_path;
         }
 
-        return view($viewName, [
+        return view('infoblocks/' . $viewName . '/index', [
             'infoblock' => $infoblock
         ]);
     }

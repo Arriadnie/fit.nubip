@@ -1,8 +1,8 @@
 
 <div class="container-main">
     <div class="block-title">
-        <p class="block-heading">Новини та події</p>
-        <p class="block-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+        <p class="block-heading">{{ setting('posts.preview-title') }}</p>
+        <p class="block-subtitle">{{ setting('posts.preview-subtitle') }}</p>
         <div class="block-title-decor">
             <div class="line left"></div>
             <div class="block-title-icon">
@@ -12,6 +12,6 @@
         </div>
     </div>
     <div class="news-wrapper">
-        @include('posts.includes.card-collection', ['posts' => $posts])
+        @include('posts.includes.card-collection', ['posts' => App\Models\Posts\Post::getPostsForMainPage()])
     </div>
 </div>

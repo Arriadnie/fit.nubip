@@ -42,7 +42,7 @@
         <div class="socials-list">
             @foreach(App\Models\SocialNetwork::all() as $network)
                 <a href="{{ $network->link }}" target="_blank">
-                    <img src="{{ Voyager::image($network->getImage()) }}" alt="">
+                    <img src="{{ $network->getImage(true) }}" alt="">
                 </a>
             @endforeach
         </div>

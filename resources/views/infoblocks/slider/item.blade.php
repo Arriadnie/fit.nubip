@@ -5,7 +5,9 @@
             <p class="slide-text">
                 {{ $slide->body }}
             </p>
-            <a href="{{ $slide->button_link ? $slide->button_link : '#' }}" class="main-btn">{{ $slide->button_title }}</a>
+            @if($slide->button_link)
+            <a href="{{ $slide->button_link }}" class="main-btn">{{ $slide->button_title ? $slide->button_title : 'Дізнатись більше' }}</a>
+            @endif
         </div>
         <div class="slide-image">
             <img src="{{ $slide->getImage(true) }}" alt="">

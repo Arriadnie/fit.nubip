@@ -2,22 +2,22 @@
 
 namespace App\Shortcodes;
 
-use App\Models\PeopleInfo\PeopleInfo;
+use App\Models\PeopleInfo\PeopleInfoGroup;
 
-class PeopleInfoShortcode
+class PeopleInfoGroupShortcode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
-        $people = PeopleInfo::findBySlug($shortcode->code);
-        if (!$people) { return ''; }
+        $peopleGroup = PeopleInfoGroup::findBySlug($shortcode->code);
+        if (!$peopleGroup) { return ''; }
         if ($shortcode->view) {
             $viewName = $shortcode->view;
         }
         else {
             $viewName = 'student';
         }
-        return view('people-infos/' . $viewName, [
-            'people' => $people
+        return view('people-infos/groups/' . $viewName, [
+            'peopleGroup' => $peopleGroup
         ]);
     }
 }

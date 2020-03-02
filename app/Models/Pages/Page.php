@@ -21,10 +21,10 @@ class Page extends \TCG\Voyager\Models\Page
     public function getImage($storage = false)
     {
         if ($this->image) {
-            return $this::getImageByColumnValue($this->image, $storage);
+            return Imageable::getImageByColumnValue($this->image, $storage);
         }
         else {
-            return $this::getImageByColumnValue(setting('pages.default-page-image'), $storage);
+            return Imageable::getImageByColumnValue(setting('pages.default-page-image'), $storage);
         }
     }
 }

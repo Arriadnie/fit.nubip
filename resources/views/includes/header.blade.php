@@ -1,6 +1,6 @@
 <header>
     <a href="/" class="logo-wrap">
-        <img src="{{ Storage::disk(config('voyager.storage.disk'))->url(setting('site.logo')) }}" alt="">
+        <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
     </a>
 
     <nav>

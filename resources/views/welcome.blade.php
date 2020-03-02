@@ -18,13 +18,11 @@
 
     [infoblock code="shvidkij-dostup"]
 
-    [infoblock code="navchal-ni-programi-golovna"]
+    @include('education.courses-slider.index')
 
     [infoblock code="statistika-golovna"]
 
-    @include('posts.preview', [
-        'posts' => App\Models\Posts\Post::getPostsForMainPage()
-    ])
+    @include('posts.preview')
 
     @include('infoblocks.students.index')
 

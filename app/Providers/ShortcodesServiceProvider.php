@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\PeopleInfo\PeopleInfoGroup;
 use Illuminate\Support\ServiceProvider;
 use Webwizo\Shortcodes\Facades\Shortcode;
 use App\Shortcodes\InfoblockShortcode;
 use App\Shortcodes\PeopleInfoShortcode;
+use App\Shortcodes\PeopleInfoGroupShortcode;
 use App\Shortcodes\GalleryShortcode;
 
 class ShortcodesServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class ShortcodesServiceProvider extends ServiceProvider
     {
         Shortcode::register('infoblock', InfoblockShortcode::class);
         Shortcode::register('people-info', PeopleInfoShortcode::class);
+        Shortcode::register('people-info-group', PeopleInfoGroupShortcode::class);
         Shortcode::register('gallery', GalleryShortcode::class);
     }
 

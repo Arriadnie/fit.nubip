@@ -1,12 +1,12 @@
 
 <div class="teacher-info-wrap">
     <div class="teacher-info-image">
-        <img src="{{ $infoblock->getImage(true) }}" alt="">
+        <img src="{{ $people->getImage(true) }}" alt="">
     </div>
     <div class="teacher-info">
-        <p class="teacher-status">{{ $infoblock->position }}:</p>
-        <p class="teacher-name">{{ $infoblock->name }}</p>
-        <p class="teacher-text">{{ strip_tags($infoblock->description) }}</p>
+        <p class="teacher-status">{{ $people->position }}:</p>
+        <p class="teacher-name">{{ $people->name }}</p>
+        <p class="teacher-text">{{ strip_tags($people->description) }}</p>
     </div>
 </div>
 

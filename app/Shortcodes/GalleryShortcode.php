@@ -3,7 +3,6 @@
 namespace App\Shortcodes;
 
 use App\Models\Galleries\Gallery;
-use Illuminate\Database\Eloquent\Model;
 
 class GalleryShortcode
 {
