@@ -150,7 +150,17 @@ window.addEventListener('load', function (e) {
             e.preventDefault();
             openLogin.reverse();
         })
-    })
+    });
+
+    isExist('[data-toggle-btn]', () => {
+        document.querySelectorAll('[data-toggle-btn]').forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                gsapToggleHeight(btn);
+            })
+
+        })
+    });
 
 });
 
@@ -257,3 +267,22 @@ function animateMainSlide(slide) {
 
 }
 
+function gsapToggleHeight(button, speed = 0.4, delayT = 0, height = 'auto') {
+    let dataBtn = button.getAttribute('data-toggle-btn');
+    let elem = document.querySelector(`[data-toggle-block="${dataBtn}"]`);
+
+    //In case we need to toggle elements with the same data-toggle attribute. Search elem from this element's parent.
+
+    if (!button || !elem) return;
+        if (!button.classList.contains('closed')) {
+            TweenMax.set(elem, {height: height, opacity: 1});
+            TweenMax.to(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone, delay: delayT});
+            button.classList.add("closed");
+        } else {
+
+            TweenMax.set(elem, {height: height, opacity: 1});
+            TweenMax.from(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone});
+            button.classList.remove("closed");
+        }
+
+}
