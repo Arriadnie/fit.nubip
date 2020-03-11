@@ -1,13 +1,19 @@
 
-<li>
+<div class="accordion-item">
     @if(count($item['programs']) > 1)
-        {{ $item['specialty']->name }}
-        <ul>
+        <div class="accordion-title closed" data-toggle-btn="{{ $item['specialty']->slug }}">
+            <a href="#">{{ $item['specialty']->name }}</a>
+        </div>
+
+        <div class="accordion-body" data-toggle-block="{{ $item['specialty']->slug }}">
             @foreach($item['programs'] as $program)
-                <li>{{ $program->name }}</li>
+                <a data-href="#{{ $program->slug }}" href="#{{ $program->slug }}">{{ $program->name }}</a>
             @endforeach
-        </ul>
+        </div>
     @else
-        {{ $item['programs'][0]->name }}
+        <div class="accordion-title">
+            <a data-href="#{{ $item['programs'][0]->slug }}" href="#{{ $item['programs'][0]->slug }}">{{ $item['programs'][0]->name }}</a>
+        </div>
     @endif
-</li>
+</div>
+
