@@ -162,6 +162,45 @@ window.addEventListener('load', function (e) {
         })
     });
 
+    isExist('[data-href]', () => {
+        document.querySelectorAll('[data-href]').forEach((link) => {
+            link.addEventListener('click', function(e) {
+
+                let href = this.getAttribute('data-href');
+
+                document.querySelectorAll('.active[data-id]').forEach((visibleBlock) => {
+                    visibleBlock.classList.remove('active')
+                });
+
+
+                this.parentElement.classList.add('active');
+
+                document.querySelector(`[data-id="${href}"]`).classList.add('active');
+
+            })
+        })
+    });
+
+    if (window.location.hash) {
+
+        let hash = window.location.hash;
+        console.log("Hash", hash)
+        if (document.querySelector(`[data-id="${hash}"]`)) {
+            console.log("Must be here")
+            document.querySelector(`[data-id="${hash}"]`).classList.add('active');
+            document.querySelector(`[data-href="${hash}"]`).classList.add('active');
+
+        } else {
+            document.querySelector(`[data-id]`).classList.add('active');
+            document.querySelector(`[data-href]`).classList.add('active');
+        }
+        history.pushState('', '', location.origin + location.pathname);
+    } else {
+        document.querySelector(`[data-id]`).classList.add('active');
+        document.querySelector(`[data-href]`).classList.add('active');
+    }
+
+
 });
 
 window.addEventListener('resize', function (e) {

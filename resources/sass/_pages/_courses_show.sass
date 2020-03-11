@@ -16,6 +16,7 @@
 .courses-wrapper .right-content .editor-content
     //position: absolute
     top: 0
+    display: none
     left: 0
     right: 0
     opacity: 0
@@ -24,7 +25,9 @@
 
 .courses-wrapper .right-content .editor-content.active
     opacity: 1
+    transition: opacity 0.5s ease
     pointer-events: all
+    display: block
     z-index: 5
 
 .accordion-list
@@ -54,6 +57,7 @@
 .accordion-title
     padding: get-vw(15px) get-vw(20px)
     border-bottom: 1px solid $blue40
+
 
 .accordion-item:first-child .accordion-title
     border-top: 1px solid $blue40
