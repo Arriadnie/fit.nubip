@@ -3,21 +3,9 @@
         <div class="students-images">
             @for($i = 0; $i < 2; $i++)
                 <div class="students-images-column">
-                    <a href="#" class="students-images-item">
-                        <img src="{{ asset('/image/student1.jpg') }}" alt="">
-                        <div class="student-content">
-                            <p class="student-name">Андрій Клименко</p>
-                            <p class="student-department">Software developer in GlobalLogic</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="students-images-item">
-                        <img src="{{ asset('/image/student2.jpg') }}" alt="">
-                        <div class="student-content">
-                            <p class="student-name">Анастасія Лозко</p>
-                            <p class="student-department">Software developer in GlobalLogic</p>
-                        </div>
-                    </a>
+                    @foreach($peopleGroup->infos(4)->get() as $people)
+                        @include('people-infos.groups.student-preview.item', ['people' => $people])
+                    @endforeach
                 </div>
             @endfor
         </div>

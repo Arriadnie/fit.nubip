@@ -3,6 +3,7 @@
 namespace App\Models\PeopleInfo;
 
 use App\Traits\Imageable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
 
@@ -30,5 +31,13 @@ class PeopleInfo extends Model
 
     public static function findBySlug($slug) {
         return static::where('slug', $slug)->first();
+    }
+
+    public function scopeMyTake(Builder $query, int $count = 0)
+    {
+        if ($count > 0) {
+            return $query->take($count);
+        }
+        return $query;
     }
 }

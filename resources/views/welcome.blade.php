@@ -24,7 +24,7 @@
 
     @include('posts.preview')
 
-    @include('infoblocks.students.index')
+    [people-info-group code="vipuskniki-golovna" view="student-preview.index"]
 
 
 @stop

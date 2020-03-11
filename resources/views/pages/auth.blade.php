@@ -20,7 +20,7 @@
 
                         <div class="form-heading">
                             <div class="logo">
-                                <img src="{{ asset('/image/logo.png') }}" alt="">
+                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
                             </div>
                         </div>
 
@@ -50,7 +50,7 @@
 
                         <div class="form-heading">
                             <div class="logo">
-                                <img src="{{ asset('/image/logo.png') }}" alt="">
+                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
                             </div>
                         </div>
 
