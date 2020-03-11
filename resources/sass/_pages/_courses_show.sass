@@ -1,0 +1,71 @@
+.courses-wrapper
+    display: flex
+    align-items: flex-start
+    width: 100%
+    justify-content: space-between
+    padding-top: get-vw(100px)
+    padding-bottom: get-vw(80px)
+
+.courses-wrapper .left-bar
+    width: 30%
+
+.courses-wrapper .right-content
+    width: 66%
+    position: relative
+
+.courses-wrapper .right-content .editor-content
+    //position: absolute
+    top: 0
+    display: none
+    left: 0
+    right: 0
+    opacity: 0
+    pointer-events: none
+    z-index: -1
+
+.courses-wrapper .right-content .editor-content.active
+    opacity: 1
+    transition: opacity 0.5s ease
+    pointer-events: all
+    display: block
+    z-index: 5
+
+.accordion-list
+    display: flex
+    flex-direction: column
+    width: 100%
+
+.accordion-body
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    height: 0
+    border-bottom: 1px solid $blue40
+    opacity: 0
+
+.accordion-body a
+    font-size: get-vw(22px)
+    +letterSpace(50)
+    font-family: $playfair
+    color: $blue75
+    padding: get-vw(15px) get-vw(20px) get-vw(15px) get-vw(40px)
+
+.accordion-body a + a
+    border-top: 1px solid $blue20
+
+
+.accordion-title
+    padding: get-vw(15px) get-vw(20px)
+    border-bottom: 1px solid $blue40
+
+
+.accordion-item:first-child .accordion-title
+    border-top: 1px solid $blue40
+
+.accordion-title a
+    font-size: get-vw(24px)
+    +letterSpace(50)
+    display: flex
+    width: 100%
+    font-family: $playfair
+    color: $blue75

@@ -150,7 +150,58 @@ window.addEventListener('load', function (e) {
             e.preventDefault();
             openLogin.reverse();
         })
-    })
+    });
+
+    isExist('[data-toggle-btn]', () => {
+        document.querySelectorAll('[data-toggle-btn]').forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                gsapToggleHeight(btn);
+            })
+
+        })
+    });
+
+    isExist('[data-href]', () => {
+        document.querySelectorAll('[data-href]').forEach((link) => {
+            link.addEventListener('click', function(e) {
+
+                let href = this.getAttribute('data-href');
+                let visibleBlocks = document.querySelectorAll('.active[data-id]');
+
+                if (visibleBlocks) {
+                    console.log("Visible")
+                    visibleBlocks.forEach((visibleBlock) => {
+                        visibleBlock.classList.remove('active')
+                    });
+                }
+                this.parentElement.classList.add('active');
+                console.log(href);
+
+                document.querySelector(`[data-id="${href}"]`).classList.add('active');
+            })
+        })
+    });
+
+    if (window.location.hash) {
+
+        let hash = window.location.hash;
+        console.log("Hash", hash)
+        if (document.querySelector(`[data-id="${hash}"]`)) {
+            console.log("Must be here")
+            document.querySelector(`[data-id="${hash}"]`).classList.add('active');
+            document.querySelector(`[data-href="${hash}"]`).classList.add('active');
+
+        } else {
+            document.querySelector(`[data-id]`).classList.add('active');
+            document.querySelector(`[data-href]`).classList.add('active');
+        }
+        history.pushState('', '', location.origin + location.pathname);
+    } else {
+        document.querySelector(`[data-id]`).classList.add('active');
+        document.querySelector(`[data-href]`).classList.add('active');
+    }
+
 
 });
 
@@ -257,3 +308,22 @@ function animateMainSlide(slide) {
 
 }
 
+function gsapToggleHeight(button, speed = 0.4, delayT = 0, height = 'auto') {
+    let dataBtn = button.getAttribute('data-toggle-btn');
+    let elem = document.querySelector(`[data-toggle-block="${dataBtn}"]`);
+
+    //In case we need to toggle elements with the same data-toggle attribute. Search elem from this element's parent.
+
+    if (!button || !elem) return;
+        if (!button.classList.contains('closed')) {
+            TweenMax.set(elem, {height: height, opacity: 1});
+            TweenMax.to(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone, delay: delayT});
+            button.classList.add("closed");
+        } else {
+
+            TweenMax.set(elem, {height: height, opacity: 1});
+            TweenMax.from(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone});
+            button.classList.remove("closed");
+        }
+
+}
