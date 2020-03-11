@@ -23,14 +23,23 @@ trait Imageable
 
     public static function getImageByColumnValue($image, $storage = false)
     {
+        $path = '';
         try {
-            $path = json_decode($image)[0]->download_link;
+            $file = json_decode($image);
+            if (!empty($file)) {
+                $path = $file[0]->download_link;
+            }
+            else {
+                if ($image != '[]') {
+                    $path = $image;
+                }
+            }
         }
         catch (\Exception $exception) {
-            $path = $image;
+
         }
 
-        if ($storage) {
+        if ($storage && !empty($path)) {
             return Voyager::image($path);
         }
         return $path;

@@ -9,20 +9,13 @@
 
     <div class="user-nav">
         @guest
-            <li class="user-nav-item">
-
-                <a class="user-nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
-            @if (Route::has('register'))
-                <li class="user-nav-item">
-                    <a class="user-nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @endif
+            <a class="user-nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         @else
 
             <a class="user-nav-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+               if (confirm('Ви дійсно бажаєте вийти?'))
+                document.getElementById('logout-form').submit();">
                 {{-- Auth::user()->name --}}
                 <svg><use xlink:href="#user"></use></svg>
             </a>

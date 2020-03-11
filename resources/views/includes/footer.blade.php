@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-logo">
         <div class="footer-logo-img">
-            <img src="{{ Storage::disk(config('voyager.storage.disk'))->url(setting('site.logo')) }}" alt="">
+            <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
         </div>
         <div class="footer-logo-text">
             <p class="university">{{ setting('site.university-name') }}</p>
