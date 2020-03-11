@@ -16,6 +16,9 @@ header
         padding: 0 get-vw(70px)
     +mediaSize(1200)
         padding: 0 get-vw(70px)
+    +mediaSize(1024)
+        padding: 5px 50px
+
 
 header.scrolled
     box-shadow: 0 3px 10px rgba(0,0,0,.15)
@@ -34,6 +37,10 @@ header.scrolled
         width: get-vw(100px)
         height: get-vw(70px)
         margin-right: get-vw(40px)
+    +mediaSize(1024)
+        width: 80px
+        height: 70px
+        margin-right: auto
 
 .logo-wrap img
     width: 100%
@@ -45,6 +52,8 @@ header nav
     align-items: center
     justify-content: flex-start
     margin-right: auto
+    +mediaSize(1024)
+        display: none
 
 .nav-item
     position: relative
@@ -117,19 +126,19 @@ header nav
     transform: translate(0, 0)
     opacity: 1
     pointer-events: all
-
-
-.user-nav-item
-    display: flex
-    +mediaSize(desktop)
-        height: get-vw(35px)
-        width: get-vw(30px)
-    +mediaSize(float)
-        height: get-vw(35px)
-        width: get-vw(30px)
-    +mediaSize(1200)
-        height: get-vw(35px)
-        width: get-vw(30px)
+//
+//
+//.user-nav-item
+//    display: flex
+//    +mediaSize(desktop)
+//        height: get-vw(35px)
+//        width: get-vw(30px)
+//    +mediaSize(float)
+//        height: get-vw(35px)
+//        width: get-vw(30px)
+//    +mediaSize(1200)
+//        height: get-vw(35px)
+//        width: get-vw(30px)
 
 
 
