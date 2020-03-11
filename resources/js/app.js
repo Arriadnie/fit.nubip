@@ -167,16 +167,18 @@ window.addEventListener('load', function (e) {
             link.addEventListener('click', function(e) {
 
                 let href = this.getAttribute('data-href');
+                let visibleBlocks = document.querySelectorAll('.active[data-id]');
 
-                document.querySelectorAll('.active[data-id]').forEach((visibleBlock) => {
-                    visibleBlock.classList.remove('active')
-                });
-
-
+                if (visibleBlocks) {
+                    console.log("Visible")
+                    visibleBlocks.forEach((visibleBlock) => {
+                        visibleBlock.classList.remove('active')
+                    });
+                }
                 this.parentElement.classList.add('active');
+                console.log(href);
 
                 document.querySelector(`[data-id="${href}"]`).classList.add('active');
-
             })
         })
     });

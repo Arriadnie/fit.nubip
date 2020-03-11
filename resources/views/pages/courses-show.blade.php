@@ -26,20 +26,20 @@
 
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        <a data-href="ki" href="#ki">Комп'ютерна Інженерія</a>
+                        <a data-href="#ki" href="#ki">Комп'ютерна Інженерія</a>
                     </div>
                 </div>
 
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        <a data-href="kn" href="#kn">Комп'ютерні науки</a>
+                        <a data-href="#kn" href="#kn">Комп'ютерні науки</a>
                     </div>
                 </div>
 
 
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        <a data-href="pi" href="#pi">Програмна інженерія </a>
+                        <a data-href="#pi" href="#pi">Програмна інженерія </a>
                     </div>
                 </div>
 
@@ -51,8 +51,8 @@
                     </div>
 
                     <div class="accordion-body" data-toggle-block="economic">
-                        <a data-href="ek" href="#ek">Економічна кібернетика</a>
-                        <a data-href="de" href="#de">Цифрова економіка</a>
+                        <a data-href="#ek" href="#ek">Економічна кібернетика</a>
+                        <a data-href="#de" href="#de">Цифрова економіка</a>
                     </div>
 
                 </div>
@@ -63,11 +63,12 @@
         </div>
 
         <div class="right-content">
-            <div class="editor-content" data-id="#kn">
-                Computer Science
-            </div>
+
             <div class="editor-content" data-id="#ki">
                 Computer Ingeneering
+            </div>
+            <div class="editor-content" data-id="#kn">
+                Computer Science
             </div>
             <div class="editor-content" data-id="#pi">
                 Program Ingeneering
