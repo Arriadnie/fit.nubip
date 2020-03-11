@@ -28,6 +28,9 @@
     left: -15%
     position: absolute
     background: linear-gradient(90deg, #fff 0, rgba(255,255,255,0) 40%)
+    +mediaSize(1024)
+        left: -5%
+        background: linear-gradient(90deg, #fff 0, rgba(255,255,255,0) 55%)
 
 
 .slide-image img
@@ -46,6 +49,8 @@
     justify-content: center
     align-items: flex-start
     flex-direction: column
+    +mediaSize(1024)
+        width: 65%
 
 .slide-heading
     font-family: $playfair
@@ -56,18 +61,26 @@
     padding-bottom: get-vw(55px)
     font-size: get-vw(70px)
     opacity: 0
+    +mediaSize(1024)
+        font-size: 38px
+        padding-bottom: 35px
 
 .slide-text
     width: 67%
     display: flex
-    line-height: 1.15
+    line-height: 1.2
     font-size: get-vw(20px)
     +letterSpace(50)
     opacity: 0
+    +mediaSize(1024)
+        font-size: 15px
+        line-height: 1.25
 
 .slide-content .main-btn
     margin-top: get-vw(60px)
     opacity: 0
+    +mediaSize(1024)
+        margin-top: 35px
 
 .main-btn
     display: flex

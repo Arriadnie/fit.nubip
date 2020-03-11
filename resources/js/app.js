@@ -163,6 +163,25 @@ window.addEventListener('load', function (e) {
     });
 
     isExist('[data-href]', () => {
+        if (window.location.hash) {
+
+            let hash = window.location.hash;
+            console.log("Hash", hash)
+            if (document.querySelector(`[data-id="${hash}"]`)) {
+                console.log("Must be here")
+                document.querySelector(`[data-id="${hash}"]`).classList.add('active');
+                document.querySelector(`[data-href="${hash}"]`).classList.add('active');
+
+            } else {
+                document.querySelector(`[data-id]`).classList.add('active');
+                document.querySelector(`[data-href]`).classList.add('active');
+            }
+            history.pushState('', '', location.origin + location.pathname);
+        } else {
+            document.querySelector(`[data-id]`).classList.add('active');
+            document.querySelector(`[data-href]`).classList.add('active');
+        }
+
         document.querySelectorAll('[data-href]').forEach((link) => {
             link.addEventListener('click', function(e) {
 
@@ -183,24 +202,7 @@ window.addEventListener('load', function (e) {
         })
     });
 
-    if (window.location.hash) {
 
-        let hash = window.location.hash;
-        console.log("Hash", hash)
-        if (document.querySelector(`[data-id="${hash}"]`)) {
-            console.log("Must be here")
-            document.querySelector(`[data-id="${hash}"]`).classList.add('active');
-            document.querySelector(`[data-href="${hash}"]`).classList.add('active');
-
-        } else {
-            document.querySelector(`[data-id]`).classList.add('active');
-            document.querySelector(`[data-href]`).classList.add('active');
-        }
-        history.pushState('', '', location.origin + location.pathname);
-    } else {
-        document.querySelector(`[data-id]`).classList.add('active');
-        document.querySelector(`[data-href]`).classList.add('active');
-    }
 
 
 });
