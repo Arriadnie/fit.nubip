@@ -9,6 +9,9 @@ footer
     margin-bottom: get-vw(80px)
     +mediaSize(1024)
         margin-bottom: 50px
+    +mediaSize(750)
+        margin-bottom: 30px
+        flex-direction: column
 
 .footer-logo-img
     width: get-vw(125px)
@@ -18,6 +21,16 @@ footer
     +mediaSize(1024)
         width: 9vw
         height: 9vw
+    +mediaSize(750)
+        margin-right: 0
+        width: 15vw
+        height: 15vw
+        max-width: 90px
+        max-height: 90px
+        margin-bottom: 5px
+    +mediaSize(500  )
+        width: 20vw
+        height: 20vw
 
 .footer-logo-img img
     width: 100%
@@ -35,6 +48,9 @@ footer
     margin: get-vw(20px) 0 get-vw(10px)
     +mediaSize(1024)
         font-size: 10px
+        margin: 5px 0
+    +mediaSize(500)
+        font-size: 8px
 
 .footer-logo-text .department
     font-size: get-vw(38px)
@@ -42,12 +58,16 @@ footer
     color: $blue55
     +mediaSize(1024)
         font-size: 20px
+    +mediaSize(500)
+        font-size: 16px
 
 .footer-contacts
     display: flex
     flex-direction: column
     align-items: center
     margin-bottom: get-vw(55px)
+    +mediaSize(1024)
+        margin-bottom: 30px
 
 .contact-list
     display: flex
@@ -55,6 +75,9 @@ footer
     align-items: flex-start
     +mediaSize(1024)
         width: 100%
+    +mediaSize(750)
+        flex-direction: column
+        align-items: center
 
 .contact-item
     display: flex
@@ -65,9 +88,16 @@ footer
     +mediaSize(1024)
         width: 33%
         padding: 0 20px
+    +mediaSize(750)
+        padding: 20px 0
+        width: 65%
+        max-width: 320px
 
 .contact-item + .contact-item
     border-left: 1px solid $blue40
+    +mediaSize(750)
+        border-left: none
+        border-top: 1px solid $blue40
 
 .contact-item .contact-icon
     width: get-vw(35px)
@@ -89,6 +119,12 @@ footer
     +letterSpace(50)
     +mediaSize(1024)
         font-size: 14px
+        text-align: center
+
+.contact-text + .contact-text
+    margin-top: get-vw(5px)
+    +mediaSize(1024)
+        margin-top: 5px
 
 .socials-list
     display: flex
@@ -135,6 +171,8 @@ footer
     padding: get-vw(15px) get-vw(100px)
     +mediaSize(1024)
         padding: 10px 50px
+    +mediaSize(750)
+        padding: 10px 20px
 
 
 .copyright p
@@ -143,4 +181,6 @@ footer
     +letterSpace(50)
     +mediaSize(1024)
         font-size: 12px
+    +mediaSize(1024)
+        font-size: 9px
 
