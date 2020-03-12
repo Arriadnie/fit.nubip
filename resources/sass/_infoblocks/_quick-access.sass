@@ -4,6 +4,9 @@
     margin: get-vw(50px) 0
     padding: 0
     overflow: hidden
+    +mediaSize(1024)
+        margin: 30px 0
+        flex-wrap: wrap
 
 .quick-access-card
     flex-grow: 3
@@ -12,6 +15,11 @@
     position: relative
     min-height: get-vw(430px)
     overflow: hidden
+    +mediaSize(1024)
+        min-height: 30vw
+        flex-basis: auto
+        width: 50%
+        border: 1px solid $blue75
 
 
 .quick-access-card:hover .quick-access-front
@@ -70,6 +78,9 @@
     width: get-vw(75px)
     height: get-vw(75px)
     margin-bottom: get-vw(30px)
+    +mediaSize(1024)
+        width: 7vw
+        height: 7vw
 
 .quick-access-icon img
     width: 100%
@@ -81,6 +92,8 @@
     +letterSpace(100)
     text-align: center
     color: #fff
+    +mediaSize(1024)
+        font-size: 14px
 
 .quick-access-link
     text-align: center
@@ -90,10 +103,14 @@
     font-size: get-vw(22px)
     line-height: 1.2
     font-weight: 400
+    +mediaSize(1024)
+        font-size: 15px
 
 
 .quick-access-link + .quick-access-link
     margin-top: get-vw(20px)
+    +mediaSize(1024)
+        margin-top: 10px
 
 .quick-access-link:before
     content: ''

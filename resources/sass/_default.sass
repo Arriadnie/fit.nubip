@@ -60,9 +60,16 @@ a:-webkit-any-link,
 a.news-slider-item[href]
     text-decoration: none
 
+main
+    overflow: hidden
+
 .container-main
     padding: get-vw(50px) get-vw(125px)
+    +mediaSize(1024)
+        padding: 60px 50px
 
 
 .container-250
     padding: get-vw(50px) get-vw(250px)
+    +mediaSize(1024)
+        padding: 30px 100px

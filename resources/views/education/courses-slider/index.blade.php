@@ -1,5 +1,5 @@
 <div class="container-main">
-    <div class="course-slider-wrap">
+    <div class="courses-home">
         <div class="block-title">
             <p class="block-heading">{{ setting('main-page.courses-slider-title') }}</p>
             <p class="block-subtitle">{{ setting('main-page.courses-slider-subtitle') }}</p>
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="course-slider inner-slider">
+        <div class="courses-home-list">
             @foreach(App\Models\Education\EducationProgram::getForMainSlider() as $program)
                 @include('education.courses-slider.item', [
                     'program' => $program

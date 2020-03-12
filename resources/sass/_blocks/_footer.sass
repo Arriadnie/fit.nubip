@@ -7,12 +7,17 @@ footer
     align-items: center
     justify-content: center
     margin-bottom: get-vw(80px)
+    +mediaSize(1024)
+        margin-bottom: 50px
 
 .footer-logo-img
     width: get-vw(125px)
     height: get-vw(100px)
     display: flex
     margin-right: get-vw(30px)
+    +mediaSize(1024)
+        width: 9vw
+        height: 9vw
 
 .footer-logo-img img
     width: 100%
@@ -28,11 +33,15 @@ footer
     +letterSpace(50)
     color: $blue55
     margin: get-vw(20px) 0 get-vw(10px)
+    +mediaSize(1024)
+        font-size: 10px
 
 .footer-logo-text .department
     font-size: get-vw(38px)
     +letterSpace(50)
     color: $blue55
+    +mediaSize(1024)
+        font-size: 20px
 
 .footer-contacts
     display: flex
@@ -44,14 +53,18 @@ footer
     display: flex
     justify-content: center
     align-items: flex-start
+    +mediaSize(1024)
+        width: 100%
 
 .contact-item
     display: flex
     flex-direction: column
     align-items: center
     padding: 0 get-vw(50px)
-
     width: get-vw(450px)
+    +mediaSize(1024)
+        width: 33%
+        padding: 0 20px
 
 .contact-item + .contact-item
     border-left: 1px solid $blue40
@@ -63,6 +76,10 @@ footer
     justify-content: center
     align-items: center
     margin-bottom: get-vw(30px)
+    +mediaSize(1024)
+        width: 25px
+        height: 25px
+        margin-bottom: 20px
 
 .contact-icon svg
     fill: $blue55
@@ -70,6 +87,8 @@ footer
 .contact-text
     font-size: get-vw(21px)
     +letterSpace(50)
+    +mediaSize(1024)
+        font-size: 14px
 
 .socials-list
     display: flex
@@ -87,28 +106,41 @@ footer
     align-items: center
     transition: 0.3s ease
     opacity: 0.7
+    +mediaSize(1024)
+        opacity: 0.8
+        height: 40px
+        width: 40px
 
 .socials-list a:hover
     opacity: 1
 
 .socials-list a + a
     margin-left: get-vw(25px)
+    +mediaSize(1024)
+        margin-left: 15px
 
 .socials-list a img
     fill: #fff
     display: flex
     width: get-vw(30px)
     height: get-vw(30px)
+    +mediaSize(1024)
+        width: 20px
+        height: 20px
 
 .copyright
     display: flex
     justify-content: space-between
     background: #3d3d3d
     padding: get-vw(15px) get-vw(100px)
+    +mediaSize(1024)
+        padding: 10px 50px
 
 
 .copyright p
     color: #fff
     font-size: get-vw(15px)
     +letterSpace(50)
+    +mediaSize(1024)
+        font-size: 12px
 
