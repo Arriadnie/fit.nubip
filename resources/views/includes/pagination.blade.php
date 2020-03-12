@@ -1,3 +1,3 @@
 <div class="pagination-wrap">
-    <a href="#" class="main-btn">Показати ще</a>
+    <a class="main-btn" onclick="showMoreClick(event)">Показати ще</a>
 </div>
