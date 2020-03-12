@@ -11,8 +11,12 @@
 .home-page .news-item
     +mediaSize(1024)
         width: 42vw
-        min-width: 42vw
+        flex-shrink: 0
         margin-bottom: 15px
+    +mediaSize(750)
+        max-width: 360px
+        width: 82vw
+        margin-right: 12px
 
 .news-image
     display: flex
@@ -20,6 +24,9 @@
     height: get-vw(360px)
     +mediaSize(1024)
         height: 27vw
+    +mediaSize(750)
+        height: 58vw
+        max-height: 230px
 
 .news-image img
     height: 100%
@@ -88,6 +95,9 @@
         font-size: 12px
         margin-top: 10px
         margin-bottom: 15px
+    +mediaSize(750)
+        margin-bottom: 20px
+        margin-top: 15px
 
 .main-btn.light
     background: $transparent
@@ -198,11 +208,17 @@
         margin-right: -50px
         flex-wrap: nowrap
         //+scrollbarThin
+    +mediaSize(750)
+        width: calc(100% + 40px)
+        margin: 20px -20px
 
 .news-wrapper:before,
 .news-wrapper:after
-    content: ''
-    min-width: 50px
+    +mediaSize(1024)
+        content: ''
+        min-width: 50px
+    +mediaSize(750)
+        min-width: 20px
 
 
 .news-item:nth-child(3n+1)
@@ -226,6 +242,9 @@
     +mediaSize(1024)
         font-size: 26px
         padding-bottom: 20px
+    +mediaSize(750)
+        font-size: 22px
+        padding-bottom: 15px
 
 .block-subtitle
     font-size: get-vw(20px)
@@ -233,6 +252,9 @@
     padding-bottom: 10px
     +mediaSize(1024)
         font-size: 14px
+    +mediaSize(750)
+        font-size: 12px
+        text-align: center
 
 .block-title-decor
     display: flex
@@ -250,6 +272,9 @@
         margin: 0 15px
         width: 40px
         height: 35px
+    +mediaSize(750)
+        width: 30px
+        height: 30px
 
 .block-title-decor .line
     width: get-vw(220px)
@@ -258,6 +283,11 @@
     +mediaSize(1024)
         height: 2px
         width: 200px
+    +mediaSize(750)
+        height: 1px
+        width: 150px
+    +mediaSize(450)
+        width: 110px
 
 .news-category
     display: flex

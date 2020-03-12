@@ -1,23 +1,40 @@
 .students-wrap
     display: flex
     align-items: center
-
     padding: get-vw(50px) 0
+    +mediaSize(1024)
+        flex-direction: column-reverse
+        padding: 0
 
 .students-images
     width: get-vw(700px)
     display: flex
     justify-content: space-between
     flex-shrink: 0
+    +mediaSize(1024)
+        width: 75%
+        max-width: 600px
+    +mediaSize(750)
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 100%
 
 
 .students-images-column
     display: flex
     flex-direction: column
     width: get-vw(330px)
+    +mediaSize(1024)
+        width: 46%
+    +mediaSize(750)
+        width: 90%
+        max-width: 310px
 
 .students-images-column + .students-images-column
     margin-top: get-vw(40px)
+    +mediaSize(1024)
+        margin-top: 30px
 
 .students-images-item
     width: 100%
@@ -26,9 +43,17 @@
     overflow: hidden
     position: relative
     display: flex
+    +mediaSize(1024)
+        height: 27vw
+        max-height: 270px
+    +mediaSize(750)
+        height: 75vw
+        border-radius: 10px
 
 .students-images-item + .students-images-item
     margin-top: get-vw(40px)
+    +mediaSize(1024)
+        margin-top: 30px
 
 .students-images-item img
     width: 100%
@@ -55,6 +80,10 @@
     justify-content: flex-end
     padding: get-vw(10px) get-vw(45px)
     background: linear-gradient(180deg, rgba(#3EA1D2, 0.7) 0, rgba(#000439, 0.4) 70%)
+    +mediaSize(1024)
+        padding: 15px
+        opacity: 1
+        background: linear-gradient(180deg, rgba(#3EA1D2, 0.4) 0, rgba(#000439, 0.5) 70%)
 
 .student-content .student-name
     font-size: get-vw(21px)
@@ -63,6 +92,11 @@
     color: #fff
     +letterSpace(50)
     padding-bottom: get-vw(10px)
+    +mediaSize(1024)
+        font-size: 12px
+        padding-bottom: 5px
+    +mediaSize(750)
+        font-size: 14px
 
 .student-content .student-department
     line-height: 1.33
@@ -71,17 +105,34 @@
     text-align: center
     color: #fff
     +letterSpace(50)
+    +mediaSize(1024)
+        font-size: 9px
+    +mediaSize(750)
+        font-size: 11px
 
 .students-text .students-description
     font-size: get-vw(20px)
     line-height: 1.59
     color: $blue75
+    +mediaSize(1024)
+        font-size: 12px
+        text-align: center
+    +mediaSize(750)
+        font-size: 14px
 
 .students-text .main-btn
     margin-top: get-vw(60px)
+    +mediaSize(1024)
+        margin-top: 25px
 
 .students-text
     align-items: flex-start
     flex-direction: column
     display: flex
     padding-left: get-vw(90px)
+    +mediaSize(1024)
+        padding-left: 0
+        align-items: center
+        margin-bottom: 40px
+        width: 100%
+        max-width: 630px
