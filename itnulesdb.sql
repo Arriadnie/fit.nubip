@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Бер 12 2020 р., 01:19
+-- Час створення: Трв 09 2020 р., 17:09
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -289,7 +289,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2019-09-04 16:52:48', '2019-09-04 16:52:48'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'App\\Models\\Posts\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-01-19 16:49:15'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'App\\Models\\Posts\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', 'App\\Http\\Controllers\\Posts\\PostController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-01-19 17:32:40'),
-(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-02-12 18:28:29'),
+(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'App\\Models\\Pages\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-03-28 10:23:00'),
 (8, 'infoblock_types', 'infoblock-types', 'Infoblock Type', 'Infoblock Types', 'voyager-belt', 'App\\Models\\Infoblocks\\InfoblockType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-22 19:07:45', '2020-02-10 19:33:37'),
 (9, 'infoblocks', 'infoblocks', 'Infoblock', 'Infoblocks', NULL, 'App\\Models\\Infoblocks\\Infoblock', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-29 17:14:12', '2020-02-18 20:50:45'),
 (10, 'infoblock_items', 'infoblock-items', 'Infoblock Item', 'Infoblock Items', NULL, 'App\\Models\\Infoblocks\\InfoblockItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"title\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 14:18:22', '2020-02-18 20:56:50'),
@@ -429,8 +429,8 @@ CREATE TABLE `gallery_images` (
 --
 
 INSERT INTO `gallery_images` (`id`, `gallery_id`, `image`, `caption`, `order`, `created_at`, `updated_at`) VALUES
-(1, 1, 'gallery-images\\February2020\\pEfOURHazK4fVmWank06.jpg', '1', 1, '2020-02-18 19:44:26', '2020-02-18 19:44:47'),
-(2, 1, 'gallery-images\\February2020\\xouDymoKrMCpUNeTWf7B.jpg', '2', 2, '2020-02-18 19:59:41', '2020-02-18 19:59:51'),
+(1, 1, 'gallery-images\\February2020\\pEfOURHazK4fVmWank06.jpg', '1', 1, '2020-02-18 19:44:26', '2020-03-28 12:27:10'),
+(2, 1, 'gallery-images\\February2020\\xouDymoKrMCpUNeTWf7B.jpg', '2', 2, '2020-02-18 19:59:41', '2020-03-28 12:27:10'),
 (3, 1, 'gallery-images\\February2020\\DxVMO34Mxi1mfGM5TNON.jpg', '3', 3, '2020-02-18 20:07:14', '2020-02-18 20:23:17'),
 (4, 1, 'gallery-images\\February2020\\rbzUczjSNgbfMemube1C.jpg', '4', 4, '2020-02-18 20:12:42', '2020-02-18 20:23:17');
 
@@ -508,8 +508,8 @@ INSERT INTO `infoblock_items` (`id`, `infoblock_id`, `title`, `sub_title`, `imag
 (20, 3, 'Міжнародна', NULL, '[]', NULL, NULL, NULL, 2, '2020-02-09 12:31:00', '2020-02-09 12:31:55', 13),
 (21, 3, 'Культура', NULL, '[]', NULL, NULL, NULL, 3, '2020-02-09 12:31:00', '2020-02-09 12:31:55', 13),
 (22, 3, 'Школа програмування', NULL, '[]', NULL, NULL, NULL, 4, '2020-02-09 12:31:00', '2020-02-09 12:31:57', 13),
-(23, 3, 'Навчальні програми', NULL, '[]', NULL, NULL, NULL, 1, '2020-02-09 12:32:00', '2020-02-09 12:33:39', 14),
-(24, 3, 'Кафедри', NULL, '[]', NULL, NULL, NULL, 2, '2020-02-09 12:33:00', '2020-02-09 12:33:40', 14),
+(23, 3, 'Навчальні програми', NULL, '[]', NULL, 'education/courses', NULL, 1, '2020-02-09 12:32:00', '2020-03-12 19:49:55', 14),
+(24, 3, 'Кафедри', NULL, '[]', NULL, 'departments', NULL, 2, '2020-02-09 12:33:00', '2020-03-12 19:24:47', 14),
 (25, 3, 'Адміністрація', NULL, '[]', NULL, NULL, NULL, 3, '2020-02-09 12:33:00', '2020-02-09 12:33:41', 14),
 (26, 3, 'Студентська рада', NULL, '[]', NULL, NULL, NULL, 4, '2020-02-09 12:33:00', '2020-02-09 12:33:42', 14),
 (27, 3, 'Ресурси', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\NneXkskJLEsFdBXvbyE5.svg\",\"original_name\":\"book.svg\"}]', NULL, NULL, NULL, 4, '2020-02-09 12:34:00', '2020-02-09 12:35:39', NULL),
@@ -524,8 +524,8 @@ INSERT INTO `infoblock_items` (`id`, `infoblock_id`, `title`, `sub_title`, `imag
 (43, 8, 'Кафедра інформаційних систем', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\GNvohomVc3JJYG82P8dd.jpg\",\"original_name\":\"department2.jpg\"}]', 'Детальніше', 'kafedra-informacijnih-sistem', NULL, 2, '2020-02-10 18:49:00', '2020-02-16 18:14:53', NULL),
 (44, 8, 'Кафедра економічної кібернетики', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\XnBpNZ6OgX4OitEgjQfY.jpg\",\"original_name\":\"department3.jpg\"}]', NULL, NULL, NULL, 3, '2020-02-10 18:50:00', '2020-02-18 20:22:55', NULL),
 (45, 8, 'Кафедра комп\'ютених наук', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\Ch4Ek4S31FS9VQyIlJag.jpg\",\"original_name\":\"department4.jpg\"}]', NULL, NULL, NULL, 4, '2020-02-10 18:50:00', '2020-02-18 20:22:55', NULL),
-(58, 11, '1С', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\wvP33JiVWlR88fVklFma.png\",\"original_name\":\"partner1.png\"}]', NULL, NULL, NULL, 1, '2020-02-18 20:55:00', '2020-03-01 12:58:01', NULL),
-(59, 11, 'Microsoft Imagine', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\eSmNvoc9h9jRtCQ0dck3.png\",\"original_name\":\"partner2.png\"}]', NULL, NULL, NULL, 2, '2020-02-18 20:57:00', '2020-03-01 12:58:01', NULL),
+(58, 11, '1С', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\wvP33JiVWlR88fVklFma.png\",\"original_name\":\"partner1.png\"}]', NULL, NULL, NULL, 1, '2020-02-18 20:55:00', '2020-03-28 12:26:49', NULL),
+(59, 11, 'Microsoft Imagine', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\eSmNvoc9h9jRtCQ0dck3.png\",\"original_name\":\"partner2.png\"}]', NULL, NULL, NULL, 2, '2020-02-18 20:57:00', '2020-03-28 12:26:49', NULL),
 (60, 11, 'Google', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\G4de3ddIwLKcTBIV7l0l.png\",\"original_name\":\"partner3.png\"}]', NULL, NULL, NULL, 3, '2020-02-18 20:57:00', '2020-03-01 12:58:01', NULL),
 (61, 11, 'Cisco', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\71OMKoiEMRuRZ8S2MSWI.png\",\"original_name\":\"partner4.png\"}]', NULL, NULL, NULL, 4, '2020-02-18 20:57:00', '2020-03-01 12:58:01', NULL),
 (62, 11, 'Google2', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\mhVmkMWoj83vuDDyGPls.png\",\"original_name\":\"partner3.png\"}]', NULL, NULL, NULL, 5, '2020-02-18 21:00:00', '2020-03-01 12:58:01', NULL),
@@ -635,7 +635,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (29, 4, 'Про факультет', '', '_self', NULL, '#000000', NULL, 1, '2020-02-02 16:54:18', '2020-02-05 06:30:50', NULL, ''),
 (30, 4, 'Вступнику', '', '_self', NULL, '#000000', NULL, 2, '2020-02-02 16:55:00', '2020-02-05 06:30:50', NULL, ''),
 (31, 4, 'Правила прийому', '', '_self', NULL, '#000000', 30, 1, '2020-02-02 16:57:01', '2020-02-05 06:30:50', NULL, ''),
-(32, 4, 'Напрямки навчання', '', '_self', NULL, '#000000', 30, 2, '2020-02-02 16:57:08', '2020-02-05 06:30:50', NULL, ''),
+(32, 4, 'Напрямки навчання', 'education/courses/bakalavr', '_self', NULL, '#000000', 30, 2, '2020-02-02 16:57:08', '2020-03-12 19:50:48', NULL, ''),
 (33, 4, 'Випускникам шкіл', '', '_self', NULL, '#000000', 30, 3, '2020-02-02 16:57:18', '2020-02-05 06:30:50', NULL, ''),
 (34, 4, 'Випускникам коледжів', '', '_self', NULL, '#000000', 30, 4, '2020-02-02 16:57:27', '2020-02-05 06:30:50', NULL, ''),
 (35, 4, 'Магістратура', '', '_self', NULL, '#000000', 30, 5, '2020-02-02 16:57:37', '2020-02-05 06:30:50', NULL, ''),
@@ -645,7 +645,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (39, 4, 'Школа спотривного програмування', '', '_self', NULL, '#000000', 36, 3, '2020-02-02 16:58:28', '2020-02-02 16:58:38', NULL, ''),
 (40, 4, 'Адміністрація', '', '_self', NULL, '#000000', NULL, 4, '2020-02-02 16:58:45', '2020-02-05 06:30:50', NULL, ''),
 (41, 4, 'Студентська організація', '', '_self', NULL, '#000000', NULL, 5, '2020-02-02 16:58:54', '2020-02-05 06:30:50', NULL, ''),
-(42, 4, 'Наші студенти', 'students', '_self', 'Наші студенти', '#000000', NULL, 6, '2020-02-02 16:59:02', '2020-02-10 19:41:28', NULL, ''),
+(42, 4, 'Наші випускники', 'nashi-vipuskniki', '_self', 'Наші студенти', '#000000', NULL, 6, '2020-02-02 16:59:02', '2020-03-11 20:48:56', NULL, ''),
 (43, 4, 'Новини', '', '_self', NULL, '#000000', NULL, 7, '2020-02-02 16:59:53', '2020-02-05 06:30:50', 'posts', NULL),
 (44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 3, '2020-02-11 21:05:30', '2020-02-12 17:54:49', 'voyager.people-infos.index', 'null'),
 (45, 1, 'Користувачі', '', '_self', 'voyager-person', '#000000', NULL, 2, '2020-02-12 17:52:32', '2020-02-12 17:52:44', NULL, ''),
@@ -1372,7 +1372,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (145, 'infoblock_items', 'title', 45, 'en', 'Кафедра комп\'ютених наук', '2020-02-10 18:50:42', '2020-02-10 18:50:42'),
 (146, 'infoblocks', 'title', 8, 'en', 'КАФЕДРИ ФАКУЛЬТЕТУ', '2020-02-10 19:23:32', '2020-02-10 19:23:32'),
 (147, 'infoblocks', 'sub_title', 8, 'en', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dolorum inve', '2020-02-10 19:23:32', '2020-02-10 19:23:32'),
-(148, 'menu_items', 'title', 42, 'en', 'Наші студенти', '2020-02-10 19:38:55', '2020-02-10 19:38:55'),
+(148, 'menu_items', 'title', 42, 'en', 'Наші випускники', '2020-02-10 19:38:55', '2020-03-11 20:48:56'),
 (149, 'pages', 'title', 2, 'en', 'Кафедра інформаційних систем', '2020-02-11 18:54:45', '2020-02-11 18:54:45'),
 (150, 'pages', 'slug', 2, 'en', 'kafedra-informacijnih-sistem', '2020-02-11 18:54:45', '2020-02-11 18:54:45'),
 (151, 'pages', 'body', 2, 'en', '<p>Кафедра інформаційних систем створена в 1997р. Основною метою діяльності кафедри є підготовка спеціалістів, які забезпечують розробку і впровадження інформаційних систем та комп&rsquo;ютерних технологій в агропромисловому комплексі. Кафедра веде підготовку студентів факультету інформаційних технологій, економічного факультету, факультету аграрного менеджменту та навчально-наукового інституту післядипломної освіти.</p>\n<p>&nbsp;</p>\n<p>На кафедрі постійно йде процес поліпшення матеріальної, навчальної і методичної бази, започатковуються нові дисципліни, які відповідають сучасним вимогам. Ще в кінці 90-х років, першою серед аграрних вищих навчальних закладів України, кафедра запровадила елементи дистанційного навчання у навчальний процес. При цьому активно проводились семінари різного рівня, створювались електронні навчальні посібники, велась просвітницька діяльність по впровадженню дистанційного навчання як ефективного напрямку більш повної реалізації прав громадян на освіту. Кафедра інформаційних систем першою адаптувала на українську мову міжнародну систему дистанційного навчання Moodle, яка нині ефективно використовується університетом у навчальному процесі.</p>', '2020-02-11 18:54:45', '2020-02-11 18:54:45'),
@@ -1506,7 +1506,8 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (294, 'data_rows', 'display_name', 168, 'en', 'Updated At', '2020-03-02 19:40:36', '2020-03-02 19:40:36'),
 (295, 'data_rows', 'display_name', 169, 'en', 'people_infos', '2020-03-02 19:40:36', '2020-03-02 19:40:36'),
 (296, 'data_types', 'display_name_singular', 19, 'en', 'Група інформації користувачів', '2020-03-02 19:40:36', '2020-03-02 19:40:36'),
-(297, 'data_types', 'display_name_plural', 19, 'en', 'Групи інформації користувачів', '2020-03-02 19:40:36', '2020-03-02 19:40:36');
+(297, 'data_types', 'display_name_plural', 19, 'en', 'Групи інформації користувачів', '2020-03-02 19:40:36', '2020-03-02 19:40:36'),
+(298, 'menu_items', 'title', 32, 'en', 'Напрямки навчання', '2020-03-12 19:49:32', '2020-03-12 19:49:32');
 
 -- --------------------------------------------------------
 
@@ -1533,7 +1534,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Vladik', 'vlad_litvinchyk@ukr.net', 'users\\September2019\\z7GQprZL9YmCcBCfjtDs.jpg', NULL, '$2y$10$ZRI6UAP4smD./WSd9s/1AuDaS.VjTqW8H1qpFzKTpG6livqhzoTVG', 'sO1nMj9KdWSIgG9bEXUrTlfdua21dIIqDk9PS4ffIH5mF8eHAyr5jB848LZK', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-01-10 17:38:03'),
+(1, 1, 'Vladik', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ZRI6UAP4smD./WSd9s/1AuDaS.VjTqW8H1qpFzKTpG6livqhzoTVG', 'sO1nMj9KdWSIgG9bEXUrTlfdua21dIIqDk9PS4ffIH5mF8eHAyr5jB848LZK', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-04-29 17:41:21'),
 (3, 3, 'Вася', 'vasya@gmail.com', 'users/default.png', NULL, '$2y$10$iB2zkw.BDKYJQMdosF4diuUGgHw1kt/4fIgl0St7YbdQzd13Cdi4u', NULL, '{\"locale\":\"uk\"}', '2019-09-05 03:44:16', '2020-01-14 19:17:45'),
 (4, 2, 'Lytvynchuk Vladyslav Grygorovuch', 'vlad.litvinchyk@gmail.com', 'users/default.png', NULL, '$2y$10$NHOhIpVaiWEvGgO6p3t0EOl/ZnZNfXrQcqFIi7kla3ChCGg2UvejG', NULL, NULL, '2020-03-11 19:40:28', '2020-03-11 19:40:28');
 
@@ -1766,7 +1767,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
@@ -1868,7 +1869,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблиці `roles`
@@ -1892,7 +1893,7 @@ ALTER TABLE `social_networks`
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- AUTO_INCREMENT для таблиці `users`

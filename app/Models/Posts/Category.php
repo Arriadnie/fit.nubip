@@ -8,7 +8,7 @@ use TCG\Voyager\Facades\Voyager;
 
 class Category extends \TCG\Voyager\Models\Category
 {
-
+    protected $translatable = ['name'];
 
     public function scopeFirstLevel(Builder $query)
     {

@@ -27,7 +27,9 @@ class CreateInfoblocksTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('type_id')->references('id')->on('infoblock_types')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('type_id')
+                ->references('id')->on('infoblock_types')
+                ->onUpdate('cascade')->onDelete('set null');
         });
     }
 

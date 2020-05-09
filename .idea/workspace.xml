@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b28cd9d-4ba2-423a-a848-1974051311c1" name="Default Changelist" comment="fix bug after test commit">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/laravellocalization.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/uk/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posts/includes/post-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WithItemsBase/BaseItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WithItemsBase/BaseItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Infoblocks/Infoblock.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Infoblocks/Infoblock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Infoblocks/InfoblockItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Infoblocks/InfoblockItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Pages/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Pages/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Posts/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Posts/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Posts/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Posts/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/voyager.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/voyager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_24_155807_create_infoblocks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_24_155807_create_infoblocks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/settings/January2020/IuMp03qvJ8yC86UiwUx2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/settings/March2020/lVQ7J8o7y58UyD7MoEqE.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/includes/card-collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/includes/card-collection.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/includes/categorySelect.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/includes/postCard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/base-with-items/browse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/base-with-items/browse.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/base-with-items/builder.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/voyager/base-with-items/builder.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/voyager/posts/edit-add_for_delete.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/arrilot/laravel-widgets" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/larapack/hooks" />
+      <path value="$PROJECT_DIR$/vendor/larapack/voyager-hooks" />
+      <path value="$PROJECT_DIR$/vendor/larapack/doctrine-support" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/tcg/voyager" />
+      <path value="$PROJECT_DIR$/vendor/webwizo/laravel-shortcodes" />
+      <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1WAaSBjG7PLx0yqXmTaJEWJjmiD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\lang" />
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\lang\en" />
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\views\posts\includes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OpenServer\domains\itnules.ua\app\Providers" />
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\views\vendor\voyager\infoblocks\partial" />
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\views\vendor\voyager\base-with-items" />
+      <recent name="E:\OpenServer\domains\itnules.ua\resources\views\posts\includes" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.watch">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+    <configuration name="watch" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b28cd9d-4ba2-423a-a848-1974051311c1" name="Default Changelist" comment="" />
+      <created>1578594851795</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578594851795</updated>
+      <workItem from="1578594859219" duration="81000" />
+      <workItem from="1578594991242" duration="854000" />
+      <workItem from="1578596125892" duration="7934000" />
+      <workItem from="1578680770650" duration="9115000" />
+      <workItem from="1578840739332" duration="1965000" />
+      <workItem from="1578937699820" duration="7015000" />
+      <workItem from="1579025246527" duration="7178000" />
+      <workItem from="1579113290601" duration="2349000" />
+      <workItem from="1579195996375" duration="7859000" />
+      <workItem from="1579450882545" duration="13939000" />
+      <workItem from="1579715899987" duration="6091000" />
+      <workItem from="1579808695980" duration="948000" />
+      <workItem from="1579880537026" duration="1965000" />
+      <workItem from="1580313886059" duration="7890000" />
+      <workItem from="1580399504976" duration="10612000" />
+      <workItem from="1580410696729" duration="9864000" />
+      <workItem from="1580658203775" duration="11719000" />
+      <workItem from="1580799835218" duration="7312000" />
+      <workItem from="1580845818275" duration="7882000" />
+      <workItem from="1580885214540" duration="10021000" />
+      <workItem from="1580933531079" duration="5584000" />
+      <workItem from="1581020239550" duration="7109000" />
+      <workItem from="1581064027410" duration="20291000" />
+      <workItem from="1581251477526" duration="12146000" />
+      <workItem from="1581361069057" duration="10502000" />
+      <workItem from="1581415770098" duration="11228000" />
+      <workItem from="1581532903759" duration="14167000" />
+      <workItem from="1581874798763" duration="13563000" />
+      <workItem from="1581966501632" duration="1280000" />
+      <workItem from="1582052631636" duration="14716000" />
+      <workItem from="1582142891371" duration="1344000" />
+      <workItem from="1582729156970" duration="125000" />
+      <workItem from="1582813064899" duration="6335000" />
+      <workItem from="1582892181403" duration="15223000" />
+      <workItem from="1583174782149" duration="12208000" />
+      <workItem from="1583219058519" duration="7286000" />
+      <workItem from="1583348546892" duration="2273000" />
+      <workItem from="1583396684104" duration="1388000" />
+      <workItem from="1583437833805" duration="5841000" />
+      <workItem from="1583754662391" duration="964000" />
+      <workItem from="1583877875296" duration="1081000" />
+      <workItem from="1583959073925" duration="6542000" />
+      <workItem from="1584046279415" duration="9983000" />
+      <workItem from="1584195557006" duration="22000" />
+      <workItem from="1584205982608" duration="2110000" />
+      <workItem from="1584303178432" duration="2155000" />
+      <workItem from="1584390526454" duration="2350000" />
+      <workItem from="1584556859026" duration="1519000" />
+      <workItem from="1584651461220" duration="3805000" />
+      <workItem from="1584732967967" duration="1897000" />
+      <workItem from="1584783923798" duration="5749000" />
+      <workItem from="1584888211918" duration="1807000" />
+      <workItem from="1585071009795" duration="1401000" />
+      <workItem from="1585157143537" duration="6659000" />
+      <workItem from="1585247522157" duration="2300000" />
+      <workItem from="1585394305788" duration="14116000" />
+      <workItem from="1585420641995" duration="259000" />
+      <workItem from="1587408657395" duration="4271000" />
+      <workItem from="1587569573884" duration="1584000" />
+      <workItem from="1587662633980" duration="318000" />
+      <workItem from="1588188373323" duration="913000" />
+      <workItem from="1588414108330" duration="1762000" />
+      <workItem from="1588792205336" duration="6944000" />
+      <workItem from="1588843820094" duration="3025000" />
+      <workItem from="1588968472150" duration="2482000" />
+      <workItem from="1589033049846" duration="264000" />
+    </task>
+    <task id="LOCAL-00001" summary="Test commit">
+      <created>1580403902166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580403902166</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix bug after test commit">
+      <created>1580407998974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580407998974</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix bug after test commit">
+      <created>1580410196315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580410196315</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix bug after test commit">
+      <created>1580411155048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580411155048</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix bug after test commit">
+      <created>1580414842571</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580414842571</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix bug after test commit">
+      <created>1580420521011</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580420521011</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix news and add slider on main page">
+      <created>1580421796550</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580421796550</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add contacts and social network from db">
+      <created>1580664578715</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580664578715</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Footer and moved header nav to db">
+      <created>1580673730507</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580673730507</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add categories on posts page">
+      <created>1580800465771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580800465771</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add ajax test for posts load">
+      <created>1580806686789</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580806686789</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add post collection">
+      <created>1580846002424</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1580846002424</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add many posts to db, and ajax categories posts filter">
+      <created>1580850225388</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1580850225388</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add many posts to db, and ajax categories posts filter">
+      <created>1580850280926</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1580850280926</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix bug after test commit">
+      <created>1581186605426</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1581186605426</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add some infoblocks from static to db">
+      <created>1581259651750</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1581259651751</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add courses and statistic infoblocks">
+      <created>1581262962328</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1581262962328</updated>
+    </task>
+    <task id="LOCAL-00018" summary="For pull">
+      <created>1581363024104</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1581363024104</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add shortcodes">
+      <created>1581454735963</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1581454735963</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add people info (model, migration, shortcode)&#10;Add icons">
+      <created>1581463444358</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1581463444358</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Some change on shortcodes">
+      <created>1581536879201</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1581536879201</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Move some pages to db">
+      <created>1581541157907</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1581541157907</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add base with items, galleries">
+      <created>1582067279155</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1582067279155</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix bug after test commit">
+      <created>1583189340904</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1583189340904</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix bug after test commit">
+      <created>1583964821707</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1583964821707</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix bug after test commit">
+      <created>1583964977475</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1583964977475</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix bug after test commit">
+      <created>1583965072544</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1583965072544</updated>
+    </task>
+    <task id="LOCAL-00028" summary="sql">
+      <created>1583965358429</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1583965358429</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix bug after test commit">
+      <created>1583966283788</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1583966283788</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix bug after test commit">
+      <created>1583966406247</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1583966406247</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Posts pagination">
+      <created>1584056733256</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1584056733257</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="Fix news and add slider on main page" />
+    <MESSAGE value="Add contacts and social network from db" />
+    <MESSAGE value="Footer and moved header nav to db" />
+    <MESSAGE value="add categories on posts page" />
+    <MESSAGE value="Add ajax test for posts load" />
+    <MESSAGE value="Add post collection" />
+    <MESSAGE value="Add many posts to db, and ajax categories posts filter" />
+    <MESSAGE value="Add some infoblocks from static to db" />
+    <MESSAGE value="Add courses and statistic infoblocks" />
+    <MESSAGE value="For pull" />
+    <MESSAGE value="Add shortcodes" />
+    <MESSAGE value="Add people info (model, migration, shortcode)&#10;Add icons" />
+    <MESSAGE value="Some change on shortcodes" />
+    <MESSAGE value="Move some pages to db" />
+    <MESSAGE value="Add base with items, galleries" />
+    <MESSAGE value="sql" />
+    <MESSAGE value="fix bug after test commit" />
+    <MESSAGE value="Posts pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Posts pagination" />
+  </component>
+</project>

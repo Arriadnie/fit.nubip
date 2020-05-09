@@ -15,7 +15,7 @@ class Infoblock extends Model
         Linkable;
 
     protected $image_column = 'image';
-    protected $translatable = ['title', 'sub_title', 'button_title', 'button_link'];
+    protected $translatable = ['title', 'sub_title', 'button_title', 'body'];
 
 
     public function items()

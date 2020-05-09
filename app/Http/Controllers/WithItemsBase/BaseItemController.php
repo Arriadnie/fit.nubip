@@ -58,7 +58,7 @@ class BaseItemController extends VoyagerBaseController
         $parentConf = static::getParentConfig($dataType);
         if ($parentConf['parentDataTypeSlug']) {
             return redirect()
-                ->route("voyager." . $parentConf['parentDataTypeSlug'] . ".builder", ['id' => $data[$parentConf['column']]])
+                ->route("voyager." . $parentConf['parentDataTypeSlug'] . ".builder", ['master' => $data[$parentConf['column']]])
                 ->with([
                     'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',

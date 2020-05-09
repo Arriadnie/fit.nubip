@@ -11,6 +11,8 @@ class Post extends \TCG\Voyager\Models\Post
     public function save(array $options = [])
     {
         parent::save();
+
+        $posts = Post::all();
     }
 
     /*public function categories()
