@@ -73,6 +73,11 @@
 
 label
     display: flex
+    flex-direction: column
+
+label span
+    margin-top: get-vw(5px)
+    color: #970000
 
 input,
 input::placeholder
@@ -99,10 +104,18 @@ input
 
 .form-bottom
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: center
     width: 100%
     margin-top: get-vw(60px)
+
+.form-bottom div
+    display: flex
+    align-items: center
+    justify-content: center
+
+    margin-bottom: get-vw(10px)
 
 
 .form-bottom p

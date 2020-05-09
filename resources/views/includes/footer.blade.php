@@ -50,7 +50,7 @@
 
     <div class="copyright">
         <p>@ {{ date('Y') }} All rights reserved</p>
-        <p>Created by Altair</p>
+        <p>Created by Zirael</p>
     </div>
 
 </footer>

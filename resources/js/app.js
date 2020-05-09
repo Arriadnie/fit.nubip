@@ -131,7 +131,7 @@ window.addEventListener('load', function (e) {
         let btnGoRegister = document.querySelector('.login-page .go-register');
         let decoration = document.querySelector('.auth-image-container');
 
-        let loginForm = document.querySelector('.login-block');
+        let loginForm= document.querySelector('.login-block');
         let registerForm = document.querySelector('.register-block');
 
         let openLogin = new TimelineMax({
@@ -139,14 +139,14 @@ window.addEventListener('load', function (e) {
         });
         openLogin
             .to(decoration, 0.5, {left: '0'})
-            .fromTo(registerForm, 0.4,  {opacity: 1, x: '0%'}, {opacity: 0, x: '10%'}, 0)
-            .fromTo(loginForm, 0.4, {opacity: 0, x: '-10%'}, {opacity: 1, x: '0%'}, 0.3)
+            .fromTo( loginForm, 0.4,  {opacity: 1, x: '0%'}, {opacity: 0, x: '10%'}, 0)
+            .fromTo(registerForm, 0.4, {opacity: 0, x: '-10%'}, {opacity: 1, x: '0%'}, 0.3)
 
-        btnGoLogin.addEventListener('click', function(e) {
+         btnGoRegister.addEventListener('click', function(e) {
             e.preventDefault();
             openLogin.play();
         });
-        btnGoRegister.addEventListener('click', function(e) {
+        btnGoLogin.addEventListener('click', function(e) {
             e.preventDefault();
             openLogin.reverse();
         })
@@ -201,6 +201,7 @@ window.addEventListener('load', function (e) {
             })
         })
     });
+
 
 
 
@@ -269,8 +270,21 @@ function loadAndResize() {
     });
 
     isExist('main', () => {
-        document.querySelector('main').style.paddingTop = headerHeight + 'px';
-        // document.querySelector('main').style.minHeight = window.innerHeight - headerHeight + 'px';
+        let newHeight = headerHeight + document.querySelector('.personal-menu').getBoundingClientRect().height;
+        if (document.querySelector('.personal-menu')) {
+            document.querySelector('main').style.paddingTop = newHeight + 'px';
+            document.querySelector('main').style.minHeight = window.innerHeight  - newHeight + 'px';
+        } else {
+            document.querySelector('main').style.paddingTop = headerHeight + 'px';
+            document.querySelector('main').style.minHeight = window.innerHeight - headerHeight + 'px';
+        }
+
+
+    });
+
+    isExist('.personal-menu', () => {
+        document.querySelector('.personal-menu').style.top = headerHeight + 'px';
+
     })
 
 }
