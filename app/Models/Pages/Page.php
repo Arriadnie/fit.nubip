@@ -13,6 +13,8 @@ class Page extends \TCG\Voyager\Models\Page
     use Imageable;
 
     protected $image_column = 'image';
+    protected $translatable = ['title', 'excerpt', 'body', 'meta_description', 'meta_keywords'];
+
 
     public static function findBySlug($slug) {
         return static::where('slug', $slug)->first();

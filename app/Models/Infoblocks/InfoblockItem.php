@@ -19,7 +19,7 @@ class InfoblockItem extends Model
 
     protected $guarded = [];
 
-    protected $translatable = ['title'/*, 'sub_title', 'body', 'button_title', 'button_link'*/];
+    protected $translatable = ['title', 'sub_title', 'body', 'button_title'];
 
     public function children()
     {

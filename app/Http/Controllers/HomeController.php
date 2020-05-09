@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::getByCategory(1);
+        $posts = Post::getByCategory(1, 0, 6);
         $sliderView = view('posts/includes/card-collection', [
             'posts' => $posts
         ]);

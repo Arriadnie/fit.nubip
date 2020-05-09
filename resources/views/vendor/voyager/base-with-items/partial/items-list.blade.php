@@ -23,10 +23,17 @@
             </div>
             @if($childConf)
                 @if(!$item[$childConf['childItemsProperty']]->isEmpty())
-                    @include('voyager::infoblocks.partial.items-list', [
-                        'items' => $item[$childConf['childItemsProperty']],
-                        'isModelTranslatable' => $isModelTranslatable
-                    ])
+                    @if(view()->exists('voyager::' . $dataType->slug . '.partial.items-list'))
+                        @include('voyager::' . $dataType->slug . '.partial.items-list', [
+                            'items' => $item[$childConf['childItemsProperty']],
+                            'isModelTranslatable' => $isModelTranslatable
+                        ])
+                    @else
+                        @include('voyager::base-with-items.partial.items-list', [
+                            'items' => $item[$childConf['childItemsProperty']],
+                            'isModelTranslatable' => $isModelTranslatable
+                        ])
+                    @endif
                 @endif
             @endif
 

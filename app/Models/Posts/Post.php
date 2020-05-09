@@ -11,6 +11,8 @@ class Post extends \TCG\Voyager\Models\Post
     public function save(array $options = [])
     {
         parent::save();
+
+        $posts = Post::all();
     }
 
     /*public function categories()
@@ -75,8 +77,8 @@ class Post extends \TCG\Voyager\Models\Post
         }
     }
 
-    public static function getByCategory($categoryId) {
-        return static::where('category_id', $categoryId)->last()->get();
+    public static function getByCategory($categoryId, $skip, $take) {
+        return static::where('category_id', $categoryId)->last()->skip($skip)->take($take)->get();
     }
 
 }
