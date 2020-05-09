@@ -172,7 +172,7 @@
                     $m_form_method.val('POST');
                     $m_hd_add.show();
                     $m_hd_edit.hide();
-                   // $m_target.val('_self').change();
+                    // $m_target.val('_self').change();
 
                 } else {
                     $m_form.attr('action', $m_form.data('action-update'));
@@ -203,7 +203,7 @@
              */
             $('.item_actions').on('click', '.delete', function (e) {
                 id = $(e.currentTarget).data('id');
-                $('#delete_form')[0].action = '{{ route('voyager.' . $dataType->slug . '.item.destroy', ['master' => $master->id, 'id' => '']) }}/' + id;
+                $('#delete_form')[0].action = '{{ route('voyager.' . $dataType->slug . '.item.destroy', ['master' => $master->id, 'id' => '__id']) }}'.replace('__id', id);
                 $('#delete_modal').modal('show');
             });
 
