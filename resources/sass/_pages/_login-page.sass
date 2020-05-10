@@ -75,7 +75,7 @@ label
     display: flex
     flex-direction: column
 
-label span
+label span:not(.custom-check)
     margin-top: get-vw(5px)
     color: #970000
 
@@ -98,6 +98,41 @@ input
 
 .auth-block label input:focus
     border-bottom: 1px solid $blue75
+
+.checkbox-label input[type=checkbox]
+    display: none
+
+.checkbox-label
+    display: flex
+    align-items: center
+    flex-direction: row
+    cursor: pointer
+
+.checkbox-label .custom-check
+    display: flex
+    width: get-vw(20px)
+    height: get-vw(20px)
+    flex-shrink: 0
+    margin-right: get-vw(15px)
+    border: 1px solid $blue20
+    position: relative
+
+.checkbox-label .custom-check:after
+    content: ''
+    display: block
+    position: absolute
+    top: 20%
+    opacity: 0
+    transition: 0.4s ease
+    left: 20%
+    transform: rotate(45deg) translate(-50%, -50%)
+    width: get-vw(10px)
+    height: get-vw(25px)
+    border: solid #0079bf
+    border-width: 0 1px 1px 0
+
+.checkbox-label input:checked + .custom-check:after
+    opacity: 1
 
 
 .auth-block label + label

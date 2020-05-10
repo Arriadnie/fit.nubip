@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <p class="form-name">Увійти</p>
+                        <p class="form-name">Вхід</p>
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -44,8 +44,10 @@
                             </label>
 
 
-                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember">
+
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <span class="custom-check"></span>
                                 {{ __('Remember Me') }}
                             </label>
 

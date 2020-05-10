@@ -24,43 +24,26 @@
             </div>
         </div>
         <div class="link">
-            <a href="#">Особиста інформація</a>
+            <a href="#">Особистий кабінет</a>
         </div>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        <a class="user-nav-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+               if (confirm('Ви дійсно бажаєте вийти?'))
+                document.getElementById('logout-form').submit();">
+            {{-- Auth::user()->name --}}
+            <svg><use xlink:href="#exit"></use></svg>
+        </a>
     </div>
 
+    @include('includes.personal-notification')
+
     <div class="container-inner">
-        <h1>Останні події</h1>
+        <h1>Особистий кабінет</h1>
 
-        <div class="personal-events">
-            <div class="item">
-                <div class="icon">
-                    <svg><use xlink:href="#success"></use></svg>
-                </div>
-                <div class="content">
-                    <p class="title">Рейтинг</p>
-                    <p class="description">Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="icon">
-                    <svg><use xlink:href="#error"></use></svg>
-                </div>
-                <div class="content">
-                    <p class="title">Рейтинг</p>
-                    <p class="description">Ваш рейтинг було видалено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="icon">
-                    <svg><use xlink:href="#info"></use></svg>
-                </div>
-                <div class="content">
-                    <p class="title">Розклад</p>
-                    <p class="description">Розклад було змінено, перейдіть у розділ розклад щоб дізнатись зміни</p>
-                </div>
-            </div>
-        </div>
     </div>
 
 
