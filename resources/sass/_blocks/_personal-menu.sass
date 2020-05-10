@@ -1,0 +1,67 @@
+.personal-menu
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    background: #a3a5b7
+    position: fixed
+    left: 0
+    right: 0
+    width: 100%
+
+.personal-menu .link
+    position: relative
+
+.personal-menu .link a:hover
+    opacity: 0.8
+
+.personal-menu .link > a
+    display: flex
+    padding: get-vw(15px) get-vw(60px)
+    color: #ffffff
+    border-right: 1px solid #fff
+    font-size: get-vw(20px)
+
+.personal-menu .link:hover .sub-nav
+    transform: translate(0, 0)
+    opacity: 1
+    pointer-events: all
+
+.personal-events
+    display: flex
+    flex-direction: column
+    padding: get-vw(60px) 0
+
+.container-inner
+    padding: get-vw(50px) get-vw(200px)
+
+.personal-events .item
+    display: flex
+    align-items: center
+    width: 65%
+    border: 1px solid #d2d2d2
+    padding: get-vw(30px) get-vw(40px)
+
+.personal-events .item + .item
+    margin-top: get-vw(50px)
+
+.personal-events .item .icon
+    display: flex
+    opacity: 0.8
+    align-items: center
+    justify-content: center
+    width: get-vw(70px)
+    height: get-vw(70px)
+    margin-right:  get-vw(40px)
+
+.personal-events .item .title
+    font-size: get-vw(28px)
+    color: #3D3D3D
+    +letterSpace(30)
+    margin-bottom: get-vw(10px)
+
+.personal-events .item .description
+    font-size: get-vw(20px)
+    line-height: 1.2
+    color: #3D3D3D
+    +letterSpace(20)
+

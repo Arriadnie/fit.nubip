@@ -16,6 +16,61 @@
         <div class="auth-wrap">
             <div class="auth-container">
                 <div class="forms-block">
+                    <div class="login-block auth-block">
+
+                        <div class="form-heading">
+                            <div class="logo">
+                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
+                            </div>
+                        </div>
+
+                        <p class="form-name">Увійти</p>
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <label>
+                                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </label>
+
+
+                            <label>
+                                <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"  placeholder="{{ __('Password') }}" required autocomplete="current-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </label>
+
+
+                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
+
+
+                            <input type="submit" class="main-btn" value="Увійти">
+                        </form>
+
+                        <div class="form-bottom">
+                            <div>
+                                <p>Не має аккоунту? </p>
+                                <a href="#" class="go-register">Зареєструватись</a>
+                            </div>
+                            @if (Route::has('password.request'))
+                                <div class="forgot-password">
+
+                                    <p>
+                                        <a class="go-register" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+
+                    </div>
                     <div class="register-block auth-block">
 
                         <div class="form-heading">
@@ -54,61 +109,14 @@
                         </form>
 
                         <div class="form-bottom">
-                            <p>Уже маєте акаунт? </p>
-                            <a href="#" class="go-login">Увійти</a>
-                        </div>
-
-                    </div>
-                    <div class="login-block auth-block">
-
-                        <div class="form-heading">
-                            <div class="logo">
-                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
+                            <div>
+                                <p>Уже маєте акаунт? </p>
+                                <a href="#" class="go-login">Увійти</a>
                             </div>
                         </div>
 
-                        <p class="form-name">Увійти</p>
-
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <label>
-                                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                @enderror
-                            </label>
-
-
-                            <label>
-                                <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"  placeholder="{{ __('Password') }}" required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                                @enderror
-                            </label>
-
-
-                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
-
-
-                            <input type="submit" class="main-btn" value="Увійти">
-                        </form>
-
-                        <div class="form-bottom">
-                            <p>Не має аккоунту? </p>
-                            <a href="#" class="go-register">Зареєструватись</a>
-                            @if (Route::has('password.request'))
-                                <p>
-                                    <a class="go-register" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                </p>
-                            @endif
-                        </div>
-
                     </div>
+
                 </div>
                 <div class="auth-image-container">
                     <img src="{{ asset('/image/slide1.jpg') }}" alt="">
