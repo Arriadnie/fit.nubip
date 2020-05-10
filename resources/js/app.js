@@ -264,23 +264,26 @@ window.addEventListener('scroll', function (e) {
 
 
 function loadAndResize() {
-    let headerHeight = document.querySelector('header').getBoundingClientRect().height;
-    isExist('.main-slider', () => {
-        document.querySelector('.main-slider').style.height = window.innerHeight - headerHeight + 'px';
-    });
+    setTimeout(() => {
+        let headerHeight = document.querySelector('header').getBoundingClientRect().height;
+        isExist('.main-slider', () => {
+            document.querySelector('.main-slider').style.height = window.innerHeight - headerHeight + 'px';
+        });
 
-    isExist('main', () => {
+        isExist('main', () => {
 
-        if (document.querySelector('.personal-menu')) {
-            document.querySelector('.personal-menu').style.top = headerHeight + 'px';
-            let newHeight = headerHeight + document.querySelector('.personal-menu').getBoundingClientRect().height;
-            document.querySelector('main').style.paddingTop = newHeight + 'px';
-            document.querySelector('main').style.minHeight = window.innerHeight  - newHeight + 'px';
-        } else {
-            document.querySelector('main').style.paddingTop = headerHeight + 'px';
-            document.querySelector('main').style.minHeight = window.innerHeight - headerHeight + 'px';
-        }
-    });
+            if (document.querySelector('.personal-menu')) {
+                document.querySelector('.personal-menu').style.top = headerHeight + 'px';
+                let newHeight = headerHeight + document.querySelector('.personal-menu').getBoundingClientRect().height;
+                document.querySelector('main').style.paddingTop = newHeight + 'px';
+                document.querySelector('main').style.minHeight = window.innerHeight  - newHeight + 'px';
+            } else {
+                document.querySelector('main').style.paddingTop = headerHeight + 'px';
+                document.querySelector('main').style.minHeight = window.innerHeight - headerHeight + 'px';
+            }
+        });
+    }, 300)
+
 
 
 }
