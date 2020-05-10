@@ -9,7 +9,6 @@ header
     display: flex
     justify-content: flex-start
     align-items: center
-    transition: 0.3s ease
     +mediaSize(desktop)
         padding: 0 get-vw(70px)
     +mediaSize(float)
@@ -18,6 +17,9 @@ header
         padding: 0 get-vw(70px)
     +mediaSize(1024)
         padding: 5px 50px
+
+header *
+    transition: none!important
 
 
 header.scrolled
@@ -142,8 +144,7 @@ header nav
     display: flex
     align-items: center
     justify-content: center
-    overflow: hidden
-
+.user-nav-item.language span.icon
     width: 100%
     height: 100%
 

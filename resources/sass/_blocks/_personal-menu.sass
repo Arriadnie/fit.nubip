@@ -35,7 +35,22 @@
 .personal-events
     display: flex
     flex-direction: column
-    padding: get-vw(60px) 0
+    padding: get-vw(60px) get-vw(50px)
+    position: fixed
+    top: 0
+    right: 0
+    overflow: auto
+    width: 40%
+    transform: translate(100%, 0)
+    background: #ffffff
+    +scrollbar
+    transition: 0.4s ease
+    box-shadow: 0 3px 5px rgba(0,0,0,.2)
+
+.personal-events.active
+    transform: translate(0, 0)
+
+
 
 .container-inner
     padding: get-vw(50px) get-vw(200px)
@@ -43,12 +58,12 @@
 .personal-events .item
     display: flex
     align-items: center
-    width: 65%
+    width: 100%
     border: 1px solid #d2d2d2
-    padding: get-vw(30px) get-vw(40px)
+    padding: get-vw(30px)
 
 .personal-events .item + .item
-    margin-top: get-vw(50px)
+    margin-top: get-vw(35px)
 
 .personal-events .item .icon
     display: flex
@@ -60,13 +75,13 @@
     margin-right: get-vw(40px)
 
 .personal-events .item .title
-    font-size: get-vw(28px)
+    font-size: get-vw(24px)
     color: #3D3D3D
     +letterSpace(30)
     margin-bottom: get-vw(10px)
 
 .personal-events .item .description
-    font-size: get-vw(20px)
+    font-size: get-vw(18px)
     line-height: 1.2
     color: #3D3D3D
     +letterSpace(20)
