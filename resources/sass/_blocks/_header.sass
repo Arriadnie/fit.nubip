@@ -126,6 +126,8 @@ header nav
 
 .user-nav-item
     display: flex
+    align-items: center
+    justify-content: center
     +mediaSize(desktop)
         height: get-vw(35px)
         width: get-vw(30px)
@@ -135,6 +137,29 @@ header nav
     +mediaSize(1200)
         height: get-vw(35px)
         width: get-vw(30px)
+
+.user-nav-item.language span
+    display: flex
+    align-items: center
+    justify-content: center
+
+.user-nav-item + .user-nav-item
+    margin-left: get-vw(20px)
+
+.user-nav .language
+    position: relative
+.user-nav
+    display: flex
+    align-items: center
+
+.language .alternative-lang
+    position: absolute
+    top: 0
+    left: 100%
+
+    font-size: get-vw(14px)
+
+
 
 
 
