@@ -1,4 +1,4 @@
 
 @foreach($posts as $post)
-    @include('posts.includes.postCard', ['post' => $post])
+    @include('posts.includes.post-card', ['post' => $post])
 @endforeach

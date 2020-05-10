@@ -11,7 +11,7 @@
             </a>
         @endcan
     </h1>
-{{--    {{ menu('admin', '_json') }}--}}
+    {{--    {{ menu('admin', '_json') }}--}}
 @stop
 
 @section('content')
@@ -118,7 +118,7 @@
         });
 
         $('td').on('click', '.delete', function (e) {
-            $('#delete_form')[0].action = '{{ route('voyager.'.$dataType->slug.'.destroy', ['menu' => '__menu']) }}'.replace('__menu', $(this).data('id'));
+            $('#delete_form')[0].action = '{{ route('voyager.'.$dataType->slug.'.destroy', ['id' => '__menu']) }}'.replace('__menu', $(this).data('id'));
 
             $('#delete_modal').modal('show');
         });
