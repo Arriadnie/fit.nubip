@@ -1,10 +1,10 @@
-<div class="show-notifications">
+<div class="show-notifications active">
     <svg><use xlink:href="#bell"></use></svg>
 </div>
 
 <div class="personal-events">
-    @for($i=0; $i<2; $i++)
-        <div class="item">
+    @for($i=0; $i<1; $i++)
+        <div class="item active">
             <div class="icon">
                 <svg><use xlink:href="#success"></use></svg>
             </div>
@@ -13,7 +13,7 @@
                 <p class="description">Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.</p>
             </div>
         </div>
-        <div class="item">
+        <div class="item active">
             <div class="icon">
                 <svg><use xlink:href="#error"></use></svg>
             </div>

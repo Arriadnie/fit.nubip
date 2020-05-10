@@ -204,7 +204,6 @@ window.addEventListener('load', function (e) {
 
     isExist('.show-notifications', () => {
         let events = document.querySelector('.personal-events');
-
         document.querySelector('.show-notifications').addEventListener('click', function(e) {
             if (events.classList.contains('active')) {
                 events.classList.remove('active')

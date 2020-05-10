@@ -14,7 +14,6 @@
 
 .personal-menu .user-nav-item
     margin-left: auto
-
     margin-right: get-vw(60px)
 
 .personal-menu .link a:hover
@@ -50,8 +49,6 @@
 .personal-events.active
     transform: translate(0, 0)
 
-
-
 .container-inner
     padding: get-vw(50px) get-vw(200px)
 
@@ -61,6 +58,10 @@
     width: 100%
     border: 1px solid #d2d2d2
     padding: get-vw(30px)
+
+
+.personal-events .item.active
+    box-shadow: 3px 3px 6px rgba($lightBlue, 0.8)
 
 .personal-events .item + .item
     margin-top: get-vw(35px)
@@ -105,6 +106,7 @@
     width: get-vw(20px)
     height: get-vw(20px)
     transition: 0.3s ease
+.show-notifications.acitve svg
     animation: ring 2s infinite
 
 
@@ -151,8 +153,9 @@
     background: $lightBlue
     opacity: 0.4
     border-radius: 100%
-    animation: breathe2 2s infinite
 
+.show-notifications.active:before
+    animation: breathe2 2s infinite
 
 .show-notifications:after
     content: ""
@@ -166,6 +169,8 @@
     background: $lightBlue
     opacity: 0.3
     border-radius: 100%
+
+.show-notifications.active:after
     animation: breathe 2s infinite
 
 
