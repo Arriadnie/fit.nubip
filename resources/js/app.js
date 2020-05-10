@@ -270,8 +270,9 @@ function loadAndResize() {
     });
 
     isExist('main', () => {
-        let newHeight = headerHeight + document.querySelector('.personal-menu').getBoundingClientRect().height;
+
         if (document.querySelector('.personal-menu')) {
+            let newHeight = headerHeight + document.querySelector('.personal-menu').getBoundingClientRect().height;
             document.querySelector('main').style.paddingTop = newHeight + 'px';
             document.querySelector('main').style.minHeight = window.innerHeight  - newHeight + 'px';
         } else {
