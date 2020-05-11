@@ -1,9 +1,9 @@
 <div class="container-main">
     <div class="course-slider-wrap">
         <div class="block-title">
-            <p class="block-heading">{{ $infoblock->title }}</p>
-            @if($infoblock->sub_title)
-                <p class="block-subtitle">{{ $infoblock->sub_title }}</p>
+            <p class="block-heading">{{ $infoblock->getTranslatedAttribute('title') }}</p>
+            @if($infoblock->getTranslatedAttribute('sub_title'))
+                <p class="block-subtitle">{{ $infoblock->getTranslatedAttribute('sub_title') }}</p>
             @endif
             <div class="block-title-decor">
                 <div class="line left"></div>
@@ -23,6 +23,6 @@
             @endforeach
 
         </div>
-        <a href="{{ $infoblock->getLink('button_link') }}" class="main-btn">{{ $infoblock->button_title }}</a>
+        <a href="{{ $infoblock->getLink('button_link') }}" class="main-btn">{{ $infoblock->getTranslatedAttribute('button_title') }}</a>
     </div>
 </div>

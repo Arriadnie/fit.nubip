@@ -4,8 +4,8 @@
             <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
         </div>
         <div class="footer-logo-text">
-            <p class="university">{{ setting('site.university-name') }}</p>
-            <p class="department">{{ setting('site.department-name') }}</p>
+            <p class="university">{{ Setting::getLocalized('site.university-name') }}</p>
+            <p class="department">{{ Setting::getLocalized('site.department-name') }}</p>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
                     <svg><use xlink:href="#pin"></use></svg>
                 </div>
                 <a href="{{ setting('contacts.address-map-link') }}" class="contact-text" target="_blank">
-                    {{ setting('contacts.address') }}
+                    {{ Setting::getLocalized('contacts.address') }}
                 </a>
             </div>
         </div>

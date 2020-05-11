@@ -5,7 +5,7 @@
         <div class="quick-access-icon">
             <img src="{{ $item->getImage(true) }}" alt="">
         </div>
-        <p class="quick-access-name">{{ $item->title }}</p>
+        <p class="quick-access-name">{{ $item->getTranslatedAttribute('title') }}</p>
     </div>
 
     <div class="quick-access-back">

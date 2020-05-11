@@ -15,7 +15,7 @@
     <div style="background: url({{ Voyager::image(setting('pages.default-page-image')) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>{{ 'Освітні ступені' }}</h1>
+            <h1>@lang('education.degrees')</h1>
         </div>
     </div>
 

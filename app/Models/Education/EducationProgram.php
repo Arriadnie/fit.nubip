@@ -4,12 +4,14 @@ namespace App\Models\Education;
 
 use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Translatable;
 
 class EducationProgram extends Model
 {
-    use Imageable;
+    use Translatable, Imageable;
 
     protected $image_column = 'image';
+    protected $translatable = ['name', 'description', 'info_body'];
 
     public function degree()
     {

@@ -1,7 +1,7 @@
 <div class="container-main">
     <div class="course-slider-wrap">
         <div class="block-title">
-            <p class="block-heading">{{ $infoblock->title }}</p>
+            <p class="block-heading">{{ $infoblock->getTranslatedAttribute('title') }}</p>
 
             <div class="block-title-decor">
                 <div class="line left"></div>

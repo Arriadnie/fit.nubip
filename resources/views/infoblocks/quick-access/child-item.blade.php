@@ -1,2 +1,2 @@
 
-<a href="{{ $item->getLink('button_link') }}" class="quick-access-link">{{ $item->title }}</a>
+<a href="{{ $item->getLink('button_link') }}" class="quick-access-link">{{ $item->getTranslatedAttribute('title') }}</a>

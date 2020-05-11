@@ -15,13 +15,13 @@
     <div style="background: url({{ $page->getImage(true) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>{{ $page->title }}</h1>
+            <h1>{{ $page->getTranslatedAttribute('title') }}</h1>
         </div>
     </div>
 
     <div class="editor-wrap">
         <div class="editor-content">
-            {!! $page->body !!}
+            {!! $page->getTranslatedAttribute('body') !!}
         </div>
     </div>
 

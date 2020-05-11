@@ -15,7 +15,7 @@
     <div style="background: url({{ $degree->getImage(true) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Спеціальності за освітнім ступенем "{{ $degree->name }}"</h1>
+            <h1>@lang('education.specialties-by-degree') "{{ $degree->getTranslatedAttribute('name') }}"</h1>
         </div>
     </div>
 

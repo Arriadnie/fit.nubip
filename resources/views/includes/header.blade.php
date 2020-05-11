@@ -16,7 +16,7 @@
             </form>
             <a class="user-nav-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
-               if (confirm('Ви дійсно бажаєте вийти?'))
+               if (confirm('@lang('main.really-get-out')'))
                 document.getElementById('logout-form').submit();">
                 {{-- Auth::user()->name --}}
                 <svg><use xlink:href="#exit"></use></svg>
@@ -24,14 +24,18 @@
 
         @endguest
 
-        <a href="#" class="language user-nav-item">
-            <span class="icon">
-                <svg> <use xlink:href="#planet"></use></svg>
-            </span>
-            <span class="alternative-lang">
-                EN
-            </span>
-        </a>
+        @php($current_locale = LaravelLocalization::getCurrentLocale())
+        @foreach(LaravelLocalization::getSupportedLanguagesKeys() as $localeCode)
+            @if($current_locale != $localeCode)
+                <a lang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" class="language user-nav-item">
+                    <span class="icon">
+                        <svg> <use xlink:href="#planet"></use></svg>
+                    </span>
+                    <span class="alternative-lang">{{ strtoupper($localeCode) }}</span>
+                </a>
+            @endif
+        @endforeach
+
     </div>
 
 </header>

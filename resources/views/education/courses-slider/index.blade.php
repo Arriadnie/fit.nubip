@@ -1,8 +1,8 @@
 <div class="container-main">
     <div class="courses-home">
         <div class="block-title">
-            <p class="block-heading">{{ setting('main-page.courses-slider-title') }}</p>
-            <p class="block-subtitle">{{ setting('main-page.courses-slider-subtitle') }}</p>
+            <p class="block-heading">{{ Setting::getLocalized('main-page.courses-slider-title') }}</p>
+            <p class="block-subtitle">{{ Setting::getLocalized('main-page.courses-slider-subtitle') }}</p>
             <div class="block-title-decor">
                 <div class="line left"></div>
                 <div class="block-title-icon">
@@ -19,6 +19,6 @@
                 ])
             @endforeach
         </div>
-        <a href="{{ url('/education/courses') }}" class="main-btn">Переглянути всі курси</a>
+        <a href="{{ url('/education/courses') }}" class="main-btn">@lang('education.show-all-courses')</a>
     </div>
 </div>

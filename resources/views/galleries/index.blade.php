@@ -1,6 +1,6 @@
 <div class="gallery-wrap">
     <div class="block-title">
-        <p class="block-heading">{{ $gallery->title }}</p>
+        <p class="block-heading">{{ $gallery->getTranslatedAttribute('title') }}</p>
        <div class="block-title-decor">
             <div class="line left"></div>
             <div class="block-title-icon">

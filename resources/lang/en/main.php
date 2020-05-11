@@ -5,6 +5,8 @@ return [
     'socials' => 'Socials networks',
 
     'read-more' => 'Read more',
-    'all' => 'All',
     'show-more' => 'Show more',
+    'all' => 'All',
+    'really-get-out' => 'You really want to get out?',
+    'details' => 'Details',
 ];
