@@ -12,6 +12,10 @@
 .personal-menu .link
     position: relative
 
+.personal-menu .user-nav-item
+    margin-left: auto
+    margin-right: get-vw(60px)
+
 .personal-menu .link a:hover
     opacity: 0.8
 
@@ -30,7 +34,20 @@
 .personal-events
     display: flex
     flex-direction: column
-    padding: get-vw(60px) 0
+    padding: get-vw(60px) get-vw(50px)
+    position: fixed
+    top: 0
+    right: 0
+    overflow: auto
+    width: 40%
+    transform: translate(100%, 0)
+    background: #ffffff
+    +scrollbar
+    transition: 0.4s ease
+    box-shadow: 0 3px 5px rgba(0,0,0,.2)
+
+.personal-events.active
+    transform: translate(0, 0)
 
 .container-inner
     padding: get-vw(50px) get-vw(200px)
@@ -38,12 +55,16 @@
 .personal-events .item
     display: flex
     align-items: center
-    width: 65%
+    width: 100%
     border: 1px solid #d2d2d2
-    padding: get-vw(30px) get-vw(40px)
+    padding: get-vw(30px)
+
+
+.personal-events .item.active
+    box-shadow: 3px 3px 6px rgba($lightBlue, 0.8)
 
 .personal-events .item + .item
-    margin-top: get-vw(50px)
+    margin-top: get-vw(35px)
 
 .personal-events .item .icon
     display: flex
@@ -52,17 +73,105 @@
     justify-content: center
     width: get-vw(70px)
     height: get-vw(70px)
-    margin-right:  get-vw(40px)
+    margin-right: get-vw(40px)
 
 .personal-events .item .title
-    font-size: get-vw(28px)
+    font-size: get-vw(24px)
     color: #3D3D3D
     +letterSpace(30)
     margin-bottom: get-vw(10px)
 
 .personal-events .item .description
-    font-size: get-vw(20px)
+    font-size: get-vw(18px)
     line-height: 1.2
     color: #3D3D3D
     +letterSpace(20)
+
+.show-notifications
+    position: fixed
+    right: get-vw(65px)
+    top: get-vw(200px)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: get-vw(35px)
+    height: get-vw(35px)
+    background: $lightBlue
+    margin: auto
+    z-index: 15
+    border-radius: 100%
+    cursor: pointer
+
+.show-notifications svg
+    width: get-vw(20px)
+    height: get-vw(20px)
+    transition: 0.3s ease
+.show-notifications.acitve svg
+    animation: ring 2s infinite
+
+
+@keyframes ring
+    0%
+        transform: rotate(0deg)
+    25%
+        transform: rotate(20deg)
+    50%
+        transform: rotate(0deg)
+    75%
+        transform: rotate(-20deg)
+    100%
+        transform: rotate(0deg)
+
+@keyframes breathe
+    0%
+        transform: translate(-50%, -50%) scale(1)
+    50%
+        transform: translate(-50%, -50%) scale(0.6)
+    100%
+        transform: translate(-50%, -50%) scale(1)
+
+
+@keyframes breathe2
+    0%
+        transform: translate(-50%, -50%) scale(1)
+
+    50%
+        transform: translate(-50%, -50%) scale(1.4)
+
+    100%
+        transform: translate(-50%, -50%) scale(1)
+
+.show-notifications:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: -1
+    width: get-vw(65px)
+    height: get-vw(65px)
+    background: $lightBlue
+    opacity: 0.4
+    border-radius: 100%
+
+.show-notifications.active:before
+    animation: breathe2 2s infinite
+
+.show-notifications:after
+    content: ""
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: -1
+    width: get-vw(100px)
+    height: get-vw(100px)
+    background: $lightBlue
+    opacity: 0.3
+    border-radius: 100%
+
+.show-notifications.active:after
+    animation: breathe 2s infinite
+
+
 

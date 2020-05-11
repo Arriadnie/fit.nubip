@@ -11,17 +11,7 @@
         @guest
             <a class="user-nav-item" href="{{ route('login') }}">  <svg><use xlink:href="#user"></use></svg></a>
         @else
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            <a class="user-nav-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-               if (confirm('@lang('main.really-get-out')'))
-                document.getElementById('logout-form').submit();">
-                {{-- Auth::user()->name --}}
-                <svg><use xlink:href="#exit"></use></svg>
-            </a>
-
+            <a class="user-nav-item" href="/home">  <svg><use xlink:href="#user"></use></svg></a>
         @endguest
 
         @php($current_locale = LaravelLocalization::getCurrentLocale())
@@ -39,3 +29,14 @@
     </div>
 
 </header>
+
+{{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--    @csrf--}}
+{{--</form>--}}
+{{--<a class="user-nav-item" href="{{ route('logout') }}"--}}
+{{--   onclick="event.preventDefault();--}}
+{{--       if (confirm('@lang('main.really-get-out')'))--}}
+{{--       document.getElementById('logout-form').submit();">--}}
+{{--    --}}{{-- Auth::user()->name --}}
+{{--    <svg><use xlink:href="#exit"></use></svg>--}}
+{{--</a>--}}

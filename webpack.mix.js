@@ -112,6 +112,7 @@ mix.copyDirectory("resources/image", "public/image");
 // mix.copy("resources/index.html", "public/index.html");
 
 mix.sass("resources/sass/app.sass", "public/css/app.css");
+mix.sass("resources/sass/zavalna.sass", "public/css/zavalna.css");
 // mix.purgeCss({
 //     // folders: ['resources', 'resources/views']
 // });
