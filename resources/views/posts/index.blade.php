@@ -5,10 +5,10 @@
 @section('content-title', 'Posts')
 
 @section('content')
-    <div style="background: url({{ Storage::disk(config('voyager.storage.disk'))->url(str_replace('\\', '/', setting('posts.page-header-image'))) }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
+    <div style="background: url({{ Setting::getImage('posts.page-header-image') }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Новини</h1>
+            <h1>{{ Setting::getImage('posts.page-title') }}</h1>
         </div>
     </div>
 
@@ -22,14 +22,14 @@
                 <a class="category-item"
                    data-category-id="0"
                    data-category-slug="">
-                    Всі
+                    @lang('main.all')
                 </a>
 
                 @foreach($categories as $category)
                     <a class="category-item"
                        data-category-id="{{ $category->id }}"
                        data-category-slug="{{ $category->slug }}">
-                        {{$category->name }}
+                        {{$category->getTranslatedAttribute('name') }}
                     </a>
                 @endforeach
             </div>

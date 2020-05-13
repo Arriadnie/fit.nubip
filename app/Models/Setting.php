@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Imageable;
+use Illuminate\Support\Facades\Storage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Setting extends \TCG\Voyager\Models\Setting
@@ -12,5 +14,9 @@ class Setting extends \TCG\Voyager\Models\Setting
             $value = setting($name);
         }
         return $value;
+    }
+
+    public static function getImage($name) {
+        return Imageable::getImageByColumnValue(setting($name), true);
     }
 }
