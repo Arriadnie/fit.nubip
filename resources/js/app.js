@@ -213,6 +213,29 @@ window.addEventListener('load', function (e) {
         });
     });
 
+    isExist('.add-personal-info', () => {
+        let btn = document.querySelector('.add-personal-info .enable-input');
+        let form = document.querySelector('.add-personal-info form');
+        let inputs = form.querySelectorAll('input:not([type=submit]), textarea');
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (btn.classList.contains('disabled')) {
+                btn.classList.remove('disabled');
+                btn.innerText = 'Зберегти інформацію';
+                inputs.forEach((item) => {
+                    item.removeAttribute('disabled')
+                })
+            } else {
+                btn.classList.add('disabled');
+                btn.innerText = 'Редагувати інформацію';
+                inputs.forEach((item) => {
+                    item.setAttribute('disabled', 'true')
+                })
+            }
+        })
+
+    })
 
 
 });

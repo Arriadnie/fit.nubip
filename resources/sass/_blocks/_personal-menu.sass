@@ -33,6 +33,7 @@
 
 .personal-events
     display: flex
+    z-index: 4
     flex-direction: column
     padding: get-vw(60px) get-vw(50px)
     position: fixed
@@ -61,7 +62,7 @@
 
 
 .personal-events .item.active
-    box-shadow: 3px 3px 6px rgba($lightBlue, 0.8)
+    box-shadow: 3px 3px 6px rgba(0,0,0, 0.3)
 
 .personal-events .item + .item
     margin-top: get-vw(35px)
@@ -173,5 +174,106 @@
 .show-notifications.active:after
     animation: breathe 2s infinite
 
+.personal-info
+    display: flex
+    align-items: center
+    margin-top: get-vw(70px)
 
+.personal-info .image
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    border-radius: 50%
+    width: get-vw(200px)
+    height: get-vw(200px)
+    margin-right: get-vw(60px)
+
+.personal-info .image img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.personal-info .name
+    font-size: get-vw(30px)
+    font-weight: 600
+    font-family: $playfair
+    margin-bottom: get-vw(25px)
+
+.personal-info p
+    font-size: get-vw(24px)
+
+.personal-info-details
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+.personal-info-details .main-btn
+    margin-top: get-vw(40px)
+
+.quick-access-container
+    padding-top: get-vw(100px)
+
+.personal-room .lined-title
+    font-weight: 400
+
+.personal-room .lined-title:before
+    width: get-vw(150px)
+
+.quick-access
+    padding: get-vw(40px) 0
+    display: flex
+    flex-wrap: wrap
+
+.quick-access .card
+    width: get-vw(550px)
+    height: get-vw(350px)
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: get-vw(28px)
+    text-align: center
+    overflow: hidden
+    color: #fff
+
+.quick-access .card:hover img
+    transform: scale(1.1)
+
+.quick-access .card:hover .overlay
+    background: rgba(0,0,0,.45)
+
+.quick-access .card + .card
+    margin-left: get-vw(100px)
+
+.quick-access img
+    width: 100%
+    transition: 0.3s ease
+    height: 100%
+    object-fit: cover
+
+.quick-access .overlay
+    position: absolute
+    top: 0
+    left: 0
+    transition: 0.3s ease
+    background: rgba(0,0,0,.3)
+    display: flex
+    width: 100%
+    height: 100%
+
+.quick-access .name
+    position: absolute
+    top: 50%
+    left: 50%
+    +letterSpace(100)
+    z-index: 2
+    transform: translate(-50%, -50%)
+
+.alter-info
+    padding: get-vw(80px) 0
+
+.add-personal-info .lined-title
+    font-size: get-vw(26px)
+    margin-top:  get-vw(50px)
 
