@@ -1,6 +1,6 @@
 <div class="news-item">
     <a href="{{ route('post', $post->slug) }}" class="news-image">
-        <img src="{{ Storage::disk(config('voyager.storage.disk'))->url($post->image) }}" alt="">
+        <img src="{{ $post->getImage(true) }}" alt="">
     </a>
     <div class="news-info">
         <a href="{{ route('post', $post->slug) }}" class="news-title">{{ $post->getTranslatedAttribute('title') }} </a>
@@ -24,7 +24,7 @@
     </div>
     <div class="date-label">
         <p class="day">{{ $post->created_at->format('d') }}</p>
-        <p class="mounth">{{ App\Models\Posts\Post::getPostDateMonth($post->created_at) }}</p>
+        <p class="mounth">{{ $post->getPostDateMonth() }}</p>
     </div>
 </div>
 

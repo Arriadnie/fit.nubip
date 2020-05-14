@@ -230,6 +230,7 @@ return [
 
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Setting' => App\Models\Setting::class,
+        'Post' => App\Models\Posts\Post::class,
     ],
 
 ];

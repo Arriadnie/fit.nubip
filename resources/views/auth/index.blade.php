@@ -20,11 +20,11 @@
 
                         <div class="form-heading">
                             <div class="logo">
-                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
+                                <img src="{{ Setting::getImage('site.logo') }}" alt="">
                             </div>
                         </div>
 
-                        <p class="form-name">Вхід</p>
+                        <p class="form-name">{{ __('main.login') }}</p>
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -52,7 +52,7 @@
                             </label>
 
 
-                            <input type="submit" class="main-btn" value="Увійти">
+                            <input type="submit" class="main-btn" value="{{ __('main.log-in') }}">
                         </form>
 
 {{--                        <div class="form-bottom">--}}
@@ -121,11 +121,11 @@
 
                 </div>
                 <div class="auth-image-container">
-                    <img src="{{ asset('/image/slide1.jpg') }}" alt="">
+                    <img src="{{ Setting::getImage('site.login-page-image') }}" alt="">
                     <div class="auth-image-content">
                         <div class="department-name">
-                            <p class="university">{{ setting('site.university-name') }}</p>
-                            <p class="department">{{ setting('site.department-name') }}</p>
+                            <p class="university">{{ Setting::getLocalized('site.university-name') }}</p>
+                            <p class="department">{{ Setting::getLocalized('site.department-name') }}</p>
                         </div>
                     </div>
                     <div class="overlay-light"></div>

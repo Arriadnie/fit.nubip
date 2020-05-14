@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-logo">
         <div class="footer-logo-img">
-            <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">
+            <img src="{{ Setting::getImage('site.logo') }}" alt="">
         </div>
         <div class="footer-logo-text">
             <p class="university">{{ Setting::getLocalized('site.university-name') }}</p>

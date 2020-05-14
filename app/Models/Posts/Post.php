@@ -2,17 +2,22 @@
 
 namespace App\Models\Posts;
 
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\Translatable;
 
 class Post extends \TCG\Voyager\Models\Post
 {
+    use Imageable;
+
+    protected $image_column = 'image';
+
+
     public function save(array $options = [])
     {
         parent::save();
-
-        $posts = Post::all();
     }
 
     /*public function categories()
@@ -54,8 +59,8 @@ class Post extends \TCG\Voyager\Models\Post
     }
 
 
-    public static function getPostDateMonth($date) {
-        return static::getMonthName($date->format('m'));
+    public function getPostDateMonth() {
+        return static::getMonthName($this->created_at->format('m'));
     }
 
 
