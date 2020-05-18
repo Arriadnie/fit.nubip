@@ -18,10 +18,12 @@ let prevArrow = `<div class="slider-arrow slider-prev">
  * Import examples:
  *********************/
 import $ from "jquery";
+require("@chenfengyuan/datepicker")
 
 window.$ = window.jQuery = $;
 require("slick-carousel");
-// require("@fancyapps/fancybox");
+require("@fancyapps/fancybox");
+import SlimSelect from 'slim-select';
 
 /*********************
  * Section import vanilla JS libs
@@ -34,6 +36,8 @@ import TimelineMax from "gsap/TimelineMax";
 
 window.addEventListener('load', function (e) {
     loadAndResize();
+
+
 
     isExist('.main-slider', () => {
         let slider = document.querySelector('.main-slider');
@@ -235,8 +239,25 @@ window.addEventListener('load', function (e) {
             }
         })
 
-    })
+    });
 
+    isExist('select.default-select', (selects) => {
+        selects.forEach((select) => {
+            new SlimSelect({
+                select: select,
+                showSearch: false,
+                // allowDeselectOption: true,
+            })
+        });
+
+
+    });
+
+    $('[data-toggle="datepicker"]').datepicker({
+        format: 'dd.mm.yyyy'
+    });
+
+    ratingSelectEvents();
 
 });
 
@@ -293,6 +314,113 @@ window.addEventListener('scroll', function (e) {
 
 
 });
+
+
+
+global.callModal = function (event, text) {
+    event.preventDefault();
+    let classList = event.target.classList;
+    let data = event.target.parentElement.getAttribute('data-item')
+
+    let modalTemplate = `
+    <div class="modal">
+        <div class="modal-content">
+            <p>${text}</p>
+            <div class="modal-btn">
+                <a href="#" class="main-btn modal-confirm">Підтвердити</a>
+                <a href="#" class="main-btn light" onclick="$.fancybox.close();">Відмінити</a>
+            </div>
+       </div>
+    </div>`;
+
+    if(classList.contains('confirm')) {
+        $.fancybox.open(
+            modalTemplate,
+            {
+                afterShow: function(instance, current) {
+                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log("go confirm")
+                    })
+                }
+            })
+
+    } else if (classList.contains('delete')) {
+        $.fancybox.open(
+            modalTemplate,
+            {
+                afterShow: function(instance, current) {
+                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log("go delete")
+                    })
+                }
+        })
+
+    } else if (classList.contains('change')) {
+        $.fancybox.open({
+            src  : '#edit-rating',
+            type : 'inline',
+            opts : {
+                afterShow : function( instance, current ) {
+                    let form = document.querySelector('#edit-rating');
+                    data = JSON.parse(data)
+                    for (let key in data) {
+                        console.log(key)
+                        let input = document.querySelector(`input[name=${key}]`)
+                        if(input) {
+                            input.setAttribute('value', data[key])
+                        }
+
+                    }
+                }
+            }
+        });
+    }
+
+};
+
+function ratingSelectEvents() {
+    console.log("Here")
+    let wrap = document.querySelector('.rating-grade');
+    if (!wrap) return;
+
+    let blockSelect = wrap.querySelector('select[name="block"]');
+    let punktSelect = wrap.querySelector('select[name="punkt"]');
+    let total = wrap.querySelector('input[name="total"]');
+
+
+
+    if (blockSelect.slim && punktSelect.slim) {
+
+        blockSelect.addEventListener('change', function() {
+            let block = blockSelect.slim.selected();
+            let data = window.rating_blocks[`block_${block}`];
+            if (data) {
+                let placeholder = {
+                    "text": "Оберіть пункт ",
+                    "value": "",
+                    placeholder: true
+                };
+                data.unshift(placeholder);
+                punktSelect.slim.setData(data)
+                total.setAttribute('value', '0')
+            }
+        });
+
+        punktSelect.addEventListener('change', function() {
+            let block = blockSelect.slim.selected();
+            let data = window.rating_blocks[`block_${block}`];
+            let punktId = punktSelect.slim.selected();
+            let punkt = data.find(item => item.value === punktId);
+            total.setAttribute('value', punkt.bal)
+        })
+
+
+    }
+
+
+}
 
 
 function loadAndResize() {

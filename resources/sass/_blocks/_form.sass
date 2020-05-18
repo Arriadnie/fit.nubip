@@ -33,7 +33,7 @@ form label + label
 
 input::placeholder,
 textarea::placeholder
-    color: rgba(0,0,0,.8)
+    color: rgba(0, 0, 0, .8)
     font-size: get-vw(20px)
 
 input,
@@ -47,8 +47,8 @@ textarea[disabled]
     line-height: 1.2
     transition: 0.3s ease
     padding: get-vw(10px) 0
-    border-bottom: 1px solid rgba(0,0,0,.8) !important
-    color: rgba(0,0,0,.8)
+    border-bottom: 1px solid rgba(0, 0, 0, .8) !important
+    color: rgba(0, 0, 0, .8)
     font-size: get-vw(20px)
 
 input[disabled],
@@ -65,7 +65,9 @@ textarea
 
 form input[type=submit]
     width: auto !important
-    border: none
+    border: none !important
+
+    margin-top: get-vw(30px)
 
 form input[type=submit].hidden
     display: none
@@ -74,6 +76,7 @@ form input[type=submit].hidden
 
 .add-personal-info form
     flex-direction: row
+
 
 form .part
     display: flex
@@ -85,3 +88,57 @@ form .part
 
 .add-personal-info .main-btn
     margin-top: get-vw(50px)
+
+.form-row
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+form label.select
+    width: get-vw(500px)
+    max-width: get-vw(500px)
+    justify-content: space-between
+
+form label.select span
+    margin-right: get-vw(20px)
+
+
+.personal-room form label span,
+label.total span
+    white-space: nowrap
+    margin-right: get-vw(20px)
+
+label.total span,
+label.total input
+    font-size: get-vw(22px)
+
+form label.select .ss-main
+    width: get-vw(430px)
+    max-width: get-vw(430px)
+
+label.select .ss-main .ss-single-selected
+    border: none
+    border-radius: unset
+    border-bottom: 1px solid rgba(0, 0, 0, .8)
+
+.datepicker-panel > ul > li.picked,
+.datepicker-panel > ul > li.picked:hover
+    background: $lightBlue70
+    color: $blue75
+
+.select .ss-content .ss-list
+    +scrollbar
+
+.filter-wrap
+    display: flex
+    align-items: center
+
+.filter-wrap p
+    font-size: get-vw(20px)
+
+.filter-wrap label.select .ss-main
+    width: get-vw(160px)
+
+.filter-wrap label
+    margin-left: get-vw(40px)
+

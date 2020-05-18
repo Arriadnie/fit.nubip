@@ -1,0 +1,70 @@
+table
+    border-collapse: collapse
+
+table td,
+table th
+    border: 1px solid #E2E2E2
+    line-height: 1.25
+
+table th
+    background: #3EA1D2
+    font-size: get-vw(20px)
+    +letterSpace(50)
+    color: #fff
+    font-weight: 400
+    padding: get-vw(15px) get-vw(45px)
+
+table td
+    font-size: get-vw(18px)
+    +letterSpace(50)
+
+    padding: get-vw(20px) get-vw(25px)
+
+td .status
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+
+td .status .icon
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: get-vw(10px)
+    width: get-vw(30px)
+    height: get-vw(30px)
+
+.data-item
+    display: flex
+    flex-direction: column
+
+.action-btn
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: get-vw(5px)
+    color: #fff
+    text-transform: uppercase
+    font-size: get-vw(11px)
+    border-radius: get-vw(5px)
+
+.action-btn + .action-btn
+    margin-top: get-vw(10px)
+
+.action-btn.change
+    background: #3EA1D2
+
+.action-btn.delete
+    background: #D75A4A
+
+.action-btn.confirm
+    background: #25AE88
+
+.action-btn.edit
+    background: #cb9f15
+    //#FFCA37
+
+.rating-wrap .total
+    font-size: get-vw(22px)
+    margin-top: get-vw(30px)
+

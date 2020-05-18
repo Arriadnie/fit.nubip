@@ -5,8 +5,8 @@
     <div class="link">
         <a href="#">Рейтинг</a>
         <div class="sub-nav">
-            <a class="sub-nav-item" href="#">Перегляд особистого</a>
-            <a class="sub-nav-item" href="#">Внесення</a>
+            <a class="sub-nav-item" href="/show-personal-rating">Перегляд особистого</a>
+            <a class="sub-nav-item" href="/entering-rating">Внесення</a>
             <a class="sub-nav-item" href="#">Перевірка</a>
             <a class="sub-nav-item" href="#">Звіти</a>
         </div>
