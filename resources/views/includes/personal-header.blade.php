@@ -1,14 +1,14 @@
 <div class="personal-menu">
     <div class="link">
-        <a href="#">Розклад</a>
+        <a href="/schedule">Розклад</a>
     </div>
     <div class="link">
         <a href="#">Рейтинг</a>
         <div class="sub-nav">
             <a class="sub-nav-item" href="/show-personal-rating">Перегляд особистого</a>
             <a class="sub-nav-item" href="/entering-rating">Внесення</a>
-            <a class="sub-nav-item" href="#">Перевірка</a>
-            <a class="sub-nav-item" href="#">Звіти</a>
+            <a class="sub-nav-item" href="/show-starosta-rating">Перевірка</a>
+            <a class="sub-nav-item" href="/show-rating-report">Звіти</a>
         </div>
     </div>
     <div class="link">

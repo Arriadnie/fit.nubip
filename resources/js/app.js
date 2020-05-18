@@ -18,6 +18,7 @@ let prevArrow = `<div class="slider-arrow slider-prev">
  * Import examples:
  *********************/
 import $ from "jquery";
+
 require("@chenfengyuan/datepicker")
 
 window.$ = window.jQuery = $;
@@ -36,7 +37,6 @@ import TimelineMax from "gsap/TimelineMax";
 
 window.addEventListener('load', function (e) {
     loadAndResize();
-
 
 
     isExist('.main-slider', () => {
@@ -158,7 +158,7 @@ window.addEventListener('load', function (e) {
 
     isExist('[data-toggle-btn]', () => {
         document.querySelectorAll('[data-toggle-btn]').forEach((btn) => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 gsapToggleHeight(btn);
             })
@@ -187,7 +187,7 @@ window.addEventListener('load', function (e) {
         }
 
         document.querySelectorAll('[data-href]').forEach((link) => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
 
                 let href = this.getAttribute('data-href');
                 let visibleBlocks = document.querySelectorAll('.active[data-id]');
@@ -208,7 +208,7 @@ window.addEventListener('load', function (e) {
 
     isExist('.show-notifications', () => {
         let events = document.querySelector('.personal-events');
-        document.querySelector('.show-notifications').addEventListener('click', function(e) {
+        document.querySelector('.show-notifications').addEventListener('click', function (e) {
             if (events.classList.contains('active')) {
                 events.classList.remove('active')
             } else {
@@ -222,7 +222,7 @@ window.addEventListener('load', function (e) {
         let form = document.querySelector('.add-personal-info form');
         let inputs = form.querySelectorAll('input:not([type=submit]), textarea');
 
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             if (btn.classList.contains('disabled')) {
                 btn.classList.remove('disabled');
@@ -259,7 +259,49 @@ window.addEventListener('load', function (e) {
 
     ratingSelectEvents();
 
+    isExist('.schedule-filter .switch-wrap', () => {
+
+        let wrap = document.querySelector('.schedule-filter .switch-wrap');
+        let radio = wrap.querySelector('input[type="checkbox"]');
+        checkboxToggleTable();
+
+        radio.addEventListener('change', function(e) {
+            checkboxToggleTable();
+        })
+
+    });
+
+    // isExist('.rating-filter', () => {
+    //     let period = document.querySelector('[name="select-period"]');
+    //     if (period) {
+    //         period.addEventListener('change', () => {
+    //             let value = period.slim.selected();
+    //         });
+    //     }
+    // });
+
 });
+
+function checkboxToggleTable() {
+    let wrap = document.querySelector('.schedule-filter .switch-wrap');
+    let radio = wrap.querySelector('input[type="checkbox"]');
+    let rightP = wrap.querySelector('p.right');
+    let leftP = wrap.querySelector('p.left');
+    let topTable = document.querySelector('.table-wrap.top');
+    let bottomTable = document.querySelector('.table-wrap.bottom');
+
+    if (radio.checked) {
+        rightP.classList.add('active')
+        leftP.classList.remove('active')
+        topTable.classList.remove('visible')
+        bottomTable.classList.add('visible')
+    } else {
+        leftP.classList.add('active')
+        rightP.classList.remove('active')
+        topTable.classList.add('visible')
+        bottomTable.classList.remove('visible')
+    }
+}
 
 window.addEventListener('resize', function (e) {
     loadAndResize();
@@ -316,7 +358,6 @@ window.addEventListener('scroll', function (e) {
 });
 
 
-
 global.callModal = function (event, text) {
     event.preventDefault();
     let classList = event.target.classList;
@@ -333,12 +374,12 @@ global.callModal = function (event, text) {
        </div>
     </div>`;
 
-    if(classList.contains('confirm')) {
+    if (classList.contains('confirm')) {
         $.fancybox.open(
             modalTemplate,
             {
-                afterShow: function(instance, current) {
-                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function(e) {
+                afterShow: function (instance, current) {
+                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
                         e.preventDefault();
                         console.log("go confirm")
                     })
@@ -349,39 +390,46 @@ global.callModal = function (event, text) {
         $.fancybox.open(
             modalTemplate,
             {
-                afterShow: function(instance, current) {
-                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function(e) {
+                afterShow: function (instance, current) {
+                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
                         e.preventDefault();
                         console.log("go delete")
                     })
                 }
-        })
+            })
 
     } else if (classList.contains('change')) {
         $.fancybox.open({
-            src  : '#edit-rating',
-            type : 'inline',
-            opts : {
-                afterShow : function( instance, current ) {
+            src: '#edit-rating',
+            type: 'inline',
+            opts: {
+                afterShow: function (instance, current) {
                     let form = document.querySelector('#edit-rating');
                     data = JSON.parse(data)
                     for (let key in data) {
                         console.log(key)
-                        let input = document.querySelector(`input[name=${key}]`)
-                        if(input) {
-                            input.setAttribute('value', data[key])
+                        let input = document.querySelector(`input[name=${key}]`);
+                        let select = document.querySelector(`select[name=${key}]`);
+                        if (input) {
+                            input.setAttribute('value', data[key]);
+                        } else if (select) {
+                            select.slim.set(data[key])
                         }
 
                     }
                 }
             }
         });
+    } else if (classList.contains('deny')) {
+        $.fancybox.open({
+            src: '#deny-rating',
+            type: 'inline',
+        });
     }
 
 };
 
 function ratingSelectEvents() {
-    console.log("Here")
     let wrap = document.querySelector('.rating-grade');
     if (!wrap) return;
 
@@ -390,10 +438,9 @@ function ratingSelectEvents() {
     let total = wrap.querySelector('input[name="total"]');
 
 
-
     if (blockSelect.slim && punktSelect.slim) {
 
-        blockSelect.addEventListener('change', function() {
+        blockSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
             let data = window.rating_blocks[`block_${block}`];
             if (data) {
@@ -408,7 +455,7 @@ function ratingSelectEvents() {
             }
         });
 
-        punktSelect.addEventListener('change', function() {
+        punktSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
             let data = window.rating_blocks[`block_${block}`];
             let punktId = punktSelect.slim.selected();
@@ -446,8 +493,6 @@ function loadAndResize() {
         personalEvents.style.height = window.innerHeight - headerHeight + 'px';
 
     });
-
-
 
 
 }
@@ -494,15 +539,15 @@ function gsapToggleHeight(button, speed = 0.4, delayT = 0, height = 'auto') {
     //In case we need to toggle elements with the same data-toggle attribute. Search elem from this element's parent.
 
     if (!button || !elem) return;
-        if (!button.classList.contains('closed')) {
-            TweenMax.set(elem, {height: height, opacity: 1});
-            TweenMax.to(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone, delay: delayT});
-            button.classList.add("closed");
-        } else {
+    if (!button.classList.contains('closed')) {
+        TweenMax.set(elem, {height: height, opacity: 1});
+        TweenMax.to(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone, delay: delayT});
+        button.classList.add("closed");
+    } else {
 
-            TweenMax.set(elem, {height: height, opacity: 1});
-            TweenMax.from(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone});
-            button.classList.remove("closed");
-        }
+        TweenMax.set(elem, {height: height, opacity: 1});
+        TweenMax.from(elem, 0.4, {height: 0, opacity: 0, ease: Power0.easeNone});
+        button.classList.remove("closed");
+    }
 
 }

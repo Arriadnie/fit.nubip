@@ -54,7 +54,8 @@ td .status .icon
 .action-btn.change
     background: #3EA1D2
 
-.action-btn.delete
+.action-btn.delete,
+.action-btn.deny
     background: #D75A4A
 
 .action-btn.confirm
@@ -64,7 +65,105 @@ td .status .icon
     background: #cb9f15
     //#FFCA37
 
+.rating-wrap
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+.rating-wrap .main-btn
+    margin-top: get-vw(40px)
+
 .rating-wrap .total
     font-size: get-vw(22px)
     margin-top: get-vw(30px)
 
+
+//custom switch
+/* Estilo iOS */
+.switch-container
+    margin: get-vw(15px)
+    width: get-vw(60px)
+
+
+.switch
+    visibility: hidden
+    position: absolute
+    margin-left: -9999px
+
+
+.switch + label
+    display: block
+    position: relative
+    cursor: pointer
+    outline: none
+    user-select: none
+
+
+.switch-shadow + label
+    padding: get-vw(2px)
+    width: get-vw(60px)
+    height: get-vw(30px)
+    background-color: #dddddd
+    border-radius: get-vw(30px)
+
+.switch-shadow + label:before,
+.switch-shadow + label:after
+    display: block
+    position: absolute
+    top: 1px
+    left: 1px
+    bottom: 1px
+    content: ""
+
+.switch-shadow + label:before
+    right: 1px
+    background-color: #f1f1f1
+    border-radius: get-vw(30px)
+    transition: background 0.4s
+
+.switch-shadow + label:after
+    width: get-vw(30px)
+    background-color: #fff
+    border-radius: 100%
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3)
+    transition: all 0.4s
+
+.switch-shadow:checked + label:before
+    background-color: $lightBlue70
+
+.switch-shadow:checked + label:after
+    transform: translateX(get-vw(30px))
+
+.switch-wrap .switch-label
+    margin-left: 0
+.switch-wrap
+    display: flex
+    align-items: center
+    justify-content: center
+
+    margin-left: auto
+
+.switch-wrap p
+    font-size: get-vw(20px)
+    opacity: 0.4
+    transition: 0.4s ease
+
+.switch-wrap p.active
+    opacity: 1
+
+.schedule-table .table-wrap
+    display: none
+    opacity: 0
+    transition: 0.4s ease
+    width: 100%
+
+.schedule-table .table-wrap.visible
+    display: flex
+    opacity: 1
+
+.schedule-table
+    margin-top: get-vw(50px)
+
+.schedule-table table td,
+.schedule-table table th
+    text-align: center

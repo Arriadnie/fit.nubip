@@ -8,63 +8,28 @@
     @include('includes.personal-header')
 
     <div class="container-table personal-room">
-        <p class="lined-title">Персональний рейтинг</p>
-        <p class="subtitle lined-title">Оберіть значення для фільтрації</p>
-        <div class="filter-wrap rating-filter">
-            <p>Відсотрувати рейтинг:</p>
-            <label class="select">
-                <select class="default-select" name="select-period">
-                    <option value="mounth">Місяць</option>
-                    <option value="semestr">Семестр</option>
-                </select>
-            </label>
-
-            <label class="select">
-                <select class="default-select" name="mounth">
-                    <option value="1">Січень</option>
-                    <option value="2">Лютий</option>
-                    <option value="3">Березень</option>
-                    <option value="4">Квітень</option>
-                </select>
-            </label>
-
-            <label class="select">
-                <select class="default-select" name="period3">
-                    <option value="1">2020</option>
-                    <option value="2">2018</option>
-                    <option value="3">2017</option>
-                    <option value="4">2016</option>
-                </select>
-            </label>
-        </div>
+        <p class="lined-title">Перевірка рейтингу</p>
 
         <div class="rating-wrap">
-            <p class="subtitle lined-title">Рейтинг за вашим запитом:</p>
+            <p class="subtitle lined-title">Рейтинг що очікує перевірки:</p>
             <div class="rating-table">
                 <table>
                     <tr>
+                        <th>ПІП</th>
                         <th>Захід</th>
                         <th>Дата проведення</th>
                         <th>Посилання на рейтинг</th>
                         <th>Бал</th>
-                        <th>Статус</th>
                         <th>Дії</th>
                     </tr>
                     <tr>
+                        <td>Березанський Максим
+                            Олександрович</td>
                         <td>Участь в гала концерті ГВ 2020</td>
                         <td>07.05.2020</td>
                         <td>Блок 4.2 пункт 8</td>
                         <td>1,5</td>
-                        <td>
-                            <div class="status">
-                                <div class="icon">
-                                    <svg>
-                                        <use xlink:href="#load"></use>
-                                    </svg>
-                                </div>
-                                <p>В обробці</p>
-                            </div>
-                        </td>
+
                         <td>
                             <div class="data-item"
                                  data-item='{
@@ -74,26 +39,19 @@
                                         "block": "1.1",
                                         "punkt": "2"
                                     }'>
+                                <a class="action-btn confirm" onclick="callModal(event, 'Підтвердити рейтинг?')"
+                                   href="#">Підтвердити</a>
                                 <a class="action-btn change" onclick="callModal(event)" href="#">Змінити</a>
-                                <a class="action-btn delete" onclick="callModal(event, 'Видалити рейтинг?')" href="#">Видалити</a>
+                                <a class="action-btn deny" onclick="callModal(event)" href="#">Відхилити</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
+                        <td>Бойко Іван Павлович</td>
                         <td>Участь в гала концерті ГВ 2020 2</td>
                         <td>08.05.2020</td>
                         <td>Блок 4.2 пункт 8</td>
                         <td>1,5</td>
-                        <td>
-                            <div class="status">
-                                <div class="icon">
-                                    <svg>
-                                        <use xlink:href="#edit"></use>
-                                    </svg>
-                                </div>
-                                <p>Відредаговано</p>
-                            </div>
-                        </td>
                         <td>
                             <div class="data-item" data-item='{
                                         "id": "2",
@@ -105,25 +63,16 @@
                                 <a class="action-btn confirm" onclick="callModal(event, 'Підтвердити рейтинг?')"
                                    href="#">Підтвердити</a>
                                 <a class="action-btn change" onclick="callModal(event)" href="#">Змінити</a>
-                                <a class="action-btn delete" onclick="callModal(event, 'Видалити рейтинг?')" href="#">Видалити</a>
+                                <a class="action-btn deny" onclick="callModal(event)" href="#">Відхилити</a>
                             </div>
                         </td>
                     </tr>
                     <tr>
+                        <td>Зима Анна Володимирівна</td>
                         <td>Участь в гала концерті ГВ 2020 3</td>
                         <td>07.05.2020</td>
                         <td>Блок 4.2 пункт 8</td>
                         <td>1,5</td>
-                        <td>
-                            <div class="status">
-                                <div class="icon">
-                                    <svg>
-                                        <use xlink:href="#error"></use>
-                                    </svg>
-                                </div>
-                                <p>Відхилено</p>
-                            </div>
-                        </td>
                         <td>
                             <div class="data-item" data-item='{
                                         "id": "1",
@@ -132,33 +81,16 @@
                                         "block": "1.1",
                                         "punkt": "3"
                                     }'>
+                                <a class="action-btn confirm" onclick="callModal(event, 'Підтвердити рейтинг?')"
+                                   href="#">Підтвердити</a>
                                 <a class="action-btn change" onclick="callModal(event)" href="#">Змінити</a>
-                                <a class="action-btn delete" onclick="callModal(event, 'Видалити рейтинг?')" href="#">Видалити</a>
+                                <a class="action-btn deny" onclick="callModal(event)" href="#">Відхилити</a>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Член збірної факультету, теніс</td>
-                        <td>07.05.2020</td>
-                        <td>Блок 4.2 пункт 8</td>
-                        <td>1,5</td>
-                        <td>
-                            <div class="status">
-                                <div class="icon">
-                                    <svg>
-                                        <use xlink:href="#success"></use>
-                                    </svg>
-                                </div>
-                                <p>Підтверджено</p>
-                            </div>
 
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
                 </table>
             </div>
-            <p class="total">Сума: 5,5 балів</p>
         </div>
 
     </div>
@@ -190,7 +122,6 @@
                     <label class="select">
                         <span>Пункт</span>
                         <select class="default-select" name="punkt">
-
                         </select>
                     </label>
                     <label class="total">
@@ -200,6 +131,20 @@
                 </div>
 
                 <input type="submit" class="main-btn" value="Зберегти">
+            </form>
+        </div>
+
+    </div>
+
+    <div id="deny-rating" style="display: none">
+        <div class="modal-content">
+            <form action="POST">
+                <p class="subtitle lined-title">Відхилення рейтингу</p>
+                <label>
+                    <textarea name="info" placeholder="Причина відхилення"></textarea>
+                </label>
+
+                <input type="submit" class="main-btn" value="Відхилити">
             </form>
         </div>
 
