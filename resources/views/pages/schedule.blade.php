@@ -12,7 +12,7 @@
         <div class="filter-wrap schedule-filter">
             <p>Оберіть групу для розкладу:</p>
             <label class="select">
-                <select class="default-select " name="kurs">
+                <select class="default-select " data-search="true" name="kurs">
                     <option data-placeholder="true" value="">Група</option>
                     <option value="1">КН-16001б</option>
                     <option value="1">КН-16002б</option>
@@ -47,35 +47,105 @@
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td>Управління ІТ проектами, 214, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon practice">
+                                    P
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                         <td></td>
-                        <td>Технології захисту інформації, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon leture">
+                                    L
+                                </div>
+                                Технології захисту інформації, 231, к 15
+                            </div>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>2</th>
-                        <td>Алгоритми і структ. даних, 214, к 15</td>
-                        <td>Управління ІТ проектами, 214, к 15</td>
-                        <td>Теорія прийняття рішень, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon practice">
+                                    P
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon practice">
+                                    P
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon lecture">
+                                    L
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                         <td></td>
-                        <td>Технології захисту інформації, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon practice">
+                                    P
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th>3</th>
                         <td></td>
-                        <td>Крос-платф. програмування, 231, к 15</td>
-                        <td>Теорія прийняття рішень, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon lecture">
+                                    L
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon lecture">
+                                    L
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>4</th>
                         <td></td>
-                        <td>Теорія прийняття рішень, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon practice">
+                                    P
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                         <td></td>
                         <td></td>
-                        <td>Теорія прийняття рішень, 231, к 15</td>
+                        <td>
+                            <div class="schedule-item">
+                                <div class="schedule-icon lecture">
+                                    L
+                                </div>
+                                Управління ІТ проектами, 214, к 15
+                            </div>
+                        </td>
                     </tr>
 
                     <tr>
@@ -159,6 +229,21 @@
                     </tr>
 
                 </table>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="schedule-icon practice">
+                    P
+                </div>
+                <p> - Практичне заняття</p>
+            </div>
+            <div class="legend-item">
+                <div class="schedule-icon lecture">
+                    L
+                </div>
+                <p> - Лекційне заняття</p>
             </div>
         </div>
 
