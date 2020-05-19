@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
+Route::get('/integration', 'Integration\IntegrationController@start')->name('integration');
 
 Route::group(
     [

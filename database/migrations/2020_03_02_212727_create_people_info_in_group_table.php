@@ -21,7 +21,7 @@ class CreatePeopleInfoInGroupTable extends Migration
             $table->foreign('people_info_id')
                 ->references('id')->on('people_infos')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('group_id')
+            $table->foreign('people_info_group_id')
                 ->references('id')->on('people_info_groups')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
