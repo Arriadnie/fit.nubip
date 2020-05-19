@@ -18,38 +18,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @php($ratingGroups = App\Models\Rating\RatingItemGroup::getLeafs())
     <script>
         window.rating_blocks = {
-
-            "block_1.1":
+            @foreach($ratingGroups as $group)
+                "block_{{ $group['id'] }}":
                 [
+                    @foreach($group['items'] as $item)
                     {
-                        "text": "Голова СО Університету ",
-                        "value": "2",
-                        "bal": 2
+                        "text": "{{ $item->name }}",
+                        "value": "{{ $item->id }}",
+                        "bal": "{{ $item->score }}"
                     },
-
-                    {
-                        "text": "Заступники голови СО Університету",
-                        "value": "3",
-                        "bal": 2
-                    }
+                    @endforeach
                 ],
-
-            "block_1.2":
-            [
-                    {
-                        "text": "Голова об’єднаної студентської ради гуртожитків  ",
-                        "value": "4",
-                        "bal": 4
-                    },
-                    {
-                        "text": "Голови СР гуртожитків ",
-                        "value": "5",
-                        "bal": 5
-                    }
-            ]
-
+            @endforeach
         }
 
     </script>

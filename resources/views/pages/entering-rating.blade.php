@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', __("rating.entering-title"))
 @section('content-title', 'Home')
 
 @section('content')
@@ -13,49 +13,49 @@
     @include('includes.personal-header')
 
     <div class="container-inner personal-room">
-        <p class="lined-title">Внесення особистого рейтингу</p>
+        <p class="lined-title">@lang('rating.entering-title')</p>
         <form action="">
-            <p class="subtitle lined-title">Введіть інформацію про захід в якому брали участь:</p>
+            <p class="subtitle lined-title">@lang('rating.entering-sub-title')</p>
             <label>
-                <input type="text" placeholder="Назва заходу, події*">
+                <input type="text" placeholder="@lang('rating.event-name')">
             </label>
             <label>
-                <input type="text" data-toggle="datepicker" placeholder="Дата проведення">
+                <input type="text" data-toggle="datepicker" placeholder="@lang('rating.event-date')">
             </label>
 
             <div class="rating-grade">
-                <p class="subtitle lined-title">Оберіть відповідний блок та пункт з <a href="#"> положень рейтину</a> </p>
+                <p class="subtitle lined-title">@lang('rating.select-item-title-1')<a href="#">@lang('rating.select-item-title-2')</a> </p>
 
                 <label class="select">
-                    <span>Блок</span>
+                    <span>@lang('rating.block')</span>
                     <select class="default-select" name="block">
-                        <option data-placeholder="true">Оберіть блок</option>
-                        <optgroup label="1. Студентська організація (СО) ">
-                            <option value="1.1">1.1. Студентська організація (СО) </option>
-                            <option value="1.2">1.2. Студентська рада (СР) гуртожитку</option>
-                        </optgroup>
+                        <option data-placeholder="true">@lang('rating.select-block')</option>
+                        @foreach(App\Models\Rating\RatingItemGroup::firstLevel()->get() as $group)
+                            <optgroup label="{{ $group->getTranslatedAttribute('name') }}">
+                                @foreach($group->childrens as $item)
+                                    <option value="{{ $item->id }}">{{ $item->getTranslatedAttribute('name') }}</option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
                     </select>
                 </label>
                 <label class="select">
-                    <span>Пункт</span>
+                    <span>@lang('rating.item')</span>
                     <select class="default-select" name="punkt">
-                        <option data-placeholder="true">Оберіть пункт</option>
-                        <option value="1">Голова СО Університету ***</option>
-                        <option value="2">Заступники голови СО Університету **,***</option>
-                        <option value="3">Секретар СО Університету, керівники відділів СО Університету, керівники клубів за інтересами (на рівні університету) **</option>
+                        <option data-placeholder="true">@lang('rating.select-item')</option>
                     </select>
                 </label>
 
 
                 <label class="total">
-                    <span>Ваш бал за участь в заході: </span>
+                    <span>@lang('rating.your-score')</span>
                     <input type="text" name="total" disabled value="0">
                 </label>
 
             </div>
 
 
-            <input type="submit" class="main-btn" value="Відправити">
+            <input type="submit" class="main-btn" value="@lang('rating.submit')">
         </form>
 
     </div>

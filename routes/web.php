@@ -20,12 +20,12 @@ Route::group(['prefix' => 'admin'], function () {
         'as'     => 'voyager.infoblocks.',
         'prefix' => 'infoblocks/{master}',
     ], function () use ($namespacePrefix) {
-        Route::get('builder', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'builder']);
+        Route::get('items', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'items']);
         Route::post('order', ['uses' => $namespacePrefix.'BaseWithItemsController@order_item', 'as' => 'order']);
 
         Route::group([
-            'as'     => 'item.',
-            'prefix' => 'item',
+            'as'     => 'items.',
+            'prefix' => 'items',
         ], function () use ($namespacePrefix) {
             Route::delete('{id}', ['uses' => $namespacePrefix.'BaseWithItemsController@delete_item', 'as' => 'destroy']);
             Route::post('/', ['uses' => $namespacePrefix.'BaseWithItemsController@add_item',    'as' => 'add']);
@@ -36,16 +36,32 @@ Route::group(['prefix' => 'admin'], function () {
         'as'     => 'voyager.galleries.',
         'prefix' => 'galleries/{master}',
     ], function () use ($namespacePrefix) {
-        Route::get('builder', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'builder']);
+        Route::get('items', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'items']);
         Route::post('order', ['uses' => $namespacePrefix.'BaseWithItemsController@order_item', 'as' => 'order']);
 
         Route::group([
-            'as'     => 'item.',
-            'prefix' => 'item',
+            'as'     => 'items.',
+            'prefix' => 'items',
         ], function () use ($namespacePrefix) {
             Route::delete('{id}', ['uses' => $namespacePrefix.'BaseWithItemsController@delete_item', 'as' => 'destroy']);
             Route::post('/', ['uses' => $namespacePrefix.'BaseWithItemsController@add_item',    'as' => 'add']);
         });
+    });
+
+    Route::group([
+        'as'     => 'voyager.rating-item-groups.',
+        'prefix' => 'rating-item-groups/{master}',
+    ], function () use ($namespacePrefix) {
+        Route::get('items', ['uses' => $namespacePrefix.'BaseWithItemsController@builder',    'as' => 'items']);
+        Route::post('order', ['uses' => $namespacePrefix.'BaseWithItemsController@order_item', 'as' => 'order']);
+        Route::group([
+            'as'     => 'items.',
+            'prefix' => 'items',
+        ], function () use ($namespacePrefix) {
+            Route::delete('{id}', ['uses' => $namespacePrefix.'BaseWithItemsController@delete_item', 'as' => 'destroy']);
+            Route::post('/', ['uses' => $namespacePrefix.'BaseWithItemsController@add_item',    'as' => 'add']);
+        });
+
     });
 
 

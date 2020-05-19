@@ -54,7 +54,7 @@
                     <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::menu_builder.delete_item_question') }}</h4>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('voyager.' . $dataType->slug . '.item.destroy', ['master' => $master->id, 'id' => '__id']) }}"
+                    <form action="{{ route('voyager.' . $dataType->slug . '.items.destroy', ['master' => $master->id, 'id' => '__id']) }}"
                           id="delete_form"
                           method="POST">
                         {{ method_field("DELETE") }}
@@ -79,15 +79,15 @@
                     <h4 id="m_hd_edit" class="modal-title hidden"><i class="voyager-edit"></i> {{ __('voyager::menu_builder.edit_item') }}</h4>
                 </div>
                 <form action="" id="m_form" method="POST"
-                      data-action-add="{{ route('voyager.' . $dataType->slug . '.item.add', ['master' => $master->id]) }}">
+                      data-action-add="{{ route('voyager.' . $dataType->slug . '.items.add', ['master' => $master->id]) }}">
 
                     <input id="m_form_method" type="hidden" name="_method" value="POST">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         @include('voyager::multilingual.language-selector')
-                        <label for="name">{{ $titleColumn->display_name }}</label>
-                        @include('voyager::multilingual.input-hidden', ['_field_name' => $titleColumn->field, '_field_trans' => ''])
-                        <input type="text" class="form-control" id="m_title" name="{{ $titleColumn->field }}" placeholder="{{ $titleColumn->display_name }}"><br>
+                        <label for="name">{{ $columns['titleDisplayName'] }}</label>
+                        @include('voyager::multilingual.input-hidden', ['_field_name' => $columns['titleColumn'], '_field_trans' => ''])
+                        <input type="text" class="form-control" id="m_title" name="{{ $columns['titleColumn'] }}" placeholder="{{ $columns['titleDisplayName'] }}"><br>
                         <input type="hidden" name="{{ $itemsMasterColumn }}" value="{{ $master->id }}">
                         <input type="hidden" name="id" id="m_id" value="">
                     </div>
@@ -188,7 +188,7 @@
                     $m_id.val(id);
 
                     if(translatable){
-                        $_str_i18n = $("#" + '{{ $titleColumn->field }}' +  id + "_i18n").val();
+                        $_str_i18n = $("#" + '{{ $columns['titleColumn'] }}' +  id + "_i18n").val();
                     }
                 }
 
@@ -203,7 +203,7 @@
              */
             $('.item_actions').on('click', '.delete', function (e) {
                 id = $(e.currentTarget).data('id');
-                $('#delete_form')[0].action = '{{ route('voyager.' . $dataType->slug . '.item.destroy', ['master' => $master->id, 'id' => '__id']) }}'.replace('__id', id);
+                $('#delete_form')[0].action = '{{ route('voyager.' . $dataType->slug . '.items.destroy', ['master' => $master->id, 'id' => '__id']) }}'.replace('__id', id);
                 $('#delete_modal').modal('show');
             });
 

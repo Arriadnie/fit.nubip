@@ -4,22 +4,25 @@
 
         <li class="dd-item" data-id="{{ $item->id }}">
             <div class="pull-right item_actions">
-                <div class="btn btn-sm btn-danger pull-right delete" data-id="{{ $item->id }}">
-                    <i class="voyager-trash"></i> {{ __('voyager::generic.delete') }}
-                </div>
-                <a href="{{ route('voyager.'.$itemDataType->slug.'.edit', $item->{$item->getKeyName()}) }}" class="btn btn-sm btn-primary pull-right edit">
-                    <i class="voyager-edit"></i> {{ __('voyager::generic.edit') }}
-                </a>
+                @if(view()->exists('voyager::' . $dataType->slug . '.partial.row-actions'))
+                    @include('voyager::' . $dataType->slug . '.partial.row-actions')
+                @else
+                    @include('voyager::base-with-items.partial.row-actions')
+                @endif
             </div>
             <div class="dd-handle">
                 @if($isModelTranslatable)
                     @include('voyager::multilingual.input-hidden', [
                         'isModelTranslatable' => true,
-                        '_field_name'         => $titleColumn->field . $item->id,
-                        '_field_trans'        => json_encode($item->getTranslationsOf($titleColumn->field))
+                        '_field_name'         => $columns['titleColumn'] . $item->id,
+                        '_field_trans'        => json_encode($item->getTranslationsOf($columns['titleColumn']))
                     ])
                 @endif
-                <span>{{ $item[$titleColumn->field] }}</span>
+                <span>{{ $item[$columns['titleColumn']] }}</span>
+                @if($columns['subTitleColumn'])
+                    <small class="url">{{ $columns['subTitleDisplayColumn'] ? $item->{$columns['subTitleColumn']}[$columns['subTitleDisplayColumn']] : $item->{$columns['subTitleColumn']} }}</small>
+                @endif
+
             </div>
             @if($childConf)
                 @if(!$item[$childConf['childItemsProperty']]->isEmpty())

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialNetworksTable extends Migration
+class CreateRatingItemGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_networks', function (Blueprint $table) {
+        Schema::create('rating_item_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('svg');
-            $table->string('link');
-            $table->boolean('is_public');
+            $table->string('description')->nullable();
+            $table->unsignedInteger('parent_id')->nullable();
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateSocialNetworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_networks');
+        Schema::dropIfExists('rating_item_groups');
     }
 }

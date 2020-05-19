@@ -60,12 +60,12 @@
                                         @can('edit', $data)
                                             @if($visibleMethodName)
                                                 @if($data->{$visibleMethodName}())
-                                                    <a href="{{ route('voyager.'.$dataType->slug.'.builder', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
+                                                    <a href="{{ route('voyager.'.$dataType->slug.'.items', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
                                                         <i class="voyager-list"></i> {{ __('voyager::generic.builder') }}
                                                     </a>
                                                 @endif
                                             @else
-                                                <a href="{{ route('voyager.'.$dataType->slug.'.builder', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
+                                                <a href="{{ route('voyager.'.$dataType->slug.'.items', $data->{$data->getKeyName()}) }}" class="btn btn-sm btn-success pull-right">
                                                     <i class="voyager-list"></i> {{ __('voyager::generic.builder') }}
                                                 </a>
                                             @endif

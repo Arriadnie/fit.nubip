@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialNetworksTable extends Migration
+class CreatePeriodTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_networks', function (Blueprint $table) {
+        Schema::create('period_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('svg');
-            $table->string('link');
-            $table->boolean('is_public');
-            $table->timestamps();
+            $table->string('description')->nullable();
         });
     }
 
@@ -30,6 +27,6 @@ class CreateSocialNetworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_networks');
+        Schema::dropIfExists('period_types');
     }
 }

@@ -18,12 +18,15 @@ class BaseItemController extends VoyagerBaseController
         foreach ($relationships as $key => $value) {
             if (isset($value->details->isItemsParent) && $value->details->isItemsParent) {
                 return [
-                    'parentDataTypeSlug' => isset($value->details->parentDataTypeSlug) ? $value->details->parentDataTypeSlug : null,
+                    'parentDataTypeSlug' => static::getSlugByModel($value->details->model),
                     'column' => $value->details->column
                 ];
             }
         }
         return null;
+    }
+    private static function getSlugByModel($modelName) {
+        return Voyager::model('DataType')->where('model_name', '=', $modelName)->first()->slug;
     }
 
 
@@ -58,7 +61,7 @@ class BaseItemController extends VoyagerBaseController
         $parentConf = static::getParentConfig($dataType);
         if ($parentConf['parentDataTypeSlug']) {
             return redirect()
-                ->route("voyager." . $parentConf['parentDataTypeSlug'] . ".builder", ['master' => $data[$parentConf['column']]])
+                ->route("voyager." . $parentConf['parentDataTypeSlug'] . ".items", ['master' => $data[$parentConf['column']]])
                 ->with([
                     'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',

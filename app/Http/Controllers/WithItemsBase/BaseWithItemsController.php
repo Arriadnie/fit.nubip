@@ -166,14 +166,7 @@ class BaseWithItemsController extends VoyagerBaseController
     }
 
 
-    private function getColumnByName($dataType, $columnName) {
-        foreach ($dataType->editRows as $key => $row) {
-            if ($row->field == $columnName) {
-                return $row;
-            }
-        }
-        return null;
-    }
+
     private static function getConfig($slug) {
         $dataType = Voyager::model('DataType')->whereSlug($slug)->first();
         $relationships = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->whereType('relationship')->get();
@@ -184,7 +177,8 @@ class BaseWithItemsController extends VoyagerBaseController
                     'dataType' => $dataType,
                     'itemDataType' => Voyager::model('DataType')->whereSlug($value->details->dataTypeSlug)->first(),
                     'itemsProperty' => $value->details->itemsProperty,
-                    'itemsMasterColumn' => $value->details->column
+                    'itemsMasterColumn' => $value->details->column,
+                    'itemsConfig' => $value->details
                 ];
             }
         }
@@ -201,6 +195,34 @@ class BaseWithItemsController extends VoyagerBaseController
         return null;
     }
 
+    private static function getColumnsConfig($itemDataType, $itemsConfig) {
+        $titleColumn = isset($itemsConfig->titleColumn) ? $itemsConfig->titleColumn : $itemDataType->details->order_display_column;
+        $titleDisplayColumn = isset($itemsConfig->titleDisplayColumn) ? $itemsConfig->titleDisplayColumn : null;
+
+        $subTitleColumn = isset($itemsConfig->subTitleColumn) ? $itemsConfig->subTitleColumn : null;
+        $subTitleDisplayColumn = isset($itemsConfig->subTitleDisplayColumn) ? $itemsConfig->subTitleDisplayColumn : null;
+
+        return [
+            'titleColumn' => $titleColumn,
+            'titleDisplayColumn' => $titleDisplayColumn,
+            'titleDisplayName' => static::getColumnDisplayName($itemDataType, $titleColumn),
+            'subTitleColumn' => $subTitleColumn,
+            'subTitleDisplayColumn' => $subTitleDisplayColumn
+        ];
+    }
+    private static function getColumnDisplayName($itemDataType, $columnName) {
+        $column = static::getColumnByName($itemDataType, $columnName);
+
+        return $column ? $column->display_name : "Колонка";
+    }
+    private static function getColumnByName($dataType, $columnName) {
+        foreach ($dataType->editRows as $key => $row) {
+            if ($row->field == $columnName) {
+                return $row;
+            }
+        }
+        return null;
+    }
 
     //ALL
     public function builder(Request $request, $id)
@@ -216,7 +238,10 @@ class BaseWithItemsController extends VoyagerBaseController
 
         $this->authorize('edit', $entity);
 
+        $columns = static::getColumnsConfig($itemDataType, $conf['itemsConfig']);
+
         $isModelTranslatable = Voyager::translatable($model);
+        $itemsVisibleMethodName = static::getItemsVisibleMethodName($itemDataType);
 
         $viewName = view()->exists('voyager::' . $slug . '.builder') ?
             'voyager::' . $slug . '.builder' :
@@ -227,11 +252,25 @@ class BaseWithItemsController extends VoyagerBaseController
             'isModelTranslatable' => $isModelTranslatable,
             'dataType' => $dataType,
             'itemDataType' => $itemDataType,
-            'titleColumn' => $this->getColumnByName($itemDataType, $itemDataType->details->order_display_column),
+            'columns' => $columns,
             'itemsMasterColumn' =>$conf['itemsMasterColumn'],
-            'childConf' => static::getChildItemsConfig($itemDataType)
+            'childConf' => static::getChildItemsConfig($itemDataType),
+            'existsItemsBuilder' => static::getExistsItemsBuilder($itemDataType),
+            'itemsVisibleMethodName' => $itemsVisibleMethodName
         ]);
     }
+
+    private function getExistsItemsBuilder($itemDataType) {
+        $relationships = Voyager::model('DataRow')->whereDataTypeId($itemDataType->id)->whereType('relationship')->get();
+        foreach ($relationships as $key => $value) {
+            if (isset($value->details->isItems) && $value->details->isItems) {
+                return true;
+            }
+        }
+        return null;
+    }
+
+
     //ALL
     public function delete_item(Request $request, $master, $id)
     {
