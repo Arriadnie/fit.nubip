@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 19 2020 р., 22:44
+-- Час створення: Трв 20 2020 р., 01:48
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -180,10 +180,10 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (85, 10, 'infoblock_item_belongsto_infoblock_relationship', 'relationship', 'Infoblock', 0, 1, 1, 0, 0, 0, '{\"isItemsParent\":true,\"parentDataTypeSlug\":\"infoblocks\",\"model\":\"App\\\\Models\\\\Infoblocks\\\\Infoblock\",\"table\":\"infoblocks\",\"type\":\"belongsTo\",\"column\":\"infoblock_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 12),
 (86, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (87, 11, 'svg', 'file', 'Svg', 1, 1, 1, 1, 1, 1, '{}', 3),
-(88, 11, 'link', 'text', 'Link', 1, 1, 1, 1, 1, 1, '{}', 4),
-(96, 11, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
+(88, 11, 'link', 'text', 'Посилання факультету', 1, 1, 1, 1, 1, 1, '{}', 4),
+(96, 11, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 5),
 (97, 11, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
-(98, 11, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(98, 11, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
 (99, 8, 'with_items', 'checkbox', 'With Items', 1, 1, 1, 1, 1, 0, '{}', 5),
 (100, 8, 'with_item_parent', 'checkbox', 'With Item Parent', 1, 0, 1, 1, 1, 0, '{}', 6),
 (101, 9, 'body', 'rich_text_box', 'Body', 0, 0, 1, 1, 1, 1, '{}', 7),
@@ -267,7 +267,36 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (181, 1, 'birthday', 'date', 'Дата народження', 0, 0, 1, 1, 1, 1, '{}', 13),
 (182, 1, 'group_id', 'text', 'ID групи', 0, 0, 1, 1, 1, 1, '{}', 3),
 (183, 1, 'credit_note_number', 'text', 'Номер залікової книжки', 0, 0, 1, 1, 1, 1, '{}', 14),
-(184, 1, 'user_belongsto_group_relationship', 'relationship', 'Група', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Group\",\"table\":\"groups\",\"type\":\"belongsTo\",\"column\":\"group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 15);
+(184, 1, 'user_belongsto_group_relationship', 'relationship', 'Група', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Group\",\"table\":\"groups\",\"type\":\"belongsTo\",\"column\":\"group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 15),
+(185, 11, 'is_public', 'checkbox', 'Відображати для студентів', 1, 1, 1, 1, 1, 1, '{}', 7),
+(186, 26, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(187, 26, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(188, 26, 'description', 'rich_text_box', 'Опис', 0, 1, 1, 1, 1, 1, '{}', 3),
+(189, 27, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(190, 27, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 3),
+(191, 27, 'period_type_id', 'text', 'Period Type Id', 0, 0, 1, 1, 1, 1, '{}', 2),
+(192, 27, 'start_date', 'date', 'Дата початку', 1, 1, 1, 1, 1, 1, '{}', 5),
+(193, 27, 'due_date', 'date', 'Дата закінчення', 1, 1, 1, 1, 1, 1, '{}', 6),
+(194, 27, 'description', 'text', 'Опис', 0, 0, 1, 1, 1, 1, '{}', 7),
+(195, 27, 'period_belongsto_period_type_relationship', 'relationship', 'Тип', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Lookups\\\\PeriodType\",\"table\":\"period_types\",\"type\":\"belongsTo\",\"column\":\"period_type_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(196, 28, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(197, 28, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 4),
+(198, 28, 'description', 'text_area', 'Опис', 0, 0, 1, 1, 1, 1, '{}', 5),
+(199, 28, 'score', 'number', 'Бал', 1, 1, 1, 1, 1, 1, '{}', 6),
+(200, 28, 'rating_item_group_id', 'text', 'Rating Item Group Id', 1, 0, 1, 1, 1, 1, '{}', 2),
+(201, 28, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 7),
+(202, 28, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
+(203, 29, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(204, 29, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(205, 29, 'description', 'text_area', 'Опис', 0, 0, 1, 1, 1, 1, '{}', 3),
+(206, 29, 'parent_id', 'text', 'Parent Id', 0, 0, 1, 1, 1, 1, '{}', 5),
+(207, 29, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 6),
+(208, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(209, 29, 'rating_item_group_belongsto_rating_item_group_relationship', 'relationship', 'Батьківський блок', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Rating\\\\RatingItemGroup\",\"table\":\"rating_item_groups\",\"type\":\"belongsTo\",\"column\":\"parent_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(210, 28, 'rating_item_belongsto_rating_item_group_relationship', 'relationship', 'Блок', 0, 1, 1, 1, 1, 1, '{\"isItemsParent\":true,\"model\":\"App\\\\Models\\\\Rating\\\\RatingItemGroup\",\"table\":\"rating_item_groups\",\"type\":\"belongsTo\",\"column\":\"rating_item_group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
+(211, 29, 'rating_item_group_hasmany_rating_item_relationship', 'relationship', 'Пункти', 0, 0, 1, 1, 1, 1, '{\"isItems\":true,\"dataTypeSlug\":\"rating-items\",\"itemsProperty\":\"items\",\"titleColumn\":\"name\",\"subTitleColumn\":\"score\",\"model\":\"App\\\\Models\\\\Rating\\\\RatingItem\",\"table\":\"rating_items\",\"type\":\"hasMany\",\"column\":\"rating_item_group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
+(212, 29, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 7),
+(213, 28, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 8);
 
 -- --------------------------------------------------------
 
@@ -307,7 +336,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (8, 'infoblock_types', 'infoblock-types', 'Infoblock Type', 'Infoblock Types', 'voyager-belt', 'App\\Models\\Infoblocks\\InfoblockType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-22 19:07:45', '2020-02-10 19:33:37'),
 (9, 'infoblocks', 'infoblocks', 'Infoblock', 'Infoblocks', NULL, 'App\\Models\\Infoblocks\\Infoblock', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-29 17:14:12', '2020-02-18 20:50:45'),
 (10, 'infoblock_items', 'infoblock-items', 'Infoblock Item', 'Infoblock Items', NULL, 'App\\Models\\Infoblocks\\InfoblockItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"title\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 14:18:22', '2020-02-18 20:56:50'),
-(11, 'social_networks', 'social-networks', 'Social Network', 'Social Networks', 'voyager-facebook', 'App\\Models\\SocialNetwork', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 19:20:36', '2020-02-02 17:43:44'),
+(11, 'social_networks', 'social-networks', 'Social Network', 'Social Networks', 'voyager-facebook', 'App\\Models\\SocialNetwork', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 19:20:36', '2020-05-19 18:09:47'),
 (13, 'people_infos', 'people-infos', 'People Info', 'People Infos', 'voyager-people', 'App\\Models\\PeopleInfo\\PeopleInfo', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-11 21:05:30', '2020-02-11 21:07:39'),
 (14, 'galleries', 'galleries', 'Галерея', 'Галереї', 'voyager-photos', 'App\\Models\\Galleries\\Gallery', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-12 19:24:14', '2020-05-18 14:53:08'),
 (15, 'gallery_images', 'gallery-images', 'Фото галереї', 'Фото галереї', 'voyager-photo', 'App\\Models\\Galleries\\GalleryImage', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"caption\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-12 19:27:44', '2020-05-19 15:49:58'),
@@ -316,7 +345,11 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (18, 'education_specialties', 'education-specialties', 'Освітня спеціальність', 'Освітні спеціальності', 'voyager-file-text', 'App\\Models\\Education\\EducationSpecialty', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-28 14:46:00', '2020-05-18 14:52:23'),
 (19, 'people_info_groups', 'people-info-groups', 'Група інформації користувачів', 'Групи інформації користувачів', 'voyager-people', 'App\\Models\\PeopleInfo\\PeopleInfoGroup', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-03-02 19:35:39', '2020-03-02 19:40:35'),
 (23, 'disciplines', 'disciplines', 'Дисципліна', 'Дисципліни', 'voyager-book', 'App\\Models\\Education\\Discipline', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-18 14:32:50', '2020-05-18 14:32:50'),
-(25, 'integration_logs', 'integration-logs', 'Лог інтеграції', 'Логи інтеграції', 'voyager-logbook', 'App\\Integration\\Base\\Models\\IntegrationLog', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-18 14:38:20', '2020-05-18 14:38:20');
+(25, 'integration_logs', 'integration-logs', 'Лог інтеграції', 'Логи інтеграції', 'voyager-logbook', 'App\\Integration\\Base\\Models\\IntegrationLog', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-18 14:38:20', '2020-05-18 14:38:20'),
+(26, 'period_types', 'period-types', 'Тип періоду', 'Типи періодів', 'voyager-alarm-clock', 'App\\Models\\Lookups\\PeriodType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(27, 'periods', 'periods', 'Період', 'Періоди', 'voyager-alarm-clock', 'App\\Models\\Lookups\\Period', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:12:32', '2020-05-19 18:13:36'),
+(28, 'rating_items', 'rating-items', 'Пункт рейтингу', 'Пункти рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:15:59', '2020-05-19 18:46:23'),
+(29, 'rating_item_groups', 'rating-item-groups', 'Блок пункту рейтингу', 'Блоки пунктів рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItemGroup', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:17:11', '2020-05-19 18:58:05');
 
 -- --------------------------------------------------------
 
@@ -1189,12 +1222,12 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (2, 1, 'Медіа', '', '_self', 'voyager-images', '#000000', NULL, 3, '2019-09-04 16:52:48', '2020-02-12 17:52:51', 'voyager.media.index', 'null'),
 (3, 1, 'Користувачі', '', '_self', 'voyager-person', '#000000', 45, 1, '2019-09-04 16:52:48', '2020-02-12 17:52:45', 'voyager.users.index', 'null'),
 (4, 1, 'Ролі', '', '_self', 'voyager-lock', '#000000', 45, 2, '2019-09-04 16:52:48', '2020-02-12 17:52:51', 'voyager.roles.index', 'null'),
-(5, 1, 'Налаштування', '', '_self', 'voyager-tools', '#000000', NULL, 8, '2019-09-04 16:52:48', '2020-05-18 15:52:15', NULL, ''),
+(5, 1, 'Налаштування', '', '_self', 'voyager-tools', '#000000', NULL, 9, '2019-09-04 16:52:48', '2020-05-19 18:22:55', NULL, ''),
 (6, 1, 'Налаштування Меню', '', '_self', 'voyager-list', '#000000', 5, 1, '2019-09-04 16:52:48', '2019-09-09 10:58:25', 'voyager.menus.index', 'null'),
 (7, 1, 'База даних', '', '_self', 'voyager-data', '#000000', 5, 2, '2019-09-04 16:52:48', '2019-09-09 11:00:12', 'voyager.database.index', 'null'),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2019-09-04 16:52:48', '2019-09-04 17:35:44', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2019-09-04 16:52:48', '2019-09-04 17:35:44', 'voyager.bread.index', NULL),
-(10, 1, 'Системні налаштування', '', '_self', 'voyager-settings', '#000000', NULL, 9, '2019-09-04 16:52:48', '2020-05-18 15:52:15', 'voyager.settings.index', 'null'),
+(10, 1, 'Системні налаштування', '', '_self', 'voyager-settings', '#000000', NULL, 10, '2019-09-04 16:52:48', '2020-05-19 18:22:55', 'voyager.settings.index', 'null'),
 (11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2019-09-04 16:52:48', '2019-09-04 17:35:44', 'voyager.hooks', NULL),
 (13, 1, 'Категорії', '', '_self', 'voyager-categories', '#000000', 22, 1, '2019-09-06 03:13:33', '2020-01-19 16:02:52', 'voyager.categories.index', 'null'),
 (14, 1, 'Новини', '', '_self', 'voyager-news', '#000000', 22, 2, '2019-09-06 03:13:33', '2020-01-19 16:06:01', 'voyager.posts.index', 'null'),
@@ -1203,8 +1236,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (21, 4, 'Home 2 2', 'home2-2', '_self', NULL, '#000000', 20, 1, '2020-01-16 16:31:25', '2020-01-16 16:31:35', NULL, ''),
 (22, 1, 'Новини', '', '_self', 'voyager-news', '#000000', NULL, 5, '2020-01-19 16:02:42', '2020-05-18 15:52:15', NULL, ''),
 (23, 1, 'Типи інфоблоків', '', '_self', 'voyager-categories', '#000000', 59, 1, '2020-01-22 19:07:45', '2020-05-18 15:55:47', 'voyager.infoblock-types.index', 'null'),
-(24, 1, 'Інфоблоки', '', '_self', 'voyager-photos', '#000000', 58, 3, '2020-01-29 17:14:13', '2020-05-18 15:55:50', 'voyager.infoblocks.index', 'null'),
-(27, 1, 'Соціальні мережі', '', '_self', 'voyager-facebook', '#000000', NULL, 10, '2020-01-30 19:20:37', '2020-05-18 15:52:15', 'voyager.social-networks.index', 'null'),
+(24, 1, 'Інфоблоки', '', '_self', 'voyager-photos', '#000000', 58, 2, '2020-01-29 17:14:13', '2020-05-19 18:21:57', 'voyager.infoblocks.index', 'null'),
+(27, 1, 'Соціальні мережі', '', '_self', 'voyager-facebook', '#000000', NULL, 11, '2020-01-30 19:20:37', '2020-05-19 18:22:55', 'voyager.social-networks.index', 'null'),
 (29, 4, 'Про факультет', '', '_self', NULL, '#000000', NULL, 1, '2020-02-02 16:54:18', '2020-02-05 06:30:50', NULL, ''),
 (30, 4, 'Вступнику', '', '_self', NULL, '#000000', NULL, 2, '2020-02-02 16:55:00', '2020-02-05 06:30:50', NULL, ''),
 (31, 4, 'Правила прийому', '', '_self', NULL, '#000000', 30, 1, '2020-02-02 16:57:01', '2020-02-05 06:30:50', NULL, ''),
@@ -1222,17 +1255,22 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (43, 4, 'Новини', '', '_self', NULL, '#000000', NULL, 7, '2020-02-02 16:59:53', '2020-02-05 06:30:50', 'posts', NULL),
 (44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 3, '2020-02-11 21:05:30', '2020-02-12 17:54:49', 'voyager.people-infos.index', 'null'),
 (45, 1, 'Користувачі', '', '_self', 'voyager-person', '#000000', NULL, 2, '2020-02-12 17:52:32', '2020-02-12 17:52:44', NULL, ''),
-(46, 1, 'Галереї', '', '_self', 'voyager-photos', '#000000', 58, 4, '2020-02-12 19:24:14', '2020-05-18 15:55:50', 'voyager.galleries.index', 'null'),
+(46, 1, 'Галереї', '', '_self', 'voyager-photos', '#000000', 58, 3, '2020-02-12 19:24:14', '2020-05-19 18:21:57', 'voyager.galleries.index', 'null'),
 (49, 1, 'Освітні ступені', '', '_self', 'voyager-file-text', '#000000', 52, 1, '2020-02-28 14:39:46', '2020-02-29 07:33:49', 'voyager.education-degrees.index', 'null'),
 (50, 1, 'Освітні програми', '', '_self', 'voyager-file-text', '#000000', 52, 3, '2020-02-28 14:44:06', '2020-02-29 07:34:23', 'voyager.education-programs.index', NULL),
 (51, 1, 'Освітні спеціальності', '', '_self', 'voyager-file-text', NULL, 52, 2, '2020-02-28 14:46:01', '2020-02-29 07:34:23', 'voyager.education-specialties.index', NULL),
 (52, 1, 'Освіта', '', '_self', 'voyager-company', '#000000', NULL, 6, '2020-02-29 07:20:47', '2020-05-18 15:52:15', NULL, ''),
 (54, 1, 'Групи інформації користувачів', '', '_self', 'voyager-people', NULL, 45, 4, '2020-03-02 19:35:39', '2020-03-02 19:43:40', 'voyager.people-info-groups.index', NULL),
 (55, 1, 'Дисципліни', '', '_self', 'voyager-book', NULL, 57, 1, '2020-05-18 14:32:50', '2020-05-18 15:50:31', 'voyager.disciplines.index', NULL),
-(56, 1, 'Інтеграція', '', '_self', 'voyager-logbook', '#000000', NULL, 11, '2020-05-18 14:38:21', '2020-05-18 15:52:15', 'voyager.integration-logs.index', 'null'),
+(56, 1, 'Інтеграція', '', '_self', 'voyager-logbook', '#000000', NULL, 12, '2020-05-18 14:38:21', '2020-05-19 18:22:55', 'voyager.integration-logs.index', 'null'),
 (57, 1, 'Розклад', '', '_self', 'voyager-calendar', '#000000', NULL, 7, '2020-05-18 15:50:21', '2020-05-18 15:52:15', NULL, ''),
 (58, 1, 'Налаштування сайту', '', '_self', 'voyager-browser', '#000000', NULL, 4, '2020-05-18 15:51:58', '2020-05-18 15:52:11', NULL, ''),
-(59, 1, 'Довідники', '', '_self', 'voyager-window-list', '#000000', NULL, 12, '2020-05-18 15:54:30', '2020-05-18 15:55:36', NULL, '');
+(59, 1, 'Довідники', '', '_self', 'voyager-window-list', '#000000', NULL, 13, '2020-05-18 15:54:30', '2020-05-19 18:22:55', NULL, ''),
+(60, 1, 'Типи періодів', '', '_self', 'voyager-alarm-clock', NULL, 59, 2, '2020-05-19 18:11:24', '2020-05-19 18:22:04', 'voyager.period-types.index', NULL),
+(61, 1, 'Періоди', '', '_self', 'voyager-alarm-clock', NULL, 59, 3, '2020-05-19 18:12:32', '2020-05-19 18:22:05', 'voyager.periods.index', NULL),
+(62, 1, 'Пункти рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 2, '2020-05-19 18:16:00', '2020-05-19 18:22:02', 'voyager.rating-items.index', NULL),
+(63, 1, 'Блоки пунктів рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 1, '2020-05-19 18:17:11', '2020-05-19 18:22:00', 'voyager.rating-item-groups.index', NULL),
+(64, 1, 'Рейтинг', '', '_self', 'voyager-bar-chart', '#000000', NULL, 8, '2020-05-19 18:21:47', '2020-05-19 18:22:55', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -1300,7 +1338,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (64, '2020_05_16_094824_create_sys_sync_meta_data_table', 20),
 (65, '2020_05_17_180613_create_groups_table', 21),
 (66, '2020_05_18_170754_create_disciplines_table', 22),
-(67, '2020_05_18_190408_add_education_columns_to_users', 23);
+(67, '2020_05_18_190408_add_education_columns_to_users', 23),
+(68, '2020_05_19_203112_create_rating_item_groups_table', 24),
+(69, '2020_05_19_203126_create_rating_items_table', 24),
+(70, '2020_05_19_203140_create_period_types_table', 24),
+(71, '2020_05_19_203149_create_periods_table', 24),
+(72, '2020_05_19_203159_create_user_rating_items_table', 25),
+(73, '2020_05_19_210622_add_is_public_column_to_social_metworks', 26),
+(74, '2020_05_19_212432_add_columns_to_rating_items', 27),
+(75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27);
 
 -- --------------------------------------------------------
 
@@ -1434,6 +1480,33 @@ INSERT INTO `people_info_in_group` (`people_info_id`, `people_info_group_id`, `o
 -- --------------------------------------------------------
 
 --
+-- Структура таблиці `periods`
+--
+
+CREATE TABLE `periods` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `period_type_id` int(10) UNSIGNED DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `due_date` date NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `period_types`
+--
+
+CREATE TABLE `period_types` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблиці `permissions`
 --
 
@@ -1555,7 +1628,27 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (108, 'read_integration_logs', 'integration_logs', '2020-05-18 14:38:21', '2020-05-18 14:38:21'),
 (109, 'edit_integration_logs', 'integration_logs', '2020-05-18 14:38:21', '2020-05-18 14:38:21'),
 (110, 'add_integration_logs', 'integration_logs', '2020-05-18 14:38:21', '2020-05-18 14:38:21'),
-(111, 'delete_integration_logs', 'integration_logs', '2020-05-18 14:38:21', '2020-05-18 14:38:21');
+(111, 'delete_integration_logs', 'integration_logs', '2020-05-18 14:38:21', '2020-05-18 14:38:21'),
+(112, 'browse_period_types', 'period_types', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(113, 'read_period_types', 'period_types', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(114, 'edit_period_types', 'period_types', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(115, 'add_period_types', 'period_types', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(116, 'delete_period_types', 'period_types', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
+(117, 'browse_periods', 'periods', '2020-05-19 18:12:32', '2020-05-19 18:12:32'),
+(118, 'read_periods', 'periods', '2020-05-19 18:12:32', '2020-05-19 18:12:32'),
+(119, 'edit_periods', 'periods', '2020-05-19 18:12:32', '2020-05-19 18:12:32'),
+(120, 'add_periods', 'periods', '2020-05-19 18:12:32', '2020-05-19 18:12:32'),
+(121, 'delete_periods', 'periods', '2020-05-19 18:12:32', '2020-05-19 18:12:32'),
+(122, 'browse_rating_items', 'rating_items', '2020-05-19 18:16:00', '2020-05-19 18:16:00'),
+(123, 'read_rating_items', 'rating_items', '2020-05-19 18:16:00', '2020-05-19 18:16:00'),
+(124, 'edit_rating_items', 'rating_items', '2020-05-19 18:16:00', '2020-05-19 18:16:00'),
+(125, 'add_rating_items', 'rating_items', '2020-05-19 18:16:00', '2020-05-19 18:16:00'),
+(126, 'delete_rating_items', 'rating_items', '2020-05-19 18:16:00', '2020-05-19 18:16:00'),
+(127, 'browse_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
+(128, 'read_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
+(129, 'edit_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
+(130, 'add_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
+(131, 'delete_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11');
 
 -- --------------------------------------------------------
 
@@ -1770,7 +1863,27 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (108, 1),
 (109, 1),
 (110, 1),
-(111, 1);
+(111, 1),
+(112, 1),
+(113, 1),
+(114, 1),
+(115, 1),
+(116, 1),
+(117, 1),
+(118, 1),
+(119, 1),
+(120, 1),
+(121, 1),
+(122, 1),
+(123, 1),
+(124, 1),
+(125, 1),
+(126, 1),
+(127, 1),
+(128, 1),
+(129, 1),
+(130, 1),
+(131, 1);
 
 -- --------------------------------------------------------
 
@@ -1812,6 +1925,58 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 (9, 1, 2, '14 лютого', '', '', '<p>Всіх зі святом</p>', 'posts\\February2020\\jOu28ryJ4hlumna1xMkN.jpg', '14-lyutogo', '', '', 'PUBLISHED', 1, '2020-02-04 18:42:38', '2020-02-04 18:42:38'),
 (10, 1, 1, 'Котик', '', '', '<p>Мемасікі</p>', 'posts\\February2020\\E85hw82vkHNwGldAyL5b.jpg', 'kotik', '', '', 'PUBLISHED', 0, '2020-02-04 18:43:06', '2020-02-04 18:43:06'),
 (11, 1, 2, 'Новий 2020', '', 'Про новий рік.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. ', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Est lorem ipsum dolor sit. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Id interdum velit laoreet id donec. Integer vitae justo eget magna. Tellus integer feugiat scelerisque varius morbi. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Nibh tellus molestie nunc non blandit massa enim. Sed augue lacus viverra vitae congue. Cras fermentum odio eu feugiat pretium nibh. Nulla facilisi nullam vehicula ipsum a arcu. Purus non enim praesent elementum facilisis leo vel. Est sit amet facilisis magna etiam tempor orci eu lobortis. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.</p>\n<figure class=\"image\"><img title=\"Символ року\" src=\"http://localhost:8000/storage/posts/February2020/mouse.jpg\" alt=\"Символ року\" width=\"512\" height=\"288\" />\n<figcaption>Мишка</figcaption>\n</figure>\n<p>&nbsp;</p>\n<p><strong>Molestie at elementum eu facilisis sed odi</strong>o. Ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at lectus. Tortor vitae purus faucibus ornare suspendisse sed. Dictum non consectetur a erat. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Mattis rhoncus urna neque viverra. Elementum facilisis leo vel fringilla. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Morbi tincidunt ornare massa eget. At erat pellentesque adipiscing commodo elit at. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Amet justo donec enim diam vulputate ut pharetra. Id cursus metus aliquam eleifend mi in nulla. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Bibendum at varius vel pharetra. Massa sed elementum tempus egestas.</p>\n<p><a href=\"https://loremipsum.io/ru/generator/?n=5&amp;t=p\" target=\"_blank\" rel=\"noopener\">Lorem Ipsum Generator</a></p>\n<p><em>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Etiam erat velit scelerisque in dictum. Cras sed felis eget velit aliquet sagittis.</em></p>\n<p>&nbsp;</p>\n<p>Mauris a diam maecenas sed enim ut sem viverra aliquet. Ullamcorper a lacus vestibulum sed. Lectus vestibulum mattis ullamcorper velit sed. Nulla porttitor massa id neque aliquam. Aliquet nec ullamcorper sit amet risus nullam eget. Leo integer malesuada nunc vel risus commodo viverra. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Varius quam quisque id diam vel. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Suspendisse ultrices gravida dictum fusce. Venenatis lectus magna fringilla urna porttitor rhoncus. Adipiscing elit ut aliquam purus sit amet luctus venenatis. Etiam dignissim diam quis enim lobortis. Diam quam nulla porttitor massa.</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://localhost:8000/storage/posts/February2020/ket.jpg\" alt=\"\" /></p>\n<p>Pulvinar etiam non quam lacus suspendisse faucibus interdum. Cursus metus aliquam eleifend mi in nulla posuere. Tempor id eu nisl nunc mi ipsum faucibus. Augue ut lectus arcu bibendum at varius vel. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Eu sem integer vitae justo eget magna fermentum. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Viverra justo nec ultrices dui sapien eget mi proin. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Quam pellentesque nec nam aliquam sem et. Volutpat ac tincidunt vitae semper. Quis lectus nulla at volutpat diam ut. Eu feugiat pretium nibh ipsum consequat nisl vel.</p>\n<ul>\n<li>Augue ut lectus arcu bibendum at varius ve</li>\n<li>Augue ut lectus arcu</li>\n<li>Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus</li>\n</ul>\n<p>Porttitor massa id neque aliquam vestibulum morbi blandit. Senectus et netus et malesuada fames ac turpis. Nunc non blandit massa enim. <span style=\"color: #ff0000;\">Lorem mollis aliquam ut porttitor leo a diam sollicitudin.</span> Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Erat velit scelerisque in dictum non. Et tortor at risus viverra adipiscing at in tellus. Euismod nisi porta lorem mollis aliquam ut. Integer vitae justo eget magna fermentum iaculis eu. Purus in massa tempor nec feugiat nisl pretium fusce. Convallis posuere morbi leo urna molestie at elementum. Condimentum mattis pellentesque id nibh tortor id aliquet lectus proin. Egestas congue quisque egestas diam in arcu cursus euismod. Non nisi est sit amet facilisis.</p>\n<ol>\n<li>Кот</li>\n<li>Миша</li>\n<li>Дракон</li>\n<li>Кріль / Зайчик</li>\n<li>Мавпа</li>\n</ol>', 'posts\\February2020\\f8rfJrKE82tgqMTJkzzZ.jpg', 'novij-2020', '', '', 'PUBLISHED', 1, '2020-02-04 19:00:50', '2020-02-04 19:53:18');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `rating_items`
+--
+
+CREATE TABLE `rating_items` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `score` double NOT NULL DEFAULT 0,
+  `rating_item_group_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `order` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `rating_items`
+--
+
+INSERT INTO `rating_items` (`id`, `name`, `description`, `score`, `rating_item_group_id`, `created_at`, `updated_at`, `order`) VALUES
+(1, 'Голова об’єднаної студентської ради гуртожитків', NULL, 4, 3, '2020-05-19 18:59:48', '2020-05-19 19:00:02', 1),
+(2, 'Голови СР гуртожитків', NULL, 5, 3, '2020-05-19 19:00:11', '2020-05-19 19:00:16', 2),
+(3, 'Голова СО Університету', NULL, 5, 2, '2020-05-19 19:00:31', '2020-05-19 19:00:59', 3),
+(4, 'Заступники голови СО Університету', NULL, 2, 2, '2020-05-19 19:00:44', '2020-05-19 19:00:50', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `rating_item_groups`
+--
+
+CREATE TABLE `rating_item_groups` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `order` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `rating_item_groups`
+--
+
+INSERT INTO `rating_item_groups` (`id`, `name`, `description`, `parent_id`, `created_at`, `updated_at`, `order`) VALUES
+(1, '1. Студентська організація (СО)', NULL, NULL, '2020-05-19 18:41:49', '2020-05-19 18:43:43', 1),
+(2, '1.1. Студентська організація (СО)', NULL, 1, '2020-05-19 18:42:00', '2020-05-19 18:45:12', 2),
+(3, '1.2. Студентська рада (СР) гуртожитку', NULL, 1, '2020-05-19 18:42:11', '2020-05-19 18:45:02', 3);
 
 -- --------------------------------------------------------
 
@@ -1911,17 +2076,18 @@ CREATE TABLE `social_networks` (
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_public` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `social_networks`
 --
 
-INSERT INTO `social_networks` (`id`, `svg`, `link`, `created_at`, `updated_at`, `name`) VALUES
-(1, '[{\"download_link\":\"social-networks\\\\February2020\\\\XoLVDxyUMplCmj7UOpFZ.svg\",\"original_name\":\"instagram.svg\"}]', 'https://www.instagram.com/it_nules', '2020-02-02 14:59:00', '2020-05-10 10:10:14', 'Instagram'),
-(2, '[{\"download_link\":\"social-networks\\\\February2020\\\\RiLa4rX0ZLnJUG0wfLE2.svg\",\"original_name\":\"facebook.svg\"}]', 'https://www.facebook.com/fitnubip', '2020-02-02 15:37:00', '2020-02-19 19:55:20', 'Facebook'),
-(3, '[{\"download_link\":\"social-networks\\\\May2020\\\\aVYscGK1U15emBzG1fwZ.svg\",\"original_name\":\"youtube.svg\"}]', 'https://www.youtube.com/channel/UC-U1fqRT0jeRLUUDcMq1uaw', '2020-05-10 10:16:00', '2020-05-10 10:17:31', 'Youtube');
+INSERT INTO `social_networks` (`id`, `svg`, `link`, `created_at`, `updated_at`, `name`, `is_public`) VALUES
+(1, '[{\"download_link\":\"social-networks\\\\February2020\\\\XoLVDxyUMplCmj7UOpFZ.svg\",\"original_name\":\"instagram.svg\"}]', 'https://www.instagram.com/it_nules', '2020-02-02 14:59:00', '2020-05-10 10:10:14', 'Instagram', 0),
+(2, '[{\"download_link\":\"social-networks\\\\February2020\\\\RiLa4rX0ZLnJUG0wfLE2.svg\",\"original_name\":\"facebook.svg\"}]', 'https://www.facebook.com/fitnubip', '2020-02-02 15:37:00', '2020-02-19 19:55:20', 'Facebook', 0),
+(3, '[{\"download_link\":\"social-networks\\\\May2020\\\\aVYscGK1U15emBzG1fwZ.svg\",\"original_name\":\"youtube.svg\"}]', 'https://www.youtube.com/channel/UC-U1fqRT0jeRLUUDcMq1uaw', '2020-05-10 10:16:00', '2020-05-10 10:17:31', 'Youtube', 0);
 
 -- --------------------------------------------------------
 
@@ -3078,7 +3244,45 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (689, 'data_rows', 'display_name', 181, 'en', 'Дата народження', '2020-05-18 17:22:45', '2020-05-18 17:22:45'),
 (690, 'data_rows', 'display_name', 182, 'en', 'Ід групи', '2020-05-18 17:22:45', '2020-05-18 17:22:45'),
 (691, 'data_rows', 'display_name', 183, 'en', 'Номер залікової книжки', '2020-05-18 17:22:45', '2020-05-18 17:22:45'),
-(692, 'data_rows', 'display_name', 184, 'en', 'groups', '2020-05-18 18:11:35', '2020-05-18 18:11:35');
+(692, 'data_rows', 'display_name', 184, 'en', 'groups', '2020-05-18 18:11:35', '2020-05-18 18:11:35'),
+(693, 'data_rows', 'display_name', 86, 'en', 'Id', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(694, 'data_rows', 'display_name', 87, 'en', 'Svg', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(695, 'data_rows', 'display_name', 88, 'en', 'Link', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(696, 'data_rows', 'display_name', 96, 'en', 'Created At', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(697, 'data_rows', 'display_name', 97, 'en', 'Updated At', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(698, 'data_rows', 'display_name', 98, 'en', 'Name', '2020-05-19 18:08:42', '2020-05-19 18:08:42'),
+(699, 'data_rows', 'display_name', 185, 'en', 'Відображати для студентів', '2020-05-19 18:09:48', '2020-05-19 18:09:48'),
+(700, 'data_rows', 'display_name', 189, 'en', 'Id', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(701, 'data_rows', 'display_name', 190, 'en', 'Назва', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(702, 'data_rows', 'display_name', 191, 'en', 'Period Type Id', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(703, 'data_rows', 'display_name', 192, 'en', 'Дата початку', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(704, 'data_rows', 'display_name', 193, 'en', 'Дата закінчення', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(705, 'data_rows', 'display_name', 194, 'en', 'Опис', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(706, 'data_rows', 'display_name', 195, 'en', 'period_types', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(707, 'data_types', 'display_name_singular', 27, 'en', 'Період', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(708, 'data_types', 'display_name_plural', 27, 'en', 'Періоди', '2020-05-19 18:13:36', '2020-05-19 18:13:36'),
+(709, 'data_rows', 'display_name', 203, 'en', 'Id', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(710, 'data_rows', 'display_name', 204, 'en', 'Назва', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(711, 'data_rows', 'display_name', 205, 'en', 'Опис', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(712, 'data_rows', 'display_name', 206, 'en', 'Parent Id', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(713, 'data_rows', 'display_name', 207, 'en', 'Створено', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(714, 'data_rows', 'display_name', 208, 'en', 'Updated At', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(715, 'data_rows', 'display_name', 209, 'en', 'rating_item_groups', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(716, 'data_types', 'display_name_singular', 29, 'en', 'Блок пункту рейтингу', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(717, 'data_types', 'display_name_plural', 29, 'en', 'Блоки пунктів рейтингу', '2020-05-19 18:18:57', '2020-05-19 18:18:57'),
+(718, 'data_rows', 'display_name', 196, 'en', 'Id', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(719, 'data_rows', 'display_name', 197, 'en', 'Назва', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(720, 'data_rows', 'display_name', 198, 'en', 'Опис', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(721, 'data_rows', 'display_name', 199, 'en', 'Бал', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(722, 'data_rows', 'display_name', 200, 'en', 'Rating Item Group Id', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(723, 'data_rows', 'display_name', 201, 'en', 'Створено', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(724, 'data_rows', 'display_name', 202, 'en', 'Updated At', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(725, 'data_rows', 'display_name', 210, 'en', 'rating_item_groups', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(726, 'data_types', 'display_name_singular', 28, 'en', 'Пункт рейтингу', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(727, 'data_types', 'display_name_plural', 28, 'en', 'Пункти рейтингу', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
+(728, 'data_rows', 'display_name', 211, 'en', 'rating_items', '2020-05-19 18:35:13', '2020-05-19 18:35:13'),
+(729, 'data_rows', 'display_name', 212, 'en', 'Порядковий номер', '2020-05-19 18:40:42', '2020-05-19 18:40:42'),
+(730, 'data_rows', 'display_name', 213, 'en', 'Порядковий номер', '2020-05-19 18:41:09', '2020-05-19 18:41:09');
 
 -- --------------------------------------------------------
 
@@ -3108,7 +3312,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `birthday`, `group_id`, `credit_note_number`) VALUES
-(1, 1, 'Vladik', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ZRI6UAP4smD./WSd9s/1AuDaS.VjTqW8H1qpFzKTpG6livqhzoTVG', 'JPd05cJG8A29elL8cQV92bdF7GtlDVUXS3lVQbhClp4FzuJ3s6XSbWNN2bBB', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-04-29 17:41:21', NULL, NULL, NULL),
+(1, 1, 'Vladik', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ZRI6UAP4smD./WSd9s/1AuDaS.VjTqW8H1qpFzKTpG6livqhzoTVG', 'yKCqa0ClQoEVvGiChJUbQfrmVdZIjrQ3COCmJT1H483IqomKsy1kdMXJBAEF', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-04-29 17:41:21', NULL, NULL, NULL),
 (3, 3, 'Вася', 'vasya@gmail.com', 'users/default.png', NULL, '$2y$10$iB2zkw.BDKYJQMdosF4diuUGgHw1kt/4fIgl0St7YbdQzd13Cdi4u', NULL, '{\"locale\":\"uk\"}', '2019-09-05 03:44:16', '2020-01-14 19:17:45', NULL, NULL, NULL),
 (4, 2, 'Lytvynchuk Vladyslav Grygorovuch', 'vlad.litvinchyk@gmail.com', 'users/default.png', NULL, '$2y$10$NHOhIpVaiWEvGgO6p3t0EOl/ZnZNfXrQcqFIi7kla3ChCGg2UvejG', NULL, NULL, '2020-03-11 19:40:28', '2020-03-11 19:40:28', NULL, NULL, NULL),
 (5, 5, 'Contenter', 'contenter@gmail.com', 'users/default.png', NULL, '$2y$10$jcDPBel38TuntpzYhdFnhuJL2Gy5G.ZREp9hOmXRidayLCROIPm3e', NULL, '{\"locale\":\"uk\"}', '2020-05-18 16:51:59', '2020-05-18 16:51:59', NULL, NULL, NULL),
@@ -3118,6 +3322,22 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 (9, 3, 'Войт Владислав Віталійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16294'),
 (10, 3, 'Волков Богдан Валерійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 45, '16159'),
 (11, 3, 'Зах Вадим Юрійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16064');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `user_rating_items`
+--
+
+CREATE TABLE `user_rating_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `status` enum('IN_PROCESS','EDITED','REJECTED','CONFIRMED') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'IN_PROCESS',
+  `rating_item_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -3297,6 +3517,19 @@ ALTER TABLE `people_info_in_group`
   ADD KEY `people_info_in_group_people_info_group_id_foreign` (`people_info_group_id`);
 
 --
+-- Індекси таблиці `periods`
+--
+ALTER TABLE `periods`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `periods_period_type_id_foreign` (`period_type_id`);
+
+--
+-- Індекси таблиці `period_types`
+--
+ALTER TABLE `period_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Індекси таблиці `permissions`
 --
 ALTER TABLE `permissions`
@@ -3317,6 +3550,19 @@ ALTER TABLE `permission_role`
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
+
+--
+-- Індекси таблиці `rating_items`
+--
+ALTER TABLE `rating_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rating_items_rating_item_group_id_foreign` (`rating_item_group_id`);
+
+--
+-- Індекси таблиці `rating_item_groups`
+--
+ALTER TABLE `rating_item_groups`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Індекси таблиці `roles`
@@ -3361,6 +3607,14 @@ ALTER TABLE `users`
   ADD KEY `users_group_id_foreign` (`group_id`);
 
 --
+-- Індекси таблиці `user_rating_items`
+--
+ALTER TABLE `user_rating_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_rating_items_rating_item_id_foreign` (`rating_item_id`),
+  ADD KEY `user_rating_items_user_id_foreign` (`user_id`);
+
+--
 -- Індекси таблиці `user_roles`
 --
 ALTER TABLE `user_roles`
@@ -3382,13 +3636,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблиці `disciplines`
@@ -3466,13 +3720,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблиці `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
@@ -3493,16 +3747,40 @@ ALTER TABLE `people_info_groups`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблиці `periods`
+--
+ALTER TABLE `periods`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблиці `period_types`
+--
+ALTER TABLE `period_types`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблиці `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблиці `rating_items`
+--
+ALTER TABLE `rating_items`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблиці `rating_item_groups`
+--
+ALTER TABLE `rating_item_groups`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблиці `roles`
@@ -3532,13 +3810,19 @@ ALTER TABLE `sys_sync_meta_data`
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=693;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=731;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT для таблиці `user_rating_items`
+--
+ALTER TABLE `user_rating_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
@@ -3608,6 +3892,12 @@ ALTER TABLE `people_info_in_group`
   ADD CONSTRAINT `people_info_in_group_people_info_id_foreign` FOREIGN KEY (`people_info_id`) REFERENCES `people_infos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Обмеження зовнішнього ключа таблиці `periods`
+--
+ALTER TABLE `periods`
+  ADD CONSTRAINT `periods_period_type_id_foreign` FOREIGN KEY (`period_type_id`) REFERENCES `period_types` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
 -- Обмеження зовнішнього ключа таблиці `permission_role`
 --
 ALTER TABLE `permission_role`
@@ -3615,11 +3905,24 @@ ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
+-- Обмеження зовнішнього ключа таблиці `rating_items`
+--
+ALTER TABLE `rating_items`
+  ADD CONSTRAINT `rating_items_rating_item_group_id_foreign` FOREIGN KEY (`rating_item_group_id`) REFERENCES `rating_item_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Обмеження зовнішнього ключа таблиці `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+
+--
+-- Обмеження зовнішнього ключа таблиці `user_rating_items`
+--
+ALTER TABLE `user_rating_items`
+  ADD CONSTRAINT `user_rating_items_rating_item_id_foreign` FOREIGN KEY (`rating_item_id`) REFERENCES `rating_items` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_rating_items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Обмеження зовнішнього ключа таблиці `user_roles`
