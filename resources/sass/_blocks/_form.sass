@@ -1,0 +1,144 @@
+form
+    display: flex
+    align-items: flex-start
+    flex-direction: column
+
+form label
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    width: get-vw(500px)
+    flex-direction: row
+
+label .icon
+    display: flex
+    align-items: center
+    justify-content: center
+    width: get-vw(50px)
+    flex-shrink: 0
+    height: get-vw(50px)
+    padding: get-vw(10px)
+    border-radius: 50%
+    background: $lightBlue70
+    color: #fff
+
+    margin-right: get-vw(20px)
+
+form .divider
+    margin-top: get-vw(40px)
+    margin-bottom: get-vw(20px)
+
+form label + label
+    margin-top: get-vw(25px)
+
+input::placeholder,
+textarea::placeholder
+    color: rgba(0, 0, 0, .8)
+    font-size: get-vw(20px)
+
+input,
+textarea,
+input[disabled],
+textarea[disabled]
+    display: flex
+    background: #fff
+    width: 100%
+    border: none
+    line-height: 1.2
+    transition: 0.3s ease
+    padding: get-vw(10px) 0
+    border-bottom: 1px solid rgba(0, 0, 0, .8) !important
+    color: rgba(0, 0, 0, .8)
+    font-size: get-vw(20px)
+
+input[disabled],
+textarea[disabled]
+    opacity: 0.5
+
+input.disabled,
+textarea.disabled
+    pointer-events: none
+    opacity: 0.6
+
+textarea
+    height: get-vw(120px)
+
+form input[type=submit]
+    width: auto !important
+    border: none !important
+
+    margin-top: get-vw(30px)
+
+form input[type=submit].hidden
+    display: none
+    opacity: 0
+    pointer-events: none
+
+.add-personal-info form
+    flex-direction: row
+
+
+form .part
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+.add-personal-info form .part + .part
+    margin-left: get-vw(100px)
+
+.add-personal-info .main-btn
+    margin-top: get-vw(50px)
+
+.form-row
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+form label.select
+    width: get-vw(500px)
+    max-width: get-vw(500px)
+    justify-content: space-between
+
+form label.select span
+    margin-right: get-vw(20px)
+
+
+.personal-room form label span,
+label.total span
+    white-space: nowrap
+    margin-right: get-vw(20px)
+
+label.total span,
+label.total input
+    font-size: get-vw(22px)
+
+form label.select .ss-main
+    width: get-vw(430px)
+    max-width: get-vw(430px)
+
+label.select .ss-main .ss-single-selected
+    border: none
+    border-radius: unset
+    border-bottom: 1px solid rgba(0, 0, 0, .8)
+
+.datepicker-panel > ul > li.picked,
+.datepicker-panel > ul > li.picked:hover
+    background: $lightBlue70
+    color: $blue75
+
+.select .ss-content .ss-list
+    +scrollbar
+
+.filter-wrap
+    display: flex
+    align-items: center
+
+.filter-wrap p
+    font-size: get-vw(20px)
+
+.filter-wrap label.select .ss-main
+    width: get-vw(160px)
+
+.filter-wrap label
+    margin-left: get-vw(40px)
+
