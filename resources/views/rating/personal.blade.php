@@ -6,36 +6,31 @@
 @section('content')
 
     @include('includes.personal-header')
+    @include('rating.includes.periods-json')
 
     <div class="container-table personal-room">
         <p class="lined-title">Персональний рейтинг</p>
         <p class="subtitle lined-title">Оберіть значення для фільтрації</p>
         <div class="filter-wrap rating-filter">
-            <p>Відсотрувати рейтинг:</p>
+            <p>Відфільтрувати рейтинг:</p>
             <label class="select">
-                <select class="default-select" name="select-period">
-                    <option value="mounth">Місяць</option>
-                    <option value="semestr">Семестр</option>
+                <select class="default-select" name="period-type">
+                    @foreach(PeriodType::all() as $period)
+                        <option value="{{ $period->id }}">{{ $period->name }}</option>
+                    @endforeach
                 </select>
             </label>
 
             <label class="select">
-                <select class="default-select" name="mounth">
-                    <option value="1">Січень</option>
-                    <option value="2">Лютий</option>
-                    <option value="3">Березень</option>
-                    <option value="4">Квітень</option>
+                <select class="default-select" name="period">
+                    <option value="1">Січень 2020</option>
+                    <option value="2">Лютий 2020</option>
+                    <option value="3">Березень 2020</option>
+                    <option value="4">Квітень 2020</option>
                 </select>
             </label>
 
-            <label class="select">
-                <select class="default-select" name="period3">
-                    <option value="1">2020</option>
-                    <option value="2">2018</option>
-                    <option value="3">2017</option>
-                    <option value="4">2016</option>
-                </select>
-            </label>
+            <a href="#" class="main-btn light">Фільтрувати</a>
         </div>
 
         <div class="rating-wrap">

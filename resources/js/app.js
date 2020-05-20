@@ -240,11 +240,14 @@ document.addEventListener('DOMContentLoaded', function(e) {
                     item.removeAttribute('disabled')
                 })
             } else {
+                form.submit();
                 btn.classList.add('disabled');
                 btn.innerText = 'Редагувати інформацію';
                 inputs.forEach((item) => {
                     item.setAttribute('disabled', 'true')
-                })
+                });
+
+
             }
         })
 

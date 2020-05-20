@@ -16,6 +16,7 @@ class CreateUserRatingItemsTable extends Migration
     {
         Schema::create('user_rating_items', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('name');
             $table->date('date');
             $table->enum('status', UserRatingItem::$statuses)->default(UserRatingItem::STATUS_IN_PROCESS);
             $table->unsignedInteger('rating_item_id')->nullable();

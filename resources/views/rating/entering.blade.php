@@ -14,13 +14,14 @@
 
     <div class="container-inner personal-room">
         <p class="lined-title">@lang('rating.entering-title')</p>
-        <form action="">
+        <form method="POST" action="{{ route('rating.createPersonal') }}">
+            @csrf
             <p class="subtitle lined-title">@lang('rating.entering-sub-title')</p>
             <label>
-                <input type="text" placeholder="@lang('rating.event-name')">
+                <input type="text" name="name" placeholder="@lang('rating.event-name')">
             </label>
             <label>
-                <input type="text" data-toggle="datepicker" placeholder="@lang('rating.event-date')">
+                <input type="text" name="date" data-toggle="datepicker" placeholder="@lang('rating.event-date')">
             </label>
 
             <div class="rating-grade">

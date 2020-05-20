@@ -30,8 +30,8 @@
         </div>
 
         <div class="add-personal-info">
-            <form action="">
-
+            <form method="POST" action="{{ route('personalInfo') }}">
+                @csrf
                 <div class="part">
                     <p class="lined-title">Додаткова інформація</p>
                     <label>

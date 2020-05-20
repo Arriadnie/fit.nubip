@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 20 2020 р., 23:30
+-- Час створення: Трв 21 2020 р., 01:27
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -1348,7 +1348,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (73, '2020_05_19_210622_add_is_public_column_to_social_metworks', 26),
 (74, '2020_05_19_212432_add_columns_to_rating_items', 27),
 (75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27),
-(76, '2020_05_20_192802_create_people_info_social_networks_table', 28);
+(76, '2020_05_20_192802_create_people_info_social_networks_table', 28),
+(77, '2020_05_20_214735_add_column_to_user_rating_items', 29);
 
 -- --------------------------------------------------------
 
@@ -1431,7 +1432,7 @@ CREATE TABLE `people_infos` (
 
 INSERT INTO `people_infos` (`id`, `user_id`, `name`, `slug`, `phone`, `email`, `position`, `description`, `image`, `link`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Швиденко Михайло Зіновійович', 'shvidenko-mihajlo-zinovijovich', NULL, NULL, 'Завідувач кафедри', '<p><span style=\"color: rgba(0, 4, 57, 0.75); font-family: Raleway, sans-serif; font-size: 17.075px;\">кандидат економічних наук, доцент, заслужений професор НУБіП України, відмінник аграрної освіти і науки України, заслужений працівник освіти України</span></p>', 'people-infos\\February2020\\BVJzWdD8Yc1KWGE9S3zn.jpg', NULL, 'CHANGED', '2020-02-11 21:07:00', '2020-02-11 21:07:00'),
-(2, 1, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-05-20 16:15:40'),
+(2, 1, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', 'Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-05-20 18:16:39'),
 (3, NULL, 'Чубар Людмила', 'chubar-lyudmila', NULL, NULL, '', '<p>Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital</p>', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-02-27 17:55:34');
 
 -- --------------------------------------------------------
@@ -1506,6 +1507,20 @@ CREATE TABLE `periods` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп даних таблиці `periods`
+--
+
+INSERT INTO `periods` (`id`, `name`, `period_type_id`, `start_date`, `due_date`, `description`) VALUES
+(1, 'Травень 2020', 1, '2020-05-01', '2020-05-31', NULL),
+(2, 'Квітень', 1, '2020-04-01', '2020-04-30', NULL),
+(3, 'Березень 2020', 1, '2020-03-01', '2020-03-31', NULL),
+(4, 'Червень 2020', 1, '2020-06-01', '2020-06-30', NULL),
+(5, '2 семестр 2019-2020 нр.', 2, '2020-02-03', '2020-07-17', NULL),
+(6, '1 семестр 2020-2021 нр.', 2, '2020-09-01', '2020-12-31', NULL),
+(7, 'Липень 2020', 1, '2020-07-01', '2020-07-31', NULL),
+(8, 'Серпень 2020', 1, '2020-08-01', '2020-08-31', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1517,6 +1532,14 @@ CREATE TABLE `period_types` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `period_types`
+--
+
+INSERT INTO `period_types` (`id`, `name`, `description`) VALUES
+(1, 'Місяць', NULL),
+(2, 'Семестр', NULL);
 
 -- --------------------------------------------------------
 
@@ -3353,8 +3376,16 @@ CREATE TABLE `user_rating_items` (
   `rating_item_id` int(10) UNSIGNED DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `user_rating_items`
+--
+
+INSERT INTO `user_rating_items` (`id`, `date`, `status`, `rating_item_id`, `user_id`, `created_at`, `updated_at`, `name`) VALUES
+(1, '2020-05-31', 'IN_PROCESS', 1, 1, '2020-05-20 18:54:25', '2020-05-20 18:54:25', 'Голова СР гуртожитку 2 семестр');
 
 -- --------------------------------------------------------
 
@@ -3750,7 +3781,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
@@ -3774,13 +3805,13 @@ ALTER TABLE `people_info_groups`
 -- AUTO_INCREMENT для таблиці `periods`
 --
 ALTER TABLE `periods`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблиці `period_types`
 --
 ALTER TABLE `period_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблиці `permissions`
@@ -3846,7 +3877,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `user_rating_items`
 --
 ALTER TABLE `user_rating_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць

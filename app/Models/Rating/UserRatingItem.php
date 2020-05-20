@@ -20,4 +20,8 @@ class UserRatingItem extends Model
      * @var array
      */
     public static $statuses = [self::STATUS_IN_PROCESS, self::STATUS_EDITED, self::STATUS_REJECTED, self::STATUS_CONFIRMED];
+
+    protected $casts = [
+        'date' => 'date',
+    ];
 }

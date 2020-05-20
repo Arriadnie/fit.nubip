@@ -231,6 +231,9 @@ return [
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Setting' => App\Models\Setting::class,
         'Post' => App\Models\Posts\Post::class,
+
+        'PeriodType' => App\Models\Lookups\PeriodType::class,
+        'Period' => App\Models\Lookups\Period::class,
     ],
 
 ];
