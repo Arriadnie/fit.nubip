@@ -16,7 +16,7 @@
 
     </div>
     <div class="link">
-        <a href="#">Особистий кабінет</a>
+        <a href="/change-password">Пароль</a>
     </div>
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

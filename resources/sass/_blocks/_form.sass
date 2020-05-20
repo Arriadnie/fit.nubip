@@ -74,7 +74,8 @@ form input[type=submit].hidden
     opacity: 0
     pointer-events: none
 
-.add-personal-info form
+.add-personal-info form,
+form.partial
     flex-direction: row
 
 
@@ -83,7 +84,7 @@ form .part
     flex-direction: column
     align-items: flex-start
 
-.add-personal-info form .part + .part
+form .part + .part
     margin-left: get-vw(100px)
 
 .add-personal-info .main-btn
@@ -141,4 +142,31 @@ label.select .ss-main .ss-single-selected
 
 .filter-wrap label
     margin-left: get-vw(40px)
+
+input[type="file"]
+    opacity: 0
+    position: absolute
+    z-index: -1
+    top: 0
+    width: 100%
+    left: 0
+
+label.file-label
+    padding: get-vw(10px) 0
+    border-bottom: 1px solid rgba(0, 0, 0, .8)
+
+.file-icon
+    display: flex
+    align-items: center
+    flex-shrink: 0
+    margin-left: auto
+    +mediaSize(desktop)
+        width: get-vw(20px)
+        height: get-vw(20px)
+    +mediaSize(float)
+        width: get-vw(20px)
+        height: get-vw(20px)
+    +mediaSize(1200)
+        width: get-vw(20px)
+        height: get-vw(20px)
 
