@@ -34,10 +34,19 @@ import {TweenMax} from "gsap/TweenMax";
 import TimelineMax from "gsap/TimelineMax";
 // import ScrollToPlugin from "gsap/ScrollToPlugin"
 
-
-window.addEventListener('load', function (e) {
+document.addEventListener('DOMContentLoaded', function(e) {
     loadAndResize();
 
+    isExist('.file-label', (filesInput) => {
+        filesInput.forEach((label) => {
+            let input = label.querySelector('input');
+            let defaultText = label.getAttribute('data-placeholder');
+            let placeholder = label.querySelector('.placeholder')
+            input.addEventListener("change", function (event) {
+                placeholder.innerHTML = this.value !== '' ? this.value : defaultText;
+            });
+        })
+    });
 
     isExist('.main-slider', () => {
         let slider = document.querySelector('.main-slider');
@@ -146,7 +155,7 @@ window.addEventListener('load', function (e) {
             .fromTo( loginForm, 0.4,  {opacity: 1, x: '0%'}, {opacity: 0, x: '10%'}, 0)
             .fromTo(registerForm, 0.4, {opacity: 0, x: '-10%'}, {opacity: 1, x: '0%'}, 0.3)
 
-         btnGoRegister.addEventListener('click', function(e) {
+        btnGoRegister.addEventListener('click', function(e) {
             e.preventDefault();
             openLogin.play();
         });
@@ -281,8 +290,8 @@ window.addEventListener('load', function (e) {
     //         });
     //     }
     // });
-
 });
+
 
 function checkboxToggleTable() {
     let wrap = document.querySelector('.schedule-filter .switch-wrap');
