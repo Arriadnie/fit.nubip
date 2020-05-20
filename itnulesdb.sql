@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 20 2020 р., 01:48
+-- Час створення: Трв 20 2020 р., 23:30
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -190,18 +190,18 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (102, 9, 'image', 'image', 'Image', 0, 0, 1, 1, 1, 0, '{}', 10),
 (103, 10, 'parent_id', 'text', 'Parent Id', 0, 0, 0, 0, 0, 0, '{}', 12),
 (104, 13, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(105, 13, 'user_id', 'text', 'User Id', 0, 0, 0, 0, 0, 1, '{}', 2),
-(106, 13, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 3),
-(107, 13, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:people_infos,slug\"}}', 4),
-(108, 13, 'phone', 'text', 'Phone', 0, 0, 1, 1, 1, 0, '{}', 5),
-(109, 13, 'email', 'text', 'Email', 0, 0, 1, 1, 1, 0, '{}', 6),
-(110, 13, 'position', 'text', 'Position', 0, 0, 1, 1, 1, 0, '{}', 7),
-(111, 13, 'description', 'rich_text_box', 'Description', 0, 0, 1, 1, 1, 0, '{}', 8),
-(112, 13, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 0, '{}', 9),
-(113, 13, 'link', 'text', 'Link', 0, 0, 1, 1, 1, 0, '{}', 10),
-(114, 13, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"CHANGED\",\"options\":{\"PUBLISHED\":\"PUBLISHED\",\"NOT_PUBLISHED\":\"NOT_PUBLISHED\",\"CHANGED\":\"CHANGED\"}}', 11),
-(115, 13, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 12),
-(116, 13, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 13),
+(105, 13, 'user_id', 'text', 'User Id', 0, 0, 1, 1, 1, 1, '{}', 2),
+(106, 13, 'name', 'text', 'Ім\'я', 1, 1, 1, 1, 1, 1, '{}', 4),
+(107, 13, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:people_infos,slug\"}}', 5),
+(108, 13, 'phone', 'text', 'Телефон', 0, 0, 1, 1, 1, 0, '{}', 6),
+(109, 13, 'email', 'text', 'Email', 0, 0, 1, 1, 1, 0, '{}', 7),
+(110, 13, 'position', 'text', 'Position', 0, 0, 0, 0, 0, 0, '{}', 8),
+(111, 13, 'description', 'rich_text_box', 'Опис', 0, 0, 1, 1, 1, 0, '{}', 9),
+(112, 13, 'image', 'image', 'Фото', 0, 1, 1, 1, 1, 0, '{}', 10),
+(113, 13, 'link', 'text', 'Посилання', 0, 0, 1, 1, 1, 0, '{}', 11),
+(114, 13, 'status', 'select_dropdown', 'Статус', 1, 1, 1, 1, 1, 1, '{\"default\":\"CHANGED\",\"options\":{\"PUBLISHED\":\"PUBLISHED\",\"NOT_PUBLISHED\":\"NOT_PUBLISHED\",\"CHANGED\":\"CHANGED\"}}', 12),
+(115, 13, 'created_at', 'timestamp', 'Створено', 0, 1, 1, 0, 0, 1, '{}', 13),
+(116, 13, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 14),
 (117, 14, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (118, 14, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
 (119, 14, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\"},\"validation\":{\"rule\":\"unique:galleries,slug\"}}', 3),
@@ -296,7 +296,8 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (210, 28, 'rating_item_belongsto_rating_item_group_relationship', 'relationship', 'Блок', 0, 1, 1, 1, 1, 1, '{\"isItemsParent\":true,\"model\":\"App\\\\Models\\\\Rating\\\\RatingItemGroup\",\"table\":\"rating_item_groups\",\"type\":\"belongsTo\",\"column\":\"rating_item_group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
 (211, 29, 'rating_item_group_hasmany_rating_item_relationship', 'relationship', 'Пункти', 0, 0, 1, 1, 1, 1, '{\"isItems\":true,\"dataTypeSlug\":\"rating-items\",\"itemsProperty\":\"items\",\"titleColumn\":\"name\",\"subTitleColumn\":\"score\",\"model\":\"App\\\\Models\\\\Rating\\\\RatingItem\",\"table\":\"rating_items\",\"type\":\"hasMany\",\"column\":\"rating_item_group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
 (212, 29, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 7),
-(213, 28, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 8);
+(213, 28, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 8),
+(214, 13, 'people_info_belongsto_user_relationship', 'relationship', 'Користувач', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
 
 -- --------------------------------------------------------
 
@@ -337,7 +338,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (9, 'infoblocks', 'infoblocks', 'Infoblock', 'Infoblocks', NULL, 'App\\Models\\Infoblocks\\Infoblock', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-29 17:14:12', '2020-02-18 20:50:45'),
 (10, 'infoblock_items', 'infoblock-items', 'Infoblock Item', 'Infoblock Items', NULL, 'App\\Models\\Infoblocks\\InfoblockItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"title\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 14:18:22', '2020-02-18 20:56:50'),
 (11, 'social_networks', 'social-networks', 'Social Network', 'Social Networks', 'voyager-facebook', 'App\\Models\\SocialNetwork', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-30 19:20:36', '2020-05-19 18:09:47'),
-(13, 'people_infos', 'people-infos', 'People Info', 'People Infos', 'voyager-people', 'App\\Models\\PeopleInfo\\PeopleInfo', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-11 21:05:30', '2020-02-11 21:07:39'),
+(13, 'people_infos', 'people-infos', 'Інформація користувача', 'Інформація користувачів', 'voyager-people', 'App\\Models\\PeopleInfo\\PeopleInfo', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-11 21:05:30', '2020-05-20 16:15:22'),
 (14, 'galleries', 'galleries', 'Галерея', 'Галереї', 'voyager-photos', 'App\\Models\\Galleries\\Gallery', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-12 19:24:14', '2020-05-18 14:53:08'),
 (15, 'gallery_images', 'gallery-images', 'Фото галереї', 'Фото галереї', 'voyager-photo', 'App\\Models\\Galleries\\GalleryImage', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"caption\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-12 19:27:44', '2020-05-19 15:49:58'),
 (16, 'education_degrees', 'education-degrees', 'Освітній ступінь', 'Освітні ступені', 'voyager-file-text', 'App\\Models\\Education\\EducationDegree', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-02-28 14:39:45', '2020-05-18 14:50:48'),
@@ -1346,7 +1347,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (72, '2020_05_19_203159_create_user_rating_items_table', 25),
 (73, '2020_05_19_210622_add_is_public_column_to_social_metworks', 26),
 (74, '2020_05_19_212432_add_columns_to_rating_items', 27),
-(75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27);
+(75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27),
+(76, '2020_05_20_192802_create_people_info_social_networks_table', 28);
 
 -- --------------------------------------------------------
 
@@ -1429,7 +1431,7 @@ CREATE TABLE `people_infos` (
 
 INSERT INTO `people_infos` (`id`, `user_id`, `name`, `slug`, `phone`, `email`, `position`, `description`, `image`, `link`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Швиденко Михайло Зіновійович', 'shvidenko-mihajlo-zinovijovich', NULL, NULL, 'Завідувач кафедри', '<p><span style=\"color: rgba(0, 4, 57, 0.75); font-family: Raleway, sans-serif; font-size: 17.075px;\">кандидат економічних наук, доцент, заслужений професор НУБіП України, відмінник аграрної освіти і науки України, заслужений працівник освіти України</span></p>', 'people-infos\\February2020\\BVJzWdD8Yc1KWGE9S3zn.jpg', NULL, 'CHANGED', '2020-02-11 21:07:00', '2020-02-11 21:07:00'),
-(2, NULL, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-02-27 17:49:27'),
+(2, 1, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-05-20 16:15:40'),
 (3, NULL, 'Чубар Людмила', 'chubar-lyudmila', NULL, NULL, '', '<p>Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital</p>', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-02-27 17:55:34');
 
 -- --------------------------------------------------------
@@ -1476,6 +1478,18 @@ INSERT INTO `people_info_in_group` (`people_info_id`, `people_info_group_id`, `o
 (3, 1, 0),
 (2, 2, 0),
 (3, 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `people_info_social_networks`
+--
+
+CREATE TABLE `people_info_social_networks` (
+  `people_info_id` bigint(20) UNSIGNED NOT NULL,
+  `social_network_id` int(10) UNSIGNED NOT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -2085,9 +2099,9 @@ CREATE TABLE `social_networks` (
 --
 
 INSERT INTO `social_networks` (`id`, `svg`, `link`, `created_at`, `updated_at`, `name`, `is_public`) VALUES
-(1, '[{\"download_link\":\"social-networks\\\\February2020\\\\XoLVDxyUMplCmj7UOpFZ.svg\",\"original_name\":\"instagram.svg\"}]', 'https://www.instagram.com/it_nules', '2020-02-02 14:59:00', '2020-05-10 10:10:14', 'Instagram', 0),
-(2, '[{\"download_link\":\"social-networks\\\\February2020\\\\RiLa4rX0ZLnJUG0wfLE2.svg\",\"original_name\":\"facebook.svg\"}]', 'https://www.facebook.com/fitnubip', '2020-02-02 15:37:00', '2020-02-19 19:55:20', 'Facebook', 0),
-(3, '[{\"download_link\":\"social-networks\\\\May2020\\\\aVYscGK1U15emBzG1fwZ.svg\",\"original_name\":\"youtube.svg\"}]', 'https://www.youtube.com/channel/UC-U1fqRT0jeRLUUDcMq1uaw', '2020-05-10 10:16:00', '2020-05-10 10:17:31', 'Youtube', 0);
+(1, '[{\"download_link\":\"social-networks\\\\February2020\\\\XoLVDxyUMplCmj7UOpFZ.svg\",\"original_name\":\"instagram.svg\"}]', 'https://www.instagram.com/it_nules', '2020-02-02 14:59:00', '2020-05-20 17:24:20', 'Instagram', 1),
+(2, '[{\"download_link\":\"social-networks\\\\February2020\\\\RiLa4rX0ZLnJUG0wfLE2.svg\",\"original_name\":\"facebook.svg\"}]', 'https://www.facebook.com/fitnubip', '2020-02-02 15:37:00', '2020-05-20 16:51:44', 'Facebook', 1),
+(3, '[{\"download_link\":\"social-networks\\\\May2020\\\\aVYscGK1U15emBzG1fwZ.svg\",\"original_name\":\"youtube.svg\"}]', 'https://www.youtube.com/channel/UC-U1fqRT0jeRLUUDcMq1uaw', '2020-05-10 10:16:00', '2020-05-20 16:51:34', 'Youtube', 1);
 
 -- --------------------------------------------------------
 
@@ -3282,7 +3296,10 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (727, 'data_types', 'display_name_plural', 28, 'en', 'Пункти рейтингу', '2020-05-19 18:19:53', '2020-05-19 18:19:53'),
 (728, 'data_rows', 'display_name', 211, 'en', 'rating_items', '2020-05-19 18:35:13', '2020-05-19 18:35:13'),
 (729, 'data_rows', 'display_name', 212, 'en', 'Порядковий номер', '2020-05-19 18:40:42', '2020-05-19 18:40:42'),
-(730, 'data_rows', 'display_name', 213, 'en', 'Порядковий номер', '2020-05-19 18:41:09', '2020-05-19 18:41:09');
+(730, 'data_rows', 'display_name', 213, 'en', 'Порядковий номер', '2020-05-19 18:41:09', '2020-05-19 18:41:09'),
+(731, 'data_rows', 'display_name', 214, 'en', 'users', '2020-05-20 16:13:09', '2020-05-20 16:13:09'),
+(732, 'people_infos', 'name', 2, 'en', 'Литвинчук Владислав', '2020-05-20 16:14:35', '2020-05-20 16:14:35'),
+(733, 'people_infos', 'description', 2, 'en', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', '2020-05-20 16:14:35', '2020-05-20 16:14:35');
 
 -- --------------------------------------------------------
 
@@ -3517,6 +3534,13 @@ ALTER TABLE `people_info_in_group`
   ADD KEY `people_info_in_group_people_info_group_id_foreign` (`people_info_group_id`);
 
 --
+-- Індекси таблиці `people_info_social_networks`
+--
+ALTER TABLE `people_info_social_networks`
+  ADD KEY `people_info_social_networks_people_info_id_foreign` (`people_info_id`),
+  ADD KEY `people_info_social_networks_social_network_id_foreign` (`social_network_id`);
+
+--
 -- Індекси таблиці `periods`
 --
 ALTER TABLE `periods`
@@ -3636,7 +3660,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
@@ -3726,7 +3750,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
@@ -3810,7 +3834,7 @@ ALTER TABLE `sys_sync_meta_data`
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=731;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=734;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
@@ -3890,6 +3914,13 @@ ALTER TABLE `people_infos`
 ALTER TABLE `people_info_in_group`
   ADD CONSTRAINT `people_info_in_group_people_info_group_id_foreign` FOREIGN KEY (`people_info_group_id`) REFERENCES `people_info_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `people_info_in_group_people_info_id_foreign` FOREIGN KEY (`people_info_id`) REFERENCES `people_infos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Обмеження зовнішнього ключа таблиці `people_info_social_networks`
+--
+ALTER TABLE `people_info_social_networks`
+  ADD CONSTRAINT `people_info_social_networks_people_info_id_foreign` FOREIGN KEY (`people_info_id`) REFERENCES `people_infos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `people_info_social_networks_social_network_id_foreign` FOREIGN KEY (`social_network_id`) REFERENCES `social_networks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Обмеження зовнішнього ключа таблиці `periods`

@@ -2,6 +2,7 @@
 
 namespace App\Models\PeopleInfo;
 
+use App\Models\SocialNetwork;
 use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ class PeopleInfo extends Model
     use Translatable,
         Imageable;
 
-    protected $translatable = ['name', 'position', 'description'];
+    protected $translatable = ['name', 'description'];
     protected $image_column = 'image';
 
     /**
@@ -39,5 +40,34 @@ class PeopleInfo extends Model
             return $query->take($count);
         }
         return $query;
+    }
+
+    public function socialNetworks() {
+        return $this->belongsToMany(SocialNetwork::class, 'people_info_social_networks',
+            'people_info_id', 'social_network_id')
+            ->withPivot('value');
+    }
+
+    public function getSocialNetworksWithEmpty() {
+        $all = SocialNetwork::where('is_public', '=', true)->get();
+        $myWithEmpty = [];
+
+        foreach ($all as $key => $item) {
+            $current = $this->_getSocialNetworkById($item->id);
+            $resultItem = [
+                'network' => $item,
+                'value' => !is_null($current) ? $current->pivot->value : ''
+            ];
+            array_push($myWithEmpty, $resultItem);
+        }
+        return $myWithEmpty;
+    }
+    private function _getSocialNetworkById($id) {
+        foreach ($this->socialNetworks as $key => $item) {
+            if ($item->id == $id) {
+                return $item;
+            }
+        }
+        return null;
     }
 }

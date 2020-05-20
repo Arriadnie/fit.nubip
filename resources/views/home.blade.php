@@ -16,13 +16,14 @@
 
     <div class="container-inner personal-room">
         <h1 class="lined-title">Особистий кабінет</h1>
+        @php($user = Auth::user())
 
         <div class="personal-info">
             <div class="image">
-                <img src="{{ asset('/image/student1.jpg') }}" alt="">
+                <img src="{{ Voyager::image($user->avatar) }}" alt="">
             </div>
             <div class="personal-info-details">
-                <p class="name">Андрій Клименко</p>
+                <p class="name">{{ $user->name }}</p>
                 <p>4 курс спеціальність "Комп'ютерні ноуки" група КН-16003б</p>
 
             </div>
@@ -34,10 +35,10 @@
                 <div class="part">
                     <p class="lined-title">Додаткова інформація</p>
                     <label>
-                        <textarea disabled name="info" placeholder="Інформація про себе"></textarea>
+                        <textarea disabled name="description" placeholder="Інформація про себе">{{ strip_tags($user->peopleInfo->description) }}</textarea>
                     </label>
                     <label>
-                        <input disabled type="tel" placeholder="Номер телефону">
+                        <input disabled type="tel" name="phone" placeholder="Номер телефону" value="{{ $user->peopleInfo->phone }}">
                     </label>
                     <a href="#" class="main-btn light enable-input disabled">Редагувати інформацію</a>
                     <input type="submit" class="main-btn hidden" value="Зберегти інформацію">
@@ -45,24 +46,14 @@
 
                 <div class="part">
                     <p class="lined-title">Соціальні мережі</p>
-                    <label>
-                        <span class="icon">
-                            <svg><use xlink:href="#instagram"></use></svg>
-                        </span>
-                        <input disabled type="text" placeholder="Instagram">
-                    </label>
-                    <label>
-                        <span class="icon">
-                            <svg><use xlink:href="#facebook"></use></svg>
-                        </span>
-                        <input disabled type="text" placeholder="Facebook">
-                    </label>
-                    <label>
-                        <span class="icon">
-                            <svg><use xlink:href="#youtube"></use></svg>
-                        </span>
-                        <input disabled type="text" placeholder="Youtube">
-                    </label>
+                    @foreach($user->peopleInfo->getSocialNetworksWithEmpty() as $networkItem)
+                        <label>
+                            <span class="icon">
+                                <img src="{{ $networkItem['network']->getImage(true) }}" alt="">
+                            </span>
+                            <input disabled type="text" name="social-network-{{ $networkItem['network']->id }}" placeholder="{{ $networkItem['network']->name }}" value="{{ $networkItem['value'] }}">
+                        </label>
+                    @endforeach
                 </div>
 
             </form>

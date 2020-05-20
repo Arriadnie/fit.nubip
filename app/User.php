@@ -2,9 +2,9 @@
 
 namespace App;
 
+use App\Models\PeopleInfo\PeopleInfo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends \TCG\Voyager\Models\User
 {
@@ -35,8 +35,14 @@ class User extends \TCG\Voyager\Models\User
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthday' => 'date',
     ];
 
 
     const STUDENT_ROLE_ID = 3;
+
+    public function peopleInfo()
+    {
+        return $this->hasOne(PeopleInfo::class, 'user_id', 'id');
+    }
 }

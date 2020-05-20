@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Posts\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,13 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::getByCategory(1, 0, 6);
-        $sliderView = view('posts/includes/card-collection', [
-            'posts' => $posts
-        ]);
 
-        return view('home', [
-            'sliderView' => $sliderView
-        ]);
+        return view('home');
     }
 }
