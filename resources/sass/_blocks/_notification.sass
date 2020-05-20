@@ -1,0 +1,41 @@
+.server-notification-wrap
+    position: fixed
+    //opacity: 0
+    //pointer-events: none
+    z-index: 999999999
+    top: get-vw(90px)
+    right: get-vw(20px)
+    display: flex
+    flex-direction: column
+
+.server-notification-item
+    color: #ffffff
+    border-radius: get-vw(15px)
+    padding: get-vw(30px)
+    width: get-vw(470px)
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    box-shadow: 0 3px 10px rgba(0,0,0,.25)
+
+.server-notification-item + .server-notification-item
+    margin-top: get-vw(20px)
+
+.server-notification-item.success
+    background: rgba(#25AE88, 0.9)
+.server-notification-item.error
+    background: rgba(#D75A4A, 0.9)
+.server-notification-item.info
+    background: rgba(#d6a816, 0.9)
+
+.server-notification-item .icon
+    display: flex
+    align-items: center
+    justify-content: center
+    width: get-vw(50px)
+    flex-shrink: 0
+    height: get-vw(50px)
+    margin-right:  get-vw(30px)
+
+.server-notification-item p
+    font-size: get-vw(20px)

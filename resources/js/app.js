@@ -218,11 +218,15 @@ document.addEventListener('DOMContentLoaded', function(e) {
     isExist('.show-notifications', () => {
         let events = document.querySelector('.personal-events');
         document.querySelector('.show-notifications').addEventListener('click', function (e) {
-            if (events.classList.contains('active')) {
-                events.classList.remove('active')
-            } else {
-                events.classList.add('active')
+            this.classList.remove('active')
+            if (events) {
+                if (events.classList.contains('active')) {
+                    events.classList.remove('active')
+                } else {
+                    events.classList.add('active')
+                }
             }
+
         });
     });
 
@@ -284,6 +288,16 @@ document.addEventListener('DOMContentLoaded', function(e) {
         })
 
     });
+
+    isExist('.server-notification-item', (list) => {
+        console.log("Hello")
+        setTimeout(() => {
+            TweenMax.staggerTo('.server-notification-item', 0.9, { opacity: 0, x: '100%', stagger: 0.3,
+                onComplete() {
+                    document.querySelector('.server-notification-wrap').style.display = 'none'
+                }})
+        }, 5000)
+    })
 
     // isExist('.rating-filter', () => {
     //     let period = document.querySelector('[name="select-period"]');

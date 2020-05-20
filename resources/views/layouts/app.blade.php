@@ -54,6 +54,9 @@
     @yield('after_content')
 
     @include('includes.footer')
+
+    @include('includes.server-notification')
+    @include('includes.vipuskik-notification')
 </div>
 
 @include('includes.svg')
