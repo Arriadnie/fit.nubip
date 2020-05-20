@@ -14,12 +14,14 @@
             <label>
                 <input type="password" name="old" placeholder="Старий пароль">
             </label>
+            <p class="subtitle lined-title">Введіть новий пароль</p>
             <label>
-                <input type="password" name="new">
+                <input type="password" name="new" placeholder="Новий пароль">
             </label>
             <label>
-                <input type="password" name="new">
+                <input type="password" name="newConfirm" placeholder="Новий пароль">
             </label>
+            <input type="submit" class="main-btn" value="Зберегти">
         </form>
     </div>
 
