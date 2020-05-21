@@ -8,7 +8,7 @@
     <div style="background: url({{ Setting::getImage('posts.page-header-image') }}) no-repeat center center / cover; background-attachment: fixed;" class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>{{ Setting::getImage('posts.page-title') }}</h1>
+            <h1>{{ setting('posts.page-title') }}</h1>
         </div>
     </div>
 
