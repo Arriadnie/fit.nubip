@@ -42,7 +42,18 @@ class RatingController extends Controller
             'rating_item_id' => $request->input('punkt'),
             'user_id' => Auth::id(),
         ]);
-        return redirect()->back();
+        return redirect()->route('rating.personal')
+            ->with([
+                'messages' => [
+                    [
+                        'text' => __('rating.success-create'),
+                        'type' => 'success',
+                    ]
+                ],
+            ]);
     }
-
+    public static function getMessages($messages) {
+        dd($messages);
+        return false;
+    }
 }

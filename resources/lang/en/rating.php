@@ -19,4 +19,5 @@ return [
 
     'submit' => 'Send',
 
+    'success-create' => 'Rating success added',
 ];
