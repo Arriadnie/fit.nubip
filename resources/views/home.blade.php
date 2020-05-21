@@ -4,11 +4,6 @@
 @section('content-title', 'Home')
 
 @section('content')
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
 
     @include('includes.personal-header')
 
@@ -30,7 +25,7 @@
         </div>
 
         <div class="add-personal-info">
-            <form method="POST" action="{{ route('personalInfo') }}">
+            <form method="POST" action="{{ route('home.personalInfo') }}">
                 @csrf
                 <div class="part">
                     <p class="lined-title">Додаткова інформація</p>
