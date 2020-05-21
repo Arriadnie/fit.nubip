@@ -109,24 +109,29 @@ Route::group(
         Route::get('/education/courses/{degreeSlug}', 'Education\EducationController@coursesShow')->name('coursesShow');
     });
 
-    Route::group([], function () {
-        Route::get('/home', 'HomeController@index')->name('home');
-        Route::post('/home/personal-info', 'HomeController@personalInfo')->name('personalInfo');
-    });
-
     Route::group([
-        'as'     => 'rating.',
-        'prefix' => 'rating',
+        'as'     => 'home.',
+        'prefix' => 'home'
     ], function () {
-        Route::get('/entering', 'Rating\RatingController@entering')->name('entering');
-        Route::get('/personal', 'Rating\RatingController@personal')->name('personal');
-        Route::get('/starosta', 'Rating\RatingController@starosta')->name('starosta');
-        Route::get('/report', 'Rating\RatingController@report')->name('report');
+        Route::get('/', 'HomeController@index')->name('index');
+        Route::post('/personal-info', 'HomeController@personalInfo')->name('personalInfo');
 
-        Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('createPersonal');
+        Route::group([
+            'as'     => 'rating.',
+            'prefix' => 'rating',
+        ], function () {
+            Route::get('/entering', 'Rating\RatingController@entering')->name('entering');
+            Route::get('/personal', 'Rating\RatingController@personal')->name('personal');
+            Route::get('/starosta', 'Rating\RatingController@starosta')->name('starosta');
+            Route::get('/report', 'Rating\RatingController@report')->name('report');
+
+            Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('createPersonal');
 
 
+        });
     });
+
+
 
 
 

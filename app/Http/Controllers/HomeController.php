@@ -41,6 +41,14 @@ class HomeController extends Controller
         }
         $userInfo->socialNetworks()->sync($networks);
 
-        return redirect()->route('home');
+        return redirect()->route('home.index')
+            ->with([
+                'messages' => [
+                    [
+                        'text' => __('home.change-info-success'),
+                        'type' => 'success',
+                    ]
+                ],
+            ]);
     }
 }

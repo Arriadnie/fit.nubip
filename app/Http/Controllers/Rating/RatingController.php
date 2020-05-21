@@ -42,7 +42,7 @@ class RatingController extends Controller
             'rating_item_id' => $request->input('punkt'),
             'user_id' => Auth::id(),
         ]);
-        return redirect()->route('rating.personal')
+        return redirect()->route('home.rating.personal')
             ->with([
                 'messages' => [
                     [

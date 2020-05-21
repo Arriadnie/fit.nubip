@@ -14,7 +14,7 @@
 
     <div class="container-inner personal-room">
         <p class="lined-title">@lang('rating.entering-title')</p>
-        <form method="POST" action="{{ route('rating.createPersonal') }}">
+        <form method="POST" action="{{ route('home.rating.createPersonal') }}">
             @csrf
             <p class="subtitle lined-title">@lang('rating.entering-sub-title')</p>
             <label>
