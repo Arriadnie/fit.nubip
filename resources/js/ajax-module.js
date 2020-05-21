@@ -19,7 +19,7 @@ function categoryClick(categoryItem) {
         categoryId: categoryId,
         pageNumber: 0
     };
-    Helper.callService('postService', {
+    Helper.callService('post-service', {
             methodName: 'getPostByCategory',
             data: window.postConfig
         }, function(response) {
@@ -56,7 +56,7 @@ global.showMoreClick = function(showMoreButton) {
 }
 let showMores = {
     posts: function() {
-        Helper.callService('postService', {
+        Helper.callService('post-service', {
             methodName: 'getPostByCategory',
             data: window.postConfig
         }, function(response) {

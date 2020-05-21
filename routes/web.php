@@ -101,12 +101,15 @@ Route::group(
     Route::group([], function () {
         Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
         Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
-        Route::post('/postService', 'Posts\PostController@postService')->name('postService');
+        Route::post('/post-service', 'Posts\PostController@postService')->name('postService');
     });
 
-    Route::group([], function () {
-        Route::get('/education/courses', 'Education\EducationController@coursesIndex')->name('coursesIndex');
-        Route::get('/education/courses/{degreeSlug}', 'Education\EducationController@coursesShow')->name('coursesShow');
+    Route::group([
+        'as'     => 'education.courses.',
+        'prefix' => 'education/courses'
+    ], function () {
+        Route::get('/', 'Education\EducationController@coursesIndex')->name('index');
+        Route::get('/{degreeSlug}', 'Education\EducationController@coursesShow')->name('show');
     });
 
     Route::group([
@@ -114,7 +117,10 @@ Route::group(
         'prefix' => 'home'
     ], function () {
         Route::get('/', 'HomeController@index')->name('index');
-        Route::post('/personal-info', 'HomeController@personalInfo')->name('personalInfo');
+        Route::post('/personal-info', 'HomeController@personalInfo')->name('personal-info');
+
+        Route::get('/change-password', 'Auth\ChangePasswordController@showForm')->name('change-password');
+        Route::post('/change-password-post', 'Auth\ChangePasswordController@change')->name('change-password-post');
 
         Route::group([
             'as'     => 'rating.',
@@ -125,7 +131,7 @@ Route::group(
             Route::get('/starosta', 'Rating\RatingController@starosta')->name('starosta');
             Route::get('/report', 'Rating\RatingController@report')->name('report');
 
-            Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('createPersonal');
+            Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('create-personal');
 
 
         });

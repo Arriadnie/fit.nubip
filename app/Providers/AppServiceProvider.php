@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Events\Dispatcher;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
         //
         Voyager::useModel('Post', \App\Models\Posts\Post::class);
         Voyager::useModel('Category', \App\Models\Posts\Category::class);
+
     }
 
     /**
@@ -27,7 +31,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        //base::boot();
+
+        Validator::extend('current_password_match', function($attribute, $value, $parameters, $validator) {
+            return Hash::check($value, Auth::user()->password);
+        });
     }
 }

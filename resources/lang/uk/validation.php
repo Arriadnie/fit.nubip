@@ -133,7 +133,7 @@ return [
             'rule-name' => 'custom-message',
         ],
         'password-old' => [
-            'current_password_match' => 'Current password is incorrect.',
+            'current_password_match' => 'Невірний пароль.',
         ],
     ],
 

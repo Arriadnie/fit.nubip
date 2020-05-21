@@ -25,7 +25,7 @@
         </div>
 
         <div class="add-personal-info">
-            <form method="POST" action="{{ route('home.personalInfo') }}">
+            <form method="POST" action="{{ route('home.personal-info') }}">
                 @csrf
                 <div class="part">
                     <p class="lined-title">Додаткова інформація</p>

@@ -4,17 +4,12 @@
 @section('content-title', 'Home')
 
 @section('content')
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
 
     @include('includes.personal-header')
 
     <div class="container-inner personal-room">
         <p class="lined-title">@lang('rating.entering-title')</p>
-        <form method="POST" action="{{ route('home.rating.createPersonal') }}">
+        <form method="POST" action="{{ route('home.rating.create-personal') }}">
             @csrf
             <p class="subtitle lined-title">@lang('rating.entering-sub-title')</p>
             <label>

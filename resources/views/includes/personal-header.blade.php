@@ -5,10 +5,10 @@
     <div class="link">
         <a href="#">Рейтинг</a>
         <div class="sub-nav">
-            <a class="sub-nav-item" href="/home/rating/personal">Перегляд особистого</a>
-            <a class="sub-nav-item" href="/home/rating/entering">Внесення</a>
-            <a class="sub-nav-item" href="/home/rating/starosta">Перевірка</a>
-            <a class="sub-nav-item" href="/home/rating/report">Звіти</a>
+            <a class="sub-nav-item" href="{{ route('home.rating.personal') }}">Перегляд особистого</a>
+            <a class="sub-nav-item" href="{{ route('home.rating.entering') }}">Внесення</a>
+            <a class="sub-nav-item" href="{{ route('home.rating.starosta') }}">Перевірка</a>
+            <a class="sub-nav-item" href="{{ route('home.rating.report') }}">Звіти</a>
         </div>
     </div>s
     <div class="link">
@@ -16,7 +16,7 @@
 
     </div>
     <div class="link">
-        <a href="/home/change-password">Пароль</a>
+        <a href="{{ route('home.change-password') }}">Пароль</a>
     </div>
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
