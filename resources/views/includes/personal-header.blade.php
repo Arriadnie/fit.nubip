@@ -10,7 +10,7 @@
             <a class="sub-nav-item" href="/home/rating/starosta">Перевірка</a>
             <a class="sub-nav-item" href="/home/rating/report">Звіти</a>
         </div>
-    </div>s
+    </div>
     <div class="link">
         <a href="#">Пропозиція новини</a>
 

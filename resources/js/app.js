@@ -299,6 +299,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
         }, 5000)
     })
 
+    isExist('[data-synchronize]', (synchronized) => {
+        synchronized.forEach((firstSelect) => {
+            let data = JSON.parse(firstSelect.getAttribute('data-synchronize'));
+            let secondSelect = document.querySelector(`[name="${data['select-name']}"]`);
+            console.log(secondSelect)
+            let dataToSet = window[data.data];
+            if (secondSelect && dataToSet) {
+                firstSelect.addEventListener('change', function() {
+                    let value = firstSelect.slim.selected();
+                    secondSelect.slim.setData(dataToSet[`${data.search}${value}`])
+                });
+            }
+
+        });
+
+    })
+
     // isExist('.rating-filter', () => {
     //     let period = document.querySelector('[name="select-period"]');
     //     if (period) {
@@ -470,6 +487,7 @@ function ratingSelectEvents() {
 
         blockSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
+            console.log("block", block)
             let data = window.rating_blocks[`block_${block}`];
             if (data) {
                 let placeholder = {
@@ -478,6 +496,7 @@ function ratingSelectEvents() {
                     placeholder: true
                 };
                 data.unshift(placeholder);
+                console.log("Data",data)
                 punktSelect.slim.setData(data)
                 total.setAttribute('value', '0')
             }
@@ -486,7 +505,9 @@ function ratingSelectEvents() {
         punktSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
             let data = window.rating_blocks[`block_${block}`];
+            console.log(data)
             let punktId = punktSelect.slim.selected();
+            console.log(punktId)
             let punkt = data.find(item => item.value === punktId);
             total.setAttribute('value', punkt.bal)
         })
