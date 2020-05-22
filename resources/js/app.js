@@ -388,18 +388,6 @@ window.addEventListener('scroll', function (e) {
 
 });
 
-function updateTable(selector, newHtml) {
-    let oldTable = document.querySelector(selector);
-    let wrapper = oldTable.parentElement;
-    let header = oldTable.querySelectorAll('tr')[0];
-    let newTable = document.createElement('table');
-    let newBody= document.createElement('tbody');
-    newBody.insertAdjacentElement('beforeEnd', header);
-    newBody.insertAdjacentHTML('beforeEnd', newHtml);
-    newTable.appendChild(newBody);
-    wrapper.removeChild(oldTable);
-    wrapper.insertAdjacentElement('afterBegin', newTable);
-}
 
 
 global.callModal = function (event, text) {

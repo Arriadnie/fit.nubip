@@ -52,8 +52,28 @@ class RatingController extends Controller
                 ],
             ]);
     }
-    public static function getMessages($messages) {
-        dd($messages);
-        return false;
+
+    public function service(Request $request)
+    {
+        if ($request["methodName"] == "getPersonal") {
+            $items = UserRatingItem::getUserRating($request['data']['periodId']);
+
+            if (count($items) > 0) {
+                $viewResult = view('rating.includes.personal-table', [
+                    'items' => $items
+                ])->render();
+            }
+            else {
+                $viewResult = '';
+            }
+            $response = response()->json([
+                'view' => $viewResult
+            ]);
+        }
+        else {
+            $response = response()->json(array(), 404);
+        }
+
+        return $response;
     }
 }

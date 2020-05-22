@@ -1,5 +1,6 @@
 import {isExist} from "./delta-functions";
 
+
 window.postConfig = {
     categoryId: 0,
     pageNumber: 1
@@ -50,8 +51,8 @@ global.showMoreClick = function(showMoreButton) {
     if (showMores[data]) {
         showMores[data]();
     }
-}
-let showMores = {
+};
+const showMores = {
     posts: function() {
         Helper.callService('post-service', {
             methodName: 'getPostByCategory',
@@ -65,5 +66,38 @@ let showMores = {
             window.postConfig.pageNumber ++;
         })
     }
+};
 
+document.querySelectorAll('.rating-filter-button').forEach(function(item) {
+    item.addEventListener('click', ratingFilter, true);
+});
+
+function ratingFilter(filterButton) {
+    let button = filterButton.target;
+    let pageMethod = button.getAttribute('data-page-method');
+    const periodId = document.querySelector('[name="period"]')
+        .slim.selected();
+
+    Helper.callService('home/rating/get-personal', {
+        methodName: pageMethod,
+        data: {
+            periodId: periodId
+        }
+    }, function(response) {
+        updateTable('.rating-table table', response && response.view || '');
+    })
+}
+
+
+export default function updateTable(selector, newHtml) {
+    let oldTable = document.querySelector(selector);
+    let wrapper = oldTable.parentElement;
+    let header = oldTable.querySelectorAll('tr')[0];
+    let newTable = document.createElement('table');
+    let newBody= document.createElement('tbody');
+    newBody.insertAdjacentElement('beforeEnd', header);
+    newBody.insertAdjacentHTML('beforeEnd', newHtml);
+    newTable.appendChild(newBody);
+    wrapper.removeChild(oldTable);
+    wrapper.insertAdjacentElement('afterBegin', newTable);
 }
