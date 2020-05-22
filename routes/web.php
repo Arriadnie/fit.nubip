@@ -101,7 +101,7 @@ Route::group(
     Route::group([], function () {
         Route::get('/posts', 'Posts\PostController@publicIndex')->name('posts');
         Route::get('/post/{slug?}', 'Posts\PostController@publicShow')->name('post');
-        Route::post('/post-service', 'Posts\PostController@postService')->name('postService');
+        Route::post('/post-service', 'Posts\PostController@postService')->name('post-service');
     });
 
     Route::group([
@@ -132,6 +132,7 @@ Route::group(
             Route::get('/report', 'Rating\RatingController@report')->name('report');
 
             Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('create-personal');
+            Route::post('/get-personal', 'Rating\RatingController@getPersonal')->name('get-personal');
 
 
         });

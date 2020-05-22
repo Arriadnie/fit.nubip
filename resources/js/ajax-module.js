@@ -2,7 +2,7 @@ import {isExist} from "./delta-functions";
 
 window.postConfig = {
     categoryId: 0,
-    pageNumber: 0
+    pageNumber: 1
 };
 
 document.querySelectorAll('.category-item').forEach(function(item) {
@@ -34,10 +34,7 @@ function categoryClick(categoryItem) {
             document.querySelector('.pagination-wrap').classList.remove('hidden');
         }
 
-        window.postConfig = {
-            categoryId: categoryId,
-            pageNumber: 0
-        };
+        window.postConfig.pageNumber++;
     })
 }
 

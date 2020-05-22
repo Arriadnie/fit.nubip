@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script>
+        console.log("Hello")
+        window.site = {
+            language: '{{ LaravelLocalization::getCurrentLocale() }}'
+
+        };
+    </script>
+
     @php($ratingGroups = App\Models\Rating\RatingItemGroup::getLeafs())
     <script>
         window.rating_blocks = {
