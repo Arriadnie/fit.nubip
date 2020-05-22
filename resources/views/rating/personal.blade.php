@@ -23,10 +23,7 @@
 
             <label class="select">
                 <select class="default-select" name="period">
-                    <option value="1">Січень 2020</option>
-                    <option value="2">Лютий 2020</option>
-                    <option value="3">Березень 2020</option>
-                    <option value="4">Квітень 2020</option>
+
                 </select>
             </label>
 

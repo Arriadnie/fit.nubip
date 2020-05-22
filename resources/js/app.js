@@ -300,10 +300,14 @@ document.addEventListener('DOMContentLoaded', function(e) {
             let secondSelect = document.querySelector(`[name="${data['select-name']}"]`);
             let dataToSet = window[data.data];
             if (secondSelect && dataToSet) {
+
                 firstSelect.addEventListener('change', function() {
                     let value = firstSelect.slim.selected();
                     secondSelect.slim.setData(dataToSet[`${data.search}${value}`])
                 });
+                let value = firstSelect.slim.selected();
+                secondSelect.slim.setData(dataToSet[`${data.search}${value}`])
+
             }
 
         });
