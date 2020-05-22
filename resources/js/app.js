@@ -179,9 +179,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
         if (window.location.hash) {
 
             let hash = window.location.hash;
-            console.log("Hash", hash)
             if (document.querySelector(`[data-id="${hash}"]`)) {
-                console.log("Must be here")
                 document.querySelector(`[data-id="${hash}"]`).classList.add('active');
                 document.querySelector(`[data-href="${hash}"]`).classList.add('active');
 
@@ -202,13 +200,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 let visibleBlocks = document.querySelectorAll('.active[data-id]');
 
                 if (visibleBlocks) {
-                    console.log("Visible")
                     visibleBlocks.forEach((visibleBlock) => {
                         visibleBlock.classList.remove('active')
                     });
                 }
                 this.parentElement.classList.add('active');
-                console.log(href);
 
                 document.querySelector(`[data-id="${href}"]`).classList.add('active');
             })
@@ -290,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
     });
 
     isExist('.server-notification-item', (list) => {
-        console.log("Hello")
         setTimeout(() => {
             TweenMax.staggerTo('.server-notification-item', 0.9, { opacity: 0, x: '100%', stagger: 0.3,
                 onComplete() {
@@ -303,7 +298,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
         synchronized.forEach((firstSelect) => {
             let data = JSON.parse(firstSelect.getAttribute('data-synchronize'));
             let secondSelect = document.querySelector(`[name="${data['select-name']}"]`);
-            console.log(secondSelect)
             let dataToSet = window[data.data];
             if (secondSelect && dataToSet) {
                 firstSelect.addEventListener('change', function() {
@@ -316,14 +310,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     })
 
-    // isExist('.rating-filter', () => {
-    //     let period = document.querySelector('[name="select-period"]');
-    //     if (period) {
-    //         period.addEventListener('change', () => {
-    //             let value = period.slim.selected();
-    //         });
-    //     }
-    // });
 });
 
 
@@ -402,6 +388,19 @@ window.addEventListener('scroll', function (e) {
 
 });
 
+function updateTable(selector, newHtml) {
+    let oldTable = document.querySelector(selector);
+    let wrapper = oldTable.parentElement;
+    let header = oldTable.querySelectorAll('tr')[0];
+    let newTable = document.createElement('table');
+    let newBody= document.createElement('tbody');
+    newBody.insertAdjacentElement('beforeEnd', header);
+    newBody.insertAdjacentHTML('beforeEnd', newHtml);
+    newTable.appendChild(newBody);
+    wrapper.removeChild(oldTable);
+    wrapper.insertAdjacentElement('afterBegin', newTable);
+}
+
 
 global.callModal = function (event, text) {
     event.preventDefault();
@@ -426,7 +425,7 @@ global.callModal = function (event, text) {
                 afterShow: function (instance, current) {
                     document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
                         e.preventDefault();
-                        console.log("go confirm")
+
                     })
                 }
             })
@@ -438,7 +437,6 @@ global.callModal = function (event, text) {
                 afterShow: function (instance, current) {
                     document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
                         e.preventDefault();
-                        console.log("go delete")
                     })
                 }
             })
@@ -452,7 +450,6 @@ global.callModal = function (event, text) {
                     let form = document.querySelector('#edit-rating');
                     data = JSON.parse(data)
                     for (let key in data) {
-                        console.log(key)
                         let input = document.querySelector(`input[name=${key}]`);
                         let select = document.querySelector(`select[name=${key}]`);
                         if (input) {
@@ -487,7 +484,6 @@ function ratingSelectEvents() {
 
         blockSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
-            console.log("block", block)
             let data = window.rating_blocks[`block_${block}`];
             if (data) {
                 let placeholder = {
@@ -496,7 +492,6 @@ function ratingSelectEvents() {
                     placeholder: true
                 };
                 data.unshift(placeholder);
-                console.log("Data",data)
                 punktSelect.slim.setData(data)
                 total.setAttribute('value', '0')
             }
@@ -505,9 +500,9 @@ function ratingSelectEvents() {
         punktSelect.addEventListener('change', function () {
             let block = blockSelect.slim.selected();
             let data = window.rating_blocks[`block_${block}`];
-            console.log(data)
+
             let punktId = punktSelect.slim.selected();
-            console.log(punktId)
+
             let punkt = data.find(item => item.value === punktId);
             total.setAttribute('value', punkt.bal)
         })
@@ -517,7 +512,6 @@ function ratingSelectEvents() {
 
 
 }
-
 
 function loadAndResize() {
     let headerHeight = document.querySelector('header').getBoundingClientRect().height;

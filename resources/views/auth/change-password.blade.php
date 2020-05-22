@@ -10,10 +10,10 @@
 
     <div class="container-inner personal-room">
         <p class="lined-title">Зміна паролю</p>
-        <form method="POST" action="{{ route('home.change-password-post') }}">
+        <form method="POST"  action="{{ route('home.change-password-post') }}">
             @csrf
             <p class="subtitle lined-title">Введіть старий пароль</p>
-            <label>
+            <label class="column">
                 <input type="password" name="password-old" placeholder="Старий пароль">
                 @error('password-old')
                 <span class="invalid-feedback" role="alert">
@@ -22,7 +22,7 @@
                 @enderror
             </label>
             <p class="subtitle lined-title">Введіть новий пароль</p>
-            <label>
+            <label class="column">
                 <input type="password" name="password-new" placeholder="Новий пароль">
                 @error('password-new')
                 <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                 </span>
                 @enderror
             </label>
-            <label>
+            <label class="column">
                 <input type="password" name="password-confirm" placeholder="Новий пароль">
                 @error('password-confirm')
                 <span class="invalid-feedback" role="alert">

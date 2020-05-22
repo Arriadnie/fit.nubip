@@ -10,6 +10,16 @@ form label
     width: get-vw(500px)
     flex-direction: row
 
+form label.column .invalid-feedback
+    color: #850000
+
+form label.column .invalid-feedback *
+    font-weight: 500
+
+form label.column
+    flex-direction: column
+    align-items: flex-start
+
 label .icon
     display: flex
     align-items: center
