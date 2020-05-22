@@ -14,7 +14,7 @@
         <div class="filter-wrap rating-filter">
             <p>Відфільтрувати рейтинг:</p>
             <label class="select">
-                <select class="default-select" name="period-type">
+                <select class="default-select" data-synchronize='{"data": "periods", "select-name": "period", "search": "period-type-"}' name="period-type">
                     @foreach(PeriodType::all() as $period)
                         <option value="{{ $period->id }}">{{ $period->name }}</option>
                     @endforeach
@@ -66,7 +66,7 @@
                                         "id": "1",
                                         "name": "Участь в гала концерті ГВ 2020",
                                         "date": "07.05.2020",
-                                        "block": "1.1",
+                                        "block": "3",
                                         "punkt": "2"
                                     }'>
                                 <a class="action-btn change" onclick="callModal(event)" href="#">Змінити</a>
@@ -94,7 +94,7 @@
                                         "id": "2",
                                         "name": "Участь в гала концерті ГВ 2020 2",
                                         "date": "08.05.2020",
-                                        "block": "1.2",
+                                        "block": "2",
                                         "punkt": "4"
                                     }'>
                                 <a class="action-btn confirm" onclick="callModal(event, 'Підтвердити рейтинг?')"
@@ -124,7 +124,7 @@
                                         "id": "1",
                                         "name": "Участь в гала концерті ГВ 2020 3",
                                         "date": "08.05.2020",
-                                        "block": "1.1",
+                                        "block": "2",
                                         "punkt": "3"
                                     }'>
                                 <a class="action-btn change" onclick="callModal(event)" href="#">Змінити</a>
@@ -175,17 +175,20 @@
                     <label class="select">
                         <span>Блок</span>
                         <select class="default-select" name="block">
-                            <option data-placeholder="true">Оберіть блок</option>
-                            <optgroup label="1. Студентська організація (СО) ">
-                                <option value="1.1">1.1. Студентська організація (СО)</option>
-                                <option value="1.2">1.2. Студентська рада (СР) гуртожитку</option>
-                            </optgroup>
+                            <option data-placeholder="true">@lang('rating.select-block')</option>
+                            @foreach(App\Models\Rating\RatingItemGroup::firstLevel()->get() as $group)
+                                <optgroup label="{{ $group->getTranslatedAttribute('name') }}">
+                                    @foreach($group->childrens as $item)
+                                        <option value="{{ $item->id }}">{{ $item->getTranslatedAttribute('name') }}</option>
+                                    @endforeach
+                                </optgroup>
+                            @endforeach
                         </select>
                     </label>
                     <label class="select">
                         <span>Пункт</span>
                         <select class="default-select" name="punkt">
-
+                            <option data-placeholder="true">@lang('rating.select-item')</option>
                         </select>
                     </label>
                     <label class="total">

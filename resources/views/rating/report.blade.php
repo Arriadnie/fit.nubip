@@ -6,6 +6,7 @@
 @section('content')
 
     @include('includes.personal-header')
+    @include('rating.includes.periods-json')
 
     <div class="container-table personal-room">
         <p class="lined-title">Формування звітів</p>
@@ -13,7 +14,7 @@
         <div class="filter-wrap rating-filter">
             <p>Відсотрувати рейтинг:</p>
             <label class="select">
-                <select class="default-select" name="period-type">
+                <select class="default-select"  data-synchronize='{"data": "periods", "select-name": "period", "search": "period-type-"}' name="period-type">
                     @foreach(PeriodType::all() as $period)
                         <option value="{{ $period->id }}">{{ $period->name }}</option>
                     @endforeach
