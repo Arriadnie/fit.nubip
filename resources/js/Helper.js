@@ -30,13 +30,18 @@ window.Helper.callback = function(callback, args, scope) {
     }
 };
 
-window.Helper.callService = function(serviceName, args, callback, scope) {
+window.Helper.callService = function(serviceName, args, callback, scope, isLocalized = true) {
     args = args || {};
     args._token = $('meta[name="csrf-token"]').attr('content');
     if (serviceName.includes(".") && !args.hasOwnProperty('action')) {
         [serviceName, args.action] = serviceName.split(".");
     }
-    $.post(`${window.location.origin}/${serviceName}`, args, function(result) {
+    const url = [window.location.origin];
+    if (isLocalized) {
+        url.push(window.site.language);
+    }
+    url.push(serviceName);
+    $.post(url.join('/'), args, function(result) {
         Helper.callback(callback, result, scope);
     })
 };
