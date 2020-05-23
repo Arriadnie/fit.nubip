@@ -22,8 +22,8 @@
             <div class="rating-grade">
                 <p class="subtitle lined-title">@lang('rating.select-item-title-1')<a href="#">@lang('rating.select-item-title-2')</a> </p>
 
-                @include('rating.includes.select-block')
-                @include('rating.includes.select-punkt')
+                @include('rating.includes.forms.select-block')
+                @include('rating.includes.forms.select-punkt')
 
 
                 <label class="total">

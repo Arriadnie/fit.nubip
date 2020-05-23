@@ -23,4 +23,5 @@ return [
     'success-edit' => 'Rating success edit',
     'success-confirm' => 'Rating success confirmed',
     'success-delete' => 'Rating success deleted',
+    'success-reject' => 'Rating success rejected',
 ];

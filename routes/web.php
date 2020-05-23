@@ -82,13 +82,13 @@ Route::group(
 
     Route::group([], function () {
         Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-        Route::post('login', 'Auth\LoginController@login');
+        Route::post('login', 'Auth\LoginController@loginWithCreditNote');
         Route::post('logout', 'Auth\LoginController@logout')->name('logout');
         // Registration Routes...
         //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
         Route::post('register', 'Auth\RegisterController@register')->name('register');
         // Password Reset Routes...
-        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        //Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
@@ -136,6 +136,7 @@ Route::group(
             Route::post('/edit', 'Rating\RatingController@edit')->name('edit');
             Route::post('/confirm', 'Rating\RatingController@confirm')->name('confirm');
             Route::post('/delete', 'Rating\RatingController@delete')->name('delete');
+            Route::post('/reject', 'Rating\RatingController@reject')->name('reject');
 
 
         });

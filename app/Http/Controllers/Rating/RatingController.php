@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Rating;
 
+use App\Models\Lookups\Period;
 use App\Models\Rating\UserRatingItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,10 @@ class RatingController extends Controller
 
     public function starosta()
     {
-        return view('rating.starosta');
+        $items = UserRatingItem::getStarostaRating();
+        return view('rating.starosta', [
+            'items' => $items
+        ]);
     }
 
     public function report()
@@ -42,6 +46,16 @@ class RatingController extends Controller
             'rating_item_id' => $request->input('punkt'),
             'user_id' => Auth::id(),
         ]);
+
+        $period = Period::getByDate($dateString);
+        $currentPeriod = null;
+        if (!is_null($period)) {
+            $currentPeriod = [
+                'period-type' => $period->period_type_id,
+                'period' => $period->id,
+            ];
+        }
+
         return redirect()->route('home.rating.personal')
             ->with([
                 'messages' => [
@@ -50,11 +64,12 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
+                'currentPeriod' => $currentPeriod,
             ]);
     }
 
-    const STAROSTA_EDIT_MODE = "STAROSTA_EDIT_MODE";
-    const PERSONAL_EDIT_MODE = "PERSONAL_EDIT_MODE";
+    const STAROSTA_MODE = "STAROSTA_MODE";
+    const PERSONAL_MODE = "PERSONAL_MODE";
 
     public function edit(Request $request)
     {
@@ -64,7 +79,7 @@ class RatingController extends Controller
         $id = $request->input('id');
         $item = UserRatingItem::find($id);
 
-        if ($request->input('action') == static::PERSONAL_EDIT_MODE) {
+        if ($request->input('action') == static::PERSONAL_MODE) {
             $item->status = UserRatingItem::STATUS_IN_PROCESS;
         } else {
             $item->status = UserRatingItem::STATUS_EDITED;
@@ -91,6 +106,7 @@ class RatingController extends Controller
                 ],
             ]);
     }
+
     public function confirm(Request $request) {
         $id = $request->input('id');
         $item = UserRatingItem::find($id);
@@ -122,6 +138,27 @@ class RatingController extends Controller
                 'messages' => [
                     [
                         'text' => __('rating.success-delete'),
+                        'type' => 'success',
+                    ]
+                ],
+                'currentPeriod' => [
+                    'period-type' => $request->input('period-type-input'),
+                    'period' => $request->input('period-input'),
+                ],
+            ]);
+    }
+
+    public function reject(Request $request) {
+        $id = $request->input('id');
+        $item = UserRatingItem::find($id);
+        $item->status = UserRatingItem::STATUS_REJECTED;
+        $item->save();
+
+        return redirect()->route('home.rating.personal')
+            ->with([
+                'messages' => [
+                    [
+                        'text' => __('rating.success-reject'),
                         'type' => 'success',
                     ]
                 ],

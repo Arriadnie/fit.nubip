@@ -3,6 +3,7 @@
 namespace App\Models\Rating;
 
 use App\Models\Lookups\Period;
+use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -11,18 +12,12 @@ use TCG\Voyager\Facades\Voyager;
 class UserRatingItem extends Model
 {
     protected $guarded = [];
-    /**
-     * Statuses.
-     */
+
     const STATUS_IN_PROCESS = 'IN_PROCESS';
     const STATUS_EDITED = 'EDITED';
     const STATUS_REJECTED = 'REJECTED';
     const STATUS_CONFIRMED = 'CONFIRMED';
 
-    /**
-     * List of statuses.
-     * @var array
-     */
     public static $statuses = [self::STATUS_IN_PROCESS, self::STATUS_EDITED, self::STATUS_REJECTED, self::STATUS_CONFIRMED];
 
     protected $casts = [
@@ -31,6 +26,12 @@ class UserRatingItem extends Model
 
     public function scopeMyItems(Builder $query) {
         return $query->where('user_id', '=', Auth::id());
+    }
+    public function scopeStarostaGroupItems(Builder $query) {
+        return $query
+            ->join('users', 'users.id', '=', 'user_rating_items.user_id')
+            ->join('groups', 'groups.id', '=', 'users.group_id')
+            ->where('groups.starosta_id', '=', Auth::id());
     }
 
     public static function getUserRating($periodId) {
@@ -41,14 +42,23 @@ class UserRatingItem extends Model
             ->with('ratingItem')
             ->orderBy('date', 'desc')->get();
     }
+    public static function getStarostaRating() {
+
+        return static::starostaGroupItems()
+            ->with('ratingItem')
+            ->orderBy('date', 'desc')->get();
+    }
 
     public function ratingItem()
     {
         return $this->belongsTo(RatingItem::class, 'rating_item_id', 'id');
     }
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
 
     public function getStatus() {
-        //dd($this->status);
         if ($this->status === static::STATUS_IN_PROCESS) {
             return [
                 'icon' => 'load',
@@ -88,6 +98,10 @@ class UserRatingItem extends Model
         return [];
     }
 
+    public function getStarostaActions() {
+        return [$this->_getConfirmAction(), $this->_getChangeAction(), $this->_getRejectAction()];
+    }
+
     private function _getChangeAction() {
         return [
             'class' => 'change',
@@ -104,6 +118,12 @@ class UserRatingItem extends Model
         return [
             'class' => 'confirm',
             'title' => 'Підтвердити'
+        ];
+    }
+    private function _getRejectAction() {
+        return [
+            'class' => 'deny',
+            'title' => 'Відхилити'
         ];
     }
 }

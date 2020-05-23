@@ -72,7 +72,9 @@ const showMores = {
 
 global.ratingFilter = function(filterButton) {
     let button = filterButton?.target || document.querySelector('.rating-filter-button');
-    ;
+    if (!button) {
+        return;
+    }
     let pageMethod = button.getAttribute('data-page-method');
     const periodId = document.querySelector('[name="period"]')
         .slim.selected();

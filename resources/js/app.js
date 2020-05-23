@@ -162,7 +162,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
         btnGoLogin.addEventListener('click', function(e) {
             e.preventDefault();
             openLogin.reverse();
-        })
+        });
+
+        if (window.site.showZalikNoteLoginSide) {
+            btnGoRegister.click();
+        }
     });
 
     isExist('[data-toggle-btn]', () => {

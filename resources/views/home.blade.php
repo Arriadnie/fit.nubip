@@ -19,6 +19,7 @@
             </div>
             <div class="personal-info-details">
                 <p class="name">{{ $user->name }}</p>
+
                 <p>4 курс спеціальність "Комп'ютерні ноуки" група КН-16003б</p>
 
             </div>
@@ -30,10 +31,13 @@
                 <div class="part">
                     <p class="lined-title">Додаткова інформація</p>
                     <label>
-                        <textarea disabled name="description" placeholder="Інформація про себе">{{ strip_tags($user->peopleInfo->description) }}</textarea>
+                        <textarea disabled name="description" placeholder="Інформація про себе">{{ $user->peopleInfo ? strip_tags($user->peopleInfo->description) : '' }}</textarea>
                     </label>
                     <label>
-                        <input disabled type="tel" name="phone" placeholder="Номер телефону" value="{{ $user->peopleInfo->phone }}">
+                        <input disabled type="tel" name="phone" placeholder="Номер телефону" value="{{ $user->peopleInfo ? $user->peopleInfo->phone : '' }}">
+                    </label>
+                    <label>
+                        <input disabled type="email" name="email" placeholder="Email" value="{{ $user->peopleInfo->email ?? $user->email }}">
                     </label>
                     <a href="#" class="main-btn light enable-input disabled">Редагувати інформацію</a>
                     <input type="submit" class="main-btn hidden" value="Зберегти інформацію">
@@ -41,7 +45,7 @@
 
                 <div class="part">
                     <p class="lined-title">Соціальні мережі</p>
-                    @foreach($user->peopleInfo->getSocialNetworksWithEmpty() as $networkItem)
+                    @foreach($user->peopleInfo ? $user->peopleInfo->getSocialNetworksWithEmpty() : App\Models\PeopleInfo\PeopleInfo::getEmptySocialNetworks() as $networkItem)
                         <label>
                             <span class="icon">
                                 <img src="{{ $networkItem['network']->getImage(true) }}" alt="">

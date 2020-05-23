@@ -32,6 +32,7 @@ class HomeController extends Controller
         $userInfo = Auth::user()->peopleInfo;
         $userInfo->description = $request->input('description');
         $userInfo->phone = $request->input('phone');
+        $userInfo->email = $request->input('email');
         $userInfo->save();
         $networks = [];
         foreach ($request->request as $key => $value) {

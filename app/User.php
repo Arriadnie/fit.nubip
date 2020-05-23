@@ -5,6 +5,8 @@ namespace App;
 use App\Models\PeopleInfo\PeopleInfo;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class User extends \TCG\Voyager\Models\User
 {
@@ -44,5 +46,15 @@ class User extends \TCG\Voyager\Models\User
     public function peopleInfo()
     {
         return $this->hasOne(PeopleInfo::class, 'user_id', 'id');
+    }
+
+    public function save(array $options = [])
+    {
+
+        if (!$this->password && setting('users.default-password')) {
+            $this->password = Hash::make(setting('users.default-password'));
+        }
+
+        parent::save();
     }
 }

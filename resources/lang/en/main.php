@@ -10,7 +10,4 @@ return [
     'all' => 'All',
     'really-get-out' => 'You really want to get out?',
     'details' => 'Details',
-
-    'log-in' => 'Log in',
-    'login' => 'Login',
 ];

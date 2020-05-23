@@ -4,6 +4,7 @@ namespace App\Models\PeopleInfo;
 
 use App\Models\SocialNetwork;
 use App\Traits\Imageable;
+use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
@@ -16,18 +17,11 @@ class PeopleInfo extends Model
     protected $translatable = ['name', 'description'];
     protected $image_column = 'image';
 
-    /**
-     * Statuses.
-     */
+
     const STATUS_PUBLISHED = 'PUBLISHED';
     const STATUS_NOT_PUBLISHED = 'NOT_PUBLISHED';
     const STATUS_CHANGED = 'CHANGED';
 
-    /**
-     * List of statuses.
-     *
-     * @var array
-     */
     public static $statuses = [self::STATUS_PUBLISHED, self::STATUS_NOT_PUBLISHED, self::STATUS_CHANGED];
 
     public static function findBySlug($slug) {
@@ -47,6 +41,10 @@ class PeopleInfo extends Model
             'people_info_id', 'social_network_id')
             ->withPivot('value');
     }
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
 
     public function getSocialNetworksWithEmpty() {
         $all = SocialNetwork::where('is_public', '=', true)->get();
@@ -70,4 +68,35 @@ class PeopleInfo extends Model
         }
         return null;
     }
+
+
+    public function save(array $options = [])
+    {
+
+        if ($this->email && $this->user_id) {
+            $user = $this->user;
+            if ($user->email != $this->email) {
+                $user->email = $this->email;
+                $user->save();
+            }
+        }
+
+        parent::save();
+    }
+
+
+    public static function getEmptySocialNetworks() {
+        $all = SocialNetwork::where('is_public', '=', true)->get();
+        $withValues = [];
+
+        foreach ($all as $key => $item) {
+            $resultItem = [
+                'network' => $item,
+                'value' => ''
+            ];
+            array_push($withValues, $resultItem);
+        }
+        return $withValues;
+    }
+
 }

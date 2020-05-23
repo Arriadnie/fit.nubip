@@ -12,6 +12,8 @@
 
 @section('content')
 
+    @include('auth.includes.login-with-zalic-note-to-js')
+
     <div class="auth-page">
         <div class="auth-wrap">
             <div class="auth-container">
@@ -24,100 +26,101 @@
                             </div>
                         </div>
 
-                        <p class="form-name">{{ __('main.login') }}</p>
+                        <p class="form-name">{{ __('auth.login') }}</p>
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <label>
-                                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <label class="column">
+                                <input id="email" type="email" class="@error('email') is-invalid @enderror"
+                                       name="email" placeholder="{{ __('auth.email') }}"
+                                       value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
                             </label>
 
 
-                            <label>
-                                <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"  placeholder="{{ __('Password') }}" required autocomplete="current-password">
+                            <label class="column">
+                                <input id="passwor-email" type="password" class="@error('password') is-invalid @enderror"
+                                       name="password"  placeholder="{{ __('auth.password') }}"
+                                       required autocomplete="current-password">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
                             </label>
 
-
-
                             <label class="checkbox-label">
-                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <input type="checkbox" name="remember" id="remember-email" {{ old('remember') ? 'checked' : '' }}>
                                 <span class="custom-check"></span>
-                                {{ __('Remember Me') }}
+                                {{ __('auth.remember-me') }}
                             </label>
 
-
-                            <input type="submit" class="main-btn" value="{{ __('main.log-in') }}">
+                            <input type="submit" class="main-btn" value="{{ __('auth.log-in') }}">
                         </form>
 
-{{--                        <div class="form-bottom">--}}
-{{--                            <div>--}}
-{{--                                <p>Не має аккоунту? </p>--}}
-{{--                                <a href="#" class="go-register">Зареєструватись</a>--}}
-{{--                            </div>--}}
-{{--                            @if (Route::has('password.request'))--}}
-{{--                                <div class="forgot-password">--}}
+                        <div class="form-bottom">
+                            <div>
+                                <a href="#" class="go-register">{{ __('auth.login-with-credit-note-number') }}</a>
+                            </div>
+                            @if (Route::has('password.request'))
+                                <div class="forgot-password">
 
-{{--                                    <p>--}}
-{{--                                        <a class="go-register" href="{{ route('password.request') }}">--}}
-{{--                                            {{ __('Forgot Your Password?') }}--}}
-{{--                                        </a>--}}
-{{--                                    </p>--}}
-{{--                                </div>--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
+                                    <p>
+                                        <a class="go-register" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
 
                     </div>
-{{--                    <div class="register-block auth-block">--}}
+                    <div class="register-block auth-block">
 
-{{--                        <div class="form-heading">--}}
-{{--                            <div class="logo">--}}
-{{--                                <img src="{{ App\Traits\Imageable::getImageByColumnValue(setting('site.logo'), true) }}" alt="">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="form-heading">
+                            <div class="logo">
+                                <img src="{{ Setting::getImage('site.logo') }}" alt="">
+                            </div>
+                        </div>
 
-{{--                        <p class="form-name">Створити акаунт</p>--}}
+                        <p class="form-name">{{ __('auth.login') }}</p>
 
-{{--                        <form method="POST" action="{{ route('register') }}">--}}
-{{--                            @csrf--}}
-{{--                            <label>--}}
-{{--                                <input id="register-name" type="text" class="@error('name') is-invalid @enderror" name="name" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
-{{--                                @error('name')--}}
-{{--                                <span class="invalid-feedback" role="alert">{{ $message }}</span>--}}
-{{--                                @enderror--}}
-{{--                            </label>--}}
-{{--                            <label>--}}
-{{--                                <input id="register-email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autocomplete="email">--}}
-{{--                                @error('email')--}}
-{{--                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>--}}
-{{--                                @enderror--}}
-{{--                            </label>--}}
-{{--                            <label>--}}
-{{--                                <input id="register-password" type="password" class="@error('password') is-invalid @enderror" name="password"  placeholder="{{ __('Password') }}" required autocomplete="new-password">--}}
-{{--                                @error('password')--}}
-{{--                                <span class="invalid-feedback" role="alert">{{ $message }}</span>--}}
-{{--                                @enderror--}}
-{{--                            </label>--}}
-{{--                            <label>--}}
-{{--                                <input id="register-password-confirm" type="password" class="@error('password') is-invalid @enderror" name="password_confirmation"  placeholder="{{ __('Confirm Password') }}" required autocomplete="new-password">--}}
-{{--                            </label>--}}
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <label class="column">
+                                <input id="credit_note_number" type="text" class="@error('credit_note_number') is-invalid @enderror"
+                                       name="credit_note_number" placeholder="{{ __('auth.credit-note-number') }}"
+                                       value="{{ old('credit_note_number') }}" required autocomplete="credit_note_number" autofocus>
+                                @error('credit_note_number')
+                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </label>
 
-{{--                            <input class="main-btn" type="submit" value="{{ __('Register') }}">--}}
-{{--                        </form>--}}
+                            <label class="column">
+                                <input id="password-credit_note_number" type="password" class="@error('password') is-invalid @enderror"
+                                       name="password"  placeholder="{{ __('auth.password') }}"
+                                       required autocomplete="current-password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </label>
 
-{{--                        <div class="form-bottom">--}}
-{{--                            <div>--}}
-{{--                                <p>Уже маєте акаунт? </p>--}}
-{{--                                <a href="#" class="go-login">Увійти</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember" id="remember-credit_note_number" {{ old('remember') ? 'checked' : '' }}>
+                                <span class="custom-check"></span>
+                                {{ __('auth.remember-me') }}
+                            </label>
 
-{{--                    </div>--}}
+                            <input type="submit" class="main-btn" value="{{ __('auth.log-in') }}">
+                        </form>
+
+                        <div class="form-bottom">
+                            <div>
+                                <a href="#" class="go-login">{{ __('auth.login-with-email') }}</a>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
                 <div class="auth-image-container">
