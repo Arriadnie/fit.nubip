@@ -109,21 +109,9 @@
                 <div class="rating-grade">
                     <p class="subtitle lined-title">Оберіть блок та пункт</p>
 
-                    <label class="select">
-                        <span>Блок</span>
-                        <select class="default-select" name="block">
-                            <option data-placeholder="true">Оберіть блок</option>
-                            <optgroup label="1. Студентська організація (СО) ">
-                                <option value="1.1">1.1. Студентська організація (СО)</option>
-                                <option value="1.2">1.2. Студентська рада (СР) гуртожитку</option>
-                            </optgroup>
-                        </select>
-                    </label>
-                    <label class="select">
-                        <span>Пункт</span>
-                        <select class="default-select" name="punkt">
-                        </select>
-                    </label>
+                    @include('rating.includes.select-block')s
+                    @include('rating.includes.select-punkt')
+
                     <label class="total">
                         <span>Ваш бал за участь в заході: </span>
                         <input type="text" name="total" disabled value="0">

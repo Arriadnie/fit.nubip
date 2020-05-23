@@ -37,13 +37,73 @@ class UserRatingItem extends Model
         $period = Period::find($periodId);
 
         return static::myItems()
-            ->where('date', '>=', $period->start_date)
-            ->orWhere('date', '<=', $period->due_date)
+            ->whereBetween('date', [$period->start_date, $period->due_date])
+            ->with('ratingItem')
             ->orderBy('date', 'desc')->get();
     }
 
     public function ratingItem()
     {
         return $this->belongsTo(RatingItem::class, 'rating_item_id', 'id');
+    }
+
+    public function getStatus() {
+        //dd($this->status);
+        if ($this->status === static::STATUS_IN_PROCESS) {
+            return [
+                'icon' => 'load',
+                'name' => 'В обробці'
+            ];
+        }
+        if ($this->status === static::STATUS_EDITED) {
+            return [
+                'icon' => 'edit',
+                'name' => 'Відредаговано'
+            ];
+        }if ($this->status === static::STATUS_REJECTED) {
+            return [
+                'icon' => 'error',
+                'name' => 'Відхилено'
+            ];
+        }
+        if ($this->status === static::STATUS_CONFIRMED) {
+            return [
+                'icon' => 'success',
+                'name' => 'Підтверджено'
+            ];
+        }
+        return [];
+    }
+
+    public function getActions() {
+        if ($this->status === static::STATUS_IN_PROCESS) {
+            return [$this->_getChangeAction(), $this->_getDeleteAction()];
+        }
+        if ($this->status === static::STATUS_EDITED) {
+            return [$this->_getConfirmAction(), $this->_getChangeAction(), $this->_getDeleteAction()];
+        }
+        if ($this->status === static::STATUS_REJECTED) {
+            return [$this->_getChangeAction(), $this->_getDeleteAction()];
+        }
+        return [];
+    }
+
+    private function _getChangeAction() {
+        return [
+            'class' => 'change',
+            'title' => 'Змінити'
+        ];
+    }
+    private function _getDeleteAction() {
+        return [
+            'class' => 'delete',
+            'title' => 'Видалити'
+        ];
+    }
+    private function _getConfirmAction() {
+        return [
+            'class' => 'confirm',
+            'title' => 'Підтвердити'
+        ];
     }
 }

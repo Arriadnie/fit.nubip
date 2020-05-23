@@ -133,6 +133,9 @@ Route::group(
 
             Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('create-personal');
             Route::post('/get-personal', 'Rating\RatingController@service')->name('get-personal');
+            Route::post('/edit', 'Rating\RatingController@edit')->name('edit');
+            Route::post('/confirm', 'Rating\RatingController@confirm')->name('confirm');
+            Route::post('/delete', 'Rating\RatingController@delete')->name('delete');
 
 
         });

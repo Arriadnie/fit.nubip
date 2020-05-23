@@ -12,4 +12,11 @@ class RatingItem extends Model
     protected $translatable = ['name', 'description'];
 
     protected $guarded = [];
+
+
+    public function group()
+    {
+        return $this->belongsTo(RatingItemGroup::class, 'rating_item_group_id', 'id');
+    }
+
 }

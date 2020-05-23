@@ -309,13 +309,44 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 secondSelect.slim.setData(dataToSet[`${data.search}${value}`])
 
             }
-
         });
-
     })
+
+
+    setCachedRatingPeriod();
+
+    global.ratingFilter();
+
+    setAxiosHeader();
 
 });
 
+function setCachedRatingPeriod() {
+
+    isExist('[name="period-type"]', (select) => {
+        if (window.rating?.periodFilter) {
+            select[0].slim.set(window.rating.periodFilter['period-type']);
+
+            const periodSelect = document.querySelector('[name="period"]');
+            if (periodSelect) {
+                periodSelect.slim.set(window.rating.periodFilter['period']);
+            }
+        }
+    })
+
+}
+
+
+function setAxiosHeader() {
+    window.axios = require('axios');
+    window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    let token = document.head.querySelector('meta[name="csrf-token"]');
+    if (token) {
+        window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    } else {
+        console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    }
+}
 
 function checkboxToggleTable() {
     let wrap = document.querySelector('.schedule-filter .switch-wrap');
@@ -394,74 +425,7 @@ window.addEventListener('scroll', function (e) {
 
 
 
-global.callModal = function (event, text) {
-    event.preventDefault();
-    let classList = event.target.classList;
-    let data = event.target.parentElement.getAttribute('data-item')
 
-    let modalTemplate = `
-    <div class="modal">
-        <div class="modal-content">
-            <p>${text}</p>
-            <div class="modal-btn">
-                <a href="#" class="main-btn modal-confirm">Підтвердити</a>
-                <a href="#" class="main-btn light" onclick="$.fancybox.close();">Відмінити</a>
-            </div>
-       </div>
-    </div>`;
-
-    if (classList.contains('confirm')) {
-        $.fancybox.open(
-            modalTemplate,
-            {
-                afterShow: function (instance, current) {
-                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
-                        e.preventDefault();
-
-                    })
-                }
-            })
-
-    } else if (classList.contains('delete')) {
-        $.fancybox.open(
-            modalTemplate,
-            {
-                afterShow: function (instance, current) {
-                    document.querySelector('.modal.fancybox-content .modal-confirm').addEventListener('click', function (e) {
-                        e.preventDefault();
-                    })
-                }
-            })
-
-    } else if (classList.contains('change')) {
-        $.fancybox.open({
-            src: '#edit-rating',
-            type: 'inline',
-            opts: {
-                afterShow: function (instance, current) {
-                    let form = document.querySelector('#edit-rating');
-                    data = JSON.parse(data)
-                    for (let key in data) {
-                        let input = document.querySelector(`input[name=${key}]`);
-                        let select = document.querySelector(`select[name=${key}]`);
-                        if (input) {
-                            input.setAttribute('value', data[key]);
-                        } else if (select) {
-                            select.slim.set(data[key])
-                        }
-
-                    }
-                }
-            }
-        });
-    } else if (classList.contains('deny')) {
-        $.fancybox.open({
-            src: '#deny-rating',
-            type: 'inline',
-        });
-    }
-
-};
 
 function ratingSelectEvents() {
     let wrap = document.querySelector('.rating-grade');

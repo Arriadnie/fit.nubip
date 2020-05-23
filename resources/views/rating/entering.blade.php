@@ -22,25 +22,8 @@
             <div class="rating-grade">
                 <p class="subtitle lined-title">@lang('rating.select-item-title-1')<a href="#">@lang('rating.select-item-title-2')</a> </p>
 
-                <label class="select">
-                    <span>@lang('rating.block')</span>
-                    <select class="default-select" name="block">
-                        <option data-placeholder="true">@lang('rating.select-block')</option>
-                        @foreach(App\Models\Rating\RatingItemGroup::firstLevel()->get() as $group)
-                            <optgroup label="{{ $group->getTranslatedAttribute('name') }}">
-                                @foreach($group->childrens as $item)
-                                    <option value="{{ $item->id }}">{{ $item->getTranslatedAttribute('name') }}</option>
-                                @endforeach
-                            </optgroup>
-                        @endforeach
-                    </select>
-                </label>
-                <label class="select">
-                    <span>@lang('rating.item')</span>
-                    <select class="default-select" name="punkt">
-                        <option data-placeholder="true">@lang('rating.select-item')</option>
-                    </select>
-                </label>
+                @include('rating.includes.select-block')
+                @include('rating.includes.select-punkt')
 
 
                 <label class="total">

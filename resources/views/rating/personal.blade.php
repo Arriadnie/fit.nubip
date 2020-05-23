@@ -7,6 +7,7 @@
 
     @include('includes.personal-header')
     @include('rating.includes.periods-json')
+    @include('rating.includes.current-period-to-js')
 
     <div class="container-table personal-room">
         <p class="lined-title">Персональний рейтинг</p>
@@ -23,7 +24,6 @@
 
             <label class="select">
                 <select class="default-select" name="period">
-
                 </select>
             </label>
 
@@ -44,15 +44,19 @@
                     </tr>
                 </table>
             </div>
-            <p class="total">Сума: 5,5 балів</p>
+            <p class="total">Сума: <span id="score-sum">5,5</span> балів</p>
         </div>
 
     </div>
 
     <div id="edit-rating" style="display: none">
         <div class="modal-content">
-            <form action="POST">
+            <form method="POST" action="{{ route('home.rating.edit') }}" id="edit-form">
+                @csrf
                 <p class="subtitle lined-title">Редагування рейтингу</p>
+                <input type="text" name="id" value="" class="hidden">
+                <input type="text" name="period-type-input" value="" class="hidden">
+                <input type="text" name="period-input" value="" class="hidden">
                 <label>
                     <input type="text" name="name" placeholder="Назва заходу, події*">
                 </label>
@@ -63,36 +67,36 @@
                 <div class="rating-grade">
                     <p class="subtitle lined-title">Оберіть блок та пункт</p>
 
-                    <label class="select">
-                        <span>Блок</span>
-                        <select class="default-select" name="block">
-                            <option data-placeholder="true">@lang('rating.select-block')</option>
-                            @foreach(App\Models\Rating\RatingItemGroup::firstLevel()->get() as $group)
-                                <optgroup label="{{ $group->getTranslatedAttribute('name') }}">
-                                    @foreach($group->childrens as $item)
-                                        <option value="{{ $item->id }}">{{ $item->getTranslatedAttribute('name') }}</option>
-                                    @endforeach
-                                </optgroup>
-                            @endforeach
-                        </select>
-                    </label>
-                    <label class="select">
-                        <span>Пункт</span>
-                        <select class="default-select" name="punkt">
-                            <option data-placeholder="true">@lang('rating.select-item')</option>
-                        </select>
-                    </label>
+                    @include('rating.includes.select-block')
+                    @include('rating.includes.select-punkt')
+
                     <label class="total">
                         <span>Ваш бал за участь в заході: </span>
                         <input type="text" name="total" disabled value="0">
                     </label>
                 </div>
+                <input type="text" name="action" class="hidden" value="{{ App\Http\Controllers\Rating\RatingController::PERSONAL_EDIT_MODE }}">
 
                 <input type="submit" class="main-btn" value="Зберегти">
             </form>
         </div>
 
     </div>
+
+    <form method="POST" action="{{ route('home.rating.confirm') }}" class="hidden" id="confirm-form">
+        @csrf
+        <input type="text" name="id" value="" class="hidden">
+        <input type="text" name="period-type-input" value="" class="hidden">
+        <input type="text" name="period-input" value="" class="hidden">
+        <input type="text" name="action" class="hidden" value="{{ App\Http\Controllers\Rating\RatingController::PERSONAL_EDIT_MODE }}">
+    </form>
+    <form method="POST" action="{{ route('home.rating.delete') }}" class="hidden" id="delete-form">
+        @csrf
+        <input type="text" name="id" value="" class="hidden">
+        <input type="text" name="period-type-input" value="" class="hidden">
+        <input type="text" name="period-input" value="" class="hidden">
+        <input type="text" name="action" class="hidden" value="{{ App\Http\Controllers\Rating\RatingController::PERSONAL_EDIT_MODE }}">
+    </form>
 
 
 @endsection
