@@ -71,6 +71,7 @@ const showMores = {
 
 
 global.ratingFilter = function(filterButton) {
+    filterButton?.preventDefault();
     let button = filterButton?.target || document.querySelector('.rating-filter-button');
     if (!button) {
         return;
@@ -129,11 +130,6 @@ global.ratingMethods = {
             document.querySelector(`#confirm-form input[name="id"]`)
                 .setAttribute('value', data.id);
 
-            document.querySelector(`#confirm-form input[name="period-type-input"]`)
-                .setAttribute('value', document.querySelector('[name="period-type"]').slim.selected());
-            document.querySelector(`#confirm-form input[name="period-input"]`)
-                .setAttribute('value', document.querySelector('[name="period"]').slim.selected());
-
             document.querySelector('#confirm-form')?.submit();;
         });
     },
@@ -145,11 +141,6 @@ global.ratingMethods = {
 
             document.querySelector(`#delete-form input[name="id"]`)
                 .setAttribute('value', data.id);
-
-            document.querySelector(`#delete-form input[name="period-type-input"]`)
-                .setAttribute('value', document.querySelector('[name="period-type"]').slim.selected());
-            document.querySelector(`#delete-form input[name="period-input"]`)
-                .setAttribute('value', document.querySelector('[name="period"]').slim.selected());
 
             document.querySelector('#delete-form')?.submit();;
         });
@@ -175,18 +166,17 @@ global.ratingMethods = {
                         }
 
                     }
-
-                    document.querySelector(`#edit-form input[name="period-type-input"]`)
-                        .setAttribute('value', document.querySelector('[name="period-type"]').slim.selected());
-                    document.querySelector(`#edit-form input[name="period-input"]`)
-                        .setAttribute('value', document.querySelector('[name="period"]').slim.selected());
                 }
             }
         });
     },
     deny: function(event) {
+        let data = event.target.parentElement.getAttribute('data-item');
+        data = JSON.parse(data);
+        document.querySelector(`#reject-form input[name="id"]`)
+            .setAttribute('value', data.id);
         $.fancybox.open({
-            src: '#deny-rating',
+            src: '#reject-rating',
             type: 'inline',
         });
     }

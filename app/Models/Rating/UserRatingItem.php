@@ -28,9 +28,10 @@ class UserRatingItem extends Model
         return $query->where('user_id', '=', Auth::id());
     }
     public function scopeStarostaGroupItems(Builder $query) {
-        return $query
+        return $query->select('user_rating_items.*')
             ->join('users', 'users.id', '=', 'user_rating_items.user_id')
             ->join('groups', 'groups.id', '=', 'users.group_id')
+            ->where('user_rating_items.status', '=', static::STATUS_IN_PROCESS)
             ->where('groups.starosta_id', '=', Auth::id());
     }
 

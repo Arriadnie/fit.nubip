@@ -21,6 +21,7 @@ class CreateUserRatingItemsTable extends Migration
             $table->enum('status', UserRatingItem::$statuses)->default(UserRatingItem::STATUS_IN_PROCESS);
             $table->unsignedInteger('rating_item_id')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->text('comment')->nullable();
             $table->timestamps();
 
 

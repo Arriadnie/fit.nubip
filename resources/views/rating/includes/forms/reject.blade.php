@@ -4,8 +4,6 @@
         <form method="POST" action="{{ route('home.rating.reject') }}" id="reject-form">
             @csrf
             <input type="text" name="id" value="" class="hidden">
-            <input type="text" name="period-type-input" value="" class="hidden">
-            <input type="text" name="period-input" value="" class="hidden">
             <input type="text" name="action" class="hidden" value="{{ $actionMode }}">
 
             <p class="subtitle lined-title">Відхилення рейтингу</p>

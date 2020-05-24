@@ -28,4 +28,6 @@ return [
     'login-with-credit-note-number' => 'Login with credit note number',
     'login-with-email' => 'Login with Email',
 
+    'really-logout' => 'Are you really have logout?',
+
 ];

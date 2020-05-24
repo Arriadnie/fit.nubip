@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 
     public function entering()
     {
@@ -47,15 +52,6 @@ class RatingController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        $period = Period::getByDate($dateString);
-        $currentPeriod = null;
-        if (!is_null($period)) {
-            $currentPeriod = [
-                'period-type' => $period->period_type_id,
-                'period' => $period->id,
-            ];
-        }
-
         return redirect()->route('home.rating.personal')
             ->with([
                 'messages' => [
@@ -64,7 +60,7 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
-                'currentPeriod' => $currentPeriod,
+                'currentPeriod' => Period::getMonthByDate($dateString),
             ]);
     }
 
@@ -92,7 +88,8 @@ class RatingController extends Controller
 
         $item->save();
 
-        return redirect()->route('home.rating.personal')
+        $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
+        return redirect()->route($redirectRouteName)
             ->with([
                 'messages' => [
                     [
@@ -100,10 +97,7 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
-                'currentPeriod' => [
-                    'period-type' => $request->input('period-type-input'),
-                    'period' => $request->input('period-input'),
-                ],
+                'currentPeriod' => Period::getMonthByDate($dateString),
             ]);
     }
 
@@ -113,7 +107,8 @@ class RatingController extends Controller
         $item->status = UserRatingItem::STATUS_CONFIRMED;
         $item->save();
 
-        return redirect()->route('home.rating.personal')
+        $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
+        return redirect()->route($redirectRouteName)
             ->with([
                 'messages' => [
                     [
@@ -121,19 +116,18 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
-                'currentPeriod' => [
-                    'period-type' => $request->input('period-type-input'),
-                    'period' => $request->input('period-input'),
-                ],
+                'currentPeriod' => Period::getMonthByDate($item->date),
             ]);
     }
 
     public function delete(Request $request) {
         $id = $request->input('id');
         $item = UserRatingItem::find($id);
+        $date = $item->date;
         $item->delete();
 
-        return redirect()->route('home.rating.personal')
+        $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
+        return redirect()->route($redirectRouteName)
             ->with([
                 'messages' => [
                     [
@@ -141,10 +135,7 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
-                'currentPeriod' => [
-                    'period-type' => $request->input('period-type-input'),
-                    'period' => $request->input('period-input'),
-                ],
+                'currentPeriod' => Period::getMonthByDate($date),
             ]);
     }
 
@@ -152,9 +143,11 @@ class RatingController extends Controller
         $id = $request->input('id');
         $item = UserRatingItem::find($id);
         $item->status = UserRatingItem::STATUS_REJECTED;
+        $item->comment = $request->input('reject-reason');
         $item->save();
 
-        return redirect()->route('home.rating.personal')
+        $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
+        return redirect()->route($redirectRouteName)
             ->with([
                 'messages' => [
                     [
@@ -162,10 +155,7 @@ class RatingController extends Controller
                         'type' => 'success',
                     ]
                 ],
-                'currentPeriod' => [
-                    'period-type' => $request->input('period-type-input'),
-                    'period' => $request->input('period-input'),
-                ],
+                'currentPeriod' => Period::getMonthByDate($item->date),
             ]);
     }
 

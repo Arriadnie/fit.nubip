@@ -28,4 +28,6 @@ return [
     'login-with-credit-note-number' => 'Увійти за допомогою залікової книжки',
     'login-with-email' => 'Увійти за допомогою Email',
 
+    'really-logout' => 'Ви дійсно бажаєте вийти?',
+
 ];

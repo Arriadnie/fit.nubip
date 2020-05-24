@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ChangePasswordController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function showForm(Request $request, $token = null)
     {
         return view('auth.change-password');

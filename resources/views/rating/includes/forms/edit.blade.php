@@ -5,8 +5,6 @@
             @csrf
             <p class="subtitle lined-title">Редагування рейтингу</p>
             <input type="text" name="id" value="" class="hidden">
-            <input type="text" name="period-type-input" value="" class="hidden">
-            <input type="text" name="period-input" value="" class="hidden">
             <label>
                 <input type="text" name="name" placeholder="Назва заходу, події*">
             </label>

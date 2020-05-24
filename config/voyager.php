@@ -47,7 +47,7 @@ return [
     */
 
     'models' => [
-        'namespace' => 'App\\Models',
+        'namespace' => 'App\\Models\\',
     ],
 
     /*
@@ -117,7 +117,6 @@ return [
         'locales' => [
             'en',
             'uk',
-            //'pt',
         ],
     ],
 
