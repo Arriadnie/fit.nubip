@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 23 2020 р., 03:07
+-- Час створення: Трв 25 2020 р., 12:46
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -109,11 +109,11 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
 (14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
 (15, 2, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(16, 3, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(17, 3, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
-(19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
-(20, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, NULL, 5),
+(16, 3, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
+(17, 3, 'name', 'text', 'Код', 1, 1, 1, 1, 1, 1, '{}', 2),
+(18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 3),
+(19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 4),
+(20, 3, 'display_name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 5),
 (21, 1, 'role_id', 'text', 'ІД Роль', 0, 0, 1, 1, 1, 1, '{}', 9),
 (22, 4, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
 (23, 4, 'parent_id', 'select_dropdown', 'Parent', 0, 1, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
@@ -297,7 +297,27 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (211, 29, 'rating_item_group_hasmany_rating_item_relationship', 'relationship', 'Пункти', 0, 0, 1, 1, 1, 1, '{\"isItems\":true,\"dataTypeSlug\":\"rating-items\",\"itemsProperty\":\"items\",\"titleColumn\":\"name\",\"subTitleColumn\":\"score\",\"model\":\"App\\\\Models\\\\Rating\\\\RatingItem\",\"table\":\"rating_items\",\"type\":\"hasMany\",\"column\":\"rating_item_group_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
 (212, 29, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 7),
 (213, 28, 'order', 'text', 'Порядковий номер', 1, 0, 0, 0, 0, 1, '{}', 8),
-(214, 13, 'people_info_belongsto_user_relationship', 'relationship', 'Користувач', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
+(214, 13, 'people_info_belongsto_user_relationship', 'relationship', 'Користувач', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
+(215, 30, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(216, 30, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 4),
+(217, 30, 'introduction_year', 'number', 'Рік вступу', 0, 0, 1, 1, 1, 1, '{}', 5),
+(218, 30, 'starosta_id', 'text', 'Starosta Id', 0, 0, 1, 1, 1, 1, '{}', 2),
+(219, 30, 'education_program_id', 'text', 'Education Program Id', 0, 0, 1, 1, 1, 1, '{}', 3),
+(220, 30, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 1, '{}', 6),
+(221, 30, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(222, 30, 'group_belongsto_user_relationship', 'relationship', 'Староста', 0, 1, 1, 1, 0, 1, '{\"scopeWithMaster\":\"studentsForStarosta\",\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"starosta_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
+(223, 30, 'group_belongsto_education_program_relationship', 'relationship', 'Навчальна програма', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\EducationProgram\",\"table\":\"education_programs\",\"type\":\"belongsTo\",\"column\":\"education_program_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 9),
+(224, 31, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(225, 31, 'date', 'date', 'Дата', 1, 1, 1, 1, 1, 1, '{}', 7),
+(226, 31, 'status', 'select_dropdown', 'Статус', 1, 1, 1, 1, 1, 1, '{\"default\":\"IN_PROCESS\",\"options\":{\"IN_PROCESS\":\"\\u0412 \\u043e\\u0431\\u0440\\u043e\\u0431\\u0446\\u0456\",\"EDITED\":\"\\u0412\\u0456\\u0434\\u0440\\u0435\\u0434\\u0430\\u0433\\u043e\\u0432\\u0430\\u043d\\u043e\",\"REJECTED\":\"\\u0412\\u0456\\u0434\\u0445\\u0438\\u043b\\u0435\\u043d\\u043e\",\"CONFIRMED\":\"\\u041f\\u0456\\u0434\\u0442\\u0432\\u0435\\u0440\\u0434\\u0436\\u0435\\u043d\\u043e\"}}', 8),
+(227, 31, 'rating_item_id', 'text', 'Rating Item Id', 0, 0, 1, 1, 1, 1, '{}', 4),
+(228, 31, 'user_id', 'text', 'User Id', 1, 0, 1, 1, 1, 1, '{}', 5),
+(229, 31, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 9),
+(230, 31, 'updated_at', 'timestamp', 'Змінено', 0, 1, 1, 0, 0, 0, '{}', 10),
+(231, 31, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 6),
+(232, 31, 'comment', 'text_area', 'Коментар', 0, 1, 1, 1, 1, 1, '{}', 11),
+(233, 31, 'user_rating_item_belongsto_rating_item_relationship', 'relationship', 'Пункт рейтингу', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Rating\\\\RatingItem\",\"table\":\"rating_items\",\"type\":\"belongsTo\",\"column\":\"rating_item_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 2),
+(234, 31, 'user_rating_item_belongsto_user_relationship', 'relationship', 'Студент', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
 
 -- --------------------------------------------------------
 
@@ -330,7 +350,7 @@ CREATE TABLE `data_types` (
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
 (1, 'users', 'users', 'Користувач', 'Користувачі', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-04 16:52:48', '2020-05-19 15:48:12'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-09-04 16:52:48', '2019-09-04 16:52:48'),
-(3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2019-09-04 16:52:48', '2019-09-04 16:52:48'),
+(3, 'roles', 'roles', 'Роль', 'Ролі', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-04 16:52:48', '2020-05-24 08:52:23'),
 (4, 'categories', 'categories', 'Категорія новини', 'Категорії новин', 'voyager-categories', 'App\\Models\\Posts\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-05-18 14:50:07'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'App\\Models\\Posts\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', 'App\\Http\\Controllers\\Posts\\PostController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-01-19 17:32:40'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'App\\Models\\Pages\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-05-10 10:44:16'),
@@ -350,7 +370,9 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (26, 'period_types', 'period-types', 'Тип періоду', 'Типи періодів', 'voyager-alarm-clock', 'App\\Models\\Lookups\\PeriodType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-19 18:11:24', '2020-05-19 18:11:24'),
 (27, 'periods', 'periods', 'Період', 'Періоди', 'voyager-alarm-clock', 'App\\Models\\Lookups\\Period', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:12:32', '2020-05-19 18:13:36'),
 (28, 'rating_items', 'rating-items', 'Пункт рейтингу', 'Пункти рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:15:59', '2020-05-19 18:46:23'),
-(29, 'rating_item_groups', 'rating-item-groups', 'Блок пункту рейтингу', 'Блоки пунктів рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItemGroup', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:17:11', '2020-05-19 18:58:05');
+(29, 'rating_item_groups', 'rating-item-groups', 'Блок пункту рейтингу', 'Блоки пунктів рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItemGroup', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:17:11', '2020-05-19 18:58:05'),
+(30, 'groups', 'groups', 'Навчальна група', 'Навчальні групи', 'voyager-wallet', 'App\\Models\\Education\\Group', NULL, 'App\\Http\\Controllers\\FiltrationVoyagerController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-23 17:27:29', '2020-05-24 16:12:03'),
+(31, 'user_rating_items', 'user-rating-items', 'Рейтинг студента', 'Рейтинг студентів', 'voyager-bar-chart', 'App\\Models\\Rating\\UserRatingItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-24 09:55:04', '2020-05-24 10:38:13');
 
 -- --------------------------------------------------------
 
@@ -867,7 +889,7 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `name`, `introduction_year`, `starosta_id`, `education_program_id`, `created_at`, `updated_at`) VALUES
-(1, 'ІПЗ-16006б', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
+(1, 'ІПЗ-16006б', 2016, NULL, NULL, '2020-05-18 09:11:18', '2020-05-24 09:49:02'),
 (2, 'ІПЗ-16007ск', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (3, 'ІУСТ-16001мОН', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (4, 'ІУСТ-16001мОП', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
@@ -902,8 +924,8 @@ INSERT INTO `groups` (`id`, `name`, `introduction_year`, `starosta_id`, `educati
 (33, 'КН-1501-2', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (34, 'КН-1501ск-З', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (35, 'КН-1502ск', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
-(36, 'КН-16001б', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
-(37, 'КН-16002б', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
+(36, 'КН-16001б', NULL, 37, 2, '2020-05-18 09:11:18', '2020-05-24 15:34:43'),
+(37, 'КН-16002б', NULL, 23, 2, '2020-05-18 09:11:18', '2020-05-24 15:35:11'),
 (38, 'КН-16002бск-З', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (39, 'КН-16003ск', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (40, 'КН-17001б-1', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
@@ -1168,7 +1190,31 @@ INSERT INTO `integration_logs` (`id`, `datetime`, `status`, `message`) VALUES
 (44, '2020-05-19 21:43:46', 'ERROR', 'Error on save - SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: \'\' for column `itnulesdb`.`users`.`birthday` at row 1 (SQL: update `users` set `birthday` = , `users`.`updated_at` = 2020-05-19 18:43:46 where `id` = 11)'),
 (45, '2020-05-19 21:43:46', 'ERROR', 'Інтеграція закінчилась з помилками'),
 (46, '2020-05-19 21:45:05', 'SUCCESS', 'Інтеграція успішно завершена'),
-(47, '2020-05-19 22:41:20', 'SUCCESS', 'Інтеграція успішно завершена');
+(47, '2020-05-19 22:41:20', 'SUCCESS', 'Інтеграція успішно завершена'),
+(48, '2020-05-23 16:06:38', 'SUCCESS', 'Інтеграція успішно завершена'),
+(49, '2020-05-23 16:09:08', 'SUCCESS', 'Інтеграція успішно завершена'),
+(50, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(51, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(52, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(53, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(54, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(55, '2020-05-24 19:57:33', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(56, '2020-05-24 19:57:33', 'ERROR', 'Інтеграція закінчилась з помилками'),
+(57, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(58, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(59, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(60, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(61, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(62, '2020-05-24 20:01:07', 'ERROR', 'Error on save - Unexpected data found.\r\nUnexpected data found.\r\nData missing'),
+(63, '2020-05-24 20:01:07', 'ERROR', 'Інтеграція закінчилась з помилками'),
+(64, '2020-05-24 20:08:41', 'SUCCESS', 'Інтеграція успішно завершена'),
+(65, '2020-05-24 20:10:31', 'SUCCESS', 'Інтеграція успішно завершена'),
+(66, '2020-05-24 20:17:43', 'SUCCESS', 'Інтеграція успішно завершена'),
+(67, '2020-05-24 20:29:11', 'SUCCESS', 'Інтеграція успішно завершена'),
+(68, '2020-05-24 20:34:10', 'SUCCESS', 'Інтеграція успішно завершена'),
+(69, '2020-05-24 20:35:48', 'ERROR', 'Error on save - SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: \'-0001-11-30 00:00:00\' for column `itnulesdb`.`users`.`birthday` at row 1 (SQL: insert into `users` (`name`, `credit_note_number`, `role_id`, `birthday`, `group_id`, `avatar`, `password`, `updated_at`, `created_at`) values (Кучук Дмитро Павлович, 18002б, 3, -0001-11-30 00:00:00, 36, settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg, $2y$10$1u8cVnVhFb9mx/C4kHo94O.LgB9jXGIcqgopVnIcE1YATRcGGOPCu, 2020-05-24 17:35:48, 2020-05-24 17:35:48))'),
+(70, '2020-05-24 20:35:49', 'ERROR', 'Інтеграція закінчилась з помилками'),
+(71, '2020-05-24 20:37:54', 'SUCCESS', 'Інтеграція успішно завершена');
 
 -- --------------------------------------------------------
 
@@ -1254,14 +1300,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (41, 4, 'Студентська організація', '', '_self', NULL, '#000000', NULL, 5, '2020-02-02 16:58:54', '2020-02-05 06:30:50', NULL, ''),
 (42, 4, 'Наші випускники', 'nashi-vipuskniki', '_self', 'Наші студенти', '#000000', NULL, 6, '2020-02-02 16:59:02', '2020-03-11 20:48:56', NULL, ''),
 (43, 4, 'Новини', '', '_self', NULL, '#000000', NULL, 7, '2020-02-02 16:59:53', '2020-02-05 06:30:50', 'posts', NULL),
-(44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 3, '2020-02-11 21:05:30', '2020-02-12 17:54:49', 'voyager.people-infos.index', 'null'),
+(44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 4, '2020-02-11 21:05:30', '2020-05-24 09:47:55', 'voyager.people-infos.index', 'null'),
 (45, 1, 'Користувачі', '', '_self', 'voyager-person', '#000000', NULL, 2, '2020-02-12 17:52:32', '2020-02-12 17:52:44', NULL, ''),
 (46, 1, 'Галереї', '', '_self', 'voyager-photos', '#000000', 58, 3, '2020-02-12 19:24:14', '2020-05-19 18:21:57', 'voyager.galleries.index', 'null'),
 (49, 1, 'Освітні ступені', '', '_self', 'voyager-file-text', '#000000', 52, 1, '2020-02-28 14:39:46', '2020-02-29 07:33:49', 'voyager.education-degrees.index', 'null'),
 (50, 1, 'Освітні програми', '', '_self', 'voyager-file-text', '#000000', 52, 3, '2020-02-28 14:44:06', '2020-02-29 07:34:23', 'voyager.education-programs.index', NULL),
 (51, 1, 'Освітні спеціальності', '', '_self', 'voyager-file-text', NULL, 52, 2, '2020-02-28 14:46:01', '2020-02-29 07:34:23', 'voyager.education-specialties.index', NULL),
 (52, 1, 'Освіта', '', '_self', 'voyager-company', '#000000', NULL, 6, '2020-02-29 07:20:47', '2020-05-18 15:52:15', NULL, ''),
-(54, 1, 'Групи інформації користувачів', '', '_self', 'voyager-people', NULL, 45, 4, '2020-03-02 19:35:39', '2020-03-02 19:43:40', 'voyager.people-info-groups.index', NULL),
+(54, 1, 'Групи інформації користувачів', '', '_self', 'voyager-people', NULL, 45, 5, '2020-03-02 19:35:39', '2020-05-24 09:47:55', 'voyager.people-info-groups.index', NULL),
 (55, 1, 'Дисципліни', '', '_self', 'voyager-book', NULL, 57, 1, '2020-05-18 14:32:50', '2020-05-18 15:50:31', 'voyager.disciplines.index', NULL),
 (56, 1, 'Інтеграція', '', '_self', 'voyager-logbook', '#000000', NULL, 12, '2020-05-18 14:38:21', '2020-05-19 18:22:55', 'voyager.integration-logs.index', 'null'),
 (57, 1, 'Розклад', '', '_self', 'voyager-calendar', '#000000', NULL, 7, '2020-05-18 15:50:21', '2020-05-18 15:52:15', NULL, ''),
@@ -1271,7 +1317,9 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (61, 1, 'Періоди', '', '_self', 'voyager-alarm-clock', NULL, 59, 3, '2020-05-19 18:12:32', '2020-05-19 18:22:05', 'voyager.periods.index', NULL),
 (62, 1, 'Пункти рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 2, '2020-05-19 18:16:00', '2020-05-19 18:22:02', 'voyager.rating-items.index', NULL),
 (63, 1, 'Блоки пунктів рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 1, '2020-05-19 18:17:11', '2020-05-19 18:22:00', 'voyager.rating-item-groups.index', NULL),
-(64, 1, 'Рейтинг', '', '_self', 'voyager-bar-chart', '#000000', NULL, 8, '2020-05-19 18:21:47', '2020-05-19 18:22:55', NULL, '');
+(64, 1, 'Рейтинг', '', '_self', 'voyager-bar-chart', '#000000', NULL, 8, '2020-05-19 18:21:47', '2020-05-19 18:22:55', NULL, ''),
+(65, 1, 'Навчальні групи', '', '_self', 'voyager-wallet', '#000000', 45, 3, '2020-05-23 17:27:29', '2020-05-24 09:47:55', 'voyager.groups.index', 'null'),
+(66, 1, 'Рейтинг студентів', '', '_self', 'voyager-bar-chart', NULL, 64, 3, '2020-05-24 09:55:04', '2020-05-24 09:57:38', 'voyager.user-rating-items.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -1349,7 +1397,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (74, '2020_05_19_212432_add_columns_to_rating_items', 27),
 (75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27),
 (76, '2020_05_20_192802_create_people_info_social_networks_table', 28),
-(77, '2020_05_20_214735_add_column_to_user_rating_items', 29);
+(77, '2020_05_20_214735_add_column_to_user_rating_items', 29),
+(78, '2020_05_24_121754_add_comment_column_to_user_rating_items_table', 30);
 
 -- --------------------------------------------------------
 
@@ -1432,7 +1481,7 @@ CREATE TABLE `people_infos` (
 INSERT INTO `people_infos` (`id`, `user_id`, `name`, `slug`, `phone`, `email`, `position`, `description`, `image`, `link`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Швиденко Михайло Зіновійович', 'shvidenko-mihajlo-zinovijovich', NULL, NULL, 'Завідувач кафедри', '<p><span style=\"color: rgba(0, 4, 57, 0.75); font-family: Raleway, sans-serif; font-size: 17.075px;\">кандидат економічних наук, доцент, заслужений професор НУБіП України, відмінник аграрної освіти і науки України, заслужений працівник освіти України</span></p>', 'people-infos\\February2020\\BVJzWdD8Yc1KWGE9S3zn.jpg', NULL, 'CHANGED', '2020-02-11 21:07:00', '2020-02-11 21:07:00'),
 (2, 1, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', 'Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-05-21 17:18:26'),
-(3, NULL, 'Чубар Людмила', 'chubar-lyudmila', NULL, NULL, '', '<p>Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital</p>', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-02-27 17:55:34');
+(3, 39, 'Чубар Людмила', 'chubar-lyudmila', NULL, 'arriadnie@gmail.com', '', 'Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-05-24 16:20:14');
 
 -- --------------------------------------------------------
 
@@ -1685,7 +1734,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (128, 'read_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
 (129, 'edit_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
 (130, 'add_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
-(131, 'delete_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11');
+(131, 'delete_rating_item_groups', 'rating_item_groups', '2020-05-19 18:17:11', '2020-05-19 18:17:11'),
+(132, 'browse_groups', 'groups', '2020-05-23 17:27:29', '2020-05-23 17:27:29'),
+(133, 'read_groups', 'groups', '2020-05-23 17:27:29', '2020-05-23 17:27:29'),
+(134, 'edit_groups', 'groups', '2020-05-23 17:27:29', '2020-05-23 17:27:29'),
+(135, 'add_groups', 'groups', '2020-05-23 17:27:29', '2020-05-23 17:27:29'),
+(136, 'delete_groups', 'groups', '2020-05-23 17:27:29', '2020-05-23 17:27:29'),
+(137, 'browse_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
+(138, 'read_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
+(139, 'edit_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
+(140, 'add_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
+(141, 'delete_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04');
 
 -- --------------------------------------------------------
 
@@ -1704,6 +1763,7 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
+(1, 4),
 (1, 5),
 (2, 1),
 (3, 1),
@@ -1920,7 +1980,17 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (128, 1),
 (129, 1),
 (130, 1),
-(131, 1);
+(131, 1),
+(132, 1),
+(133, 1),
+(134, 1),
+(135, 1),
+(136, 1),
+(137, 1),
+(138, 1),
+(139, 1),
+(140, 1),
+(141, 1);
 
 -- --------------------------------------------------------
 
@@ -1985,10 +2055,29 @@ CREATE TABLE `rating_items` (
 --
 
 INSERT INTO `rating_items` (`id`, `name`, `description`, `score`, `rating_item_group_id`, `created_at`, `updated_at`, `order`) VALUES
-(1, 'Голова об’єднаної студентської ради гуртожитків', NULL, 4, 3, '2020-05-19 18:59:48', '2020-05-19 19:00:02', 1),
-(2, 'Голови СР гуртожитків', NULL, 5, 3, '2020-05-19 19:00:11', '2020-05-19 19:00:16', 2),
-(3, 'Голова СО Університету', NULL, 5, 2, '2020-05-19 19:00:31', '2020-05-19 19:00:59', 3),
-(4, 'Заступники голови СО Університету', NULL, 2, 2, '2020-05-19 19:00:44', '2020-05-19 19:00:50', 4);
+(1, 'Голова об’єднаної студентської ради гуртожитків', '', 7, 3, '2020-05-19 18:59:48', '2020-05-23 14:24:08', 1),
+(2, 'Голови СР гуртожитків', '', 5, 3, '2020-05-19 19:00:11', '2020-05-23 14:24:01', 2),
+(3, 'Голова СО Університету', '', 10, 2, '2020-05-19 19:00:31', '2020-05-23 14:22:50', 3),
+(4, 'Заступники голови СО Університету', '', 6, 2, '2020-05-19 19:00:44', '2020-05-23 14:22:57', 4),
+(5, 'Голови СО на факультеті (ННІ)', '', 5, 2, '2020-05-23 14:22:36', '2020-05-23 14:22:42', 5),
+(6, 'Члени Вченої ради Університету ', '', 3.7, 2, '2020-05-23 14:23:09', '2020-05-23 14:23:15', 6),
+(7, 'Заступник голови СР Гуртожитку', '', 3.5, 3, '2020-05-23 14:23:45', '2020-05-23 14:23:54', 7),
+(8, '1. Голова профбюро факультету (ННІ)', '', 4, 4, '2020-05-23 14:25:22', '2020-05-23 14:25:28', 8),
+(9, '1. Членство у волонтерському зареєстрованому об\'єднанні', '', 2.25, 5, '2020-05-23 14:25:56', '2020-05-23 14:26:03', 9),
+(10, '2. Курсант автошколи НУБіП України', '', 3.5, 5, '2020-05-23 14:26:21', '2020-05-23 14:26:27', 10),
+(11, '1. Переможці і призери міжнародних олімпіад', '', 10, 7, '2020-05-23 14:29:34', '2020-05-23 14:29:39', 11),
+(12, '2. Переможці II етапу Всеукраїнських студентських олімпіад (1 місце)', '', 10, 7, '2020-05-23 14:29:48', '2020-05-23 14:29:54', 12),
+(13, '2.1. Переможці II етапу Всеукраїнських студентських олімпіад (2 місце)', '', 9.5, 7, '2020-05-23 14:30:11', '2020-05-23 14:30:17', 13),
+(14, '2.2. Переможці II етапу Всеукраїнських студентських олімпіад (3 місце) ', '', 9, 7, '2020-05-23 14:30:28', '2020-05-23 14:30:33', 14),
+(15, '1. Виступ на конференціях що проходять за межами території України (на іноземній мові) ', '', 7.5, 8, '2020-05-23 14:31:24', '2020-05-23 14:31:35', 15),
+(16, '2. Виступ на конференціях, що проходять в Україні', '', 2.5, 8, '2020-05-23 14:32:05', '2020-05-23 14:32:14', 16),
+(17, '3. Виступ на конференціях на рівні Університету', '', 2.5, 8, '2020-05-23 14:32:22', '2020-05-23 14:32:28', 17),
+(18, '8. Участь у мистецьких заходах на рівні університету', '', 1.5, 11, '2020-05-24 16:32:22', '2020-05-24 16:33:17', 18),
+(19, '9. Участь у мистецьких заходах на рівні факультету (ННІ)', '', 1.25, 11, '2020-05-24 16:32:43', '2020-05-24 16:33:08', 19),
+(20, '10. Участь у мистецьких заходах на рівні гуртожитку', '', 1, 11, '2020-05-24 16:33:31', '2020-05-24 16:33:43', 20),
+(21, '11. Написання статті на сайт Університету у публіцистичному стилі', '', 0.6, 11, '2020-05-24 16:33:56', '2020-05-24 16:34:06', 21),
+(22, '3. Учасник збірної команди Чемпіонату гумору Університету', '', 2.5, 10, '2020-05-24 16:34:35', '2020-05-24 16:34:43', 22),
+(23, '4. Учасник збірної команди Чемпіонату гумору факультету (ННІ)', '', 1, 10, '2020-05-24 16:34:50', '2020-05-24 16:34:56', 23);
 
 -- --------------------------------------------------------
 
@@ -2011,9 +2100,17 @@ CREATE TABLE `rating_item_groups` (
 --
 
 INSERT INTO `rating_item_groups` (`id`, `name`, `description`, `parent_id`, `created_at`, `updated_at`, `order`) VALUES
-(1, '1. Студентська організація (СО)', NULL, NULL, '2020-05-19 18:41:49', '2020-05-19 18:43:43', 1),
+(1, '1. Участь у діяльності органів студентського самоврядування та соціальної роботи', '', NULL, '2020-05-19 18:41:49', '2020-05-23 14:20:52', 1),
 (2, '1.1. Студентська організація (СО)', NULL, 1, '2020-05-19 18:42:00', '2020-05-19 18:45:12', 2),
-(3, '1.2. Студентська рада (СР) гуртожитку', NULL, 1, '2020-05-19 18:42:11', '2020-05-19 18:45:02', 3);
+(3, '1.2. Студентська рада (СР) гуртожитку', NULL, 1, '2020-05-19 18:42:11', '2020-05-19 18:45:02', 3),
+(4, '1.3. Студентське профбюро', '', 1, '2020-05-23 14:21:25', '2020-05-23 14:21:25', 0),
+(5, '1.4. Соціальна робота', '', 1, '2020-05-23 14:21:38', '2020-05-23 14:21:55', 0),
+(6, '2. Навчально-наукова робота', '', NULL, '2020-05-23 14:28:49', '2020-05-23 14:28:49', 0),
+(7, '2.1. Особисті досягнення', '', 6, '2020-05-23 14:29:10', '2020-05-23 14:29:10', 0),
+(8, '2.2. Конференції', '', 6, '2020-05-23 14:31:04', '2020-05-23 14:31:04', 0),
+(9, '4. Культурно-мистецька робота', '', NULL, '2020-05-24 16:30:52', '2020-05-24 16:30:52', 0),
+(10, '4.1. Членство в колективах, командах', '', 9, '2020-05-24 16:31:11', '2020-05-24 16:31:11', 0),
+(11, '4.2. Участь в культурно-мистецькому житті Університету', '', 9, '2020-05-24 16:31:51', '2020-05-24 16:31:51', 0);
 
 -- --------------------------------------------------------
 
@@ -2100,7 +2197,9 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (47, 'site.login-page-image', 'Login page image', 'settings\\May2020\\Sc0wqHTs3kg6Vl2yG15O.jpg', NULL, 'image', 38, 'Site'),
 (51, 'integration.faculty-id-in-integrated-db', 'Faculty ID in integrated DB', '1', NULL, 'text', 42, 'Integration'),
 (52, 'integration.integration-data-service-url', 'Integration data service URL', 'http://dekanat.itnules.ua/Data/GetDataService.php', NULL, 'text', 43, 'Integration'),
-(53, 'pages.our-students-page-title', 'Our students page title', 'Наші випускники', NULL, 'text', 44, 'Pages');
+(53, 'pages.our-students-page-title', 'Our students page title', 'Наші випускники', NULL, 'text', 44, 'Pages'),
+(54, 'users.default-password', 'Default password', 'changeme', NULL, 'text', 45, 'Users'),
+(55, 'users.default-avatar', 'Default avatar', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, 'image', 46, 'Users');
 
 -- --------------------------------------------------------
 
@@ -2593,12 +2692,38 @@ INSERT INTO `sys_sync_meta_data` (`id`, `model_name`, `local_id`, `remote_id`, `
 (444, 'App\\Integration\\DisciplineSyncItem', 341, 637, '2020-05-18 14:45:56', '2020-05-18 14:45:56'),
 (445, 'App\\Integration\\DisciplineSyncItem', 342, 2212, '2020-05-18 14:45:56', '2020-05-18 14:45:56'),
 (446, 'App\\Integration\\DisciplineSyncItem', 343, 711, '2020-05-18 14:45:56', '2020-05-18 14:45:56'),
-(447, 'App\\Integration\\StudentUserSyncItem', 6, 1, '2020-05-18 18:07:50', '2020-05-18 18:07:50'),
-(448, 'App\\Integration\\StudentUserSyncItem', 7, 3, '2020-05-18 18:07:50', '2020-05-18 18:07:50'),
-(449, 'App\\Integration\\StudentUserSyncItem', 8, 4, '2020-05-18 18:07:50', '2020-05-18 18:07:50'),
-(450, 'App\\Integration\\StudentUserSyncItem', 9, 5, '2020-05-18 18:07:50', '2020-05-18 18:07:50'),
-(451, 'App\\Integration\\StudentUserSyncItem', 10, 6, '2020-05-18 18:07:50', '2020-05-18 18:07:50'),
-(452, 'App\\Integration\\StudentUserSyncItem', 11, 7, '2020-05-18 18:07:50', '2020-05-18 18:07:50');
+(453, 'App\\Integration\\StudentUserSyncItem', 12, 305, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(454, 'App\\Integration\\StudentUserSyncItem', 13, 306, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(455, 'App\\Integration\\StudentUserSyncItem', 14, 308, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(456, 'App\\Integration\\StudentUserSyncItem', 15, 309, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(457, 'App\\Integration\\StudentUserSyncItem', 16, 310, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(458, 'App\\Integration\\StudentUserSyncItem', 17, 312, '2020-05-24 14:08:41', '2020-05-24 14:08:41'),
+(459, 'App\\Integration\\StudentUserSyncItem', 18, 314, '2020-05-24 14:10:31', '2020-05-24 14:10:31'),
+(460, 'App\\Integration\\StudentUserSyncItem', 19, 315, '2020-05-24 14:17:43', '2020-05-24 14:17:43'),
+(461, 'App\\Integration\\StudentUserSyncItem', 20, 317, '2020-05-24 14:29:11', '2020-05-24 14:29:11'),
+(462, 'App\\Integration\\StudentUserSyncItem', 22, 327, '2020-05-24 14:34:09', '2020-05-24 14:34:09'),
+(463, 'App\\Integration\\StudentUserSyncItem', 23, 329, '2020-05-24 14:34:09', '2020-05-24 14:34:09'),
+(464, 'App\\Integration\\StudentUserSyncItem', 24, 332, '2020-05-24 14:34:09', '2020-05-24 14:34:09'),
+(465, 'App\\Integration\\StudentUserSyncItem', 25, 336, '2020-05-24 14:34:09', '2020-05-24 14:34:09'),
+(466, 'App\\Integration\\StudentUserSyncItem', 26, 337, '2020-05-24 14:34:09', '2020-05-24 14:34:09'),
+(467, 'App\\Integration\\StudentUserSyncItem', 27, 341, '2020-05-24 14:34:10', '2020-05-24 14:34:10'),
+(468, 'App\\Integration\\StudentUserSyncItem', 28, 480, '2020-05-24 14:34:10', '2020-05-24 14:34:10'),
+(469, 'App\\Integration\\StudentUserSyncItem', 29, 374, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(470, 'App\\Integration\\StudentUserSyncItem', 30, 376, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(471, 'App\\Integration\\StudentUserSyncItem', 31, 389, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(472, 'App\\Integration\\StudentUserSyncItem', 32, 390, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(473, 'App\\Integration\\StudentUserSyncItem', 33, 391, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(474, 'App\\Integration\\StudentUserSyncItem', 34, 396, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(475, 'App\\Integration\\StudentUserSyncItem', 35, 397, '2020-05-24 14:35:47', '2020-05-24 14:35:47'),
+(476, 'App\\Integration\\StudentUserSyncItem', 36, 398, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(477, 'App\\Integration\\StudentUserSyncItem', 37, 400, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(478, 'App\\Integration\\StudentUserSyncItem', 38, 401, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(479, 'App\\Integration\\StudentUserSyncItem', 39, 403, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(480, 'App\\Integration\\StudentUserSyncItem', 40, 404, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(481, 'App\\Integration\\StudentUserSyncItem', 41, 405, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(482, 'App\\Integration\\StudentUserSyncItem', 42, 3545, '2020-05-24 14:35:48', '2020-05-24 14:35:48'),
+(483, 'App\\Integration\\StudentUserSyncItem', 43, 14247, '2020-05-24 14:35:49', '2020-05-24 14:35:49'),
+(484, 'App\\Integration\\StudentUserSyncItem', 44, 406, '2020-05-24 14:37:54', '2020-05-24 14:37:54');
 
 -- --------------------------------------------------------
 
@@ -3323,7 +3448,66 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (730, 'data_rows', 'display_name', 213, 'en', 'Порядковий номер', '2020-05-19 18:41:09', '2020-05-19 18:41:09'),
 (731, 'data_rows', 'display_name', 214, 'en', 'users', '2020-05-20 16:13:09', '2020-05-20 16:13:09'),
 (732, 'people_infos', 'name', 2, 'en', 'Литвинчук Владислав', '2020-05-20 16:14:35', '2020-05-20 16:14:35'),
-(733, 'people_infos', 'description', 2, 'en', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', '2020-05-20 16:14:35', '2020-05-20 16:14:35');
+(733, 'people_infos', 'description', 2, 'en', '<p>Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.</p>', '2020-05-20 16:14:35', '2020-05-20 16:14:35'),
+(734, 'rating_item_groups', 'name', 1, 'en', '1. Студентська організація (СО)', '2020-05-23 14:20:52', '2020-05-23 14:20:52'),
+(735, 'rating_item_groups', 'name', 5, 'en', '1.4. Соціальна робота', '2020-05-23 14:21:55', '2020-05-23 14:21:55'),
+(736, 'rating_items', 'name', 5, 'en', 'Голови СО на факультеті (ННІ)', '2020-05-23 14:22:42', '2020-05-23 14:22:42'),
+(737, 'rating_items', 'name', 3, 'en', 'Голова СО Університету', '2020-05-23 14:22:50', '2020-05-23 14:22:50'),
+(738, 'rating_items', 'name', 4, 'en', 'Заступники голови СО Університету', '2020-05-23 14:22:57', '2020-05-23 14:22:57'),
+(739, 'rating_items', 'name', 6, 'en', 'Члени Вченої ради Університету ', '2020-05-23 14:23:15', '2020-05-23 14:23:15'),
+(740, 'rating_items', 'name', 7, 'en', 'Заступник голови СР Гуртожитку', '2020-05-23 14:23:54', '2020-05-23 14:23:54'),
+(741, 'rating_items', 'name', 2, 'en', 'Голови СР гуртожитків', '2020-05-23 14:24:01', '2020-05-23 14:24:01'),
+(742, 'rating_items', 'name', 1, 'en', 'Голова об’єднаної студентської ради гуртожитків', '2020-05-23 14:24:08', '2020-05-23 14:24:08'),
+(743, 'rating_items', 'name', 8, 'en', '1. Голова профбюро факультету (ННІ)', '2020-05-23 14:25:28', '2020-05-23 14:25:28'),
+(744, 'rating_items', 'name', 9, 'en', '1. Членство у волонтерському зареєстрованому об\'єднанні', '2020-05-23 14:26:03', '2020-05-23 14:26:03'),
+(745, 'rating_items', 'name', 10, 'en', '2. Курсант автошколи НУБіП України', '2020-05-23 14:26:27', '2020-05-23 14:26:27'),
+(746, 'rating_items', 'name', 11, 'en', '1. Переможці і призери міжнародних олімпіад', '2020-05-23 14:29:39', '2020-05-23 14:29:39'),
+(747, 'rating_items', 'name', 12, 'en', '2. Переможці II етапу Всеукраїнських студентських олімпіад (1 місце)', '2020-05-23 14:29:54', '2020-05-23 14:29:54'),
+(748, 'rating_items', 'name', 13, 'en', '2.1. Переможці II етапу Всеукраїнських студентських олімпіад (2 місце)', '2020-05-23 14:30:17', '2020-05-23 14:30:17'),
+(749, 'rating_items', 'name', 14, 'en', '2.2. Переможці II етапу Всеукраїнських студентських олімпіад (3 місце) ', '2020-05-23 14:30:33', '2020-05-23 14:30:33'),
+(750, 'rating_items', 'name', 15, 'en', '1. Виступ на конференціях що проходять за межами території України (на іноземній мові) ', '2020-05-23 14:31:35', '2020-05-23 14:31:35'),
+(751, 'rating_items', 'name', 16, 'en', '2. Виступ на конференціях, що проходять в Україні', '2020-05-23 14:32:14', '2020-05-23 14:32:14'),
+(752, 'rating_items', 'name', 17, 'en', '3. Виступ на конференціях на рівні Університету', '2020-05-23 14:32:28', '2020-05-23 14:32:28'),
+(753, 'data_rows', 'display_name', 16, 'en', 'ID', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(754, 'data_rows', 'display_name', 17, 'en', 'Name', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(755, 'data_rows', 'display_name', 20, 'en', 'Display Name', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(756, 'data_rows', 'display_name', 18, 'en', 'Created At', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(757, 'data_rows', 'display_name', 19, 'en', 'Updated At', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(758, 'data_types', 'display_name_singular', 3, 'en', 'Role', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(759, 'data_types', 'display_name_plural', 3, 'en', 'Roles', '2020-05-24 08:31:10', '2020-05-24 08:31:10'),
+(760, 'data_rows', 'display_name', 215, 'en', 'Id', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(761, 'data_rows', 'display_name', 216, 'en', 'Назва', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(762, 'data_rows', 'display_name', 217, 'en', 'Рік вступу', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(763, 'data_rows', 'display_name', 218, 'en', 'Starosta Id', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(764, 'data_rows', 'display_name', 219, 'en', 'Education Program Id', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(765, 'data_rows', 'display_name', 220, 'en', 'Created At', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(766, 'data_rows', 'display_name', 221, 'en', 'Updated At', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(767, 'data_types', 'display_name_singular', 30, 'en', 'Навчальна група', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(768, 'data_types', 'display_name_plural', 30, 'en', 'Навчальні групи', '2020-05-24 09:44:47', '2020-05-24 09:44:47'),
+(769, 'data_rows', 'display_name', 222, 'en', 'users', '2020-05-24 09:47:11', '2020-05-24 09:47:11'),
+(770, 'data_rows', 'display_name', 223, 'en', 'education_programs', '2020-05-24 09:47:11', '2020-05-24 09:47:11'),
+(771, 'menu_items', 'title', 65, 'en', 'Навчальні групи', '2020-05-24 09:47:39', '2020-05-24 09:47:39'),
+(772, 'data_rows', 'display_name', 224, 'en', 'Id', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(773, 'data_rows', 'display_name', 225, 'en', 'Дата', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(774, 'data_rows', 'display_name', 226, 'en', 'Статус', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(775, 'data_rows', 'display_name', 227, 'en', 'Rating Item Id', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(776, 'data_rows', 'display_name', 228, 'en', 'User Id', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(777, 'data_rows', 'display_name', 229, 'en', 'Створено', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(778, 'data_rows', 'display_name', 230, 'en', 'Змінено', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(779, 'data_rows', 'display_name', 231, 'en', 'Назва', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(780, 'data_rows', 'display_name', 232, 'en', 'Коментар', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(781, 'data_rows', 'display_name', 233, 'en', 'rating_items', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(782, 'data_rows', 'display_name', 234, 'en', 'users', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(783, 'data_types', 'display_name_singular', 31, 'en', 'Рейтинг студента', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(784, 'data_types', 'display_name_plural', 31, 'en', 'Рейтинг студентів', '2020-05-24 09:57:21', '2020-05-24 09:57:21'),
+(785, 'people_infos', 'name', 3, 'en', 'Чубар Людмила', '2020-05-24 16:19:21', '2020-05-24 16:19:21'),
+(786, 'people_infos', 'description', 3, 'en', '<p>Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital</p>', '2020-05-24 16:19:21', '2020-05-24 16:19:21'),
+(787, 'rating_items', 'name', 18, 'en', 'Участь у мистецьких заходах на рівні університету', '2020-05-24 16:32:36', '2020-05-24 16:32:36'),
+(788, 'rating_items', 'name', 19, 'en', 'Участь у мистецьких заходах на рівні факультету (ННІ)', '2020-05-24 16:33:08', '2020-05-24 16:33:08'),
+(789, 'rating_items', 'name', 20, 'en', '10. Участь у мистецьких заходах на рівні гуртожитку', '2020-05-24 16:33:43', '2020-05-24 16:33:43'),
+(790, 'rating_items', 'name', 21, 'en', '11. Написання статті на сайт Університету у публіцистичному стилі', '2020-05-24 16:34:06', '2020-05-24 16:34:06'),
+(791, 'rating_items', 'name', 22, 'en', '3. Учасник збірної команди Чемпіонату гумору Університету', '2020-05-24 16:34:43', '2020-05-24 16:34:43'),
+(792, 'rating_items', 'name', 23, 'en', '4. Учасник збірної команди Чемпіонату гумору факультету (ННІ)', '2020-05-24 16:34:56', '2020-05-24 16:34:56');
 
 -- --------------------------------------------------------
 
@@ -3353,16 +3537,41 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `birthday`, `group_id`, `credit_note_number`) VALUES
-(1, 1, 'Vladik', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ttRNN0T8K06nuknV.SxDjuAUgD8swUVzgFwNgnYSBqm0v27trRejy', 'MtbbldsD5AZMf1cfgotMJbxDTCfsa5KGMLlOpeISMMpieZUE0Be2Egyo39kX', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-05-21 19:44:20', NULL, NULL, NULL),
-(3, 3, 'Вася', 'vasya@gmail.com', 'users/default.png', NULL, '$2y$10$iB2zkw.BDKYJQMdosF4diuUGgHw1kt/4fIgl0St7YbdQzd13Cdi4u', NULL, '{\"locale\":\"uk\"}', '2019-09-05 03:44:16', '2020-01-14 19:17:45', NULL, NULL, NULL),
-(4, 2, 'Lytvynchuk Vladyslav Grygorovuch', 'vlad.litvinchyk@gmail.com', 'users/default.png', NULL, '$2y$10$NHOhIpVaiWEvGgO6p3t0EOl/ZnZNfXrQcqFIi7kla3ChCGg2UvejG', NULL, NULL, '2020-03-11 19:40:28', '2020-03-11 19:40:28', NULL, NULL, NULL),
-(5, 5, 'Contenter', 'contenter@gmail.com', 'users/default.png', NULL, '$2y$10$jcDPBel38TuntpzYhdFnhuJL2Gy5G.ZREp9hOmXRidayLCROIPm3e', NULL, '{\"locale\":\"uk\"}', '2020-05-18 16:51:59', '2020-05-18 16:51:59', NULL, NULL, NULL),
-(6, 3, 'Баланович Інна Петрівна', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16426'),
-(7, 3, 'Басов Гліб Ігорович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16032'),
-(8, 3, 'Бурлака Віталій Вікторович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, ''),
-(9, 3, 'Войт Владислав Віталійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16294'),
-(10, 3, 'Волков Богдан Валерійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 45, '16159'),
-(11, 3, 'Зах Вадим Юрійович', NULL, 'users/default.png', NULL, NULL, NULL, NULL, '2020-05-18 18:07:50', '2020-05-18 18:07:50', NULL, 1, '16064');
+(1, 1, 'Vladislav Administrator', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ttRNN0T8K06nuknV.SxDjuAUgD8swUVzgFwNgnYSBqm0v27trRejy', 'ibcm1qIKF5DlUmlLwmHAsvL7hKcjDpYgxn6fL1hXXuSbTOHgccGKPvLVHW8E', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-05-24 14:35:15', NULL, NULL, NULL),
+(4, 2, 'Lytvynchuk Vladyslav Grygorovuch', 'vlad.litvinchyk@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$NHOhIpVaiWEvGgO6p3t0EOl/ZnZNfXrQcqFIi7kla3ChCGg2UvejG', NULL, NULL, '2020-03-11 19:40:28', '2020-03-11 19:40:28', NULL, NULL, NULL),
+(5, 5, 'Contenter', 'contenter@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$jcDPBel38TuntpzYhdFnhuJL2Gy5G.ZREp9hOmXRidayLCROIPm3e', NULL, '{\"locale\":\"uk\"}', '2020-05-18 16:51:59', '2020-05-18 16:51:59', NULL, NULL, NULL),
+(12, 3, 'Бабуркин Володимир Сергійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$HYCAfeCqnp0bgeJcewXYTOfE8V5iDyW5KvaqQ39iN5XBDkwAu36zi', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1998-10-20', 37, '16518'),
+(13, 3, 'Гаврилюк Вікторія Ігорівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$EwcB3/LUQZ4JlLJcUBcZM.kq31.Vo3e563eT9CR73yBGkod1IRgRS', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1999-06-27', 37, '16428'),
+(14, 3, 'Демеркова Анастасія Андріївна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$C/99LJxEa/3tPuh2A6zFQuK14Y00qPZEkTvpDDd3hLJMA6pyqq0E.', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1999-09-15', 37, '16781'),
+(15, 3, 'Заболотний Василь Васильович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$q9NWhSYrhwsCJjEk1aiJNOAvzaDDuXveECGjSdAamOOXmJwumerJC', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1999-11-10', 37, '16627'),
+(16, 3, 'Зібцева Ірина Сергіївна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$kEt9YtjPE0OZ/45wmxjRW.V6OVRw1RncI54uZsQHglOze4hgiaE5S', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1998-10-29', 37, '16278'),
+(17, 3, 'Іщук Юлія Олегівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$IiunrHZnsIssgJOS1SCkHe6KhDUxnzLuT1F.X8xqlYIi7qqu1IJtu', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1999-06-24', 37, '16233'),
+(18, 3, 'Кантур Вікторія Олександрівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$Ut.WlQSqcUr9.gUsJLNY6eQJo1U.ydNCGoKS96AM0Hk64FgT/wRty', NULL, NULL, '2020-05-24 14:10:31', '2020-05-24 14:10:31', '1999-08-14', 37, '16508'),
+(19, 3, 'Кармазіновська Дар\'я Валеріївна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$BLixmSEtG5YAUgYwSTc2Lex9uQqPgh7fbgBPhHNFHMYz.N7WXdQea', NULL, NULL, '2020-05-24 14:17:43', '2020-05-24 14:17:43', '1998-05-13', 37, '16174'),
+(20, 3, 'Кузнецов Віталій Валерійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$7P2Hzm1tVZVZkwi455gR7.hVpMIsxrg2dTWDnMSBpyGvHHzruxdem', NULL, NULL, '2020-05-24 14:29:11', '2020-05-24 14:29:11', '1999-05-23', 37, '16741'),
+(22, 3, 'Литвинчук Владислав Григорович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$LAKZOPGpzyYuL2Dt8GdSbObNbStrPw.OlmM0xoAY5O7H2NMb4RMgq', NULL, NULL, '2020-05-24 14:34:09', '2020-05-24 14:34:09', '1999-08-22', 37, '16266'),
+(23, 3, 'Недбайло Дмитро Андрійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$KkHy93ao.ztodO2Ke1tV0OSY5vxKFxfB7Y9bgTioALRiolVUwovuC', NULL, '{\"locale\":\"uk\"}', '2020-05-24 14:34:09', '2020-05-24 16:44:52', '1998-12-03', 37, '16298'),
+(24, 3, 'Осіпов Аркадій Олександрович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$QDumB1Kcyd6OR1HeMXmM5OMPg8PM7Tll/yJMH5wFuiF/eOO0mdH5i', NULL, NULL, '2020-05-24 14:34:09', '2020-05-24 14:34:09', '1999-11-24', 37, '13107'),
+(25, 3, 'Сологуб Василь Олексійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$Y48AVla9W7OlZJgsSW337OAGld2WPalFvQEEBwvNJqQlnRFeddmpq', NULL, NULL, '2020-05-24 14:34:09', '2020-05-24 14:34:09', '1999-02-27', 37, '16481'),
+(26, 3, 'Трішніков Роман Андрійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$42ag8fe5j1LJ29vMAUXOQO2Cz9kGjuBtzWGlK9aJMwBdN5Lw8b4lu', NULL, NULL, '2020-05-24 14:34:09', '2020-05-24 14:34:09', '1999-08-06', 37, '16062'),
+(27, 3, 'Шиян Олександр Олександрович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$IoGrA9TxBz/sCbxfxPtJBu05DLwDwgMp6Gl9XhVvWlFJzz353JkYK', NULL, NULL, '2020-05-24 14:34:10', '2020-05-24 14:34:10', '1999-08-03', 37, '16740'),
+(28, 3, 'Демченко Станіслав Костянтинович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$Bh.P3IYljFWIGR1zcHFlXuPyXklirfKLce8GY2lNkcdpWSjeRcDq.', NULL, NULL, '2020-05-24 14:34:10', '2020-05-24 14:34:10', '1995-04-21', 37, '14601'),
+(29, 3, 'Березанський Максим Олександрович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$/jO3UgyD6ob/egtWg5V8tOeTABO.TDBwCmDoi9uaEPPOd5DCi.zCS', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1998-11-16', 36, '16277'),
+(30, 3, 'Бойко Іван Павлович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$s82TiGJqEBbon7SfLHFxNO/btBysoS6LywQXpTGHkZTy.leLNowEu', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1999-03-23', 36, '16218'),
+(31, 3, 'Єфіменко Єфим Олегович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$VbeNY/YjrFbXdB.hcUx7d.wkcMWF/ObAO7wRCfB30/4fPpOb/mgPW', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1999-09-26', 36, '16314'),
+(32, 3, 'Зима Анна Володимирівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$5fKzVRyaOnAw4VbjzAI07e8tQvHX1XShUw2GTz0LJHX.4HVMT7oU2', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1999-05-29', 36, '16344'),
+(33, 3, 'Калініченко Євгеній Олексійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$fYylsL0sTF8e0lsjjZrVd.isVlBCqIrABR06plVltI4jAck/QuAW.', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1998-10-20', 36, '16161'),
+(34, 3, 'Лободенко Варвара Олегівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$77CV3dUzMNOoloVks4NEzOnDwnwHvxRIuOzd/0Ya8Hn3dTIfYwGue', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1996-07-27', 36, '16843'),
+(35, 3, 'Лукашенко Богдан Юрійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$lR65VJXBfHxAA2n6JnujnuRMigGb.L0f4cV3bDFw9N9y0LeNxy9B.', NULL, NULL, '2020-05-24 14:35:47', '2020-05-24 14:35:47', '1998-09-05', 36, '16438'),
+(36, 3, 'Олійник Микола Михайлович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$7r2cqk4jLk1vAfinMkO44O9Jc9F7ddiWi3ZZpwczN/xxbNkBWq4KW', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-05-22', 36, '16598'),
+(37, 3, 'Пронішина Катерина Олександрівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$O98/LcGSkYDQ2tusPCwu2OvycKZNGeGlPq9oyK0qs9tVi1YIdyXUC', NULL, '{\"locale\":\"uk\"}', '2020-05-24 14:35:48', '2020-05-24 16:45:06', '1999-08-25', 36, '16770'),
+(38, 3, 'Токарєв Дмитро Вікторович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$3j3RYflQ9j4A0O2B49LaseuPILC6pbfqeBX6jkUUSmRtMwMAL.sky', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-05-25', 36, '16529'),
+(39, 3, 'Чубар Людмила Іванівна', 'arriadnie@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$kW5WRzK0ruMDNKG79ZjzO.17YdU2nDEzxEaS6BerYScSmrNWL4kKm', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 16:20:14', '1999-05-05', 36, '16253'),
+(40, 3, 'Якимов Олексій Сергійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$A41b5V82GIqA3HbBb0clH.KUAZ2iepZ02.T2ut3XdEVT4JvLU/mYm', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-09-26', 36, '16230'),
+(41, 3, 'Яровенко Іван Андрійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$bVouVTLx1G55zbBhQqcaiOqgBVkosfwQwYGd1qo.ofQ5cGAopEGwa', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-06-30', 36, '16191'),
+(42, 3, 'Кемажу Чиканту Тьєрі -', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$OhB7N3mEBhOh9ndb5NHjUueXElrn4KRBwbhN6d9wDTAyqt.6GYlCi', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1991-11-09', 36, '18013'),
+(43, 3, 'Новіков Євген Тарасович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$iiDf30WkA4JHJjrx5GKI5eeJbvuhOoOXfuVlGnxzQY5a8aMXMRSG6', NULL, NULL, '2020-05-24 14:35:49', '2020-05-24 14:35:49', '1995-05-25', 36, 'КН-19004б(к)'),
+(44, 3, 'Кучук Дмитро Павлович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$yocUlTUTrfW45cOMmi4MKeTtxhZkYQM6iSQlossWAaIkDRUjC/KoW', NULL, NULL, '2020-05-24 14:37:54', '2020-05-24 14:37:54', NULL, 36, '18002б');
 
 -- --------------------------------------------------------
 
@@ -3378,21 +3587,27 @@ CREATE TABLE `user_rating_items` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `name` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп даних таблиці `user_rating_items`
 --
 
-INSERT INTO `user_rating_items` (`id`, `date`, `status`, `rating_item_id`, `user_id`, `created_at`, `updated_at`, `name`) VALUES
-(1, '2020-05-31', 'CONFIRMED', 1, 1, '2020-05-20 18:54:25', '2020-05-20 18:54:25', 'Голова СР гуртожитку 2 семестр'),
-(2, '2019-12-17', 'IN_PROCESS', 3, 1, '2020-05-21 16:19:51', '2020-05-22 20:54:43', 'sdsf'),
-(4, '2020-04-30', 'IN_PROCESS', 3, 1, '2020-05-21 16:23:10', '2020-05-22 20:49:51', 'dik'),
-(5, '2020-04-27', 'IN_PROCESS', 2, 1, '2020-05-21 16:59:13', '2020-05-22 20:18:08', 'Голова СР гуртожитку 2 семестр'),
-(6, '2020-05-31', 'CONFIRMED', 4, 1, '2020-05-21 17:00:17', '2020-05-22 20:40:12', 'Владислав Литвинчукnsdf'),
-(7, '2020-05-07', 'CONFIRMED', 4, 1, '2020-05-21 17:01:22', '2020-05-22 20:51:59', 'gr'),
-(8, '2020-06-11', 'IN_PROCESS', 4, 1, '2020-05-22 20:45:35', '2020-05-22 20:45:51', 'Зам СО університету');
+INSERT INTO `user_rating_items` (`id`, `date`, `status`, `rating_item_id`, `user_id`, `created_at`, `updated_at`, `name`, `comment`) VALUES
+(1, '2020-05-31', 'CONFIRMED', 1, 1, '2020-05-20 18:54:25', '2020-05-20 18:54:25', 'Голова СР гуртожитку 2 семестр', ''),
+(2, '2019-12-17', 'IN_PROCESS', 3, 1, '2020-05-21 16:19:51', '2020-05-22 20:54:43', 'sdsf', ''),
+(4, '2020-04-28', 'IN_PROCESS', 3, 1, '2020-05-21 16:23:10', '2020-05-24 09:15:42', 'dik', ''),
+(5, '2020-04-27', 'IN_PROCESS', 2, 1, '2020-05-21 16:59:13', '2020-05-22 20:18:08', 'Голова СР гуртожитку 2 семестр', ''),
+(6, '2020-05-31', 'CONFIRMED', 4, 1, '2020-05-21 17:00:17', '2020-05-22 20:40:12', 'Владислав Литвинчукnsdf', ''),
+(7, '2020-05-07', 'CONFIRMED', 4, 1, '2020-05-21 17:01:22', '2020-05-22 20:51:59', 'gr', ''),
+(8, '2020-06-11', 'IN_PROCESS', 4, 1, '2020-05-22 20:45:35', '2020-05-22 20:45:51', 'Зам СО університету', ''),
+(13, '2020-03-18', 'CONFIRMED', 13, 39, '2020-05-24 16:23:12', '2020-05-24 16:46:58', 'Олімпіада з програмування ICPC', NULL),
+(14, '2020-05-06', 'CONFIRMED', 20, 36, '2020-05-24 16:35:59', '2020-05-24 16:46:50', 'Участь у мистецькому заході на рівні гуртожитку )', NULL),
+(15, '2020-04-05', 'CONFIRMED', 23, 40, '2020-05-24 16:38:53', '2020-05-24 16:46:54', 'Учасник збірної команди Чемпіонату гумору факультету', NULL),
+(16, '2020-05-07', 'CONFIRMED', 21, 40, '2020-05-24 16:50:39', '2020-05-24 16:52:13', 'Написання статті про одиничку', NULL),
+(17, '2020-05-19', 'CONFIRMED', 21, 40, '2020-05-24 16:51:03', '2020-05-24 16:52:09', 'Написання статті про двійку', NULL);
 
 -- --------------------------------------------------------
 
@@ -3410,7 +3625,9 @@ CREATE TABLE `user_roles` (
 --
 
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
-(5, 5);
+(5, 5),
+(23, 4),
+(37, 4);
 
 --
 -- Індекси збережених таблиць
@@ -3698,13 +3915,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблиці `disciplines`
@@ -3770,7 +3987,7 @@ ALTER TABLE `infoblock_types`
 -- AUTO_INCREMENT для таблиці `integration_logs`
 --
 ALTER TABLE `integration_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT для таблиці `menus`
@@ -3782,13 +3999,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблиці `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
@@ -3824,7 +4041,7 @@ ALTER TABLE `period_types`
 -- AUTO_INCREMENT для таблиці `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT для таблиці `posts`
@@ -3836,25 +4053,25 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT для таблиці `rating_items`
 --
 ALTER TABLE `rating_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблиці `rating_item_groups`
 --
 ALTER TABLE `rating_item_groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблиці `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблиці `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT для таблиці `social_networks`
@@ -3866,25 +4083,25 @@ ALTER TABLE `social_networks`
 -- AUTO_INCREMENT для таблиці `sys_sync_meta_data`
 --
 ALTER TABLE `sys_sync_meta_data`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=453;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=485;
 
 --
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=734;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=793;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT для таблиці `user_rating_items`
 --
 ALTER TABLE `user_rating_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
