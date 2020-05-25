@@ -20,7 +20,9 @@
             <div class="personal-info-details">
                 <p class="name">{{ $user->name }}</p>
 
-                <p>4 курс спеціальність "Комп'ютерні ноуки" група КН-16003б</p>
+                @if($user->group)
+                <p>Студент групи {{ $user->group->name }}</p>
+                @endif
 
             </div>
         </div>

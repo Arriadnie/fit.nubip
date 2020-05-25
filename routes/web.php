@@ -130,6 +130,7 @@ Route::group(
             Route::get('/personal', 'Rating\RatingController@personal')->name('personal');
             Route::get('/starosta', 'Rating\RatingController@starosta')->name('starosta');
             Route::get('/report', 'Rating\RatingController@report')->name('report');
+            Route::get('/report-pdf', 'Rating\RatingController@reportPdf')->name('report-pdf');
 
             Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('create-personal');
             Route::post('/get-personal', 'Rating\RatingController@service')->name('get-personal');

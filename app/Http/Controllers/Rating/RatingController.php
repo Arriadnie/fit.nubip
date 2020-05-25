@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Rating;
 
+use App\Models\Education\Group;
 use App\Models\Lookups\Period;
 use App\Models\Rating\UserRatingItem;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RatingController extends Controller
 {
@@ -159,24 +162,42 @@ class RatingController extends Controller
             ]);
     }
 
+    public function reportPdf(Request $request) {
+
+        $dompdf = new Dompdf();
+
+        $groupId = $request->input('groupId');
+        $periodId = $request->input('periodId');
+
+        $items = $this->_getAllStudents($groupId, $periodId);
+        if (count($items) > 0) {
+            $items = $this->_prepareReportData($groupId, $items);
+            $viewResult = view('rating.includes.report-full-table', [
+                'items' => $items
+            ])->render();
+        }
+        else {
+            $viewResult = '';
+        }
+
+        $dompdf->loadHtml($viewResult);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+
+        return $dompdf->stream("hello.pdf");
+    }
+
 
 
     public function service(Request $request)
     {
         if ($request["methodName"] == "getPersonal") {
-            $items = UserRatingItem::getUserRating($request['data']['periodId']);
-
-            if (count($items) > 0) {
-                $viewResult = view('rating.includes.personal-table', [
-                    'items' => $items
-                ])->render();
-            }
-            else {
-                $viewResult = '';
-            }
-            $response = response()->json([
-                'view' => $viewResult
-            ]);
+            $personal = $this->_serviceGetPersonal($request['data']['periodId']);
+            $response = response()->json($personal);
+        }
+        else if ($request["methodName"] == "getReport") {
+            $personal = $this->_serviceGetReport($request['data']['groupId'], $request['data']['periodId']);
+            $response = response()->json($personal);
         }
         else {
             $response = response()->json(array(), 404);
@@ -185,5 +206,111 @@ class RatingController extends Controller
         return $response;
     }
 
+    private function _serviceGetPersonal($periodId) {
+        $items = UserRatingItem::getUserRating($periodId);
+
+        if (count($items) > 0) {
+            $viewResult = view('rating.includes.personal-table', [
+                'items' => $items
+            ])->render();
+            $scoreSum = 0.0;
+            foreach ($items as $key => $item) {
+                if ($item->status == UserRatingItem::STATUS_CONFIRMED) {
+                    $scoreSum += $item->ratingItem->score;
+                }
+            }
+        }
+        else {
+            $viewResult = '';
+            $scoreSum = 0;
+        }
+        return [
+            'view' => $viewResult,
+            'scoreSum' => $scoreSum
+        ];
+    }
+
+    private function _serviceGetReport($groupId, $periodId) {
+        $items = $this->_getAllStudents($groupId, $periodId);
+
+        if (count($items) > 0) {
+            $items = $this->_prepareReportData($groupId, $items);
+            $viewResult = view('rating.includes.report-table', [
+                'items' => $items
+            ])->render();
+        }
+        else {
+            $viewResult = '';
+        }
+        return [
+            'view' => $viewResult
+        ];
+    }
+    private function _getAllStudents($groupId, $periodId) {
+        $period = Period::find($periodId);
+
+        return DB::table('users')->select($this->_getColumnsToReport())
+            ->leftJoin('user_rating_items', 'users.id', '=', 'user_rating_items.user_id')
+            ->leftJoin('rating_items', 'rating_items.id', '=', 'user_rating_items.rating_item_id')
+            ->leftJoin('rating_item_groups', 'rating_item_groups.id', '=', 'rating_items.rating_item_group_id')
+            ->where(function ($query) use ($period) {
+                $query->whereNull('user_rating_items.id')
+                    ->orWhereBetween('user_rating_items.date', [$period->start_date, $period->due_date]);
+            })
+            ->where('users.group_id', '=', $groupId)
+            ->orderBy('users.name', 'asc')
+            ->orderBy('rating_item_groups.name', 'asc')
+            ->orderBy('rating_items.name', 'asc')
+            ->orderBy('user_rating_items.date', 'asc')
+            ->get();
+    }
+    private function _getColumnsToReport() {
+        return [
+            'users.id as user_id',
+            'users.name as user_name',
+            'user_rating_items.id as user_rating_item_id',
+            'user_rating_items.name as user_rating_item_name',
+            'user_rating_items.date as user_rating_item_date',
+            'rating_items.id as rating_item_id',
+            'rating_items.name as rating_item_name',
+            'rating_items.score as rating_item_score',
+            'rating_item_groups.id as rating_item_group_id',
+            'rating_item_groups.name as rating_item_group_name'
+        ];
+    }
+
+    private function _prepareReportData($groupId, $items) {
+        $collection = [];
+        $prevUserId = -1;
+        $prevPunktId = -1;
+        foreach ($items as $key => $value) {
+            $collectionItem = [
+                'value' => $value,
+                'user_count' => 1,
+                'punkt_count' => 1,
+                'punkt_score' => $value->rating_item_score,
+                'user_score' => $value->rating_item_score,
+            ];
+
+            if ($prevUserId >= 0 && $collection[$prevUserId]['value']->user_id == $value->user_id) {
+                $collection[$prevUserId]['user_count']++;
+                $collection[$prevUserId]['user_score'] += $value->rating_item_score;
+                $collectionItem['user_count'] = 0;
+
+                if ($collection[$prevPunktId]['value']->rating_item_id == $value->rating_item_id) {
+                    $collection[$prevPunktId]['punkt_count']++;
+                    $collection[$prevPunktId]['punkt_score'] += $value->rating_item_score;
+                    $collectionItem['punkt_count'] = 0;
+                } else {
+                    $prevPunktId = $key;
+                }
+            } else {
+                $prevUserId = $key;
+                $prevPunktId = $key;
+            }
+            array_push($collection, $collectionItem);
+        }
+        return $collection;
+    }
 
 }

@@ -76,23 +76,53 @@ global.ratingFilter = function(filterButton) {
     if (!button) {
         return;
     }
-    let pageMethod = button.getAttribute('data-page-method');
-    const periodId = document.querySelector('[name="period"]')
-        .slim.selected();
+    const pageMethod = button.getAttribute('data-page-method');
+    let data = {};
+    const groupSelect = document.querySelector('[name="group"]');
+    if (groupSelect) {
+        data.groupId = groupSelect.slim.selected();
+    }
+    const periodSelect = document.querySelector('[name="period"]');
+    if (periodSelect) {
+        data.periodId = periodSelect.slim.selected();
+    }
+
 
     Helper.callService('home/rating/get-personal', {
         methodName: pageMethod,
-        data: {
-            periodId: periodId
-        }
+        data: data
     }, function(response) {
         updateTable('.rating-table table', response && response.view || '');
+        const sumField = document.querySelector('#score-sum');
+        if (sumField) {
+            sumField.innerText = response && response.scoreSum || 0;
+        }
+
     })
 }
 
 document.querySelectorAll('.rating-filter-button').forEach(function(item) {
     item.addEventListener('click', global.ratingFilter, true);
 });
+
+document.querySelectorAll('#report-generate').forEach(function(item) {
+    item.addEventListener('click', reportGenerate, true);
+});
+
+function reportGenerate(event) {
+    event?.preventDefault();
+    const groupSelect = document.querySelector('[name="group"]');
+    if (groupSelect) {
+        document.querySelector(`#report-form input[name="groupId"]`)
+            .setAttribute('value', groupSelect.slim.selected());
+    }
+    const periodSelect = document.querySelector('[name="period"]');
+    if (periodSelect) {
+        document.querySelector(`#report-form input[name="periodId"]`)
+            .setAttribute('value', periodSelect.slim.selected());
+    }
+    document.querySelector(`#report-form`).submit();
+}
 
 export default function updateTable(selector, newHtml) {
     let oldTable = document.querySelector(selector);

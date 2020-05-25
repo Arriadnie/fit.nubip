@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Models\Education\Group;
 use App\Models\PeopleInfo\PeopleInfo;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Auth;
@@ -48,13 +50,23 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasOne(PeopleInfo::class, 'user_id', 'id');
     }
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class, 'group_id', 'id');
+    }
+
     public function save(array $options = [])
     {
 
         if (!$this->password && setting('users.default-password')) {
             $this->password = Hash::make(setting('users.default-password'));
         }
-
         parent::save();
+    }
+
+
+    public function scopeStudentsForStarosta(Builder $query, $masterEntity) {
+
+        return $query->where('group_id', '=', $masterEntity->id);
     }
 }

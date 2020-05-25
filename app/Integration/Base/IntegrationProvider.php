@@ -27,15 +27,15 @@ class IntegrationProvider
                 continue;
             }
             $collection = $response->collection;
-            $index = 0;
+            //$index = 0;
             foreach ($collection as $key => $item) {
                 $result = $this->saveItem($syncItemModel, $syncItem, $item);
                 if (!$result) {
                     $success = false;
                 }
-                if (++$index > 5) {
-                    break;
-                }
+                //if (++$index > 8) {
+                //    break;
+                //}
             }
         }
         IntegrationLog::create([
