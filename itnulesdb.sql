@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 25 2020 р., 12:46
+-- Час створення: Трв 26 2020 р., 00:14
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -21,6 +21,99 @@ SET time_zone = "+00:00";
 --
 -- База даних: `itnulesdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `audiences`
+--
+
+CREATE TABLE `audiences` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `number` int(11) DEFAULT NULL,
+  `audience_type_id` int(10) UNSIGNED DEFAULT NULL,
+  `building_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `audiences`
+--
+
+INSERT INTO `audiences` (`id`, `name`, `number`, `audience_type_id`, `building_id`, `created_at`, `updated_at`) VALUES
+(1, '231 аудиторія 15 корпус', 231, 1, 1, '2020-05-25 14:29:38', '2020-05-25 14:40:09'),
+(2, '223 аудиторія 15 корпус', 223, 3, 1, '2020-05-25 14:30:12', '2020-05-25 14:39:58'),
+(3, '224 аудиторія 15 корпус', 224, 3, 1, '2020-05-25 14:30:31', '2020-05-25 14:39:46'),
+(4, '206 аудиторія 15 корпус', 206, 2, 1, '2020-05-25 14:33:33', '2020-05-25 14:39:35'),
+(5, '135 аудиторія 11 корпус', 135, 2, 3, '2020-05-25 14:33:59', '2020-05-25 14:39:24'),
+(6, '20 аудиторія 4 корпус', 20, 2, 2, '2020-05-25 14:34:36', '2020-05-25 14:39:06'),
+(7, '230 аудиторія 15 корпус', 230, 1, 1, '2020-05-25 14:34:58', '2020-05-25 14:38:50'),
+(8, '360 аудиторія 11 корпус', 360, 2, 3, '2020-05-25 14:40:32', '2020-05-25 14:40:32');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `audience_lesson_types`
+--
+
+CREATE TABLE `audience_lesson_types` (
+  `audience_type_id` int(10) UNSIGNED NOT NULL,
+  `lesson_type_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `audience_lesson_types`
+--
+
+INSERT INTO `audience_lesson_types` (`audience_type_id`, `lesson_type_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `audience_types`
+--
+
+CREATE TABLE `audience_types` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `audience_types`
+--
+
+INSERT INTO `audience_types` (`id`, `name`, `description`) VALUES
+(1, 'Лекційна аудиторія', NULL),
+(2, 'Аудиторія для практичних занять', NULL),
+(3, 'Комп\'ютерна лабораторія', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `buildings`
+--
+
+CREATE TABLE `buildings` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `number` int(11) DEFAULT NULL,
+  `faculty_owner_id` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `buildings`
+--
+
+INSERT INTO `buildings` (`id`, `name`, `number`, `faculty_owner_id`) VALUES
+(1, '15 корпус', 15, 1),
+(2, '4 корпус', 4, 2),
+(3, '11 корпус', 11, NULL);
 
 -- --------------------------------------------------------
 
@@ -317,7 +410,54 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (231, 31, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 6),
 (232, 31, 'comment', 'text_area', 'Коментар', 0, 1, 1, 1, 1, 1, '{}', 11),
 (233, 31, 'user_rating_item_belongsto_rating_item_relationship', 'relationship', 'Пункт рейтингу', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Rating\\\\RatingItem\",\"table\":\"rating_items\",\"type\":\"belongsTo\",\"column\":\"rating_item_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 2),
-(234, 31, 'user_rating_item_belongsto_user_relationship', 'relationship', 'Студент', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3);
+(234, 31, 'user_rating_item_belongsto_user_relationship', 'relationship', 'Студент', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 3),
+(235, 32, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(236, 32, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(237, 32, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 3),
+(238, 32, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 4),
+(239, 33, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(240, 33, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(241, 33, 'description', 'text_area', 'Опис', 0, 0, 1, 1, 1, 1, '{}', 3),
+(242, 34, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(243, 34, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(244, 34, 'description', 'text', 'Опис', 0, 0, 1, 1, 1, 1, '{}', 3),
+(245, 35, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(246, 35, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 2),
+(247, 35, 'order', 'text', 'Порядковий номер', 1, 1, 1, 0, 0, 1, '{}', 3),
+(248, 36, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(249, 36, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 3),
+(250, 36, 'number', 'text', 'Номер', 0, 1, 1, 1, 1, 1, '{}', 4),
+(251, 36, 'faculty_owner_id', 'text', 'Faculty Owner Id', 0, 0, 1, 1, 1, 1, '{}', 2),
+(252, 36, 'building_belongsto_faculty_relationship', 'relationship', 'Факультет, за яким закріплено', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Faculty\",\"table\":\"faculties\",\"type\":\"belongsTo\",\"column\":\"faculty_owner_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
+(253, 37, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(254, 37, 'name', 'text', 'Назва', 1, 1, 1, 1, 1, 1, '{}', 5),
+(255, 37, 'number', 'text', 'Номер', 0, 1, 1, 1, 1, 1, '{}', 6),
+(256, 37, 'audience_type_id', 'text', 'Audience Type Id', 0, 0, 1, 1, 1, 1, '{}', 2),
+(257, 37, 'building_id', 'text', 'Building Id', 0, 0, 1, 1, 1, 1, '{}', 3),
+(258, 37, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 8),
+(259, 37, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(260, 37, 'audience_belongsto_building_relationship', 'relationship', 'Корпус', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Building\",\"table\":\"buildings\",\"type\":\"belongsTo\",\"column\":\"building_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(261, 37, 'audience_belongsto_audience_type_relationship', 'relationship', 'Тип аудиторії', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\AudienceType\",\"table\":\"audience_types\",\"type\":\"belongsTo\",\"column\":\"audience_type_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
+(262, 38, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(263, 38, 'name', 'text', 'Назва', 0, 0, 0, 0, 0, 0, '{}', 10),
+(264, 38, 'position', 'number', 'Номер', 1, 1, 1, 1, 1, 1, '{}', 11),
+(265, 38, 'frequency', 'select_dropdown', 'Частота', 1, 1, 1, 1, 1, 1, '{\"default\":\"FULL\",\"options\":{\"FULL\":\"\\u0429\\u043e\\u0442\\u0438\\u0436\\u043d\\u044f\",\"NUMERATOR\":\"\\u0427\\u0438\\u0441\\u0435\\u043b\\u044c\\u043d\\u0438\\u043a\",\"DENOMINATOR\":\"\\u0417\\u043d\\u0430\\u043c\\u0435\\u043d\\u043d\\u0438\\u043a\"}}', 15),
+(266, 38, 'day_id', 'text', 'Day Id', 1, 0, 1, 1, 1, 1, '{}', 2),
+(267, 38, 'discipline_id', 'text', 'Discipline Id', 1, 0, 1, 1, 1, 1, '{}', 3),
+(268, 38, 'audience_id', 'text', 'Audience Id', 0, 0, 1, 1, 1, 1, '{}', 4),
+(269, 38, 'lesson_type_id', 'text', 'Lesson Type Id', 0, 0, 1, 1, 1, 1, '{}', 5),
+(270, 38, 'period_id', 'text', 'Period Id', 1, 0, 1, 1, 1, 1, '{}', 6),
+(271, 38, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 17),
+(272, 38, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 18),
+(273, 38, 'lesson_belongsto_day_relationship', 'relationship', 'День', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\Day\",\"table\":\"days\",\"type\":\"belongsTo\",\"column\":\"day_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
+(274, 38, 'lesson_belongsto_audience_relationship', 'relationship', 'Аудиторія', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Audience\",\"table\":\"audiences\",\"type\":\"belongsTo\",\"column\":\"audience_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 12),
+(275, 38, 'lesson_belongsto_discipline_relationship', 'relationship', 'Дисципліна', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Discipline\",\"table\":\"disciplines\",\"type\":\"belongsTo\",\"column\":\"discipline_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
+(276, 38, 'lesson_belongsto_lesson_type_relationship', 'relationship', 'Тип заняття', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\LessonType\",\"table\":\"lesson_types\",\"type\":\"belongsTo\",\"column\":\"lesson_type_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
+(277, 38, 'lesson_belongsto_period_relationship', 'relationship', 'Семестр', 0, 0, 1, 1, 1, 1, '{\"scope\":\"semesters\",\"model\":\"App\\\\Models\\\\Lookups\\\\Period\",\"table\":\"periods\",\"type\":\"belongsTo\",\"column\":\"period_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 16),
+(278, 38, 'lesson_belongstomany_group_relationship', 'relationship', 'Групи', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Group\",\"table\":\"groups\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"group_in_lessons\",\"pivot\":\"1\",\"taggable\":\"0\"}', 9),
+(279, 38, 'lesson_belongstomany_user_relationship', 'relationship', 'Викладачі', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"professor_in_lessons\",\"pivot\":\"1\",\"taggable\":\"0\"}', 14),
+(280, 33, 'audience_type_belongstomany_lesson_type_relationship', 'relationship', 'Типи занять, які можна проводити', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\LessonType\",\"table\":\"lesson_types\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"1\",\"taggable\":\"0\"}', 4),
+(281, 34, 'lesson_type_belongstomany_audience_type_relationship', 'relationship', 'Типи аудиторій, в яких можна проводити заняття', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\AudienceType\",\"table\":\"audience_types\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"1\",\"taggable\":\"0\"}', 4);
 
 -- --------------------------------------------------------
 
@@ -372,7 +512,38 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (28, 'rating_items', 'rating-items', 'Пункт рейтингу', 'Пункти рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItem', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseItemController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:15:59', '2020-05-19 18:46:23'),
 (29, 'rating_item_groups', 'rating-item-groups', 'Блок пункту рейтингу', 'Блоки пунктів рейтингу', 'voyager-bar-chart', 'App\\Models\\Rating\\RatingItemGroup', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-19 18:17:11', '2020-05-19 18:58:05'),
 (30, 'groups', 'groups', 'Навчальна група', 'Навчальні групи', 'voyager-wallet', 'App\\Models\\Education\\Group', NULL, 'App\\Http\\Controllers\\FiltrationVoyagerController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-23 17:27:29', '2020-05-24 16:12:03'),
-(31, 'user_rating_items', 'user-rating-items', 'Рейтинг студента', 'Рейтинг студентів', 'voyager-bar-chart', 'App\\Models\\Rating\\UserRatingItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-24 09:55:04', '2020-05-24 10:38:13');
+(31, 'user_rating_items', 'user-rating-items', 'Рейтинг студента', 'Рейтинг студентів', 'voyager-bar-chart', 'App\\Models\\Rating\\UserRatingItem', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-24 09:55:04', '2020-05-24 10:38:13'),
+(32, 'faculties', 'faculties', 'Факультут', 'Факультети', 'voyager-study', 'App\\Models\\Education\\Faculty', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:24:54', '2020-05-25 13:25:33'),
+(33, 'audience_types', 'audience-types', 'Тип аудиторії', 'Типи аудиторій', 'voyager-company', 'App\\Models\\Schedule\\Lookups\\AudienceType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:26:51', '2020-05-25 14:07:46'),
+(34, 'lesson_types', 'lesson-types', 'Тип заняття', 'Типи занять', 'voyager-pen', 'App\\Models\\Schedule\\Lookups\\LessonType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:27:57', '2020-05-25 14:08:41'),
+(35, 'days', 'days', 'День', 'Дні', 'voyager-calendar', 'App\\Models\\Schedule\\Lookups\\Day', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:29:54', '2020-05-25 14:24:59'),
+(36, 'buildings', 'buildings', 'Корпус', 'Корпуси', 'voyager-company', 'App\\Models\\Schedule\\Building', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:30:58', '2020-05-25 14:32:35'),
+(37, 'audiences', 'audiences', 'Аудиторія', 'Аудиторії', 'voyager-company', 'App\\Models\\Schedule\\Audience', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:33:10', '2020-05-25 13:36:16'),
+(38, 'lessons', 'lessons', 'Заняття', 'Заняття', 'voyager-book', 'App\\Models\\Schedule\\Lesson', NULL, 'App\\Http\\Controllers\\FiltrationVoyagerController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:51:18', '2020-05-25 16:08:30');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `days`
+--
+
+CREATE TABLE `days` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `days`
+--
+
+INSERT INTO `days` (`id`, `name`, `order`) VALUES
+(1, 'Понеділок', 1),
+(2, 'Вівторок', 2),
+(3, 'Середа', 3),
+(4, 'Четвер', 4),
+(5, 'П\'ятниця', 5),
+(6, 'Субота', 6);
 
 -- --------------------------------------------------------
 
@@ -822,6 +993,27 @@ INSERT INTO `education_specialties` (`id`, `name`, `code`, `description`, `creat
 -- --------------------------------------------------------
 
 --
+-- Структура таблиці `faculties`
+--
+
+CREATE TABLE `faculties` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `faculties`
+--
+
+INSERT INTO `faculties` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Факультет інформаційних технологій', '2020-05-25 14:12:43', '2020-05-25 14:12:43'),
+(2, 'Факультет захисту рослин, екології і біотехнологій', '2020-05-25 14:13:07', '2020-05-25 14:13:07');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблиці `galleries`
 --
 
@@ -993,6 +1185,32 @@ INSERT INTO `groups` (`id`, `name`, `introduction_year`, `starosta_id`, `educati
 (102, 'ЦЕ-19005б', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (103, 'ІПЗ-19002бск(з)МНЛ', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18'),
 (104, 'КН-19001бск(з)', NULL, NULL, NULL, '2020-05-18 09:11:18', '2020-05-18 09:11:18');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `group_in_lessons`
+--
+
+CREATE TABLE `group_in_lessons` (
+  `group_id` int(10) UNSIGNED NOT NULL,
+  `lesson_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `group_in_lessons`
+--
+
+INSERT INTO `group_in_lessons` (`group_id`, `lesson_id`) VALUES
+(36, 1),
+(37, 1),
+(36, 2),
+(36, 3),
+(37, 3),
+(36, 4),
+(37, 4),
+(37, 5),
+(36, 6);
 
 -- --------------------------------------------------------
 
@@ -1219,6 +1437,58 @@ INSERT INTO `integration_logs` (`id`, `datetime`, `status`, `message`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблиці `lessons`
+--
+
+CREATE TABLE `lessons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` int(11) NOT NULL DEFAULT 1,
+  `frequency` enum('FULL','NUMERATOR','DENOMINATOR') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'FULL',
+  `day_id` int(10) UNSIGNED NOT NULL,
+  `discipline_id` int(10) UNSIGNED NOT NULL,
+  `audience_id` int(10) UNSIGNED DEFAULT NULL,
+  `lesson_type_id` int(10) UNSIGNED DEFAULT NULL,
+  `period_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `name`, `position`, `frequency`, `day_id`, `discipline_id`, `audience_id`, `lesson_type_id`, `period_id`, `created_at`, `updated_at`) VALUES
+(1, NULL, 5, 'FULL', 1, 41, 7, 1, 5, '2020-05-25 14:42:27', '2020-05-25 14:42:41'),
+(2, NULL, 6, 'NUMERATOR', 1, 41, 6, 2, 5, '2020-05-25 14:43:22', '2020-05-25 14:43:22'),
+(3, NULL, 1, 'FULL', 2, 159, 7, 1, 5, '2020-05-25 16:03:30', '2020-05-25 16:03:30'),
+(4, NULL, 2, 'FULL', 2, 160, 7, 1, 5, '2020-05-25 16:10:03', '2020-05-25 16:10:03'),
+(5, NULL, 3, 'FULL', 2, 160, 3, 2, 5, '2020-05-25 16:10:49', '2020-05-25 16:10:49'),
+(6, NULL, 3, 'FULL', 3, 160, 2, 2, 5, '2020-05-25 16:24:33', '2020-05-25 16:24:33');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `lesson_types`
+--
+
+CREATE TABLE `lesson_types` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `lesson_types`
+--
+
+INSERT INTO `lesson_types` (`id`, `name`, `description`) VALUES
+(1, 'Лекція', NULL),
+(2, 'Практичне заняття', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблиці `menus`
 --
 
@@ -1319,7 +1589,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (63, 1, 'Блоки пунктів рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 1, '2020-05-19 18:17:11', '2020-05-19 18:22:00', 'voyager.rating-item-groups.index', NULL),
 (64, 1, 'Рейтинг', '', '_self', 'voyager-bar-chart', '#000000', NULL, 8, '2020-05-19 18:21:47', '2020-05-19 18:22:55', NULL, ''),
 (65, 1, 'Навчальні групи', '', '_self', 'voyager-wallet', '#000000', 45, 3, '2020-05-23 17:27:29', '2020-05-24 09:47:55', 'voyager.groups.index', 'null'),
-(66, 1, 'Рейтинг студентів', '', '_self', 'voyager-bar-chart', NULL, 64, 3, '2020-05-24 09:55:04', '2020-05-24 09:57:38', 'voyager.user-rating-items.index', NULL);
+(66, 1, 'Рейтинг студентів', '', '_self', 'voyager-bar-chart', NULL, 64, 3, '2020-05-24 09:55:04', '2020-05-24 09:57:38', 'voyager.user-rating-items.index', NULL),
+(67, 1, 'Факультети', '', '_self', 'voyager-study', '#000000', 59, 7, '2020-05-25 13:24:54', '2020-05-25 13:52:40', 'voyager.faculties.index', 'null'),
+(68, 1, 'Типи аудиторій', '', '_self', 'voyager-company', '#000000', 59, 5, '2020-05-25 13:26:51', '2020-05-25 13:52:28', 'voyager.audience-types.index', 'null'),
+(69, 1, 'Типи занять', '', '_self', 'voyager-pen', NULL, 59, 6, '2020-05-25 13:27:57', '2020-05-25 13:52:28', 'voyager.lesson-types.index', NULL),
+(70, 1, 'Дні', '', '_self', 'voyager-calendar', NULL, 59, 4, '2020-05-25 13:29:54', '2020-05-25 13:52:28', 'voyager.days.index', NULL),
+(71, 1, 'Корпуси', '', '_self', 'voyager-company', NULL, 57, 2, '2020-05-25 13:30:58', '2020-05-25 13:52:46', 'voyager.buildings.index', NULL),
+(72, 1, 'Аудиторії', '', '_self', 'voyager-company', NULL, 57, 3, '2020-05-25 13:33:10', '2020-05-25 13:52:53', 'voyager.audiences.index', NULL),
+(73, 1, 'Заняття', '', '_self', 'voyager-book', '#000000', 57, 4, '2020-05-25 13:51:18', '2020-05-25 13:52:59', 'voyager.lessons.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -1398,7 +1675,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (75, '2020_05_19_212440_add_columns_to_rating_item_groups', 27),
 (76, '2020_05_20_192802_create_people_info_social_networks_table', 28),
 (77, '2020_05_20_214735_add_column_to_user_rating_items', 29),
-(78, '2020_05_24_121754_add_comment_column_to_user_rating_items_table', 30);
+(78, '2020_05_24_121754_add_comment_column_to_user_rating_items_table', 30),
+(79, '2020_05_25_120444_create_faculties_table', 31),
+(80, '2020_05_25_120559_create_audience_types_table', 31),
+(81, '2020_05_25_120618_create_lesson_types_table', 31),
+(82, '2020_05_25_120640_create_audience_lesson_types_table', 31),
+(83, '2020_05_25_120729_create_days_table', 31),
+(84, '2020_05_25_120823_create_buildings_table', 31),
+(85, '2020_05_25_121405_create_audiences_table', 31),
+(86, '2020_05_25_121459_create_lessons_table', 31),
+(87, '2020_05_25_121548_create_professor_in_lessons_table', 32),
+(88, '2020_05_25_121556_create_group_in_lessons_table', 33),
+(89, '2020_05_25_210238_create_user_notifications_table', 34);
 
 -- --------------------------------------------------------
 
@@ -1744,7 +2032,42 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (138, 'read_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
 (139, 'edit_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
 (140, 'add_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
-(141, 'delete_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04');
+(141, 'delete_user_rating_items', 'user_rating_items', '2020-05-24 09:55:04', '2020-05-24 09:55:04'),
+(142, 'browse_faculties', 'faculties', '2020-05-25 13:24:54', '2020-05-25 13:24:54'),
+(143, 'read_faculties', 'faculties', '2020-05-25 13:24:54', '2020-05-25 13:24:54'),
+(144, 'edit_faculties', 'faculties', '2020-05-25 13:24:54', '2020-05-25 13:24:54'),
+(145, 'add_faculties', 'faculties', '2020-05-25 13:24:54', '2020-05-25 13:24:54'),
+(146, 'delete_faculties', 'faculties', '2020-05-25 13:24:54', '2020-05-25 13:24:54'),
+(147, 'browse_audience_types', 'audience_types', '2020-05-25 13:26:51', '2020-05-25 13:26:51'),
+(148, 'read_audience_types', 'audience_types', '2020-05-25 13:26:51', '2020-05-25 13:26:51'),
+(149, 'edit_audience_types', 'audience_types', '2020-05-25 13:26:51', '2020-05-25 13:26:51'),
+(150, 'add_audience_types', 'audience_types', '2020-05-25 13:26:51', '2020-05-25 13:26:51'),
+(151, 'delete_audience_types', 'audience_types', '2020-05-25 13:26:51', '2020-05-25 13:26:51'),
+(152, 'browse_lesson_types', 'lesson_types', '2020-05-25 13:27:57', '2020-05-25 13:27:57'),
+(153, 'read_lesson_types', 'lesson_types', '2020-05-25 13:27:57', '2020-05-25 13:27:57'),
+(154, 'edit_lesson_types', 'lesson_types', '2020-05-25 13:27:57', '2020-05-25 13:27:57'),
+(155, 'add_lesson_types', 'lesson_types', '2020-05-25 13:27:57', '2020-05-25 13:27:57'),
+(156, 'delete_lesson_types', 'lesson_types', '2020-05-25 13:27:57', '2020-05-25 13:27:57'),
+(157, 'browse_days', 'days', '2020-05-25 13:29:54', '2020-05-25 13:29:54'),
+(158, 'read_days', 'days', '2020-05-25 13:29:54', '2020-05-25 13:29:54'),
+(159, 'edit_days', 'days', '2020-05-25 13:29:54', '2020-05-25 13:29:54'),
+(160, 'add_days', 'days', '2020-05-25 13:29:54', '2020-05-25 13:29:54'),
+(161, 'delete_days', 'days', '2020-05-25 13:29:54', '2020-05-25 13:29:54'),
+(162, 'browse_buildings', 'buildings', '2020-05-25 13:30:58', '2020-05-25 13:30:58'),
+(163, 'read_buildings', 'buildings', '2020-05-25 13:30:58', '2020-05-25 13:30:58'),
+(164, 'edit_buildings', 'buildings', '2020-05-25 13:30:58', '2020-05-25 13:30:58'),
+(165, 'add_buildings', 'buildings', '2020-05-25 13:30:58', '2020-05-25 13:30:58'),
+(166, 'delete_buildings', 'buildings', '2020-05-25 13:30:58', '2020-05-25 13:30:58'),
+(167, 'browse_audiences', 'audiences', '2020-05-25 13:33:10', '2020-05-25 13:33:10'),
+(168, 'read_audiences', 'audiences', '2020-05-25 13:33:10', '2020-05-25 13:33:10'),
+(169, 'edit_audiences', 'audiences', '2020-05-25 13:33:10', '2020-05-25 13:33:10'),
+(170, 'add_audiences', 'audiences', '2020-05-25 13:33:10', '2020-05-25 13:33:10'),
+(171, 'delete_audiences', 'audiences', '2020-05-25 13:33:10', '2020-05-25 13:33:10'),
+(172, 'browse_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
+(173, 'read_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
+(174, 'edit_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
+(175, 'add_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
+(176, 'delete_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18');
 
 -- --------------------------------------------------------
 
@@ -1990,7 +2313,42 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (138, 1),
 (139, 1),
 (140, 1),
-(141, 1);
+(141, 1),
+(142, 1),
+(143, 1),
+(144, 1),
+(145, 1),
+(146, 1),
+(147, 1),
+(148, 1),
+(149, 1),
+(150, 1),
+(151, 1),
+(152, 1),
+(153, 1),
+(154, 1),
+(155, 1),
+(156, 1),
+(157, 1),
+(158, 1),
+(159, 1),
+(160, 1),
+(161, 1),
+(162, 1),
+(163, 1),
+(164, 1),
+(165, 1),
+(166, 1),
+(167, 1),
+(168, 1),
+(169, 1),
+(170, 1),
+(171, 1),
+(172, 1),
+(173, 1),
+(174, 1),
+(175, 1),
+(176, 1);
 
 -- --------------------------------------------------------
 
@@ -2032,6 +2390,17 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 (9, 1, 2, '14 лютого', '', '', '<p>Всіх зі святом</p>', 'posts\\February2020\\jOu28ryJ4hlumna1xMkN.jpg', '14-lyutogo', '', '', 'PUBLISHED', 1, '2020-02-04 18:42:38', '2020-02-04 18:42:38'),
 (10, 1, 1, 'Котик', '', '', '<p>Мемасікі</p>', 'posts\\February2020\\E85hw82vkHNwGldAyL5b.jpg', 'kotik', '', '', 'PUBLISHED', 0, '2020-02-04 18:43:06', '2020-02-04 18:43:06'),
 (11, 1, 2, 'Новий 2020', '', 'Про новий рік.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. ', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Est lorem ipsum dolor sit. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Id interdum velit laoreet id donec. Integer vitae justo eget magna. Tellus integer feugiat scelerisque varius morbi. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Nibh tellus molestie nunc non blandit massa enim. Sed augue lacus viverra vitae congue. Cras fermentum odio eu feugiat pretium nibh. Nulla facilisi nullam vehicula ipsum a arcu. Purus non enim praesent elementum facilisis leo vel. Est sit amet facilisis magna etiam tempor orci eu lobortis. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.</p>\n<figure class=\"image\"><img title=\"Символ року\" src=\"http://localhost:8000/storage/posts/February2020/mouse.jpg\" alt=\"Символ року\" width=\"512\" height=\"288\" />\n<figcaption>Мишка</figcaption>\n</figure>\n<p>&nbsp;</p>\n<p><strong>Molestie at elementum eu facilisis sed odi</strong>o. Ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at lectus. Tortor vitae purus faucibus ornare suspendisse sed. Dictum non consectetur a erat. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Mattis rhoncus urna neque viverra. Elementum facilisis leo vel fringilla. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Morbi tincidunt ornare massa eget. At erat pellentesque adipiscing commodo elit at. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Amet justo donec enim diam vulputate ut pharetra. Id cursus metus aliquam eleifend mi in nulla. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Bibendum at varius vel pharetra. Massa sed elementum tempus egestas.</p>\n<p><a href=\"https://loremipsum.io/ru/generator/?n=5&amp;t=p\" target=\"_blank\" rel=\"noopener\">Lorem Ipsum Generator</a></p>\n<p><em>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Etiam erat velit scelerisque in dictum. Cras sed felis eget velit aliquet sagittis.</em></p>\n<p>&nbsp;</p>\n<p>Mauris a diam maecenas sed enim ut sem viverra aliquet. Ullamcorper a lacus vestibulum sed. Lectus vestibulum mattis ullamcorper velit sed. Nulla porttitor massa id neque aliquam. Aliquet nec ullamcorper sit amet risus nullam eget. Leo integer malesuada nunc vel risus commodo viverra. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Varius quam quisque id diam vel. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Suspendisse ultrices gravida dictum fusce. Venenatis lectus magna fringilla urna porttitor rhoncus. Adipiscing elit ut aliquam purus sit amet luctus venenatis. Etiam dignissim diam quis enim lobortis. Diam quam nulla porttitor massa.</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://localhost:8000/storage/posts/February2020/ket.jpg\" alt=\"\" /></p>\n<p>Pulvinar etiam non quam lacus suspendisse faucibus interdum. Cursus metus aliquam eleifend mi in nulla posuere. Tempor id eu nisl nunc mi ipsum faucibus. Augue ut lectus arcu bibendum at varius vel. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Eu sem integer vitae justo eget magna fermentum. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Viverra justo nec ultrices dui sapien eget mi proin. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Quam pellentesque nec nam aliquam sem et. Volutpat ac tincidunt vitae semper. Quis lectus nulla at volutpat diam ut. Eu feugiat pretium nibh ipsum consequat nisl vel.</p>\n<ul>\n<li>Augue ut lectus arcu bibendum at varius ve</li>\n<li>Augue ut lectus arcu</li>\n<li>Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus</li>\n</ul>\n<p>Porttitor massa id neque aliquam vestibulum morbi blandit. Senectus et netus et malesuada fames ac turpis. Nunc non blandit massa enim. <span style=\"color: #ff0000;\">Lorem mollis aliquam ut porttitor leo a diam sollicitudin.</span> Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Erat velit scelerisque in dictum non. Et tortor at risus viverra adipiscing at in tellus. Euismod nisi porta lorem mollis aliquam ut. Integer vitae justo eget magna fermentum iaculis eu. Purus in massa tempor nec feugiat nisl pretium fusce. Convallis posuere morbi leo urna molestie at elementum. Condimentum mattis pellentesque id nibh tortor id aliquet lectus proin. Egestas congue quisque egestas diam in arcu cursus euismod. Non nisi est sit amet facilisis.</p>\n<ol>\n<li>Кот</li>\n<li>Миша</li>\n<li>Дракон</li>\n<li>Кріль / Зайчик</li>\n<li>Мавпа</li>\n</ol>', 'posts\\February2020\\f8rfJrKE82tgqMTJkzzZ.jpg', 'novij-2020', '', '', 'PUBLISHED', 1, '2020-02-04 19:00:50', '2020-02-04 19:53:18');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `professor_in_lessons`
+--
+
+CREATE TABLE `professor_in_lessons` (
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `lesson_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -3507,7 +3876,78 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (789, 'rating_items', 'name', 20, 'en', '10. Участь у мистецьких заходах на рівні гуртожитку', '2020-05-24 16:33:43', '2020-05-24 16:33:43'),
 (790, 'rating_items', 'name', 21, 'en', '11. Написання статті на сайт Університету у публіцистичному стилі', '2020-05-24 16:34:06', '2020-05-24 16:34:06'),
 (791, 'rating_items', 'name', 22, 'en', '3. Учасник збірної команди Чемпіонату гумору Університету', '2020-05-24 16:34:43', '2020-05-24 16:34:43'),
-(792, 'rating_items', 'name', 23, 'en', '4. Учасник збірної команди Чемпіонату гумору факультету (ННІ)', '2020-05-24 16:34:56', '2020-05-24 16:34:56');
+(792, 'rating_items', 'name', 23, 'en', '4. Учасник збірної команди Чемпіонату гумору факультету (ННІ)', '2020-05-24 16:34:56', '2020-05-24 16:34:56'),
+(793, 'data_rows', 'display_name', 235, 'en', 'Id', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
+(794, 'data_rows', 'display_name', 236, 'en', 'Назва', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
+(795, 'data_rows', 'display_name', 237, 'en', 'Створено', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
+(796, 'data_rows', 'display_name', 238, 'en', 'Updated At', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
+(797, 'data_types', 'display_name_singular', 32, 'en', 'Факультут', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
+(798, 'data_types', 'display_name_plural', 32, 'en', 'Факультети', '2020-05-25 13:25:33', '2020-05-25 13:25:33');
+INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
+(799, 'menu_items', 'title', 67, 'en', 'Факультети', '2020-05-25 13:25:48', '2020-05-25 13:25:48'),
+(800, 'menu_items', 'title', 68, 'en', 'Типи аудиторій', '2020-05-25 13:29:05', '2020-05-25 13:29:05'),
+(801, 'data_rows', 'display_name', 248, 'en', 'Id', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(802, 'data_rows', 'display_name', 249, 'en', 'Назва', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(803, 'data_rows', 'display_name', 250, 'en', 'Номер', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(804, 'data_rows', 'display_name', 251, 'en', 'Faculty Owner Id', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(805, 'data_rows', 'display_name', 252, 'en', 'faculties', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(806, 'data_types', 'display_name_singular', 36, 'en', 'Корпус', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(807, 'data_types', 'display_name_plural', 36, 'en', 'Корпуси', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
+(808, 'data_rows', 'display_name', 245, 'en', 'Id', '2020-05-25 13:33:29', '2020-05-25 13:33:29'),
+(809, 'data_rows', 'display_name', 246, 'en', 'Назва', '2020-05-25 13:33:29', '2020-05-25 13:33:29'),
+(810, 'data_rows', 'display_name', 247, 'en', 'Порядковий номер', '2020-05-25 13:33:29', '2020-05-25 13:33:29'),
+(811, 'data_types', 'display_name_singular', 35, 'en', 'День', '2020-05-25 13:33:30', '2020-05-25 13:33:30'),
+(812, 'data_types', 'display_name_plural', 35, 'en', 'Дні', '2020-05-25 13:33:30', '2020-05-25 13:33:30'),
+(813, 'data_rows', 'display_name', 253, 'en', 'Id', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(814, 'data_rows', 'display_name', 254, 'en', 'Назва', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(815, 'data_rows', 'display_name', 255, 'en', 'Номер', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(816, 'data_rows', 'display_name', 256, 'en', 'Audience Type Id', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(817, 'data_rows', 'display_name', 257, 'en', 'Building Id', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(818, 'data_rows', 'display_name', 258, 'en', 'Створено', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(819, 'data_rows', 'display_name', 259, 'en', 'Updated At', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(820, 'data_rows', 'display_name', 260, 'en', 'buildings', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(821, 'data_types', 'display_name_singular', 37, 'en', 'Аудиторія', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(822, 'data_types', 'display_name_plural', 37, 'en', 'Аудиторії', '2020-05-25 13:35:15', '2020-05-25 13:35:15'),
+(823, 'data_rows', 'display_name', 261, 'en', 'audience_types', '2020-05-25 13:36:17', '2020-05-25 13:36:17'),
+(824, 'data_rows', 'display_name', 262, 'en', 'Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(825, 'data_rows', 'display_name', 263, 'en', 'Назва', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(826, 'data_rows', 'display_name', 264, 'en', 'Номер', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(827, 'data_rows', 'display_name', 265, 'en', 'Частота', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(828, 'data_rows', 'display_name', 266, 'en', 'Day Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(829, 'data_rows', 'display_name', 267, 'en', 'Discipline Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(830, 'data_rows', 'display_name', 268, 'en', 'Audience Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(831, 'data_rows', 'display_name', 269, 'en', 'Lesson Type Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(832, 'data_rows', 'display_name', 270, 'en', 'Period Id', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(833, 'data_rows', 'display_name', 271, 'en', 'Створено', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(834, 'data_rows', 'display_name', 272, 'en', 'Updated At', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(835, 'data_types', 'display_name_singular', 38, 'en', 'Заняття', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(836, 'data_types', 'display_name_plural', 38, 'en', 'Заняття', '2020-05-25 13:51:51', '2020-05-25 13:51:51'),
+(837, 'menu_items', 'title', 73, 'en', 'Заняття', '2020-05-25 13:52:05', '2020-05-25 13:52:05'),
+(838, 'data_rows', 'display_name', 273, 'en', 'days', '2020-05-25 13:59:13', '2020-05-25 13:59:13'),
+(839, 'data_rows', 'display_name', 275, 'en', 'disciplines', '2020-05-25 13:59:13', '2020-05-25 13:59:13'),
+(840, 'data_rows', 'display_name', 274, 'en', 'audiences', '2020-05-25 13:59:13', '2020-05-25 13:59:13'),
+(841, 'data_rows', 'display_name', 276, 'en', 'lesson_types', '2020-05-25 13:59:13', '2020-05-25 13:59:13'),
+(842, 'data_rows', 'display_name', 277, 'en', 'periods', '2020-05-25 13:59:13', '2020-05-25 13:59:13'),
+(843, 'data_rows', 'display_name', 278, 'en', 'groups', '2020-05-25 14:05:25', '2020-05-25 14:05:25'),
+(844, 'data_rows', 'display_name', 279, 'en', 'users', '2020-05-25 14:05:25', '2020-05-25 14:05:25'),
+(845, 'data_rows', 'display_name', 239, 'en', 'Id', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(846, 'data_rows', 'display_name', 240, 'en', 'Назва', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(847, 'data_rows', 'display_name', 241, 'en', 'Опис', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(848, 'data_rows', 'display_name', 280, 'en', 'lesson_types', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(849, 'data_types', 'display_name_singular', 33, 'en', 'Тип аудиторії', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(850, 'data_types', 'display_name_plural', 33, 'en', 'Типи аудиторій', '2020-05-25 14:07:19', '2020-05-25 14:07:19'),
+(851, 'data_rows', 'display_name', 242, 'en', 'Id', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(852, 'data_rows', 'display_name', 243, 'en', 'Назва', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(853, 'data_rows', 'display_name', 244, 'en', 'Опис', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(854, 'data_rows', 'display_name', 281, 'en', 'audience_types', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(855, 'data_types', 'display_name_singular', 34, 'en', 'Тип заняття', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(856, 'data_types', 'display_name_plural', 34, 'en', 'Типи занять', '2020-05-25 14:08:41', '2020-05-25 14:08:41'),
+(857, 'days', 'name', 1, 'en', 'Monday', '2020-05-25 14:25:20', '2020-05-25 14:25:20'),
+(858, 'days', 'name', 2, 'en', 'Tuesday', '2020-05-25 14:25:32', '2020-05-25 14:25:32'),
+(859, 'days', 'name', 3, 'en', 'Wednesday', '2020-05-25 14:25:43', '2020-05-25 14:25:43'),
+(860, 'days', 'name', 4, 'en', 'Thursday', '2020-05-25 14:25:56', '2020-05-25 14:25:56'),
+(861, 'days', 'name', 5, 'en', 'Friday', '2020-05-25 14:26:09', '2020-05-25 14:26:09'),
+(862, 'days', 'name', 6, 'en', 'Saturday', '2020-05-25 14:26:22', '2020-05-25 14:26:22');
 
 -- --------------------------------------------------------
 
@@ -3576,6 +4016,24 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 -- --------------------------------------------------------
 
 --
+-- Структура таблиці `user_notifications`
+--
+
+CREATE TABLE `user_notifications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_shown` tinyint(1) NOT NULL DEFAULT 0,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `record_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблиці `user_rating_items`
 --
 
@@ -3634,6 +4092,34 @@ INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
 --
 
 --
+-- Індекси таблиці `audiences`
+--
+ALTER TABLE `audiences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `audiences_audience_type_id_foreign` (`audience_type_id`),
+  ADD KEY `audiences_building_id_foreign` (`building_id`);
+
+--
+-- Індекси таблиці `audience_lesson_types`
+--
+ALTER TABLE `audience_lesson_types`
+  ADD KEY `audience_lesson_types_audience_type_id_foreign` (`audience_type_id`),
+  ADD KEY `audience_lesson_types_lesson_type_id_foreign` (`lesson_type_id`);
+
+--
+-- Індекси таблиці `audience_types`
+--
+ALTER TABLE `audience_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `buildings`
+--
+ALTER TABLE `buildings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `buildings_faculty_owner_id_foreign` (`faculty_owner_id`);
+
+--
 -- Індекси таблиці `categories`
 --
 ALTER TABLE `categories`
@@ -3655,6 +4141,12 @@ ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `data_types_name_unique` (`name`),
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
+
+--
+-- Індекси таблиці `days`
+--
+ALTER TABLE `days`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Індекси таблиці `disciplines`
@@ -3685,6 +4177,12 @@ ALTER TABLE `education_specialties`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `faculties`
+--
+ALTER TABLE `faculties`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Індекси таблиці `galleries`
 --
 ALTER TABLE `galleries`
@@ -3705,6 +4203,13 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`),
   ADD KEY `groups_starosta_id_foreign` (`starosta_id`),
   ADD KEY `groups_education_program_id_foreign` (`education_program_id`);
+
+--
+-- Індекси таблиці `group_in_lessons`
+--
+ALTER TABLE `group_in_lessons`
+  ADD KEY `group_in_lessons_group_id_foreign` (`group_id`),
+  ADD KEY `group_in_lessons_lesson_id_foreign` (`lesson_id`);
 
 --
 -- Індекси таблиці `infoblocks`
@@ -3731,6 +4236,23 @@ ALTER TABLE `infoblock_types`
 -- Індекси таблиці `integration_logs`
 --
 ALTER TABLE `integration_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `lessons`
+--
+ALTER TABLE `lessons`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lessons_day_id_foreign` (`day_id`),
+  ADD KEY `lessons_discipline_id_foreign` (`discipline_id`),
+  ADD KEY `lessons_audience_id_foreign` (`audience_id`),
+  ADD KEY `lessons_lesson_type_id_foreign` (`lesson_type_id`),
+  ADD KEY `lessons_period_id_foreign` (`period_id`);
+
+--
+-- Індекси таблиці `lesson_types`
+--
+ALTER TABLE `lesson_types`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3831,6 +4353,13 @@ ALTER TABLE `posts`
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
 
 --
+-- Індекси таблиці `professor_in_lessons`
+--
+ALTER TABLE `professor_in_lessons`
+  ADD KEY `professor_in_lessons_professor_id_foreign` (`user_id`),
+  ADD KEY `professor_in_lessons_lesson_id_foreign` (`lesson_id`);
+
+--
 -- Індекси таблиці `rating_items`
 --
 ALTER TABLE `rating_items`
@@ -3886,6 +4415,13 @@ ALTER TABLE `users`
   ADD KEY `users_group_id_foreign` (`group_id`);
 
 --
+-- Індекси таблиці `user_notifications`
+--
+ALTER TABLE `user_notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_notifications_user_id_foreign` (`user_id`);
+
+--
 -- Індекси таблиці `user_rating_items`
 --
 ALTER TABLE `user_rating_items`
@@ -3906,6 +4442,24 @@ ALTER TABLE `user_roles`
 --
 
 --
+-- AUTO_INCREMENT для таблиці `audiences`
+--
+ALTER TABLE `audiences`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT для таблиці `audience_types`
+--
+ALTER TABLE `audience_types`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблиці `buildings`
+--
+ALTER TABLE `buildings`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблиці `categories`
 --
 ALTER TABLE `categories`
@@ -3915,13 +4469,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT для таблиці `days`
+--
+ALTER TABLE `days`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблиці `disciplines`
@@ -3946,6 +4506,12 @@ ALTER TABLE `education_programs`
 --
 ALTER TABLE `education_specialties`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблиці `faculties`
+--
+ALTER TABLE `faculties`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблиці `galleries`
@@ -3990,6 +4556,18 @@ ALTER TABLE `integration_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
+-- AUTO_INCREMENT для таблиці `lessons`
+--
+ALTER TABLE `lessons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблиці `lesson_types`
+--
+ALTER TABLE `lesson_types`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблиці `menus`
 --
 ALTER TABLE `menus`
@@ -3999,13 +4577,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблиці `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
@@ -4041,7 +4619,7 @@ ALTER TABLE `period_types`
 -- AUTO_INCREMENT для таблиці `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT для таблиці `posts`
@@ -4089,13 +4667,19 @@ ALTER TABLE `sys_sync_meta_data`
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=793;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=863;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT для таблиці `user_notifications`
+--
+ALTER TABLE `user_notifications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблиці `user_rating_items`
@@ -4106,6 +4690,26 @@ ALTER TABLE `user_rating_items`
 --
 -- Обмеження зовнішнього ключа збережених таблиць
 --
+
+--
+-- Обмеження зовнішнього ключа таблиці `audiences`
+--
+ALTER TABLE `audiences`
+  ADD CONSTRAINT `audiences_audience_type_id_foreign` FOREIGN KEY (`audience_type_id`) REFERENCES `audience_types` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `audiences_building_id_foreign` FOREIGN KEY (`building_id`) REFERENCES `buildings` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Обмеження зовнішнього ключа таблиці `audience_lesson_types`
+--
+ALTER TABLE `audience_lesson_types`
+  ADD CONSTRAINT `audience_lesson_types_audience_type_id_foreign` FOREIGN KEY (`audience_type_id`) REFERENCES `audience_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `audience_lesson_types_lesson_type_id_foreign` FOREIGN KEY (`lesson_type_id`) REFERENCES `lesson_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Обмеження зовнішнього ключа таблиці `buildings`
+--
+ALTER TABLE `buildings`
+  ADD CONSTRAINT `buildings_faculty_owner_id_foreign` FOREIGN KEY (`faculty_owner_id`) REFERENCES `faculties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Обмеження зовнішнього ключа таблиці `categories`
@@ -4140,6 +4744,13 @@ ALTER TABLE `groups`
   ADD CONSTRAINT `groups_starosta_id_foreign` FOREIGN KEY (`starosta_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
+-- Обмеження зовнішнього ключа таблиці `group_in_lessons`
+--
+ALTER TABLE `group_in_lessons`
+  ADD CONSTRAINT `group_in_lessons_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `group_in_lessons_lesson_id_foreign` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Обмеження зовнішнього ключа таблиці `infoblocks`
 --
 ALTER TABLE `infoblocks`
@@ -4150,6 +4761,16 @@ ALTER TABLE `infoblocks`
 --
 ALTER TABLE `infoblock_items`
   ADD CONSTRAINT `infoblock_items_infoblock_id_foreign` FOREIGN KEY (`infoblock_id`) REFERENCES `infoblocks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Обмеження зовнішнього ключа таблиці `lessons`
+--
+ALTER TABLE `lessons`
+  ADD CONSTRAINT `lessons_audience_id_foreign` FOREIGN KEY (`audience_id`) REFERENCES `audiences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lessons_day_id_foreign` FOREIGN KEY (`day_id`) REFERENCES `days` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lessons_discipline_id_foreign` FOREIGN KEY (`discipline_id`) REFERENCES `disciplines` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lessons_lesson_type_id_foreign` FOREIGN KEY (`lesson_type_id`) REFERENCES `lesson_types` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `lessons_period_id_foreign` FOREIGN KEY (`period_id`) REFERENCES `periods` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Обмеження зовнішнього ключа таблиці `menu_items`
@@ -4191,6 +4812,13 @@ ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
+-- Обмеження зовнішнього ключа таблиці `professor_in_lessons`
+--
+ALTER TABLE `professor_in_lessons`
+  ADD CONSTRAINT `professor_in_lessons_lesson_id_foreign` FOREIGN KEY (`lesson_id`) REFERENCES `lessons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `professor_in_lessons_professor_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Обмеження зовнішнього ключа таблиці `rating_items`
 --
 ALTER TABLE `rating_items`
@@ -4202,6 +4830,12 @@ ALTER TABLE `rating_items`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+
+--
+-- Обмеження зовнішнього ключа таблиці `user_notifications`
+--
+ALTER TABLE `user_notifications`
+  ADD CONSTRAINT `user_notifications_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Обмеження зовнішнього ключа таблиці `user_rating_items`
