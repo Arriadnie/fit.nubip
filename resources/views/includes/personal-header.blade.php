@@ -14,10 +14,11 @@
             <a class="sub-nav-item" href="{{ route('home.rating.report') }}">Звіти</a>
         </div>
     </div>
-    <div class="link">
-        <a href="#">Пропозиція новини</a>
-
-    </div>
+    @if(Auth::user()->hasPermission('offer_posts'))
+        <div class="link">
+            <a href="{{ route('home.post-offer') }}">Пропозиція новини</a>
+        </div>
+    @endif
     <div class="link">
         <a href="{{ route('home.change-password') }}">Пароль</a>
     </div>
@@ -26,7 +27,7 @@
 
     <div class="user-nav-list">
         @if(Auth::user()->hasPermission('browse_admin'))
-            <a class="user-nav-item">
+            <a class="user-nav-item" href="{{ route('voyager.dashboard') }}">
                 <svg>
                     <use xlink:href="#admin"></use>
                 </svg>

@@ -5,6 +5,7 @@ namespace App\Models\Posts;
 use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
 
@@ -14,9 +15,12 @@ class Post extends \TCG\Voyager\Models\Post
 
     protected $image_column = 'image';
 
+    const STATUS_PENDING = 'PENDING';
+
 
     public function save(array $options = [])
     {
+
         parent::save();
     }
 
@@ -84,6 +88,16 @@ class Post extends \TCG\Voyager\Models\Post
 
     public static function getByCategory($categoryId, $skip, $take) {
         return static::where('category_id', $categoryId)->last()->skip($skip)->take($take)->get();
+    }
+
+
+
+    public function scopeIndexOffer(Builder $query)
+    {
+        if (Auth::user()->hasPermission('browse_posts')) {
+            return $query;
+        }
+        return $query->where('author_id', '=', Auth::id());
     }
 
 }

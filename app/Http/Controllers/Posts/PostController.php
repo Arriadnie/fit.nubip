@@ -2,41 +2,76 @@
 
 namespace App\Http\Controllers\Posts;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Posts\Category;
 use App\Models\Posts\Post;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
-class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
+class PostController extends VoyagerBaseController
 {
-    public function update(Request $request, $id)
+    public function offerCreate(Request $request)
     {
-        $result = parent::update($request, $id);
+        $slug = 'posts';
 
-        $post = Post::find($id);
-        $this->syncCategories($post, $request->input('categories'));
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        return $result;
-    }
-    public function store(Request $request)
-    {
-        $result = parent::store($request);
+        // Check permission
+        $this->authorize('offer', app($dataType->model_name));
 
-        $slug = $this->getSlug($request);
-        $post = Post::where('slug', '=', $slug)->first();
-        $this->syncCategories($post, $request->input('categories'));
+        $dataTypeContent = (strlen($dataType->model_name) != 0)
+            ? new $dataType->model_name()
+            : false;
 
-        return $result;
-    }
-    private function syncCategories($post, $categories) {
-        if ($categories) {
-            $post->categories()->sync($categories);
+        foreach ($dataType->addRows as $key => $row) {
+            $dataType->addRows[$key]['col_width'] = $row->details->width ?? 100;
         }
-    }
 
+        // If a column has a relationship associated with it, we do not want to show that field
+        $this->removeRelationshipField($dataType, 'add');
+
+        // Check if BREAD is Translatable
+        $isModelTranslatable = is_bread_translatable($dataTypeContent);
+
+        $view = 'voyager::bread.edit-add';
+
+        if (view()->exists("voyager::$slug.edit-add")) {
+            $view = "voyager::$slug.edit-add";
+        }
+        $isOffer = true;
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isOffer'));
+    }
+    public function offerStore(Request $request)
+    {
+        $slug = 'posts';
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        // Check permission
+        $this->authorize('offer', app($dataType->model_name));
+
+        // Validate fields with ajax
+        $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
+        $request->request->set('status', Post::STATUS_PENDING);
+        //dd($request);
+        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+
+        event(new BreadDataAdded($dataType, $data));
+        return redirect()->route('home.index')
+            ->with([
+                'messages' => [
+                    [
+                        'text' => __('posts.offer-success'),
+                        'type' => 'success',
+                    ]
+                ],
+            ]);
+    }
 
 
     const PAGINATE_COUNT = 6;
@@ -51,7 +86,7 @@ class PostController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
         return view('posts.index', [
             'categories' => $categories,
-            'posts' => Post::last(static::PAGINATE_COUNT)->get()
+            'posts' => Post::last(static::PAGINATE_COUNT)->published()->get()
         ]);
     }
 

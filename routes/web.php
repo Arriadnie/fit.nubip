@@ -142,6 +142,9 @@ Route::group(
 
 
         Route::get('/schedule', 'Schedule\ScheduleController@index')->name('schedule.index');
+
+        Route::get('/post-offer', 'Posts\PostController@offerCreate')->name('post-offer');
+        Route::post('/post-offer-store', 'Posts\PostController@offerStore')->name('post-offer-store');
     });
 
     Route::group([
