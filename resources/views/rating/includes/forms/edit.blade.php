@@ -9,7 +9,7 @@
                 <input type="text" name="name" placeholder="Назва заходу, події*">
             </label>
             <label>
-                <input type="text" name="date" data-toggle="datepicker" placeholder="Дата проведення">
+                <input type="text" autocomplete="off" name="date" data-toggle="datepicker" placeholder="Дата проведення">
             </label>
 
             <div class="rating-grade">

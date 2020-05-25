@@ -88,7 +88,7 @@ global.ratingFilter = function(filterButton) {
     }
 
 
-    Helper.callService('home/rating/get-personal', {
+    Helper.callService('home/rating/service', {
         methodName: pageMethod,
         data: data
     }, function(response) {
@@ -252,5 +252,32 @@ global.callModalConfirm = function (event, text, yesCallback, noCalback) {
 
 };
 
+global.loadSchedule = function(event) {
+    event?.preventDefault();
+    let button = event?.target || document.querySelector('.schedule-filter-button');
+    if (!button) {
+        return;
+    }
+    let data = {};
+    const groupSelect = document.querySelector('[name="group"]');
+    if (groupSelect) {
+        data.groupId = groupSelect.slim.selected();
+    }
+    /*const periodSelect = document.querySelector('[name="period"]');
+    if (periodSelect) {
+        data.periodId = periodSelect.slim.selected();
+    }*/
 
 
+    Helper.callService('schedule/service', {
+        methodName: "getSchedule",
+        data: data
+    }, function(response) {
+        updateTable('.table-wrap.top table', response && response.view1 || '');
+        updateTable('.table-wrap.bottom table', response && response.view2 || '');
+    })
+}
+
+document.querySelectorAll('.schedule-filter-button').forEach(function(item) {
+    item.addEventListener('click', global.loadSchedule, true);
+});

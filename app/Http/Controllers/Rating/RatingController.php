@@ -170,17 +170,13 @@ class RatingController extends Controller
         $periodId = $request->input('periodId');
 
         $items = $this->_getAllStudents($groupId, $periodId);
-        if (count($items) > 0) {
-            $items = $this->_prepareReportData($groupId, $items);
-            $viewResult = view('rating.includes.report-full-table', [
-                'items' => $items
-            ])->render();
-        }
-        else {
-            $viewResult = '';
-        }
+        $items = $this->_prepareReportData($groupId, $items);
+        $viewResult = view('rating.includes.report-full-table', [
+            'items' => $items
+        ])->render();
 
         $dompdf->loadHtml($viewResult);
+        $dompdf->
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
 

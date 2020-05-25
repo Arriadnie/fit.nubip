@@ -16,7 +16,7 @@
                 <input type="text" name="name" placeholder="@lang('rating.event-name')">
             </label>
             <label>
-                <input type="text" name="date" data-toggle="datepicker" placeholder="@lang('rating.event-date')">
+                <input type="text" autocomplete="off" name="date" data-toggle="datepicker" placeholder="@lang('rating.event-date')">
             </label>
 
             <div class="rating-grade">

@@ -320,6 +320,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     setCachedRatingPeriod();
 
     global.ratingFilter();
+    global.loadSchedule();
 
     setAxiosHeader();
 

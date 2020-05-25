@@ -14,7 +14,7 @@
         <div class="filter-wrap rating-filter">
             <p>Відфільтрувати рейтинг:</p>
             <label class="select">
-                <select class="default-select" name="group">
+                <select class="default-select" name="group" data-search="true">
                     @foreach(App\Models\Education\Group::all() as $group)
                         <option value="{{ $group->id }}">{{ $group->name }}</option>
                     @endforeach

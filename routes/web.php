@@ -133,17 +133,25 @@ Route::group(
             Route::get('/report-pdf', 'Rating\RatingController@reportPdf')->name('report-pdf');
 
             Route::post('/create-personal', 'Rating\RatingController@createPersonal')->name('create-personal');
-            Route::post('/get-personal', 'Rating\RatingController@service')->name('get-personal');
+            Route::post('/service', 'Rating\RatingController@service')->name('service');
             Route::post('/edit', 'Rating\RatingController@edit')->name('edit');
             Route::post('/confirm', 'Rating\RatingController@confirm')->name('confirm');
             Route::post('/delete', 'Rating\RatingController@delete')->name('delete');
             Route::post('/reject', 'Rating\RatingController@reject')->name('reject');
-
-
         });
+
+
+        Route::get('/schedule', 'Schedule\ScheduleController@index')->name('schedule.index');
     });
 
+    Route::group([
+        'as'     => 'schedule.',
+        'prefix' => 'schedule',
+    ], function () {
+        Route::get('/', 'Schedule\ScheduleController@index')->name('index');
 
+        Route::post('/service', 'Schedule\ScheduleController@service')->name('service');
+    });
 
 
 
