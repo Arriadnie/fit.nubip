@@ -1,6 +1,6 @@
 <div class="personal-menu">
     <div class="link">
-        <a href="/home/schedule">Розклад</a>
+        <a href="{{ route('home.schedule.index') }}">Розклад</a>
     </div>
     <div class="link">
         <a href="#">Рейтинг</a>

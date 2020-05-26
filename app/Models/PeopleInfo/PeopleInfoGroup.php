@@ -12,7 +12,7 @@ class PeopleInfoGroup extends Model
     public function infos($count = 0)
     {
         return $this->belongsToMany(PeopleInfo::class, 'people_info_in_group')
-            ->orderBy('order', 'ASC')->myTake($count);
+            ->orderBy('order', 'ASC')->published()->myTake($count);
     }
 
 

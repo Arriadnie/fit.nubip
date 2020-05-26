@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PeopleInfo\PeopleInfo;
 use App\Models\Posts\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +29,18 @@ class HomeController extends Controller
         return view('home');
     }
 
+    private function _getCurrentOrNewPeopleInfo() {
+        if (Auth::user()->peopleInfo) {
+            return Auth::user()->peopleInfo;
+        }
+        $info = new PeopleInfo();
+        $info->name = Auth::user()->name;
+        $info->user_id = Auth::id();
+        return $info;
+    }
+
     public function personalInfo(Request $request) {
-        $userInfo = Auth::user()->peopleInfo;
+        $userInfo = $this->_getCurrentOrNewPeopleInfo();
         $userInfo->description = $request->input('description');
         $userInfo->phone = $request->input('phone');
         $userInfo->email = $request->input('email');
