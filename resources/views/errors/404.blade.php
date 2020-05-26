@@ -13,7 +13,7 @@
            </div>
        </div>
 
-       <a href="#" class="main-btn light">Повернутись на головну</a>
+       <a href="{{ route('index') }}" class="main-btn light">Повернутись на головну</a>
    </div>
 
 @endsection

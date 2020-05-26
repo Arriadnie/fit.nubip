@@ -217,13 +217,20 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     isExist('.show-notifications', () => {
         let events = document.querySelector('.personal-events');
+
         document.querySelector('.show-notifications').addEventListener('click', function (e) {
-            this.classList.remove('active')
+            e.preventDefault();
+
+
+            this.classList.remove('active');
             if (events) {
                 if (events.classList.contains('active')) {
-                    events.classList.remove('active')
+                    events.classList.remove('active');
                 } else {
-                    events.classList.add('active')
+                    global.loadNotifications(events, function() {
+                        events.classList.add('active');
+                        global.notificationsShown();
+                    });
                 }
             }
 

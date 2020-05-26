@@ -145,6 +145,9 @@ Route::group(
 
         Route::get('/post-offer', 'Posts\PostController@offerCreate')->name('post-offer');
         Route::post('/post-offer-store', 'Posts\PostController@offerStore')->name('post-offer-store');
+
+
+        Route::post('/notification/service', 'UserNotificationController@service')->name('notification.service');
     });
 
     Route::group([
