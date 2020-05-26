@@ -180,7 +180,7 @@ class RatingController extends Controller
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
 
-        return $dompdf->stream("hello.pdf");
+        return $dompdf->stream("report.pdf");
     }
 
 

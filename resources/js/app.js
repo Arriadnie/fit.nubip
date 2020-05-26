@@ -295,8 +295,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 onComplete() {
                     document.querySelector('.server-notification-wrap').style.display = 'none'
                 }})
-        }, 5000)
-    })
+        }, 5000);
+    });
 
     isExist('[data-synchronize]', (synchronized) => {
         synchronized.forEach((firstSelect) => {
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
             }
         });
-    })
+    });
 
 
     setCachedRatingPeriod();
