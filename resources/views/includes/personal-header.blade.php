@@ -9,7 +9,7 @@
             <a class="sub-nav-item" href="{{ route('home.rating.entering') }}">Внесення</a>
 
             @if(Auth::user()->hasRole(['admin', 'starosta']))
-            <a class="sub-nav-item" href="{{ route('home.rating.starosta') }}">Перевірка</a>
+                <a class="sub-nav-item" href="{{ route('home.rating.starosta') }}">Перевірка</a>
             @endif
             <a class="sub-nav-item" href="{{ route('home.rating.report') }}">Звіти</a>
         </div>
