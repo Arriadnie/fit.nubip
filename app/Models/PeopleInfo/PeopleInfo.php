@@ -28,6 +28,11 @@ class PeopleInfo extends Model
         return static::where('slug', $slug)->first();
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany(PeopleInfoGroup::class, 'people_info_in_group');
+    }
+
     public function scopeMyTake(Builder $query, int $count = 0)
     {
         if ($count > 0) {

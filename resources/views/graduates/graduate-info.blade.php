@@ -7,24 +7,22 @@
 
     <div class="container-inner personal-room">
         <p class="lined-title">Введіть інформацію про себе</p>
-        <form action="" class="partial">
+        <form method="POST" action="{{ route('graduate-save-info') }}" class="partial">
+            @csrf
             <div class="part">
                 <p class="lined-title subtitle">Особиста інформація</p>
                 <label>
-                    <input type="name" placeholder="Ім'я">
+                    <input type="text" name="name" placeholder="Ім'я">
                 </label>
                 <label>
-                    <input type="tel" placeholder="Номер телефону">
+                    <input type="email" name="email" placeholder="E-mail">
                 </label>
                 <label>
-                    <input type="year" placeholder="Рік випуску">
-                </label>
-                <label>
-                    <input type="specialty" placeholder="Спеціальність">
+                    <input type="tel" name="tel" placeholder="Номер телефону">
                 </label>
                 <p class="lined-title subtitle">Інформація про кар'єру</p>
                 <label>
-                    <textarea name="info" placeholder="Інформація про кар'єру"></textarea>
+                    <textarea name="description" placeholder="Інформація про навчання та кар'єру"></textarea>
                 </label>
 
                 <input type="submit" class="main-btn" value="Відправити">
@@ -32,24 +30,14 @@
 
             <div class="part">
                 <p class="lined-title subtitle">Соціальні мережі</p>
-                <label>
-                    <span class="icon">
-                        <svg><use xlink:href="#instagram"></use></svg>
-                    </span>
-                    <input disabled type="text" placeholder="Instagram">
-                </label>
-                <label>
-                    <span class="icon">
-                        <svg><use xlink:href="#facebook"></use></svg>
-                    </span>
-                    <input disabled type="text" placeholder="Facebook">
-                </label>
-                <label>
-                    <span class="icon">
-                        <svg><use xlink:href="#youtube"></use></svg>
-                    </span>
-                    <input disabled type="text" placeholder="Youtube">
-                </label>
+                @foreach(App\Models\PeopleInfo\PeopleInfo::getEmptySocialNetworks() as $networkItem)
+                    <label>
+                            <span class="icon">
+                                <img src="{{ $networkItem['network']->getImage(true) }}" alt="">
+                            </span>
+                        <input type="text" name="social-network-{{ $networkItem['network']->id }}" placeholder="{{ $networkItem['network']->name }}" value="{{ $networkItem['value'] }}">
+                    </label>
+                @endforeach
 
                 <p class="lined-title subtitle">Додайте зображення</p>
                 <label class="file-label" data-placeholder="Прикіпіть фото">

@@ -156,6 +156,10 @@ Route::group(
         Route::post('/service', 'Schedule\ScheduleController@service')->name('service');
     });
 
+    Route::get('/graduates', 'GraduatesController@index')->name('graduates');
+    Route::get('/graduate-info', 'GraduatesController@info')->name('graduate-info');
+    Route::post('/graduate-save-info', 'GraduatesController@saveInfo')->name('graduate-save-info');
+
 
 
     Route::get('{pageSlug}', 'Pages\PageController@show');
