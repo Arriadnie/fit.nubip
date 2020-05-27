@@ -163,7 +163,6 @@ class RatingController extends Controller
     }
 
     public function reportPdf(Request $request) {
-
         $dompdf = new Dompdf();
 
         $groupId = $request->input('groupId');
