@@ -194,7 +194,7 @@ class RatingController extends Controller
         ])->render();
 
         $dompdf->loadHtml($viewResult);
-        $dompdf->
+        //$dompdf->
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
 

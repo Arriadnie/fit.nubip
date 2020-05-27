@@ -303,3 +303,12 @@ global.notificationsShown = function(callback) {
         }
     })
 };
+
+global.loadCurrentGroup = function() {
+    const groupSelect = document.querySelector('[name="group"]');
+    if (groupSelect ?? window.userInfo?.groupId) {
+        groupSelect.slim.set(window.userInfo?.groupId);
+        global.loadSchedule();
+        global.ratingFilter();
+    }
+}

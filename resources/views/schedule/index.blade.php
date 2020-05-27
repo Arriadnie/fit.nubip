@@ -7,6 +7,8 @@
     @if(Auth::check())
         @include('includes.personal-header')
     @endif
+    @include('includes.set-user-group-to-js')
+
     <div class="container-table personal-room">
         <p class="lined-title">Розклад занятть</p>
         <div class="filter-wrap schedule-filter">

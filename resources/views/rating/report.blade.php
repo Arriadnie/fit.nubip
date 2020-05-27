@@ -7,6 +7,7 @@
 
     @include('includes.personal-header')
     @include('rating.includes.periods-json')
+    @include('includes.set-user-group-to-js')
 
     <div class="container-table personal-room">
         <p class="lined-title">Формування звітів</p>

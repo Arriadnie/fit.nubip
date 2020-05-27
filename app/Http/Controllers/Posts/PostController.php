@@ -79,7 +79,7 @@ class PostController extends VoyagerBaseController
     public function publicShow($slug) {
         return view('posts.show', [
             'post' => Post::where('slug', '=', $slug)->firstOrFail()
-        ]);
+        ])->withShortcodes();
     }
     public function publicIndex() {
         $categories = Category::all();
