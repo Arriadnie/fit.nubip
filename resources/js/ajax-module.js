@@ -281,3 +281,34 @@ global.loadSchedule = function(event) {
 document.querySelectorAll('.schedule-filter-button').forEach(function(item) {
     item.addEventListener('click', global.loadSchedule, true);
 });
+
+
+global.loadNotifications = function(eventsElement, callback) {
+    Helper.callService('home/notification/service', {
+        methodName: "getNotifications"
+    }, function(response) {
+        eventsElement.innerHTML = response && response.view || '';
+        if (callback) {
+            callback();
+        }
+    })
+};
+
+global.notificationsShown = function(callback) {
+    Helper.callService('home/notification/service', {
+        methodName: "setShown"
+    }, function(response) {
+        if (callback) {
+            callback();
+        }
+    })
+};
+
+global.loadCurrentGroup = function() {
+    const groupSelect = document.querySelector('[name="group"]');
+    if (groupSelect ?? window.userInfo?.groupId) {
+        groupSelect.slim.set(window.userInfo?.groupId);
+        global.loadSchedule();
+        global.ratingFilter();
+    }
+}

@@ -1,6 +1,6 @@
 <div class="personal-menu">
     <div class="link">
-        <a href="/home/schedule">Розклад</a>
+        <a href="{{ route('home.schedule.index') }}">Розклад</a>
     </div>
     <div class="link">
         <a href="#">Рейтинг</a>
@@ -10,8 +10,8 @@
 
             @if(Auth::user()->hasRole(['admin', 'starosta']))
                 <a class="sub-nav-item" href="{{ route('home.rating.starosta') }}">Перевірка</a>
+                <a class="sub-nav-item" href="{{ route('home.rating.report') }}">Звіти</a>
             @endif
-            <a class="sub-nav-item" href="{{ route('home.rating.report') }}">Звіти</a>
         </div>
     </div>
     @if(Auth::user()->hasPermission('offer_posts'))

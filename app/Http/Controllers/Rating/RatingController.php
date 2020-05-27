@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Rating;
 use App\Models\Education\Group;
 use App\Models\Lookups\Period;
 use App\Models\Rating\UserRatingItem;
+use App\Models\UserNotification;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -91,6 +92,7 @@ class RatingController extends Controller
 
         $item->save();
 
+        $this->createUserNotification($item->user_id, $item->id, UserNotification::TYPE_INFO, 'Ваш рейтинг було змінено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.');
         $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
         return redirect()->route($redirectRouteName)
             ->with([
@@ -110,6 +112,7 @@ class RatingController extends Controller
         $item->status = UserRatingItem::STATUS_CONFIRMED;
         $item->save();
 
+        $this->createUserNotification($item->user_id, $item->id, UserNotification::TYPE_SUCCESS, 'Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.');
         $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
         return redirect()->route($redirectRouteName)
             ->with([
@@ -149,6 +152,7 @@ class RatingController extends Controller
         $item->comment = $request->input('reject-reason');
         $item->save();
 
+        $this->createUserNotification($item->user_id, $item->id, UserNotification::TYPE_ERROR, 'Ваш рейтинг було відхилено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.');
         $redirectRouteName = $request->input('action') == static::PERSONAL_MODE ? 'home.rating.personal' : 'home.rating.starosta';
         return redirect()->route($redirectRouteName)
             ->with([
@@ -161,6 +165,20 @@ class RatingController extends Controller
                 'currentPeriod' => Period::getMonthByDate($item->date),
             ]);
     }
+
+    private function createUserNotification($userId, $itemId, $type, $message) {
+
+        UserNotification::create([
+            'user_id' => $userId,
+            'title' => 'Рейтинг',
+            'message' => $message,
+            'subject' => 'App\Models\Rating\UserRatingItem',
+            'record_id' => $itemId,
+            'type' => $type,
+        ]);
+    }
+
+
 
     public function reportPdf(Request $request) {
         $dompdf = new Dompdf();
@@ -175,14 +193,12 @@ class RatingController extends Controller
         ])->render();
 
         $dompdf->loadHtml($viewResult);
-        $dompdf->
+        //$dompdf->
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
 
         return $dompdf->stream("report.pdf");
     }
-
-
 
     public function service(Request $request)
     {

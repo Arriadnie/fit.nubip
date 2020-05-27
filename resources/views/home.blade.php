@@ -63,13 +63,13 @@
         <div class="quick-access-container">
             <p class="lined-title">Розділи</p>
             <div class="quick-access">
-                <a href="#" class="card">
+                <a href="{{ route('home.rating.personal') }}" class="card">
                     <img src="{{ asset('/image/card3.jpg') }}" alt="">
                     <span class="name">Рейтинг</span>
                     <span class="overlay"></span>
                 </a>
 
-                <a href="#" class="card">
+                <a href="{{ route('home.schedule.index') }}" class="card">
                     <img src="{{  asset('/image/card2.jpeg')  }}" alt="">
                     <span class="name">Розклад</span>
                     <span class="overlay"></span>

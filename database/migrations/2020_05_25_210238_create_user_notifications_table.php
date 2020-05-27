@@ -21,6 +21,7 @@ class CreateUserNotificationsTable extends Migration
             $table->boolean('is_shown')->default(false);
             $table->string('subject')->nullable();
             $table->string('record_id')->nullable();
+            $table->enum('type', UserNotification::$types)->default(UserNotification::TYPE_INFO);
             $table->timestamps();
 
             $table->foreign('user_id')

@@ -41,6 +41,11 @@ class PeopleInfo extends Model
         return $query;
     }
 
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('status', '=', static::STATUS_PUBLISHED);
+    }
+
     public function socialNetworks() {
         return $this->belongsToMany(SocialNetwork::class, 'people_info_social_networks',
             'people_info_id', 'social_network_id')
