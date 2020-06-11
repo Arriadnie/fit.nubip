@@ -156,7 +156,7 @@
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                                 $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title'];
                             @endphp
-
+                            @if(!isset($isOffer) || !$isOffer)
                             @foreach($dataTypeRows as $row)
                                 @if(!in_array($row->field, $exclude))
                                     @php
@@ -182,6 +182,7 @@
                                     @endif
                                 @endif
                             @endforeach
+                            @endif
                         </div>
                     </div>
 
