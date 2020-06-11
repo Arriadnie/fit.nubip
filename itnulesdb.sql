@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Трв 26 2020 р., 00:14
+-- Час створення: Чрв 11 2020 р., 23:13
 -- Версія сервера: 10.3.13-MariaDB
 -- Версія PHP: 7.3.2
 
@@ -216,7 +216,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (27, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '{}', 6),
 (28, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
 (29, 5, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
-(30, 5, 'author_id', 'text', 'Author', 1, 0, 1, 1, 0, 1, '{}', 2),
+(30, 5, 'author_id', 'text', 'Author', 1, 0, 1, 1, 1, 1, '{}', 2),
 (31, 5, 'category_id', 'text', 'Category', 0, 0, 1, 1, 1, 0, '{}', 3),
 (32, 5, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 4),
 (33, 5, 'excerpt', 'text_area', 'Excerpt', 0, 0, 1, 1, 1, 1, '{}', 5),
@@ -225,10 +225,10 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (36, 5, 'slug', 'text', 'Slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}', 8),
 (37, 5, 'meta_description', 'text_area', 'Meta Description', 0, 0, 1, 1, 1, 1, '{}', 9),
 (38, 5, 'meta_keywords', 'text_area', 'Meta Keywords', 0, 0, 1, 1, 1, 1, '{}', 10),
-(39, 5, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}', 11),
+(39, 5, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0456\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\",\"DRAFT\":\"\\u0427\\u0435\\u0440\\u043d\\u0435\\u0442\\u043a\\u0430\",\"PENDING\":\"\\u041d\\u0430 \\u043c\\u043e\\u0434\\u0435\\u0440\\u0430\\u0446\\u0456\\u0457\"}}', 11),
 (40, 5, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 12),
 (41, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 13),
-(42, 5, 'seo_title', 'text', 'SEO Title', 0, 1, 1, 1, 1, 1, '{}', 14),
+(42, 5, 'seo_title', 'text', 'SEO Title', 0, 0, 1, 1, 1, 1, '{}', 14),
 (43, 5, 'featured', 'checkbox', 'Featured', 1, 1, 1, 1, 1, 1, '{}', 15),
 (44, 6, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
 (45, 6, 'author_id', 'text', 'Author', 1, 0, 0, 0, 0, 0, '{}', 2),
@@ -457,7 +457,13 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (278, 38, 'lesson_belongstomany_group_relationship', 'relationship', 'Групи', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Education\\\\Group\",\"table\":\"groups\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"group_in_lessons\",\"pivot\":\"1\",\"taggable\":\"0\"}', 9),
 (279, 38, 'lesson_belongstomany_user_relationship', 'relationship', 'Викладачі', 0, 0, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"professor_in_lessons\",\"pivot\":\"1\",\"taggable\":\"0\"}', 14),
 (280, 33, 'audience_type_belongstomany_lesson_type_relationship', 'relationship', 'Типи занять, які можна проводити', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\LessonType\",\"table\":\"lesson_types\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"1\",\"taggable\":\"0\"}', 4),
-(281, 34, 'lesson_type_belongstomany_audience_type_relationship', 'relationship', 'Типи аудиторій, в яких можна проводити заняття', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\AudienceType\",\"table\":\"audience_types\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"1\",\"taggable\":\"0\"}', 4);
+(281, 34, 'lesson_type_belongstomany_audience_type_relationship', 'relationship', 'Типи аудиторій, в яких можна проводити заняття', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Schedule\\\\Lookups\\\\AudienceType\",\"table\":\"audience_types\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"1\",\"taggable\":\"0\"}', 4),
+(282, 39, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(283, 39, 'key', 'text', 'Key', 1, 1, 1, 1, 1, 1, '{}', 2),
+(284, 39, 'table_name', 'text', 'Назва таблиці', 0, 1, 1, 1, 1, 1, '{}', 3),
+(285, 39, 'created_at', 'timestamp', 'Створено', 0, 0, 1, 0, 0, 1, '{}', 4),
+(286, 39, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(287, 5, 'post_belongsto_user_relationship', 'relationship', 'Автор', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"author_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"audience_lesson_types\",\"pivot\":\"0\",\"taggable\":\"0\"}', 16);
 
 -- --------------------------------------------------------
 
@@ -492,7 +498,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-09-04 16:52:48', '2019-09-04 16:52:48'),
 (3, 'roles', 'roles', 'Роль', 'Ролі', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-04 16:52:48', '2020-05-24 08:52:23'),
 (4, 'categories', 'categories', 'Категорія новини', 'Категорії новин', 'voyager-categories', 'App\\Models\\Posts\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-05-18 14:50:07'),
-(5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'App\\Models\\Posts\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', 'App\\Http\\Controllers\\Posts\\PostController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-01-19 17:32:40'),
+(5, 'posts', 'posts', 'Новина', 'Новини', 'voyager-news', 'App\\Models\\Posts\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', 'App\\Http\\Controllers\\Posts\\PostController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-05-25 20:00:10'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'App\\Models\\Pages\\Page', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-09-06 03:13:33', '2020-05-10 10:44:16'),
 (8, 'infoblock_types', 'infoblock-types', 'Infoblock Type', 'Infoblock Types', 'voyager-belt', 'App\\Models\\Infoblocks\\InfoblockType', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-22 19:07:45', '2020-02-10 19:33:37'),
 (9, 'infoblocks', 'infoblocks', 'Infoblock', 'Infoblocks', NULL, 'App\\Models\\Infoblocks\\Infoblock', NULL, 'App\\Http\\Controllers\\WithItemsBase\\BaseWithItemsController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-29 17:14:12', '2020-02-18 20:50:45'),
@@ -519,7 +525,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (35, 'days', 'days', 'День', 'Дні', 'voyager-calendar', 'App\\Models\\Schedule\\Lookups\\Day', NULL, NULL, NULL, 1, 0, '{\"order_column\":\"order\",\"order_display_column\":\"name\",\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:29:54', '2020-05-25 14:24:59'),
 (36, 'buildings', 'buildings', 'Корпус', 'Корпуси', 'voyager-company', 'App\\Models\\Schedule\\Building', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:30:58', '2020-05-25 14:32:35'),
 (37, 'audiences', 'audiences', 'Аудиторія', 'Аудиторії', 'voyager-company', 'App\\Models\\Schedule\\Audience', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:33:10', '2020-05-25 13:36:16'),
-(38, 'lessons', 'lessons', 'Заняття', 'Заняття', 'voyager-book', 'App\\Models\\Schedule\\Lesson', NULL, 'App\\Http\\Controllers\\FiltrationVoyagerController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:51:18', '2020-05-25 16:08:30');
+(38, 'lessons', 'lessons', 'Заняття', 'Заняття', 'voyager-book', 'App\\Models\\Schedule\\Lesson', NULL, 'App\\Http\\Controllers\\FiltrationVoyagerController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-25 13:51:18', '2020-05-25 16:08:30'),
+(39, 'permissions', 'permissions', 'Право', 'Права', 'voyager-lock', 'App\\Models\\Permission', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2020-05-25 18:22:02', '2020-05-25 18:22:02');
 
 -- --------------------------------------------------------
 
@@ -1210,7 +1217,11 @@ INSERT INTO `group_in_lessons` (`group_id`, `lesson_id`) VALUES
 (36, 4),
 (37, 4),
 (37, 5),
-(36, 6);
+(36, 6),
+(36, 7),
+(37, 7),
+(36, 8),
+(38, 8);
 
 -- --------------------------------------------------------
 
@@ -1272,10 +1283,10 @@ CREATE TABLE `infoblock_items` (
 --
 
 INSERT INTO `infoblock_items` (`id`, `infoblock_id`, `title`, `sub_title`, `image`, `button_title`, `button_link`, `body`, `order`, `created_at`, `updated_at`, `parent_id`) VALUES
-(1, 1, 'Розпочни свою кар\'єру в ІТ з нами!', '', 'infoblock-items\\January2020\\yXF91pw5QgoDBpUv8bF6.jpg', 'Детальніше', 'vipusknikam-shkil', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 2, '2020-01-30 15:36:00', '2020-05-10 13:01:29', NULL),
-(2, 1, 'Міжнародні програми навчання відкриті для реєстрації!', NULL, 'infoblock-items\\January2020\\ghFmoiC4spN7lfczeKK6.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 4, '2020-01-30 15:46:18', '2020-05-10 12:57:04', NULL),
-(3, 1, 'Вступну кампанію 2020 розпочато!', NULL, 'infoblock-items\\January2020\\MlIIjGPfwW58IRQz1raX.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 3, '2020-01-30 15:47:04', '2020-05-10 12:57:04', NULL),
-(4, 1, 'Відкрита лекція від Cisco Networking Academy', NULL, 'infoblock-items\\January2020\\LFnj5zenjagWaJZmrxZ7.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 5, '2020-01-30 15:47:48', '2020-05-10 12:57:04', NULL),
+(1, 1, 'Розпочни свою кар\'єру в ІТ з нами!', '', 'infoblock-items\\January2020\\yXF91pw5QgoDBpUv8bF6.jpg', 'Детальніше', 'vipusknikam-shkil', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 3, '2020-01-30 15:36:00', '2020-05-26 17:06:02', NULL),
+(2, 1, 'Міжнародні програми навчання відкриті для реєстрації!', NULL, 'infoblock-items\\January2020\\ghFmoiC4spN7lfczeKK6.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 5, '2020-01-30 15:46:18', '2020-05-26 17:06:02', NULL),
+(3, 1, 'Вступну кампанію 2020 розпочато!', NULL, 'infoblock-items\\January2020\\MlIIjGPfwW58IRQz1raX.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 4, '2020-01-30 15:47:04', '2020-05-26 17:06:02', NULL),
+(4, 1, 'Відкрита лекція від Cisco Networking Academy', NULL, 'infoblock-items\\January2020\\LFnj5zenjagWaJZmrxZ7.jpg', 'Дізнатись більше', NULL, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolor optio provident temporibus tenetur? Ad, alias commodi corporis ea eos hic id ipsa iure molestiae natus nobis sint suscipit voluptas.', 6, '2020-01-30 15:47:48', '2020-05-26 17:06:02', NULL),
 (12, 3, 'Інформація', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\QLcjGFtgcLlGdCPDWHCY.svg\",\"original_name\":\"info.svg\"}]', NULL, NULL, NULL, 1, '2020-02-09 10:52:00', '2020-02-09 12:10:14', NULL),
 (13, 3, 'Діяльність', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\4Vkj4VgsapGlBbDxntzo.svg\",\"original_name\":\"activity.svg\"}]', NULL, NULL, NULL, 2, '2020-02-09 12:08:00', '2020-02-09 12:30:37', NULL),
 (14, 3, 'Про факультет', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\Te3QGGHigASvJdSQFbAQ.svg\",\"original_name\":\"about.svg\"}]', NULL, NULL, NULL, 3, '2020-02-09 12:08:00', '2020-02-09 12:32:49', NULL),
@@ -1300,18 +1311,19 @@ INSERT INTO `infoblock_items` (`id`, `infoblock_id`, `title`, `sub_title`, `imag
 (37, 5, '8 кафедр', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\Ys3pl6OZuNu3chYCMqAn.svg\",\"original_name\":\"department.svg\"}]', NULL, NULL, NULL, 11, '2020-02-09 13:30:00', '2020-02-09 13:39:37', NULL),
 (38, 5, '6 напрямків навчання', '', '[{\"download_link\":\"infoblock-items\\\\May2020\\\\FayXwlcugoSRN2E3V6IW.svg\",\"original_name\":\"courses.svg\"}]', '', NULL, '', 12, '2020-02-09 13:30:00', '2020-05-10 10:05:50', NULL),
 (42, 8, 'Кафедра інформаційних і дистанційних технологій', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\yah5ZY9lPKmoqtn2wH50.jpg\",\"original_name\":\"department1.jpg\"}]', NULL, NULL, NULL, 1, '2020-02-10 18:44:00', '2020-02-16 18:14:53', NULL),
-(43, 8, 'Кафедра інформаційних систем', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\GNvohomVc3JJYG82P8dd.jpg\",\"original_name\":\"department2.jpg\"}]', 'Детальніше', 'kafedra-informacijnih-sistem', NULL, 2, '2020-02-10 18:49:00', '2020-02-16 18:14:53', NULL),
-(44, 8, 'Кафедра економічної кібернетики', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\XnBpNZ6OgX4OitEgjQfY.jpg\",\"original_name\":\"department3.jpg\"}]', NULL, NULL, NULL, 3, '2020-02-10 18:50:00', '2020-02-18 20:22:55', NULL),
-(45, 8, 'Кафедра комп\'ютених наук', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\Ch4Ek4S31FS9VQyIlJag.jpg\",\"original_name\":\"department4.jpg\"}]', NULL, NULL, NULL, 4, '2020-02-10 18:50:00', '2020-02-18 20:22:55', NULL),
+(43, 8, 'Кафедра інформаційних систем', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\GNvohomVc3JJYG82P8dd.jpg\",\"original_name\":\"department2.jpg\"}]', 'Детальніше', 'kafedra-informacijnih-sistem', NULL, 3, '2020-02-10 18:49:00', '2020-05-26 05:17:49', NULL),
+(44, 8, 'Кафедра економічної кібернетики', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\XnBpNZ6OgX4OitEgjQfY.jpg\",\"original_name\":\"department3.jpg\"}]', NULL, NULL, NULL, 4, '2020-02-10 18:50:00', '2020-05-26 05:17:49', NULL),
+(45, 8, 'Кафедра комп\'ютених наук', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\Ch4Ek4S31FS9VQyIlJag.jpg\",\"original_name\":\"department4.jpg\"}]', NULL, NULL, NULL, 2, '2020-02-10 18:50:00', '2020-05-26 05:17:49', NULL),
 (58, 11, '1С', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\wvP33JiVWlR88fVklFma.png\",\"original_name\":\"partner1.png\"}]', NULL, NULL, NULL, 1, '2020-02-18 20:55:00', '2020-03-28 12:26:49', NULL),
 (59, 11, 'Microsoft Imagine', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\eSmNvoc9h9jRtCQ0dck3.png\",\"original_name\":\"partner2.png\"}]', NULL, NULL, NULL, 2, '2020-02-18 20:57:00', '2020-03-28 12:26:49', NULL),
 (60, 11, 'Google', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\G4de3ddIwLKcTBIV7l0l.png\",\"original_name\":\"partner3.png\"}]', NULL, NULL, NULL, 3, '2020-02-18 20:57:00', '2020-03-01 12:58:01', NULL),
 (61, 11, 'Cisco', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\71OMKoiEMRuRZ8S2MSWI.png\",\"original_name\":\"partner4.png\"}]', NULL, NULL, NULL, 4, '2020-02-18 20:57:00', '2020-03-01 12:58:01', NULL),
 (62, 11, 'Google2', NULL, '[{\"download_link\":\"infoblock-items\\\\February2020\\\\mhVmkMWoj83vuDDyGPls.png\",\"original_name\":\"partner3.png\"}]', NULL, NULL, NULL, 5, '2020-02-18 21:00:00', '2020-03-01 12:58:01', NULL),
-(63, 1, '8 березня', NULL, '[{\"download_link\":\"infoblock-items\\\\March2020\\\\P56w8nGg2Os5pz1zBJL6.jpg\",\"original_name\":\"523457181-copy1.jpg\"}]', NULL, NULL, NULL, 1, '2020-03-02 18:54:00', '2020-03-02 18:55:46', NULL),
+(63, 1, '8 березня', '', '[{\"download_link\":\"infoblock-items\\\\March2020\\\\P56w8nGg2Os5pz1zBJL6.jpg\",\"original_name\":\"523457181-copy1.jpg\"}]', '', NULL, '', 2, '2020-03-02 18:54:00', '2020-05-26 17:06:25', NULL),
 (64, 12, 'Перелік документів', '', '[]', '', 'perelik-dokumentiv', '', 13, '2020-05-10 10:28:00', '2020-05-10 10:28:43', NULL),
 (65, 12, 'Перелік спеціальностей', '', '[]', '', 'education/courses/bakalavr', '', 14, '2020-05-10 10:29:00', '2020-05-10 10:30:00', NULL),
-(66, 12, 'Термін вступної кампанії', '', '[]', '', 'termini-vstupnoyi-kampaniyi', '', 15, '2020-05-10 10:44:00', '2020-05-10 10:45:06', NULL);
+(66, 12, 'Термін вступної кампанії', '', '[]', '', 'termini-vstupnoyi-kampaniyi', '', 15, '2020-05-10 10:44:00', '2020-05-10 10:45:06', NULL),
+(68, 1, 'Захист бакалаврських робіт 2020', 'Дистанційне проведення', '[{\"download_link\":\"infoblock-items\\\\May2020\\\\ICPxSnm0n552bkaVINqt.png\",\"original_name\":\"magistr.png\"}]', '', NULL, '', 1, '2020-05-26 17:03:00', '2020-05-26 17:06:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -1432,7 +1444,9 @@ INSERT INTO `integration_logs` (`id`, `datetime`, `status`, `message`) VALUES
 (68, '2020-05-24 20:34:10', 'SUCCESS', 'Інтеграція успішно завершена'),
 (69, '2020-05-24 20:35:48', 'ERROR', 'Error on save - SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: \'-0001-11-30 00:00:00\' for column `itnulesdb`.`users`.`birthday` at row 1 (SQL: insert into `users` (`name`, `credit_note_number`, `role_id`, `birthday`, `group_id`, `avatar`, `password`, `updated_at`, `created_at`) values (Кучук Дмитро Павлович, 18002б, 3, -0001-11-30 00:00:00, 36, settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg, $2y$10$1u8cVnVhFb9mx/C4kHo94O.LgB9jXGIcqgopVnIcE1YATRcGGOPCu, 2020-05-24 17:35:48, 2020-05-24 17:35:48))'),
 (70, '2020-05-24 20:35:49', 'ERROR', 'Інтеграція закінчилась з помилками'),
-(71, '2020-05-24 20:37:54', 'SUCCESS', 'Інтеграція успішно завершена');
+(71, '2020-05-24 20:37:54', 'SUCCESS', 'Інтеграція успішно завершена'),
+(76, '2020-05-26 23:33:15', 'SUCCESS', 'Інтеграція успішно завершена'),
+(77, '2020-05-27 10:48:19', 'SUCCESS', 'Інтеграція успішно завершена');
 
 -- --------------------------------------------------------
 
@@ -1464,7 +1478,9 @@ INSERT INTO `lessons` (`id`, `name`, `position`, `frequency`, `day_id`, `discipl
 (3, NULL, 1, 'FULL', 2, 159, 7, 1, 5, '2020-05-25 16:03:30', '2020-05-25 16:03:30'),
 (4, NULL, 2, 'FULL', 2, 160, 7, 1, 5, '2020-05-25 16:10:03', '2020-05-25 16:10:03'),
 (5, NULL, 3, 'FULL', 2, 160, 3, 2, 5, '2020-05-25 16:10:49', '2020-05-25 16:10:49'),
-(6, NULL, 3, 'FULL', 3, 160, 2, 2, 5, '2020-05-25 16:24:33', '2020-05-25 16:24:33');
+(6, NULL, 3, 'FULL', 3, 160, 2, 2, 5, '2020-05-25 16:24:33', '2020-05-25 16:24:33'),
+(7, NULL, 3, 'DENOMINATOR', 4, 28, 1, 1, 5, '2020-05-26 18:01:56', '2020-05-26 18:01:56'),
+(8, NULL, 5, 'FULL', 4, 132, 1, 1, 5, '2020-05-27 05:05:11', '2020-05-27 05:05:11');
 
 -- --------------------------------------------------------
 
@@ -1555,7 +1571,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (23, 1, 'Типи інфоблоків', '', '_self', 'voyager-categories', '#000000', 59, 1, '2020-01-22 19:07:45', '2020-05-18 15:55:47', 'voyager.infoblock-types.index', 'null'),
 (24, 1, 'Інфоблоки', '', '_self', 'voyager-photos', '#000000', 58, 2, '2020-01-29 17:14:13', '2020-05-19 18:21:57', 'voyager.infoblocks.index', 'null'),
 (27, 1, 'Соціальні мережі', '', '_self', 'voyager-facebook', '#000000', NULL, 11, '2020-01-30 19:20:37', '2020-05-19 18:22:55', 'voyager.social-networks.index', 'null'),
-(29, 4, 'Про факультет', '', '_self', NULL, '#000000', NULL, 1, '2020-02-02 16:54:18', '2020-02-05 06:30:50', NULL, ''),
+(29, 4, 'Про факультет', 'about-fakulty', '_self', NULL, '#000000', NULL, 1, '2020-02-02 16:54:18', '2020-05-26 17:14:39', NULL, ''),
 (30, 4, 'Вступнику', '', '_self', NULL, '#000000', NULL, 2, '2020-02-02 16:55:00', '2020-02-05 06:30:50', NULL, ''),
 (31, 4, 'Правила прийому', '', '_self', NULL, '#000000', 30, 1, '2020-02-02 16:57:01', '2020-02-05 06:30:50', NULL, ''),
 (32, 4, 'Напрямки навчання', 'education/courses/bakalavr', '_self', NULL, '#000000', 30, 2, '2020-02-02 16:57:08', '2020-03-12 19:50:48', NULL, ''),
@@ -1563,21 +1579,21 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (34, 4, 'Випускникам коледжів', '', '_self', NULL, '#000000', 30, 4, '2020-02-02 16:57:27', '2020-02-05 06:30:50', NULL, ''),
 (35, 4, 'Магістратура', '', '_self', NULL, '#000000', 30, 5, '2020-02-02 16:57:37', '2020-02-05 06:30:50', NULL, ''),
 (36, 4, 'Навчальна робота', '', '_self', NULL, '#000000', NULL, 3, '2020-02-02 16:58:05', '2020-02-05 06:30:50', NULL, ''),
-(37, 4, 'Розклад занятть', '', '_self', NULL, '#000000', 36, 1, '2020-02-02 16:58:13', '2020-02-02 16:58:35', NULL, ''),
+(37, 4, 'Розклад занятть', 'schedule', '_self', NULL, '#000000', 36, 1, '2020-02-02 16:58:13', '2020-05-26 12:48:52', NULL, ''),
 (38, 4, 'Стипендія', '', '_self', NULL, '#000000', 36, 2, '2020-02-02 16:58:21', '2020-02-02 16:58:36', NULL, ''),
 (39, 4, 'Школа спотривного програмування', '', '_self', NULL, '#000000', 36, 3, '2020-02-02 16:58:28', '2020-02-02 16:58:38', NULL, ''),
 (40, 4, 'Адміністрація', '', '_self', NULL, '#000000', NULL, 4, '2020-02-02 16:58:45', '2020-02-05 06:30:50', NULL, ''),
 (41, 4, 'Студентська організація', '', '_self', NULL, '#000000', NULL, 5, '2020-02-02 16:58:54', '2020-02-05 06:30:50', NULL, ''),
-(42, 4, 'Наші випускники', 'nashi-vipuskniki', '_self', 'Наші студенти', '#000000', NULL, 6, '2020-02-02 16:59:02', '2020-03-11 20:48:56', NULL, ''),
+(42, 4, 'Наші випускники', 'graduates', '_self', 'Наші студенти', '#000000', NULL, 6, '2020-02-02 16:59:02', '2020-05-26 12:49:19', NULL, ''),
 (43, 4, 'Новини', '', '_self', NULL, '#000000', NULL, 7, '2020-02-02 16:59:53', '2020-02-05 06:30:50', 'posts', NULL),
-(44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 4, '2020-02-11 21:05:30', '2020-05-24 09:47:55', 'voyager.people-infos.index', 'null'),
+(44, 1, 'Інформація користувачів', '', '_self', 'voyager-people', '#000000', 45, 5, '2020-02-11 21:05:30', '2020-05-25 18:22:49', 'voyager.people-infos.index', 'null'),
 (45, 1, 'Користувачі', '', '_self', 'voyager-person', '#000000', NULL, 2, '2020-02-12 17:52:32', '2020-02-12 17:52:44', NULL, ''),
 (46, 1, 'Галереї', '', '_self', 'voyager-photos', '#000000', 58, 3, '2020-02-12 19:24:14', '2020-05-19 18:21:57', 'voyager.galleries.index', 'null'),
 (49, 1, 'Освітні ступені', '', '_self', 'voyager-file-text', '#000000', 52, 1, '2020-02-28 14:39:46', '2020-02-29 07:33:49', 'voyager.education-degrees.index', 'null'),
 (50, 1, 'Освітні програми', '', '_self', 'voyager-file-text', '#000000', 52, 3, '2020-02-28 14:44:06', '2020-02-29 07:34:23', 'voyager.education-programs.index', NULL),
 (51, 1, 'Освітні спеціальності', '', '_self', 'voyager-file-text', NULL, 52, 2, '2020-02-28 14:46:01', '2020-02-29 07:34:23', 'voyager.education-specialties.index', NULL),
 (52, 1, 'Освіта', '', '_self', 'voyager-company', '#000000', NULL, 6, '2020-02-29 07:20:47', '2020-05-18 15:52:15', NULL, ''),
-(54, 1, 'Групи інформації користувачів', '', '_self', 'voyager-people', NULL, 45, 5, '2020-03-02 19:35:39', '2020-05-24 09:47:55', 'voyager.people-info-groups.index', NULL),
+(54, 1, 'Групи інформації користувачів', '', '_self', 'voyager-people', NULL, 45, 6, '2020-03-02 19:35:39', '2020-05-25 18:22:49', 'voyager.people-info-groups.index', NULL),
 (55, 1, 'Дисципліни', '', '_self', 'voyager-book', NULL, 57, 1, '2020-05-18 14:32:50', '2020-05-18 15:50:31', 'voyager.disciplines.index', NULL),
 (56, 1, 'Інтеграція', '', '_self', 'voyager-logbook', '#000000', NULL, 12, '2020-05-18 14:38:21', '2020-05-19 18:22:55', 'voyager.integration-logs.index', 'null'),
 (57, 1, 'Розклад', '', '_self', 'voyager-calendar', '#000000', NULL, 7, '2020-05-18 15:50:21', '2020-05-18 15:52:15', NULL, ''),
@@ -1588,7 +1604,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (62, 1, 'Пункти рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 2, '2020-05-19 18:16:00', '2020-05-19 18:22:02', 'voyager.rating-items.index', NULL),
 (63, 1, 'Блоки пунктів рейтингу', '', '_self', 'voyager-bar-chart', NULL, 64, 1, '2020-05-19 18:17:11', '2020-05-19 18:22:00', 'voyager.rating-item-groups.index', NULL),
 (64, 1, 'Рейтинг', '', '_self', 'voyager-bar-chart', '#000000', NULL, 8, '2020-05-19 18:21:47', '2020-05-19 18:22:55', NULL, ''),
-(65, 1, 'Навчальні групи', '', '_self', 'voyager-wallet', '#000000', 45, 3, '2020-05-23 17:27:29', '2020-05-24 09:47:55', 'voyager.groups.index', 'null'),
+(65, 1, 'Навчальні групи', '', '_self', 'voyager-wallet', '#000000', 45, 4, '2020-05-23 17:27:29', '2020-05-25 18:22:49', 'voyager.groups.index', 'null'),
 (66, 1, 'Рейтинг студентів', '', '_self', 'voyager-bar-chart', NULL, 64, 3, '2020-05-24 09:55:04', '2020-05-24 09:57:38', 'voyager.user-rating-items.index', NULL),
 (67, 1, 'Факультети', '', '_self', 'voyager-study', '#000000', 59, 7, '2020-05-25 13:24:54', '2020-05-25 13:52:40', 'voyager.faculties.index', 'null'),
 (68, 1, 'Типи аудиторій', '', '_self', 'voyager-company', '#000000', 59, 5, '2020-05-25 13:26:51', '2020-05-25 13:52:28', 'voyager.audience-types.index', 'null'),
@@ -1596,7 +1612,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (70, 1, 'Дні', '', '_self', 'voyager-calendar', NULL, 59, 4, '2020-05-25 13:29:54', '2020-05-25 13:52:28', 'voyager.days.index', NULL),
 (71, 1, 'Корпуси', '', '_self', 'voyager-company', NULL, 57, 2, '2020-05-25 13:30:58', '2020-05-25 13:52:46', 'voyager.buildings.index', NULL),
 (72, 1, 'Аудиторії', '', '_self', 'voyager-company', NULL, 57, 3, '2020-05-25 13:33:10', '2020-05-25 13:52:53', 'voyager.audiences.index', NULL),
-(73, 1, 'Заняття', '', '_self', 'voyager-book', '#000000', 57, 4, '2020-05-25 13:51:18', '2020-05-25 13:52:59', 'voyager.lessons.index', 'null');
+(73, 1, 'Заняття', '', '_self', 'voyager-book', '#000000', 57, 4, '2020-05-25 13:51:18', '2020-05-25 13:52:59', 'voyager.lessons.index', 'null'),
+(74, 1, 'Права', '', '_self', 'voyager-lock', NULL, 45, 3, '2020-05-25 18:22:02', '2020-05-25 18:22:49', 'voyager.permissions.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -1686,7 +1703,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (86, '2020_05_25_121459_create_lessons_table', 31),
 (87, '2020_05_25_121548_create_professor_in_lessons_table', 32),
 (88, '2020_05_25_121556_create_group_in_lessons_table', 33),
-(89, '2020_05_25_210238_create_user_notifications_table', 34);
+(89, '2020_05_25_210238_create_user_notifications_table', 34),
+(90, '2020_05_26_175403_add_column_to_user_notifications_table', 35);
 
 -- --------------------------------------------------------
 
@@ -1719,7 +1737,8 @@ INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `sl
 (4, 1, 'Кафедри факультету', NULL, '<p>[infoblock code=\"kafedri-fakul-tetu\"]</p>', NULL, 'departments', NULL, NULL, 'ACTIVE', '2020-02-12 18:37:04', '2020-02-12 18:38:07'),
 (6, 1, 'Випускникам шкіл', 'Випускникам шкіл', '<p>Відповідно до <strong>Правил прийому на 2020 рік</strong>&nbsp; вступ на базі повної загальної середньої освіти буде проходити на основі <strong>сертифікатів ЗНО 2020, 2019, 2018 та 2017&nbsp; років. Оцінки з англійської, французької, німецької та іспанської мов приймаються лише із сертифікатів зовнішнього незалежного оцінювання 2018-2020 років.&nbsp;</strong></p>\n<p>Звертаємо Вашу увагу, що цьогоріч можна буде подати <strong>до п\'яти заяв</strong> за спеціальностями, на які передбачено прийом за кошти державного бюджету. Кількість поданих заяв на спеціальності, на яких не передбачається прийому за кошти державного бюджету, не обмежується.</p>\n<p>Під час подання заяв абітурієнт, що претендує на місця державного або регіонального замовлення, має зазначити її пріоритетність, при цьому показник пріоритетності 1 (один) означає найвищу пріоритетність.&nbsp;</p>\n<p><strong>Зазначена вступником пріоритетність заяви не може бути зміненою.</strong></p>\n<p><strong>Прийом заяв і документів на навчання розпочинається з <span style=\"color: #ff0000;\">13 липня 2020 року</span>.</strong></p>\n<p>Мінімальна кількість балів з конкурсних предметів для допуску до участі в конкурсі:</p>\n<ul>\n<li>українська мова і література &ndash; <span style=\"color: #ff0000;\"><strong>100 балів</strong></span>.</li>\n<li>другий предмет &ndash; <span style=\"color: #ff0000;\"><strong>100 балів</strong></span> для усіх спеціальностей, окрім спеціальності <strong>Геодезія та землеустрій</strong> &ndash; <span style=\"color: #ff0000;\"><strong>110 балів</strong></span>.</li>\n<li>третій предмет (на вибір з двох) &ndash; <span style=\"color: #ff0000;\"><strong>100 балів</strong></span>.</li>\n</ul>\n<p>&nbsp;</p>\n<p>[infoblock code=\"vipusknikam-shkil-posilannya\"]</p>', NULL, 'vipusknikam-shkil', '', '', 'ACTIVE', '2020-05-10 09:43:16', '2020-05-10 10:20:40'),
 (7, 1, 'Перелік документів', '', '<p><strong>VІ. Порядок прийому заяв та документів для участі у конкурсному відборі до НУБіП України</strong></p>\n<p>1. Вступники на основі повної загальної середньої освіти подають заяви:</p>\n<ul>\n<li>тільки в електронній формі, крім визначених у цьому пункті випадків;</li>\n<li>тільки у паперовій формі:</li>\n<li>для реалізації права на вступ за співбесідою відповідно до цих Правил;</li>\n<li>для реалізації права на повторне безоплатне здобуття освіти за бюджетні кошти відповідно до цих Правил;</li>\n<li>за наявності розбіжностей в даних вступника в ЄДЕБО (прізвище, ім&rsquo;я, по батькові, дата народження, стать, громадянство тощо) і у відповідному документі про здобуття повної загальної середньої освіти та у сертифікаті зовнішнього незалежного оцінювання;</li>\n<li>у разі подання іноземного документа про освіту;</li>\n<li>у разі подання документа про повну загальну середню освіту, виданого до запровадження фотополімерних технологій їх виготовлення;</li>\n<li>у разі подання заяви після завершення строків роботи електронних кабінетів;</li>\n<li>для реалізації права на нарахування додаткових балів, передбачених абзацом восьмим підпункту 1 пункту 8 розділу VII цих Правил;</li>\n<li>у разі неможливості зареєструвати електронний кабінет або подати заяву в електронній формі з інших причин, що підтверджено довідкою приймальної комісії НУБіП України.</li>\n</ul>\n<p>Вступники, зазначені в абзаці четвертому цього пункту, можуть подавати заяви в електронній формі з подальшим поданням документів, що підтверджують право на вступ за співбесідою, які мають бути подані в строки прийому заяв, відповідно до цих Правил.</p>\n<p>Для реалізації права на вступ за результатами вступних іспитів з конкурсних предметів у НУБіП України та/або квотою-1, квотою для іноземців, першочергового зарахування, у разі подання документів іноземцями та особами без громадянства, які постійно проживають в Україні, вступники одночасно з поданням заяви в електронній формі подають копії (сканкопії) підтвердних документів.</p>\n<p>Вступники можуть подати до п&rsquo;яти заяв на місця державного та регіонального замовлення у фіксованих (закритих) та відкритих конкурсних пропозиціях. Подання заяв на конкурсні пропозиції для участі в конкурсі на місця за кошти фізичних та/або юридичних осіб не обмежується.</p>\n<p>2. Вступники для здобуття ступеня магістра (крім спеціальностей галузей знань 01 &laquo;Освіта/Педагогіка&raquo;, 20 &laquo;Аграрні науки та продовольство&raquo;) на основі здобутого ступеня вищої освіти або освітньо-кваліфікаційного рівня спеціаліста подають заяви:</p>\n<ul>\n<li>тільки в електронній формі, крім визначених у цьому пункті випадків;</li>\n<li>тільки у паперовій формі:</li>\n<li>для реалізації права на вступ за результатами вступних іспитів з конкурсних предметів у НУБіП України та/або квотою для іноземців відповідно до цих Правил;</li>\n<li>для реалізації права на повторне безоплатне здобуття освіти за бюджетні кошти відповідно до цих Правил;</li>\n<li>для реалізації права на першочергове зарахування відповідно до цих Правил;</li>\n<li>за наявності розбіжностей у даних вступника в ЄДЕБО (прізвище, ім&rsquo;я, по батькові, дата народження, стать, громадянство тощо) і у відповідному документі про здобуття ступеня (освітньо-кваліфікаційного рівня) вищої освіти на базі якого відбувається вступ;</li>\n<li>у разі подання іноземного документа про освіту;</li>\n<li>у разі подання заяви іноземцями та особами без громадянства, які постійно проживають в Україні;</li>\n<li>у разі подання документа про здобуття ступеня (освітньо-кваліфікаційного рівня) вищої освіти, на базі якого відбувається вступ, інформація про який відсутня в ЄДЕБО;</li>\n<li>у разі подання заяви після завершення строків роботи електронних кабінетів;</li>\n<li>у разі неможливості зареєструвати електронний кабінет або подати заяву в електронній формі з інших причин, що підтверджено довідкою приймальної комісії НУБіП України.</li>\n</ul>\n<p>Вступники можуть подати до п&rsquo;яти заяв на місця державного та регіонального замовлення. Подання заяв на конкурсні пропозиції для участі в конкурсі на місця за кошти фізичних та/або юридичних осіб не обмежується.</p>\n<p>3. Інші категорії вступників, крім зазначених у пункті 1 і 2 цього розділу, подають заяви тільки в паперовій формі.</p>\n<p>4. Заява в електронній формі подається вступником шляхом заповнення електронної форми в режимі он-лайн та розглядається приймальною комісією НУБіП України у Порядком визначеному законодавством.</p>\n<p>В НУБіП України на час вступної кампанії створюються консультаційні центри при приймальній комісії для надання допомоги вступникам під час подання заяв в електронній формі. Вступники можуть звернутися до консультаційного центру з метою створення електронного кабінету, внесення заяв в електронній формі, завантаження додатка до документа про освіту на основі якого відбувається вступ, довідки про реєстрацію місця проживання (за потреби), згідно з додатком 13 до Правил реєстрації місця проживання та Порядку передачі органами реєстрації інформації до Єдиного державного демографічного реєстру, затвердженого постановою Кабінету Міністрів України від 02 березня 2016 року № 207.</p>\n<p>5. Заява в паперовій формі подається вступником особисто до приймальної комісії НУБіП України. Відомості кожної заяви в паперовому вигляді реєструються уповноваженою особою приймальної комісії в ЄДЕБО в день прийняття заяви.</p>\n<p>6. У заяві вступники вказують конкурсну пропозицію із зазначенням спеціальності (предметної спеціальності, спеціалізації, освітньої програми) та форми здобуття освіти.</p>\n<p>Під час подання заяв на відкриті та фіксовані (закриті) конкурсні пропозиції вступники обов&rsquo;язково зазначають один з таких варіантів:</p>\n<p>&laquo;Претендую на участь у конкурсі на місце державного або регіонального замовлення і на участь у конкурсі на місця за кошти фізичних та/або юридичних осіб у разі неотримання рекомендації за цією конкурсною пропозицією за кошти державного або місцевого бюджету (за державним або регіональним замовленням)&raquo;;</p>\n<p>&laquo;Претендую на участь у конкурсі виключно на місця за кошти фізичних та/або юридичних осіб, повідомлений про неможливість переведення в межах вступної кампанії на місця державного або регіонального замовлення&raquo;.</p>\n<p>Під час подання заяв на небюджетну конкурсну пропозицію вступники претендують на участь у конкурсі виключно на місця за кошти фізичних та/або юридичних осіб і попереджаються про неможливість переведення в межах вступної кампанії на місця державного або регіонального замовлення.</p>\n<p>Вступники для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти та вступники для здобуття ступеня магістра на основі ступеня бакалавра, магістра (освітньо-кваліфікаційного рівня спеціаліста) за спеціальністю 081 &laquo;Право&raquo;, що претендують на місця державного або регіонального замовлення за денною або заочною формою здобуття освіти, у кожній заяві зазначають її пріоритетність; при цьому показник пріоритетності 1 (один) означає найвищу пріоритетність.</p>\n<p>Зазначена вступником пріоритетність заяв не може бути змінена.</p>\n<p>Для участі у конкурсі для вступу за різними формами здобуття освіти вступники подають окремі заяви.</p>\n<p>7. Під час подання заяви в паперовій формі вступник особисто пред&rsquo;являє оригінали:</p>\n<ul>\n<li>документа (одного з документів), що посвідчує особу передбаченого Законом України &laquo;Про Єдиний державний демографічний реєстр та документи, що підтверджують громадянство, посвідчують особу чи її спеціальний статус&raquo;;</li>\n<li>військового-облікового документа для військовозобов&rsquo;язаних (крім випадків, передбачених законодавством);</li>\n<li>документа державного зразка про раніше здобутий освітній ступінь (освітньо-кваліфікаційний рівень), на основі якого здійснюється вступ, і додаток до нього;</li>\n<li>документи, які підтверджують право вступника на зарахування за співбесідою, на участь у конкурсі за результатами вступних іспитів та/або квотою-1 на основі повної загальної середньої освіти, на участь у конкурсі за іспитами під час вступу для здобуття ступеня магістра на основі ступеня бакалавра, магістра (освітньо-кваліфікаційного рівня спеціаліста) замість єдиного вступного іспиту з іноземної мови та/або єдиного фахового вступного випробування.</li>\n</ul>\n<p>Вступники, які проживають на тимчасово окупованій території України або переселилися з неї після 01 січня 2020 року, а також вступники, які проживають на територіях, де органи державної влади тимчасово не здійснюють свої повноваження, подають документи з урахуванням особливостей, передбачених наказом № 560 та наказом № 697 відповідно.</p>\n<p>Якщо з об&rsquo;єктивних причин документ про здобутий освітній ступінь (освітньо-кваліфікаційний рівень) відсутній, може подаватись довідка державного підприємства &laquo;Інфоресурс&raquo; про його здобуття, у тому числі без подання додатка до документа про здобутий освітній (освітньо-кваліфікаційний) рівень.</p>\n<p>8. До заяви, поданої в паперовій формі, вступник додає:</p>\n<ul>\n<li>копію документа (одного з документів), що посвідчує особу, передбаченого Законом України &laquo;Про Єдиний державний демографічний реєстр та документи, що підтверджують громадянство, посвідчують особу чи її спеціальний статус&raquo;;</li>\n<li>копію військово-облікового документа ‒ для військовозобов&rsquo;язаних (крім випадків, передбачених законодавством);</li>\n<li>копію документа державного зразка про раніше здобутий освітній (освітньо-кваліфікаційний) рівень, на основі якого здійснюється вступ, і копію додатка до нього;</li>\n<li>копію сертифіката (сертифікатів) зовнішнього незалежного оцінювання (для вступників на основі повної загальної середньої освіти та освітньо-кваліфікаційного рівня молодшого спеціаліста) або екзаменаційного листка єдиного фахового вступного випробування/єдиного вступного іспиту (у визначених цими Правилами випадках;</li>\n<li>медичну довідку за формою 086/о;</li>\n<li>чотири кольорові фотокартки розміром 3 х 4 см.</li>\n</ul>\n<p>Інші копії документів подаються вступником, якщо це викликано особливими умовами вступу на відповідні конкурсні пропозиції, установлені законодавством, у строки, визначені для прийому документів.</p>\n<p>9. Копії документів, що засвідчують підстави для отримання спеціальних умов для зарахування за співбесідою, на участь у конкурсі за результатами вступних іспитів та/або квотою-1 на основі повної загальної середньої освіти, спеціальних умов для участі в конкурсі за результатами вступних іспитів під час вступу на здобуття ступеня магістра на основі здобутого ступеня бакалавра, магістра (освітньо-кваліфікаційного рівня спеціаліста) за спеціальністю 081 &laquo;Право&raquo; подаються вступником особисто при поданні документів у паперовій формі у визначені цими Правилами або відповідно до них терміни. Не подані своєчасно документи, що засвідчують підстави для отримання спеціальних умов на зарахування за співбесідою, на участь у конкурсі за результатами вступних іспитів та/або квотою-1 на основі повної загальної середньої освіти, унеможливлюють їх реалізацію.</p>\n<p>10. Копії документів, що засвідчують підстави для отримання спеціальних умов особою, яка зарахована на навчання за кошти фізичних та/або юридичних осіб для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти, на переведення на вакантні місця державного замовлення та за рахунок цільових пільгових державних кредитів подаються вступником особисто одночасно з виконанням вимог для зарахування на місця за кошти фізичних та/або юридичних осіб, але не пізніше ніж 06 серпня. Не подані своєчасно документи, що засвідчують підстави для отримання спеціальних умов на переведення на вакантні місця державного замовлення та за рахунок цільових пільгових державних кредитів, унеможливлюють їх реалізацію.</p>\n<p>11. Усі копії документів, які подаються при вступі до НУБіП України, засвідчуються за оригіналами приймальною (відбірковою) комісією. Копії документа, що посвідчує особу, військового квитка (посвідчення про приписку) не підлягають засвідченню. Копії документів без пред&rsquo;явлення оригіналів не приймаються.</p>\n<p>12. Приймальна комісія здійснює перевірку підстав для отримання спеціальних умов для зарахування за співбесідою, на участь у конкурсі за результатами вступних іспитів та/або квотою-1 на основі повної загальної середньої освіти, спеціальних умов для участі в конкурсі за результатами вступних іспитів під час вступу на здобуття ступеня магістра на основі здобутого ступеня бакалавра, магістра (освітньо-кваліфікаційного рівня спеціаліста) за спеціальністю 081 &laquo;Право&raquo; та спеціальних умов для осіб, які зараховані на навчання за кошти фізичних та/або юридичних осіб для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти, на переведення на вакантні місця державного замовлення та за рахунок цільових пільгових державних кредитів.</p>\n<p>Приймальна комісія здійснює перевірку середнього бала документа про освіту, поданого в паперовій формі (обчислює в разі відсутності), затверджує його своїм рішенням і вносить інформацію про середній бал документа про освіту до ЄДЕБО. У разі подання вступником заяви в електронній формі приймальна комісія здійснює перевірку середнього бала документа про освіту на підставі його сканованої копії (фотокопії).</p>\n<p>13. Приймальна комісія розглядає заяви та документи вступників і приймає рішення про допуск до участі в конкурсному відборі для вступу на навчання до НУБіП України протягом трьох робочих днів з дати реєстрації заяви в ЄДЕБО або отримання результатів вступних випробувань, але не пізніше наступного дня після завершення прийому документів. Оприлюднення поточних рейтингових списків вступників здійснюється на офіційному веб-сайті НУБіП України на підставі даних, внесених до ЄДЕБО.</p>\n<p>14. Факт ознайомлення вступника з Правилами прийому, наявною ліцензією і сертифікатом про акредитацію відповідної освітньої програми (спеціальності), а також факт наявності/відсутності підстав для участі у конкурсі за результатами вступних іспитів, зарахування за співбесідою, зарахування за квотою-1, квотою-4 фіксуються в заяві вступника та підтверджуються його особистим підписом при поданні заяви у паперовій формі.</p>\n<p>У разі подання документів на неакредитовані освітні програми (спеціальності), вступники особисто підписують окремий документ щодо поінформованості про відсутність акредитації та ознайомлення з частиною 6 статті 7 Закону України &laquo;Про вищу освіту&raquo;.</p>\n<p>Вступник має право до дати закінчення подання електронних заяв скасувати у власному електронному кабінеті подану ним раніше заяву, зареєстровану та допущену до конкурсу у НУБіП України, без права подання нової заяви з такою ж пріоритетністю.</p>\n<p>Паперова заява зареєстрована в ЄДЕБО, може бути скасована НУБіП України на підставі рішення приймальної комісії до дати закінчення прийому документів на навчання для заяв у паперовій формі за умови допущення технічної помилки під час внесення відповідних даних до ЄДЕБО, що підтверджується актом про допущену технічну помилку, який сформовано і роздрукована з ЄДЕБО. Скасована заява вважається не поданою, а факт такого подання анулюється в ЄДЕБО.</p>\n<p>Електронна заява, зареєстрована в ЄДЕБО, може бути скасована Технічним адміністратором ЄДЕБО на підставі офіційного рішення розпорядника ЄДЕБО не пізніше як за день до закінчення подання електронних заяв за умови виявлення технічної помилки під час внесення відповідних даних до ЄДЕБО. Скасована заява вважається не поданою, а факт такого подання анулюється в ЄДЕБО.</p>\n<p>Технічний адміністратор засобами мобільного зв&rsquo;язку або електронного зв&rsquo;язку повідомляє вступникові про скасування заяви в день її скасування, після чого вступник може подати нову заяву з такою самою пріоритетністю.</p>\n<p>15. Під час прийняття на навчання осіб, які подають документ про здобутий за кордоном ступінь (рівень) освіти (далі &ndash; Документ), обов&rsquo;язковою є процедура визнання і встановлення еквівалентності Документа, що здійснюється відповідно до наказу Міністерства освіти і науки України від 05 травня 2015 року № 504 &laquo;Деякі питання визнання в Україні іноземних документів про освіту&raquo;, зареєстрованого в Міністерстві юстиції України 27 травня 2015 року за № 614/27059.</p>\n<p>16. Під час прийняття на навчання осіб, які подають документ про вищу духовну освіту, виданий закладом вищої духовної освіти, обов&rsquo;язковим є подання Свідоцтва про державне визнання документа про вищу духовну освіту або рішення вченої ради закладу вищої освіти (наукової установи) щодо визнання зазначеного документа у встановленому законодавством порядку.</p>\n<p>17. Під час подання заяв та документів для здобуття ступеня бакалавра (магістра ветеринарного спрямування) на основі освітньо-кваліфікаційного рівня молодшого спеціаліста, можуть прийматися як документи про освітньо-кваліфікаційний рівень молодшого спеціаліста, що виготовлені відповідно до постанови Кабінету Міністрів України від 31 березня 2015 р. № 193 &laquo;Про документи про вищу освіту (наукові ступені) державного зразка&raquo;, так і документи про освітньо-кваліфікаційний рівень молодшого спеціаліста, що виготовлені згідно з постановою від 22 липня 2015 року № 645 &laquo;Про документи про загальну середню та професійно-технічну освіту державного зразка і додатки до них&raquo;.</p>', NULL, 'perelik-dokumentiv', '', '', 'ACTIVE', '2020-05-10 10:27:30', '2020-05-10 10:27:30'),
-(8, 1, 'Терміни вступної кампанії', 'Строки прийому заяв та документів, конкурсного відбору та зарахування на навчання для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти', '<p>Строки прийому заяв та документів, конкурсного відбору та зарахування на навчання для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти</p>', NULL, 'termini-vstupnoyi-kampaniyi', '', '', 'INACTIVE', '2020-05-10 10:43:41', '2020-05-10 10:43:41');
+(8, 1, 'Терміни вступної кампанії', 'Строки прийому заяв та документів, конкурсного відбору та зарахування на навчання для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти', '<p>Строки прийому заяв та документів, конкурсного відбору та зарахування на навчання для здобуття освітнього ступеня бакалавра (магістра ветеринарного спрямування) на основі повної загальної середньої освіти</p>', NULL, 'termini-vstupnoyi-kampaniyi', '', '', 'INACTIVE', '2020-05-10 10:43:41', '2020-05-10 10:43:41'),
+(9, 1, 'Про факультет', '', '<p>[people-info code=\"chubar-lyudmila\" view=\"teacher\"]</p>\n<p>Кафедра інформаційних систем створена в 1997р. Основною метою діяльності кафедри є підготовка спеціалістів, які забезпечують розробку і впровадження інформаційних систем та комп&rsquo;ютерних технологій в агропромисловому комплексі. Кафедра веде підготовку студентів факультету інформаційних технологій, економічного факультету, факультету аграрного менеджменту та навчально-наукового інституту післядипломної освіти.</p>', 'pages\\May2020\\h88MsK0xCIxxmUYZiAkp.jpg', 'about-fakulty', '', '', 'ACTIVE', '2020-05-26 17:13:51', '2020-05-26 17:13:51');
 
 -- --------------------------------------------------------
 
@@ -1750,7 +1769,7 @@ CREATE TABLE `people_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1769,7 +1788,8 @@ CREATE TABLE `people_infos` (
 INSERT INTO `people_infos` (`id`, `user_id`, `name`, `slug`, `phone`, `email`, `position`, `description`, `image`, `link`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Швиденко Михайло Зіновійович', 'shvidenko-mihajlo-zinovijovich', NULL, NULL, 'Завідувач кафедри', '<p><span style=\"color: rgba(0, 4, 57, 0.75); font-family: Raleway, sans-serif; font-size: 17.075px;\">кандидат економічних наук, доцент, заслужений професор НУБіП України, відмінник аграрної освіти і науки України, заслужений працівник освіти України</span></p>', 'people-infos\\February2020\\BVJzWdD8Yc1KWGE9S3zn.jpg', NULL, 'CHANGED', '2020-02-11 21:07:00', '2020-02-11 21:07:00'),
 (2, 1, 'Литвинчук Владислав', 'litvinchuk-vladislav', '380985413495', 'vlad_litvinchyk@ukr.net', '', 'Студент спеціальності \"Комп\'ютерні науки\" 2020 року випуску. SQL / C# / JS deweloper в компанії SalesUp. Розробник Creatio (BPMonline) систем.', 'people-infos\\February2020\\5o6ZYBILUN1X7kxOAyRQ.png', NULL, 'PUBLISHED', '2020-02-27 17:49:27', '2020-05-21 17:18:26'),
-(3, 39, 'Чубар Людмила', 'chubar-lyudmila', NULL, 'arriadnie@gmail.com', '', 'Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-05-24 16:20:14');
+(3, 39, 'Чубар Людмила', 'chubar-lyudmila', '0661142959', 'arriadnie@gmail.com', '', 'Студентка спеціальності \"Комп\'ютерні науки\" 2020 року випуску. Web developer в компанції CF digital', 'people-infos\\February2020\\KeMW8bD9wOH1vNTEQt48.jpg', NULL, 'PUBLISHED', '2020-02-27 17:55:34', '2020-05-27 04:50:17'),
+(5, 40, 'Якимов Олексій Сергійович', NULL, '0987456321', 'loha@gmail.com', NULL, 'Льоха', NULL, NULL, 'CHANGED', '2020-05-26 13:58:56', '2020-05-26 13:58:56');
 
 -- --------------------------------------------------------
 
@@ -1827,6 +1847,15 @@ CREATE TABLE `people_info_social_networks` (
   `social_network_id` int(10) UNSIGNED NOT NULL,
   `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `people_info_social_networks`
+--
+
+INSERT INTO `people_info_social_networks` (`people_info_id`, `social_network_id`, `value`) VALUES
+(2, 1, 'https://www.instagram.com/ltv_vladislav/'),
+(2, 2, 'https://www.facebook.com/vlad.litvinchyk'),
+(5, 1, 'https://www.instagram.com/loha');
 
 -- --------------------------------------------------------
 
@@ -2067,7 +2096,13 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (173, 'read_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
 (174, 'edit_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
 (175, 'add_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
-(176, 'delete_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18');
+(176, 'delete_lessons', 'lessons', '2020-05-25 13:51:18', '2020-05-25 13:51:18'),
+(177, 'browse_permissions', 'permissions', '2020-05-25 18:22:02', '2020-05-25 18:22:02'),
+(178, 'read_permissions', 'permissions', '2020-05-25 18:22:02', '2020-05-25 18:22:02'),
+(179, 'edit_permissions', 'permissions', '2020-05-25 18:22:02', '2020-05-25 18:22:02'),
+(180, 'add_permissions', 'permissions', '2020-05-25 18:22:02', '2020-05-25 18:22:02'),
+(181, 'delete_permissions', 'permissions', '2020-05-25 18:22:02', '2020-05-25 18:22:02'),
+(182, 'offer_posts', 'posts', '2020-05-25 18:25:20', '2020-05-25 18:25:20');
 
 -- --------------------------------------------------------
 
@@ -2128,6 +2163,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (34, 1),
 (34, 6),
 (35, 1),
+(35, 3),
 (35, 6),
 (36, 1),
 (36, 6),
@@ -2348,7 +2384,14 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (173, 1),
 (174, 1),
 (175, 1),
-(176, 1);
+(176, 1),
+(177, 1),
+(178, 1),
+(179, 1),
+(180, 1),
+(181, 1),
+(182, 1),
+(182, 3);
 
 -- --------------------------------------------------------
 
@@ -2379,17 +2422,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, 'Заголовок укр', '', 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>', 'posts/post1.jpg', 'zagolovok-ukr', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-09-06 03:13:33', '2020-01-19 17:19:43'),
-(2, 1, 2, 'My Sample Post', '', 'This is the excerpt for the sample Post', '<p>This is the body for the sample post, which includes the body.</p>\n<h2>We can use all kinds of format!</h2>\n<p>And include a bunch of other stuff.</p>', 'posts/post2.jpg', 'my-sample-post', 'Meta Description for sample post', 'keyword1, keyword2, keyword3', 'PUBLISHED', 1, '2019-09-06 03:13:33', '2020-02-04 06:49:07'),
-(3, 1, 1, 'Latest Post', '', 'This is the excerpt for the latest post', '<p>This is the body for the latest post</p>', 'posts/post3.jpg', 'latest-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-09-06 03:13:33', '2020-02-04 06:49:18'),
-(4, 1, 2, 'Yarr Post', '', 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', 'posts/post4.jpg', 'yarr-post', 'this be a meta descript', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-09-06 03:13:33', '2020-02-04 06:49:28'),
-(5, 1, 1, 'Elearn', '', 'Інфо про ельорн', '<p>Навчальний портал</p>\n<p><a href=\"https://elearn.nubip.edu.ua/login/index.php\">Посилання на сайт</a></p>\n<p>&nbsp;</p>\n<p><img title=\"Назва фото\" src=\"http://localhost:8000/storage/posts/January2020/elearning-banner2-1354x500.png\" alt=\"Опис\" width=\"617\" height=\"228\" /></p>\n<ul>\n<li>1</li>\n<li>2</li>\n<li>3</li>\n</ul>\n<p><span style=\"color: #ff0000;\">красний</span></p>', 'posts\\January2020\\bX7uzVo8AaMXFAqCDZoU.png', 'elearn', '', '', 'PUBLISHED', 0, '2020-01-14 17:59:12', '2020-02-04 06:48:49'),
-(6, 1, 3, 'Новина про квіти', '', '', '<p><span style=\"color: #000000; font-family: \'Open Sans\', Arial, sans-serif; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p>', 'posts\\February2020\\TJpRhsFLLFMMQ9LpybuC.jpg', 'novina-pro-kviti', '', '', 'PUBLISHED', 0, '2020-02-04 18:37:54', '2020-02-04 18:39:55'),
-(7, 1, 1, 'Єдиноріг', '', '', '<p><span style=\"color: #000000; font-family: \'Open Sans\', Arial, sans-serif; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p>', 'posts\\February2020\\tGDPS5488YfZjH1vIwnZ.jpg', 'yedinorig', '', '', 'PUBLISHED', 0, '2020-02-04 18:38:23', '2020-02-04 18:38:23'),
-(8, 1, 2, 'Море', '', '', '<p><span style=\"color: #000000; font-family: \'Open Sans\', Arial, sans-serif; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p>', 'posts\\February2020\\Vb4uU0M1vF7FHDnlxExM.jpg', 'more', '', '', 'PUBLISHED', 0, '2020-02-04 18:39:26', '2020-02-04 18:39:42'),
-(9, 1, 2, '14 лютого', '', '', '<p>Всіх зі святом</p>', 'posts\\February2020\\jOu28ryJ4hlumna1xMkN.jpg', '14-lyutogo', '', '', 'PUBLISHED', 1, '2020-02-04 18:42:38', '2020-02-04 18:42:38'),
-(10, 1, 1, 'Котик', '', '', '<p>Мемасікі</p>', 'posts\\February2020\\E85hw82vkHNwGldAyL5b.jpg', 'kotik', '', '', 'PUBLISHED', 0, '2020-02-04 18:43:06', '2020-02-04 18:43:06'),
-(11, 1, 2, 'Новий 2020', '', 'Про новий рік.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. ', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Est lorem ipsum dolor sit. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Id interdum velit laoreet id donec. Integer vitae justo eget magna. Tellus integer feugiat scelerisque varius morbi. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Nibh tellus molestie nunc non blandit massa enim. Sed augue lacus viverra vitae congue. Cras fermentum odio eu feugiat pretium nibh. Nulla facilisi nullam vehicula ipsum a arcu. Purus non enim praesent elementum facilisis leo vel. Est sit amet facilisis magna etiam tempor orci eu lobortis. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.</p>\n<figure class=\"image\"><img title=\"Символ року\" src=\"http://localhost:8000/storage/posts/February2020/mouse.jpg\" alt=\"Символ року\" width=\"512\" height=\"288\" />\n<figcaption>Мишка</figcaption>\n</figure>\n<p>&nbsp;</p>\n<p><strong>Molestie at elementum eu facilisis sed odi</strong>o. Ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at lectus. Tortor vitae purus faucibus ornare suspendisse sed. Dictum non consectetur a erat. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Mattis rhoncus urna neque viverra. Elementum facilisis leo vel fringilla. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Morbi tincidunt ornare massa eget. At erat pellentesque adipiscing commodo elit at. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Amet justo donec enim diam vulputate ut pharetra. Id cursus metus aliquam eleifend mi in nulla. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Bibendum at varius vel pharetra. Massa sed elementum tempus egestas.</p>\n<p><a href=\"https://loremipsum.io/ru/generator/?n=5&amp;t=p\" target=\"_blank\" rel=\"noopener\">Lorem Ipsum Generator</a></p>\n<p><em>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Etiam erat velit scelerisque in dictum. Cras sed felis eget velit aliquet sagittis.</em></p>\n<p>&nbsp;</p>\n<p>Mauris a diam maecenas sed enim ut sem viverra aliquet. Ullamcorper a lacus vestibulum sed. Lectus vestibulum mattis ullamcorper velit sed. Nulla porttitor massa id neque aliquam. Aliquet nec ullamcorper sit amet risus nullam eget. Leo integer malesuada nunc vel risus commodo viverra. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Varius quam quisque id diam vel. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Suspendisse ultrices gravida dictum fusce. Venenatis lectus magna fringilla urna porttitor rhoncus. Adipiscing elit ut aliquam purus sit amet luctus venenatis. Etiam dignissim diam quis enim lobortis. Diam quam nulla porttitor massa.</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://localhost:8000/storage/posts/February2020/ket.jpg\" alt=\"\" /></p>\n<p>Pulvinar etiam non quam lacus suspendisse faucibus interdum. Cursus metus aliquam eleifend mi in nulla posuere. Tempor id eu nisl nunc mi ipsum faucibus. Augue ut lectus arcu bibendum at varius vel. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Eu sem integer vitae justo eget magna fermentum. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Viverra justo nec ultrices dui sapien eget mi proin. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Quam pellentesque nec nam aliquam sem et. Volutpat ac tincidunt vitae semper. Quis lectus nulla at volutpat diam ut. Eu feugiat pretium nibh ipsum consequat nisl vel.</p>\n<ul>\n<li>Augue ut lectus arcu bibendum at varius ve</li>\n<li>Augue ut lectus arcu</li>\n<li>Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus</li>\n</ul>\n<p>Porttitor massa id neque aliquam vestibulum morbi blandit. Senectus et netus et malesuada fames ac turpis. Nunc non blandit massa enim. <span style=\"color: #ff0000;\">Lorem mollis aliquam ut porttitor leo a diam sollicitudin.</span> Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Erat velit scelerisque in dictum non. Et tortor at risus viverra adipiscing at in tellus. Euismod nisi porta lorem mollis aliquam ut. Integer vitae justo eget magna fermentum iaculis eu. Purus in massa tempor nec feugiat nisl pretium fusce. Convallis posuere morbi leo urna molestie at elementum. Condimentum mattis pellentesque id nibh tortor id aliquet lectus proin. Egestas congue quisque egestas diam in arcu cursus euismod. Non nisi est sit amet facilisis.</p>\n<ol>\n<li>Кот</li>\n<li>Миша</li>\n<li>Дракон</li>\n<li>Кріль / Зайчик</li>\n<li>Мавпа</li>\n</ol>', 'posts\\February2020\\f8rfJrKE82tgqMTJkzzZ.jpg', 'novij-2020', '', '', 'PUBLISHED', 1, '2020-02-04 19:00:50', '2020-02-04 19:53:18');
+(20, 1, 1, 'День відкритих дверей в ІТ | НУБіП України', '', '✅#IT_WOW – ми знайомили випускників шкіл та коледжів з нашим факультетом віртуально 👌\\', '<p>✅#IT_WOW &ndash; ми знайомили випускників шкіл та коледжів з нашим факультетом віртуально 👌</p>\n<p>✅Активні фоловери, а їх було одночасно 240, котрі приєднались до нашої онлайн трансляції, дізналися більше про нас 😉</p>\n<p>✅Протягом дня ми отримали більше 2000 переглядів нашої зустрічі та сподіваємося, що їх кількість буде зростати 💥</p>\n<p>&nbsp;</p>\n<p>Детальніше за писиланням:&nbsp;<a href=\"https://www.youtube.com/watch?v=XFN8-aLhacE&amp;t=3556s\">https://www.youtube.com/watch?v=XFN8-aLhacE&amp;t=3556s</a></p>', 'posts\\May2020\\OKkamllW8x2lwA1G7ZTl.jpg', 'den-vidkritih-dverej-v-it-nubip-ukrayini', '', '', 'PUBLISHED', 0, '2020-05-27 04:28:04', '2020-05-27 04:28:04'),
+(21, 1, 2, 'Шануймо наші символи в #ДеньВишиванки', '', 'Всесвітній день вишиванки — міжнародне свято, яке покликане зберегти споконвічні народні традиції створення та носіння етнічного вишитого українського одягу.', '<p>Всесвітній день вишиванки &mdash; міжнародне свято, яке покликане зберегти споконвічні народні традиції створення та носіння етнічного вишитого українського одягу.</p>\n<p>&nbsp;</p>\n<p>День вишиванки Україна традиційно святкує кожного третьго четверга травня.</p>\n<p>&nbsp;</p>\n<p>Незвааючи на обставини, цей день єднає і наших студентів, при будь яких обставинах.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://fit.deltacms.com.ua/storage/posts/May2020/98028351_706622743423853_8777036355394863104_o.jpg\" alt=\"\" width=\"530\" height=\"796\" /></p>', 'posts\\May2020\\iVBqIAzQD6TRD3iKZg4P.jpg', 'shanujmo-nashi-simvoli-v-den-vishivanki', '', '', 'PUBLISHED', 0, '2020-05-27 04:29:18', '2020-05-27 04:33:41'),
+(22, 39, 1, 'Захист бакалаврських робіт', '', '', '<p>Тимчасовий порядок дистанційної роботи екзаменаційних комісій у НУБіП України у 2019/2020 н.р. в умовах карантину схвалено ректоратом</p>\n<p>&nbsp;</p>\n<p>1. Екзаменаційні комісії (далі &ndash; ЕК) проводять згідно із затвердженим графіком освітнього процесу на 2019/2020 навчальний рік дистанційну роботу з атестацій здобувачів вищої освіти університету для встановлення відповідності засвоєних ними рівня та обсягу знань, умінь, інших компетентностей вимогам стандартів вищої освіти для осіб, які завершують навчання за спеціальностями і освітніми програмами підготовки фахівців освітніх ступенів (освітньо-кваліфікаційних рівнів &minus; ОКР) бакалавра та магістра денної і заочної форм навчання.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>2. Для організації дистанційної роботи ЕК декани факультетів і директори ННІ спільно із завідувачами кафедр, гарантами програм:</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>розробляють та затверджують погоджений з головою комісії розклад роботи кожної ЕК (склад якої затверджується наказом ректора університету), не пізніше ніж за місяць до початку проведення атестації здобувачів вищої освіти (атестаційного (кваліфікаційного) екзамену або/та захисту дипломного проекту (роботи) чи магістерської роботи);</p>\n<p>&nbsp;</p>\n<p>розміщують розклад роботи кожної ЕК на офіційній вебсторінці факультету (ННІ) та доводять його до відома членів ЕК і здобувачів вищої освіти;</p>\n<p>&nbsp;</p>\n<p>готують згідно з вимогами &laquo;Положення про екзаменаційні комісії в НУБіП України&raquo; усі документи, потрібні для роботи ЕК, у тому числі наявні для роботи комісії роздруковані екземпляри випускних робіт студентів, розміщують їх електронні копії на Google Диску, надають доступ до них голові та членам ЕК;</p>\n<p>&nbsp;</p>\n<p>забезпечують у період роботи ЕК якісний дистанційний зв\'язок між всіма членами ЕК та здобувачами вищої освіти (з використанням електронних ресурсів Zoom, Cisco Webex Meeting тощо);</p>\n<p>&nbsp;</p>\n<p>забезпечують згідно з вимогами &laquo;Положення про екзаменаційні комісії в НУБіП України&raquo; у день проведення роботи ЕК контроль за своєчасним оформленням усієї необхідної документації ЕК та вчасним отриманням її в розпорядження деканату факультету (дирекції ННІ).</p>\n<p>&nbsp;</p>\n<p>3. У день проведення атестаційного (кваліфікаційного) екзамену (захисту дипломних проектів (робіт) чи магістерських робіт) члени ЕК:</p>', 'posts\\May2020\\4F6ctxazMK12QgFLKfly.png', 'zahist-bakalavrs-kih-robit', '', '', 'PUBLISHED', 0, '2020-05-27 04:51:50', '2020-05-27 04:53:13');
 
 -- --------------------------------------------------------
 
@@ -2471,7 +2506,7 @@ CREATE TABLE `rating_item_groups` (
 INSERT INTO `rating_item_groups` (`id`, `name`, `description`, `parent_id`, `created_at`, `updated_at`, `order`) VALUES
 (1, '1. Участь у діяльності органів студентського самоврядування та соціальної роботи', '', NULL, '2020-05-19 18:41:49', '2020-05-23 14:20:52', 1),
 (2, '1.1. Студентська організація (СО)', NULL, 1, '2020-05-19 18:42:00', '2020-05-19 18:45:12', 2),
-(3, '1.2. Студентська рада (СР) гуртожитку', NULL, 1, '2020-05-19 18:42:11', '2020-05-19 18:45:02', 3),
+(3, '1.2. Студентська рада (СР) гуртожитку', '', 1, '2020-05-19 18:42:11', '2020-05-26 17:46:11', 3),
 (4, '1.3. Студентське профбюро', '', 1, '2020-05-23 14:21:25', '2020-05-23 14:21:25', 0),
 (5, '1.4. Соціальна робота', '', 1, '2020-05-23 14:21:38', '2020-05-23 14:21:55', 0),
 (6, '2. Навчально-наукова робота', '', NULL, '2020-05-23 14:28:49', '2020-05-23 14:28:49', 0),
@@ -3146,12 +3181,6 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (28, 'menu_items', 'title', 6, 'pt', 'Menus', '2019-09-06 03:13:33', '2019-09-06 03:13:33'),
 (29, 'menu_items', 'title', 7, 'pt', 'Base de dados', '2019-09-06 03:13:33', '2019-09-06 03:13:33'),
 (30, 'menu_items', 'title', 10, 'pt', 'Configurações', '2019-09-06 03:13:33', '2019-09-06 03:13:33'),
-(31, 'posts', 'title', 1, 'en', 'Lorem Ipsum Post', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
-(32, 'posts', 'excerpt', 1, 'en', 'This is the excerpt for the Lorem Ipsum Post', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
-(33, 'posts', 'body', 1, 'en', '<p>This is the body of the lorem ipsum post</p>', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
-(34, 'posts', 'slug', 1, 'en', 'lorem-ipsum-post', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
-(35, 'posts', 'meta_description', 1, 'en', 'This is the meta description', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
-(36, 'posts', 'meta_keywords', 1, 'en', 'keyword1, keyword2, keyword3', '2019-09-06 04:09:45', '2019-09-06 04:09:45'),
 (37, 'menu_items', 'title', 1, 'en', 'Dashboard', '2019-09-06 04:14:25', '2019-09-06 04:14:25'),
 (39, 'menu_items', 'title', 4, 'en', 'Roles', '2019-09-06 05:01:55', '2019-09-06 05:01:55'),
 (40, 'menu_items', 'title', 3, 'en', 'Users', '2019-09-06 05:05:29', '2019-09-06 05:05:29'),
@@ -3164,18 +3193,8 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (47, 'menu_items', 'title', 15, 'en', 'Pages', '2019-09-09 11:03:06', '2019-09-09 11:03:06'),
 (48, 'menu_items', 'title', 2, 'en', 'Media', '2019-09-09 11:05:07', '2019-09-09 11:05:07'),
 (49, 'menu_items', 'title', 16, 'en', 'Новини', '2020-01-10 17:43:36', '2020-01-10 17:43:36'),
-(50, 'posts', 'title', 2, 'en', 'My Sample Post', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
-(51, 'posts', 'excerpt', 2, 'en', 'This is the excerpt for the sample Post', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
-(52, 'posts', 'body', 2, 'en', '<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
-(53, 'posts', 'slug', 2, 'en', 'my-sample-post', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
-(54, 'posts', 'meta_description', 2, 'en', 'Meta Description for sample post', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
-(55, 'posts', 'meta_keywords', 2, 'en', 'keyword1, keyword2, keyword3', '2020-01-10 19:25:26', '2020-01-10 19:25:26'),
 (56, 'data_types', 'display_name_singular', 5, 'en', 'Post', '2020-01-13 18:44:55', '2020-01-13 18:44:55'),
 (57, 'data_types', 'display_name_plural', 5, 'en', 'Posts', '2020-01-13 18:44:55', '2020-01-13 18:44:55'),
-(58, 'posts', 'title', 5, 'en', 'Elearn', '2020-01-15 18:33:54', '2020-01-15 18:33:54'),
-(59, 'posts', 'excerpt', 5, 'en', 'Інфо про ельорн', '2020-01-15 18:33:54', '2020-01-15 18:33:54'),
-(60, 'posts', 'body', 5, 'en', '<p>Навчальний портал</p>\n<p><a href=\"https://elearn.nubip.edu.ua/login/index.php\">Посилання на сайт</a></p>\n<p>&nbsp;</p>\n<p><img title=\"Назва фото\" src=\"http://localhost:8000/storage/posts/January2020/elearning-banner2-1354x500.png\" alt=\"Опис\" width=\"1016\" height=\"375\" /></p>\n<ul>\n<li>1</li>\n<li>2</li>\n<li>3</li>\n</ul>\n<p><span style=\"color: #ff0000;\">красний</span></p>\n<p>&nbsp;</p>', '2020-01-15 18:33:54', '2020-01-15 18:33:54'),
-(61, 'posts', 'slug', 5, 'en', 'elearn', '2020-01-15 18:33:54', '2020-01-15 18:33:54'),
 (62, 'data_types', 'display_name_singular', 4, 'en', 'Category', '2020-01-19 16:05:30', '2020-01-19 16:05:30'),
 (63, 'data_types', 'display_name_plural', 4, 'en', 'Categories', '2020-01-19 16:05:30', '2020-01-19 16:05:30'),
 (64, 'data_types', 'display_name_singular', 8, 'en', 'Infoblock Type', '2020-01-22 19:15:46', '2020-01-22 19:15:46'),
@@ -3189,28 +3208,6 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (73, 'data_types', 'display_name_singular', 11, 'en', 'Social Network', '2020-01-30 19:31:03', '2020-01-30 19:31:03'),
 (74, 'data_types', 'display_name_plural', 11, 'en', 'Social Networks', '2020-01-30 19:31:03', '2020-01-30 19:31:03'),
 (75, 'menu_items', 'title', 27, 'en', 'Social Networks', '2020-02-02 17:43:19', '2020-02-02 17:43:19'),
-(76, 'posts', 'title', 3, 'en', 'Latest Post', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(77, 'posts', 'excerpt', 3, 'en', 'This is the excerpt for the latest post', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(78, 'posts', 'body', 3, 'en', '<p>This is the body for the latest post</p>', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(79, 'posts', 'slug', 3, 'en', 'latest-post', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(80, 'posts', 'meta_description', 3, 'en', 'This is the meta description', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(81, 'posts', 'meta_keywords', 3, 'en', 'keyword1, keyword2, keyword3', '2020-02-04 06:49:18', '2020-02-04 06:49:18'),
-(82, 'posts', 'title', 4, 'en', 'Yarr Post', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(83, 'posts', 'excerpt', 4, 'en', 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(84, 'posts', 'body', 4, 'en', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(85, 'posts', 'slug', 4, 'en', 'yarr-post', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(86, 'posts', 'meta_description', 4, 'en', 'this be a meta descript', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(87, 'posts', 'meta_keywords', 4, 'en', 'keyword1, keyword2, keyword3', '2020-02-04 06:49:28', '2020-02-04 06:49:28'),
-(88, 'posts', 'title', 8, 'en', 'Море', '2020-02-04 18:39:42', '2020-02-04 18:39:42'),
-(89, 'posts', 'body', 8, 'en', '<p><span style=\"color: #000000; font-family: \'Open Sans\', Arial, sans-serif; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p>', '2020-02-04 18:39:42', '2020-02-04 18:39:42'),
-(90, 'posts', 'slug', 8, 'en', 'more', '2020-02-04 18:39:42', '2020-02-04 18:39:42'),
-(91, 'posts', 'title', 6, 'en', 'Новина про квіти', '2020-02-04 18:39:55', '2020-02-04 18:39:55'),
-(92, 'posts', 'body', 6, 'en', '<p><span style=\"color: #000000; font-family: \'Open Sans\', Arial, sans-serif; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p>', '2020-02-04 18:39:55', '2020-02-04 18:39:55'),
-(93, 'posts', 'slug', 6, 'en', 'novina-pro-kviti', '2020-02-04 18:39:55', '2020-02-04 18:39:55'),
-(94, 'posts', 'title', 11, 'en', 'Новий 2020', '2020-02-04 19:30:06', '2020-02-04 19:30:06'),
-(95, 'posts', 'excerpt', 11, 'en', 'Про новий рік.\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. ', '2020-02-04 19:30:06', '2020-02-04 19:30:06'),
-(96, 'posts', 'body', 11, 'en', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Sodales ut etiam sit amet nisl. Pharetra vel turpis nunc eget lorem dolor sed. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Est lorem ipsum dolor sit. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Id interdum velit laoreet id donec. Integer vitae justo eget magna. Tellus integer feugiat scelerisque varius morbi. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Nibh tellus molestie nunc non blandit massa enim. Sed augue lacus viverra vitae congue. Cras fermentum odio eu feugiat pretium nibh. Nulla facilisi nullam vehicula ipsum a arcu. Purus non enim praesent elementum facilisis leo vel. Est sit amet facilisis magna etiam tempor orci eu lobortis. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.</p>\n<figure class=\"image\"><img title=\"Символ року\" src=\"http://localhost:8000/storage/posts/February2020/mouse.jpg\" alt=\"Символ року\" />\n<figcaption>Caption</figcaption>\n</figure>\n<p>&nbsp;</p>\n<p><strong>Molestie at elementum eu facilisis sed odi</strong>o. Ac turpis egestas integer eget aliquet nibh. Dictum non consectetur a erat nam at lectus. Tortor vitae purus faucibus ornare suspendisse sed. Dictum non consectetur a erat. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Mattis rhoncus urna neque viverra. Elementum facilisis leo vel fringilla. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Morbi tincidunt ornare massa eget. At erat pellentesque adipiscing commodo elit at. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. Amet justo donec enim diam vulputate ut pharetra. Id cursus metus aliquam eleifend mi in nulla. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Bibendum at varius vel pharetra. Massa sed elementum tempus egestas.</p>\n<p><a href=\"https://loremipsum.io/ru/generator/?n=5&amp;t=p\" target=\"_blank\" rel=\"noopener\">Lorem Ipsum Generator</a></p>\n<p><em>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Etiam erat velit scelerisque in dictum. Cras sed felis eget velit aliquet sagittis.</em></p>\n<p>&nbsp;</p>\n<p>Mauris a diam maecenas sed enim ut sem viverra aliquet. Ullamcorper a lacus vestibulum sed. Lectus vestibulum mattis ullamcorper velit sed. Nulla porttitor massa id neque aliquam. Aliquet nec ullamcorper sit amet risus nullam eget. Leo integer malesuada nunc vel risus commodo viverra. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Varius quam quisque id diam vel. Proin sagittis nisl rhoncus mattis rhoncus urna neque. Suspendisse ultrices gravida dictum fusce. Venenatis lectus magna fringilla urna porttitor rhoncus. Adipiscing elit ut aliquam purus sit amet luctus venenatis. Etiam dignissim diam quis enim lobortis. Diam quam nulla porttitor massa.</p>\n<p><img src=\"http://localhost:8000/storage/posts/February2020/ket.jpg\" alt=\"\" /></p>\n<p>Pulvinar etiam non quam lacus suspendisse faucibus interdum. Cursus metus aliquam eleifend mi in nulla posuere. Tempor id eu nisl nunc mi ipsum faucibus. Augue ut lectus arcu bibendum at varius vel. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Eu sem integer vitae justo eget magna fermentum. Nunc aliquet bibendum enim facilisis gravida neque convallis a. Viverra justo nec ultrices dui sapien eget mi proin. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Quam pellentesque nec nam aliquam sem et. Volutpat ac tincidunt vitae semper. Quis lectus nulla at volutpat diam ut. Eu feugiat pretium nibh ipsum consequat nisl vel.</p>\n<ul>\n<li>Augue ut lectus arcu bibendum at varius ve</li>\n<li>Augue ut lectus arcu</li>\n<li>Dis parturient montes nascetur ridiculus mus. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. Euismod lacinia at quis risus. Nibh ipsum consequat nisl vel pretium lectus</li>\n</ul>\n<p>Porttitor massa id neque aliquam vestibulum morbi blandit. Senectus et netus et malesuada fames ac turpis. Nunc non blandit massa enim. <span style=\"color: #ff0000;\">Lorem mollis aliquam ut porttitor leo a diam sollicitudin.</span> Aliquam faucibus purus in massa tempor nec feugiat nisl pretium. Erat velit scelerisque in dictum non. Et tortor at risus viverra adipiscing at in tellus. Euismod nisi porta lorem mollis aliquam ut. Integer vitae justo eget magna fermentum iaculis eu. Purus in massa tempor nec feugiat nisl pretium fusce. Convallis posuere morbi leo urna molestie at elementum. Condimentum mattis pellentesque id nibh tortor id aliquet lectus proin. Egestas congue quisque egestas diam in arcu cursus euismod. Non nisi est sit amet facilisis.</p>\n<ol>\n<li>Кот</li>\n<li>Миша</li>\n<li>Дракон</li>\n<li>Кріль / Зайчик</li>\n<li>Мавпа</li>\n</ol>', '2020-02-04 19:30:06', '2020-02-04 19:30:06'),
-(97, 'posts', 'slug', 11, 'en', 'novij-2020', '2020-02-04 19:30:06', '2020-02-04 19:30:06'),
 (99, 'infoblock_items', 'title', 1, 'en', 'Розпочни свою кар\'єру в ІТ з нами!', '2020-02-08 15:53:41', '2020-02-08 15:53:41'),
 (101, 'infoblocks', 'name', 2, 'en', 'ДЕКІЛЬКА СЛІВ ПРО НАС', '2020-02-08 17:10:31', '2020-02-08 17:10:31'),
 (102, 'infoblocks', 'slug', 2, 'en', 'dekil-ka-sliv-pro-nas', '2020-02-08 17:10:31', '2020-02-08 17:10:31'),
@@ -3379,7 +3376,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (285, 'menu_items', 'title', 49, 'en', 'Освітні ступені', '2020-02-29 07:33:49', '2020-02-29 07:33:49'),
 (286, 'data_rows', 'display_name', 161, 'en', 'education_degrees', '2020-02-29 07:50:09', '2020-02-29 07:50:09'),
 (287, 'data_rows', 'display_name', 162, 'en', 'education_specialties', '2020-02-29 07:52:00', '2020-02-29 07:52:00'),
-(288, 'infoblock_items', 'title', 63, 'en', '8 березня', '2020-03-02 18:55:41', '2020-03-02 18:55:41'),
+(288, 'infoblock_items', 'title', 63, 'en', '8 march', '2020-03-02 18:55:41', '2020-05-26 17:03:31'),
 (289, 'data_rows', 'display_name', 163, 'en', 'Id', '2020-03-02 19:40:35', '2020-03-02 19:40:35'),
 (290, 'data_rows', 'display_name', 164, 'en', 'Name', '2020-03-02 19:40:35', '2020-03-02 19:40:35'),
 (291, 'data_rows', 'display_name', 165, 'en', 'Slug', '2020-03-02 19:40:36', '2020-03-02 19:40:36'),
@@ -3465,8 +3462,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (374, 'disciplines', 'name', 65, 'en', 'Mathematical methods in systems of artificial intelligence', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
 (375, 'disciplines', 'name', 66, 'en', 'Web Applications Development', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
 (376, 'disciplines', 'name', 67, 'en', 'Robotic control systems', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
-(377, 'disciplines', 'name', 68, 'en', 'Reliability of the functioning of computer systems', '2020-05-18 14:45:52', '2020-05-18 14:45:52');
-INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
+(377, 'disciplines', 'name', 68, 'en', 'Reliability of the functioning of computer systems', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
 (378, 'disciplines', 'name', 69, 'en', 'Designing information and control systems and intelligent systems', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
 (379, 'disciplines', 'name', 70, 'en', 'Information and communication systems security', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
 (380, 'disciplines', 'name', 71, 'en', 'Business foreign language', '2020-05-18 14:45:52', '2020-05-18 14:45:52'),
@@ -3569,7 +3565,8 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (477, 'disciplines', 'name', 168, 'en', 'Algorithmic and Programming', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
 (478, 'disciplines', 'name', 169, 'en', 'Computer circuitry (elements and circuit of computer systems)', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
 (479, 'disciplines', 'name', 170, 'en', 'Organization of Date and Knowledges Bases', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
-(480, 'disciplines', 'name', 171, 'en', 'Database Management Systems', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
+(480, 'disciplines', 'name', 171, 'en', 'Database Management Systems', '2020-05-18 14:45:53', '2020-05-18 14:45:53');
+INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
 (481, 'disciplines', 'name', 172, 'en', 'Electrical  Technology in Agriculture', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
 (482, 'disciplines', 'name', 173, 'en', 'Probability Theory, Probabilistic Processes and Mathematical Statistics', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
 (483, 'disciplines', 'name', 174, 'en', 'Computer Networks (local, corporate, global)', '2020-05-18 14:45:53', '2020-05-18 14:45:53'),
@@ -3882,8 +3879,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (795, 'data_rows', 'display_name', 237, 'en', 'Створено', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
 (796, 'data_rows', 'display_name', 238, 'en', 'Updated At', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
 (797, 'data_types', 'display_name_singular', 32, 'en', 'Факультут', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
-(798, 'data_types', 'display_name_plural', 32, 'en', 'Факультети', '2020-05-25 13:25:33', '2020-05-25 13:25:33');
-INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
+(798, 'data_types', 'display_name_plural', 32, 'en', 'Факультети', '2020-05-25 13:25:33', '2020-05-25 13:25:33'),
 (799, 'menu_items', 'title', 67, 'en', 'Факультети', '2020-05-25 13:25:48', '2020-05-25 13:25:48'),
 (800, 'menu_items', 'title', 68, 'en', 'Типи аудиторій', '2020-05-25 13:29:05', '2020-05-25 13:29:05'),
 (801, 'data_rows', 'display_name', 248, 'en', 'Id', '2020-05-25 13:32:05', '2020-05-25 13:32:05'),
@@ -3947,7 +3943,35 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 (859, 'days', 'name', 3, 'en', 'Wednesday', '2020-05-25 14:25:43', '2020-05-25 14:25:43'),
 (860, 'days', 'name', 4, 'en', 'Thursday', '2020-05-25 14:25:56', '2020-05-25 14:25:56'),
 (861, 'days', 'name', 5, 'en', 'Friday', '2020-05-25 14:26:09', '2020-05-25 14:26:09'),
-(862, 'days', 'name', 6, 'en', 'Saturday', '2020-05-25 14:26:22', '2020-05-25 14:26:22');
+(862, 'days', 'name', 6, 'en', 'Saturday', '2020-05-25 14:26:22', '2020-05-25 14:26:22'),
+(863, 'data_rows', 'display_name', 29, 'en', 'ID', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(864, 'data_rows', 'display_name', 30, 'en', 'Author', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(865, 'data_rows', 'display_name', 31, 'en', 'Category', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(866, 'data_rows', 'display_name', 32, 'en', 'Title', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(867, 'data_rows', 'display_name', 42, 'en', 'SEO Title', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(868, 'data_rows', 'display_name', 33, 'en', 'Excerpt', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(869, 'data_rows', 'display_name', 34, 'en', 'Body', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(870, 'data_rows', 'display_name', 35, 'en', 'Post Image', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(871, 'data_rows', 'display_name', 36, 'en', 'Slug', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(872, 'data_rows', 'display_name', 37, 'en', 'Meta Description', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(873, 'data_rows', 'display_name', 38, 'en', 'Meta Keywords', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(874, 'data_rows', 'display_name', 39, 'en', 'Status', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(875, 'data_rows', 'display_name', 43, 'en', 'Featured', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(876, 'data_rows', 'display_name', 40, 'en', 'Created At', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(877, 'data_rows', 'display_name', 41, 'en', 'Updated At', '2020-05-25 19:09:42', '2020-05-25 19:09:42'),
+(884, 'data_rows', 'display_name', 287, 'en', 'users', '2020-05-25 20:00:10', '2020-05-25 20:00:10'),
+(885, 'menu_items', 'title', 37, 'en', 'Розклад занятть', '2020-05-26 12:48:52', '2020-05-26 12:48:52'),
+(886, 'infoblock_items', 'title', 68, 'en', 'Захист бакалаврських work 2020', '2020-05-26 17:05:52', '2020-05-26 17:05:52'),
+(887, 'pages', 'title', 9, 'en', 'About fakulty', '2020-05-26 17:13:51', '2020-05-26 17:13:51'),
+(888, 'menu_items', 'title', 29, 'en', 'Про факультет', '2020-05-26 17:14:39', '2020-05-26 17:14:39'),
+(892, 'rating_item_groups', 'name', 3, 'en', '1.2. Студентська рада (СР) гуртожитку', '2020-05-26 17:46:11', '2020-05-26 17:46:11'),
+(893, 'posts', 'title', 21, 'en', 'Шануймо наші символи в #ДеньВишиванки', '2020-05-27 04:33:41', '2020-05-27 04:33:41'),
+(894, 'posts', 'excerpt', 21, 'en', 'Всесвітній день вишиванки — міжнародне свято, яке покликане зберегти споконвічні народні традиції створення та носіння етнічного вишитого українського одягу.', '2020-05-27 04:33:41', '2020-05-27 04:33:41'),
+(895, 'posts', 'body', 21, 'en', '<p>Всесвітній день вишиванки &mdash; міжнародне свято, яке покликане зберегти споконвічні народні традиції створення та носіння етнічного вишитого українського одягу.</p>\n<p>&nbsp;</p>\n<p>День вишиванки Україна традиційно святкує кожного третьго четверга травня.</p>\n<p>&nbsp;</p>\n<p>Незвааючи на обставини, цей день єднає і наших студентів, при будь яких обставинах.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://fit.deltacms.com.ua/storage/posts/May2020/98028351_706622743423853_8777036355394863104_o.jpg\" alt=\"\" width=\"530\" height=\"796\" /></p>', '2020-05-27 04:33:41', '2020-05-27 04:33:41'),
+(896, 'posts', 'slug', 21, 'en', 'shanujmo-nashi-simvoli-v-den-vishivanki', '2020-05-27 04:33:41', '2020-05-27 04:33:41'),
+(897, 'posts', 'title', 22, 'en', 'Захист бакалаврських робііт', '2020-05-27 04:53:13', '2020-05-27 04:53:13'),
+(898, 'posts', 'body', 22, 'en', '<p>Тимчасовий порядок дистанційної роботи екзаменаційних комісій у НУБіП України у 2019/2020 н.р. в умовах карантину схвалено ректоратом</p>\n<p>&nbsp;</p>\n<p>1. Екзаменаційні комісії (далі &ndash; ЕК) проводять згідно із затвердженим графіком освітнього процесу на 2019/2020 навчальний рік дистанційну роботу з атестацій здобувачів вищої освіти університету для встановлення відповідності засвоєних ними рівня та обсягу знань, умінь, інших компетентностей вимогам стандартів вищої освіти для осіб, які завершують навчання за спеціальностями і освітніми програмами підготовки фахівців освітніх ступенів (освітньо-кваліфікаційних рівнів &minus; ОКР) бакалавра та магістра денної і заочної форм навчання.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>2. Для організації дистанційної роботи ЕК декани факультетів і директори ННІ спільно із завідувачами кафедр, гарантами програм:</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>розробляють та затверджують погоджений з головою комісії розклад роботи кожної ЕК (склад якої затверджується наказом ректора університету), не пізніше ніж за місяць до початку проведення атестації здобувачів вищої освіти (атестаційного (кваліфікаційного) екзамену або/та захисту дипломного проекту (роботи) чи магістерської роботи);</p>\n<p>&nbsp;</p>\n<p>розміщують розклад роботи кожної ЕК на офіційній вебсторінці факультету (ННІ) та доводять його до відома членів ЕК і здобувачів вищої освіти;</p>\n<p>&nbsp;</p>\n<p>готують згідно з вимогами &laquo;Положення про екзаменаційні комісії в НУБіП України&raquo; усі документи, потрібні для роботи ЕК, у тому числі наявні для роботи комісії роздруковані екземпляри випускних робіт студентів, розміщують їх електронні копії на Google Диску, надають доступ до них голові та членам ЕК;</p>\n<p>&nbsp;</p>\n<p>забезпечують у період роботи ЕК якісний дистанційний зв\'язок між всіма членами ЕК та здобувачами вищої освіти (з використанням електронних ресурсів Zoom, Cisco Webex Meeting тощо);</p>\n<p>&nbsp;</p>\n<p>забезпечують згідно з вимогами &laquo;Положення про екзаменаційні комісії в НУБіП України&raquo; у день проведення роботи ЕК контроль за своєчасним оформленням усієї необхідної документації ЕК та вчасним отриманням її в розпорядження деканату факультету (дирекції ННІ).</p>\n<p>&nbsp;</p>\n<p>3. У день проведення атестаційного (кваліфікаційного) екзамену (захисту дипломних проектів (робіт) чи магістерських робіт) члени ЕК:</p>', '2020-05-27 04:53:13', '2020-05-27 04:53:13'),
+(899, 'posts', 'slug', 22, 'en', 'zahist-bakalavrs-kih-robiit', '2020-05-27 04:53:13', '2020-05-27 04:53:13');
 
 -- --------------------------------------------------------
 
@@ -3977,7 +4001,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `birthday`, `group_id`, `credit_note_number`) VALUES
-(1, 1, 'Vladislav Administrator', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ttRNN0T8K06nuknV.SxDjuAUgD8swUVzgFwNgnYSBqm0v27trRejy', 'ibcm1qIKF5DlUmlLwmHAsvL7hKcjDpYgxn6fL1hXXuSbTOHgccGKPvLVHW8E', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-05-24 14:35:15', NULL, NULL, NULL),
+(1, 1, 'Vladislav Administrator', 'vlad_litvinchyk@ukr.net', 'users\\April2020\\8za12oMmhve0ZZdvS5tk.png', NULL, '$2y$10$ttRNN0T8K06nuknV.SxDjuAUgD8swUVzgFwNgnYSBqm0v27trRejy', 'pKoixSTyq4rtkrGAkeVyX4Dde3HxXJu4b27ZkUY6rm5l2PFrMXJjEgryrOi1', '{\"locale\":\"uk\"}', '2019-09-04 03:26:31', '2020-05-24 14:35:15', NULL, NULL, NULL),
 (4, 2, 'Lytvynchuk Vladyslav Grygorovuch', 'vlad.litvinchyk@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$NHOhIpVaiWEvGgO6p3t0EOl/ZnZNfXrQcqFIi7kla3ChCGg2UvejG', NULL, NULL, '2020-03-11 19:40:28', '2020-03-11 19:40:28', NULL, NULL, NULL),
 (5, 5, 'Contenter', 'contenter@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$jcDPBel38TuntpzYhdFnhuJL2Gy5G.ZREp9hOmXRidayLCROIPm3e', NULL, '{\"locale\":\"uk\"}', '2020-05-18 16:51:59', '2020-05-18 16:51:59', NULL, NULL, NULL),
 (12, 3, 'Бабуркин Володимир Сергійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$HYCAfeCqnp0bgeJcewXYTOfE8V5iDyW5KvaqQ39iN5XBDkwAu36zi', NULL, NULL, '2020-05-24 14:08:41', '2020-05-24 14:08:41', '1998-10-20', 37, '16518'),
@@ -4006,8 +4030,8 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 (36, 3, 'Олійник Микола Михайлович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$7r2cqk4jLk1vAfinMkO44O9Jc9F7ddiWi3ZZpwczN/xxbNkBWq4KW', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-05-22', 36, '16598'),
 (37, 3, 'Пронішина Катерина Олександрівна', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$O98/LcGSkYDQ2tusPCwu2OvycKZNGeGlPq9oyK0qs9tVi1YIdyXUC', NULL, '{\"locale\":\"uk\"}', '2020-05-24 14:35:48', '2020-05-24 16:45:06', '1999-08-25', 36, '16770'),
 (38, 3, 'Токарєв Дмитро Вікторович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$3j3RYflQ9j4A0O2B49LaseuPILC6pbfqeBX6jkUUSmRtMwMAL.sky', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-05-25', 36, '16529'),
-(39, 3, 'Чубар Людмила Іванівна', 'arriadnie@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$kW5WRzK0ruMDNKG79ZjzO.17YdU2nDEzxEaS6BerYScSmrNWL4kKm', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 16:20:14', '1999-05-05', 36, '16253'),
-(40, 3, 'Якимов Олексій Сергійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$A41b5V82GIqA3HbBb0clH.KUAZ2iepZ02.T2ut3XdEVT4JvLU/mYm', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-09-26', 36, '16230'),
+(39, 3, 'Чубар Людмила Іванівна', 'arriadnie@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$38YcxccyfFLxGpIdiOT13uAtYk8m2kpwA3E5GO89nU0pcfsny/yfS', NULL, NULL, '2020-05-24 14:35:48', '2020-05-26 17:39:23', '1999-05-05', 36, '16253'),
+(40, 3, 'Якимов Олексій Сергійович', 'loha@gmail.com', 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$A41b5V82GIqA3HbBb0clH.KUAZ2iepZ02.T2ut3XdEVT4JvLU/mYm', NULL, NULL, '2020-05-24 14:35:48', '2020-05-26 13:58:56', '1999-09-26', 36, '16230'),
 (41, 3, 'Яровенко Іван Андрійович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$bVouVTLx1G55zbBhQqcaiOqgBVkosfwQwYGd1qo.ofQ5cGAopEGwa', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1999-06-30', 36, '16191'),
 (42, 3, 'Кемажу Чиканту Тьєрі -', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$OhB7N3mEBhOh9ndb5NHjUueXElrn4KRBwbhN6d9wDTAyqt.6GYlCi', NULL, NULL, '2020-05-24 14:35:48', '2020-05-24 14:35:48', '1991-11-09', 36, '18013'),
 (43, 3, 'Новіков Євген Тарасович', NULL, 'settings\\May2020\\I7qsKc27YDoA3uX2WY7k.jpg', NULL, '$2y$10$iiDf30WkA4JHJjrx5GKI5eeJbvuhOoOXfuVlGnxzQY5a8aMXMRSG6', NULL, NULL, '2020-05-24 14:35:49', '2020-05-24 14:35:49', '1995-05-25', 36, 'КН-19004б(к)'),
@@ -4028,8 +4052,22 @@ CREATE TABLE `user_notifications` (
   `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `record_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `type` enum('SUCCESS','ERROR','INFO') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'INFO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп даних таблиці `user_notifications`
+--
+
+INSERT INTO `user_notifications` (`id`, `user_id`, `title`, `message`, `is_shown`, `subject`, `record_id`, `created_at`, `updated_at`, `type`) VALUES
+(1, 39, 'Рейтинг', 'Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 1, 'App\\Models\\Rating\\UserRatingItem', '18', '2020-05-26 15:16:37', '2020-05-26 15:43:56', 'SUCCESS'),
+(2, 39, 'Рейтинг', 'Ваш рейтинг було змінено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 1, 'App\\Models\\Rating\\UserRatingItem', '19', '2020-05-26 15:42:05', '2020-05-26 15:43:56', 'INFO'),
+(3, 39, 'Рейтинг', 'Ваш рейтинг було змінено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 0, 'App\\Models\\Rating\\UserRatingItem', '19', '2020-05-26 17:52:42', '2020-05-26 17:52:42', 'INFO'),
+(4, 39, 'Рейтинг', 'Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 0, 'App\\Models\\Rating\\UserRatingItem', '19', '2020-05-26 17:53:38', '2020-05-26 17:53:38', 'SUCCESS'),
+(5, 39, 'Рейтинг', 'Ваш рейтинг було змінено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 0, 'App\\Models\\Rating\\UserRatingItem', '20', '2020-05-26 17:53:59', '2020-05-26 17:53:59', 'INFO'),
+(6, 39, 'Рейтинг', 'Ваш рейтинг було підтверджено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 0, 'App\\Models\\Rating\\UserRatingItem', '20', '2020-05-26 17:54:41', '2020-05-26 17:54:41', 'SUCCESS'),
+(7, 39, 'Рейтинг', 'Ваш рейтинг було змінено. Щоб дізнатись свій рейтинг, перейдіть у розділ рейтинг.', 0, 'App\\Models\\Rating\\UserRatingItem', '21', '2020-05-27 04:58:25', '2020-05-27 04:58:25', 'INFO');
 
 -- --------------------------------------------------------
 
@@ -4065,7 +4103,11 @@ INSERT INTO `user_rating_items` (`id`, `date`, `status`, `rating_item_id`, `user
 (14, '2020-05-06', 'CONFIRMED', 20, 36, '2020-05-24 16:35:59', '2020-05-24 16:46:50', 'Участь у мистецькому заході на рівні гуртожитку )', NULL),
 (15, '2020-04-05', 'CONFIRMED', 23, 40, '2020-05-24 16:38:53', '2020-05-24 16:46:54', 'Учасник збірної команди Чемпіонату гумору факультету', NULL),
 (16, '2020-05-07', 'CONFIRMED', 21, 40, '2020-05-24 16:50:39', '2020-05-24 16:52:13', 'Написання статті про одиничку', NULL),
-(17, '2020-05-19', 'CONFIRMED', 21, 40, '2020-05-24 16:51:03', '2020-05-24 16:52:09', 'Написання статті про двійку', NULL);
+(17, '2020-05-19', 'CONFIRMED', 21, 40, '2020-05-24 16:51:03', '2020-05-24 16:52:09', 'Написання статті про двійку', NULL),
+(18, '2020-05-21', 'CONFIRMED', 17, 39, '2020-05-26 15:16:00', '2020-05-26 15:16:37', 'Конференція 1', NULL),
+(19, '2020-05-27', 'CONFIRMED', 8, 39, '2020-05-26 15:41:21', '2020-05-26 17:53:38', 'Конференція 2', NULL),
+(20, '2020-05-12', 'CONFIRMED', 15, 39, '2020-05-26 17:48:32', '2020-05-26 17:54:41', 'Конфер', NULL),
+(21, '2020-05-22', 'IN_PROCESS', 16, 39, '2020-05-27 04:56:50', '2020-05-27 04:58:25', 'Участь в конференції', NULL);
 
 -- --------------------------------------------------------
 
@@ -4469,13 +4511,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=288;
 
 --
 -- AUTO_INCREMENT для таблиці `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT для таблиці `days`
@@ -4541,7 +4583,7 @@ ALTER TABLE `infoblocks`
 -- AUTO_INCREMENT для таблиці `infoblock_items`
 --
 ALTER TABLE `infoblock_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT для таблиці `infoblock_types`
@@ -4553,13 +4595,13 @@ ALTER TABLE `infoblock_types`
 -- AUTO_INCREMENT для таблиці `integration_logs`
 --
 ALTER TABLE `integration_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT для таблиці `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблиці `lesson_types`
@@ -4577,25 +4619,25 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT для таблиці `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT для таблиці `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT для таблиці `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблиці `people_infos`
 --
 ALTER TABLE `people_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблиці `people_info_groups`
@@ -4619,13 +4661,13 @@ ALTER TABLE `period_types`
 -- AUTO_INCREMENT для таблиці `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблиці `rating_items`
@@ -4667,7 +4709,7 @@ ALTER TABLE `sys_sync_meta_data`
 -- AUTO_INCREMENT для таблиці `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=863;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=900;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
@@ -4679,13 +4721,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `user_notifications`
 --
 ALTER TABLE `user_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблиці `user_rating_items`
 --
 ALTER TABLE `user_rating_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Обмеження зовнішнього ключа збережених таблиць
